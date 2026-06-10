@@ -36,7 +36,7 @@
   .header { background: linear-gradient(135deg, #0d1b4b 0%, #1a1d27 60%, #0f1117 100%); padding: 28px 20px 20px; border-bottom: 1px solid #2a2f45; }
   .header-inner { max-width: 900px; margin: 0 auto; }
   .header-top { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
-  .logo { font-size: 22px; font-weight: 800; color: #fff; letter-spacing: -1px; }
+  .logo { font-size: 28px; font-weight: 800; color: #fff; letter-spacing: -1px; }
   .logo span { color: var(--accent); }
   .date-badge { background: var(--accent); color: #fff; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; letter-spacing: 0.5px; }
   .header-title { margin-top: 10px; font-size: 15px; color: var(--muted); }
@@ -138,14 +138,24 @@
 </style>
 </head>
 <body>
-
-<div style="background:#0f1117;width:100%;line-height:0">
-  <img src="/preview/latest.png" alt="kkangdago Signal 장전 브리핑" style="width:100%;max-width:100%;display:block">
-</div>
-<div style="background:#0f1117;border-bottom:1px solid #2a2f45;padding:10px 20px">
-  <div style="max-width:900px;margin:0 auto;display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span style="font-size:11px;color:#8892a4;white-space:nowrap">📅 히스토리</span>
-    <div id="dateList" style="display:flex;gap:5px;flex-wrap:wrap"><span style="font-size:12px;color:#4a5068">로딩 중…</span></div>
+<div class="header">
+  <div class="header-inner">
+    <div class="header-top">
+      <div class="logo" style="font-size:28px">kkang<span>dago</span>&nbsp;<span class="signal" style="font-size:22px">Signal</span></div>
+      <div class="date-badge" style="font-size:13px;padding:5px 14px">2026년 6월 11일 (목) 장전 브리핑</div>
+    </div>
+    <div class="tagline" style="margin-top:10px">오를 것 같으면 — <strong>걍~다고.</strong> 분석 끝, 겁 없이, 깡다구 있게.</div>
+    <div class="chips">
+      <div class="chip green"><span class="dot"></span>장 상태: 개장 전 (9:00 KST)</div>
+      <div class="chip blue"><span class="dot"></span>뉴스 분석 30건+</div>
+      <div class="chip yellow"><span class="dot"></span>추천 종목 6개</div>
+      <div class="chip red"><span class="dot"></span>⚠ 네 마녀의 날 – 변동성 주의</div>
+      <div class="chip"><span class="dot" style="background:#8892a4"></span>생성: 07:30 KST</div>
+    </div>
+    <div class="date-nav">
+      <span class="date-nav-label">📅 히스토리</span>
+      <div id="dateList" class="date-pills"><span style="font-size:12px;color:#4a5068">로딩 중…</span></div>
+    </div>
   </div>
 </div>
 
@@ -156,8 +166,8 @@
     <h2>📊 시장 요약</h2>
     <p>
       코스피는 6월 8일(월) <span class="risk">역대급 폭락(-8.3%)</span> 이후 이틀 연속 반등하며 <span class="highlight">8,000선 회복을 시도</span>하고 있습니다.
-      어제(10일) 장 초반 8,100선을 회복했으나 차익실현 매물로 일부 반납. 코스닥은 <span class="highlight">1,000선 복귀</span>를 목전에 두고 있습니다.<br><br>
-      오늘(11일)은 <span class="risk">선물·옵션 동시 만기(네 마녀의 날)</span>로 장 마감 전후 단기 변동성 확대가 예상됩니다. 젠슨 황 방한 후속 효과로 <span class="highlight">AI 반도체·광통신·로봇</span> 테마가 지속 강세를 보이고 있으며, SpaceX 상장 이슈로 우주 관련주도 주목받고 있습니다. 트럼프 종전 의지 발언으로 낙폭 과대 반도체주의 추가 반등도 기대됩니다.
+      6월 9일(화) 장중 8,100선을 회복하며 기술적 반등 신호를 확인했습니다.<br><br>
+      오늘(11일)은 <span class="risk">선물·옵션 동시 만기(네 마녀의 날)</span>로 장 마감 전후 단기 변동성 확대가 예상됩니다. 젠슨 황 방한(6/5) 효과로 <span class="highlight">AI 반도체·광통신·로봇</span> 테마가 지속 강세를 보이고 있습니다. 한편 네이버는 방한 전(5/29~6/1) 3거래일 <span class="highlight">+36% 급등</span>했으나, 방한 당일은 브로드컴 쇼크로 -5.2% 하락. 오늘은 <span class="highlight">SpaceX가 내일(6/12) 나스닥 상장</span>을 앞두고 우주·방산 관련주 기대감도 형성되고 있습니다.
     </p>
   </div>
 
@@ -200,7 +210,7 @@
 
     <div class="theme-card warm">
       <div class="theme-name">우주·SpaceX <span class="theme-tag">⚡ WARM</span></div>
-      <div class="theme-reason">SpaceX 기관 공모 마감, 상장 기대감 고조. 일론 머스크 이슈로 국내 우주 관련주 연동 상승 기대.</div>
+      <div class="theme-reason">SpaceX 내일(6/12) 나스닥 상장 예정, 역대 최대 규모 IPO 기대감 고조. 일론 머스크 우주 사업 부각으로 국내 우주·방산 관련주 연동 상승 기대.</div>
       <div class="theme-stocks">
         <span class="stock-tag">쎄트렉아이</span>
         <span class="stock-tag">AP위성</span>
@@ -262,7 +272,7 @@
           <td style="color:var(--muted);font-size:13px">3</td>
           <td><span class="stock-name">NAVER</span><span class="stock-code">035420 · KOSPI</span></td>
           <td><span class="theme-pill">플랫폼 AI</span></td>
-          <td class="reason-text">젠슨 황 방한 당일 엔비디아와 AI 협력 발표로 9.2% 급등 선행. AI 검색·클라우드 성장 기대. 대형 플랫폼 중 최대 AI 수혜.</td>
+          <td class="reason-text">방한 전(5/29~6/1) 3거래일 누적 +36% 급등. 방한 당일(6/5)은 브로드컴 쇼크로 -5.2% 조정. 엔비디아 클라우드 협력 구체화 모멘텀 유효, AI 검색·클라우드 성장 기대.</td>
           <td><span class="risk-badge risk-mid">중간</span></td>
         </tr>
         <tr>
@@ -283,7 +293,7 @@
           <td style="color:var(--muted);font-size:13px">6</td>
           <td><span class="stock-name">한화에어로스페이스</span><span class="stock-code">012450 · KOSPI</span></td>
           <td><span class="theme-pill">우주·방산</span></td>
-          <td class="reason-text">SpaceX 상장 이슈 국내 우주 수혜. 방산 수출 호조 지속. 코스피 급락 후 낙폭 과대주 반등 국면.</td>
+          <td class="reason-text">SpaceX 내일(6/12) 나스닥 상장 예정으로 우주 섹터 기대감. 방산 수출 호조 지속. 코스피 급락 후 낙폭 과대주 반등 국면.</td>
           <td><span class="risk-badge risk-mid">중간</span></td>
         </tr>
       </tbody>
@@ -332,7 +342,7 @@
       <div class="news-item">
         <div class="news-num">6</div>
         <div class="news-body">
-          <div class="news-title">SpaceX 상장 기관 공모 마감 – 일론 머스크 이슈, 국내 우주·방산주 연동 기대</div>
+          <div class="news-title">SpaceX 6월 12일(금) 나스닥 상장 예정 – 역대 최대 IPO, 국내 우주·방산주 연동 기대</div>
           <div class="news-meta"><span class="news-tag" style="background:rgba(99,102,241,0.15);color:#818cf8">우주</span><span class="news-time">2026.06.10</span></div>
         </div>
       </div>
@@ -346,7 +356,7 @@
       <div class="news-item">
         <div class="news-num">8</div>
         <div class="news-body">
-          <div class="news-title">NAVER, 엔비디아 협력 발표 당일 9.2% 급등 – AI 플랫폼 대표주로 부상</div>
+          <div class="news-title">NAVER, 젠슨 황 방한 전 3거래일 +36% 폭등 – 방한 당일은 브로드컴 쇼크로 -5.2% 조정</div>
           <div class="news-meta"><span class="news-tag tag-ai">AI</span><span class="news-time">2026.06.08</span></div>
         </div>
       </div>
