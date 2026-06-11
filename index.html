@@ -104,11 +104,13 @@
     .change-up{color:var(--green);font-weight:600;}
     .change-down{color:var(--red);font-weight:600;}
   
-    .brief-toggle { display: flex; gap: 6px; margin-left: 4px; }
-    .brief-btn { font-size: 12px; font-weight: 700; padding: 5px 14px; border-radius: 20px; border: 1.5px solid #2e3450; color: var(--muted); background: var(--surface2); transition: all 0.15s; cursor: pointer; text-decoration: none; }
-    .brief-btn:hover:not(.disabled) { border-color: #4f8ef7; color: #4f8ef7; }
-    .brief-btn.active { background: #4f8ef7; border-color: #4f8ef7; color: #fff; }
-    .brief-btn.disabled { opacity: 0.35; cursor: default; pointer-events: none; }
+    .brief-toggle { display: flex; gap: 8px; margin-left: 2px; }
+    .brief-btn { display: inline-flex; align-items: center; gap: 5px; font-size: 13px; font-weight: 700; padding: 5px 15px; border-radius: 20px; text-decoration: none; transition: all 0.15s; white-space: nowrap; }
+    .brief-btn.active-open { background: #4f8ef7; color: #fff; }
+    .brief-btn.active-close { background: #f59e0b; color: #fff; }
+    .brief-btn.inactive { background: var(--surface2); color: var(--muted); border: 1.5px solid #2e3450; }
+    .brief-btn.inactive:hover { border-color: #4f8ef7; color: #4f8ef7; }
+    .brief-btn.disabled { background: var(--surface2); color: #3a3f55; border: 1.5px solid #252840; cursor: default; pointer-events: none; }
   </style>
 </head>
 <body>
@@ -118,8 +120,8 @@
       <div class="logo">ë°ì¼ë¦¬ <span>ê¹¡ë¤ê³ </span><span style="font-size:14px;color:#6b7a99;font-weight:500;margin-left:8px">Daily Kkangdago</span></div>
       <div class="date-badge">2026ë 6ì 11ì¼ (ëª©) ì¥ì  ë¸ë¦¬í</div>
       <div class="brief-toggle">
-        <span class="brief-btn active">âï¸ ì¥ì  ë¸ë¦¬í</span>
-        <a id="closeLink" href="close.html" class="brief-btn disabled">ð ì¥ë§ê° ë¸ë¦¬í</a>
+        <span class="brief-btn active-open">☀️ 장전 브리핑</span>
+        <a id="closeLink" href="close.html" class="brief-btn disabled">🌆 장마감 브리핑</a>
       </div>
     </div>
     <div class="tagline">ì¤ë¥¼ ê² ê°ì¼ë©´ â <strong>ê±~ë¤ê³ .</strong> ë¶ì ë, ê² ìì´, ê¹¡ë¤êµ¬ ìê².</div>
@@ -198,10 +200,9 @@
 (async () => {
   const base = location.hostname === 'worascal.github.io' ? '/kkangdago' : '';
   const isArchive = location.pathname.includes('/archive/');
-  const dateMatch = location.pathname.match(/(\d{4}-\d{2}-\d{2})/);
-  const curDate = dateMatch ? dateMatch[1] : null;
+  const m = location.pathname.match(/(\d{4}-\d{2}-\d{2})/);
+  const curDate = m ? m[1] : null;
 
-  // ì¥ë§ê° ë§í¬ ì¤ì 
   const closeLink = document.getElementById('closeLink');
   if (isArchive && curDate) {
     closeLink.href = base + '/archive/' + curDate + '-close.html';
@@ -209,21 +210,24 @@
 
   try {
     const r = await fetch(base + '/archive/index.json?t=' + Date.now());
-    if (!r.ok) { document.getElementById('dateList').innerHTML = ''; return; }
+    if (!r.ok) return;
     const entries = await r.json();
 
-    // ì¤ë close ì¡´ì¬ ì¬ë¶ ì²´í¬
-    const todayStr = new Date().toLocaleDateString('sv-SE');
+    const todayStr = new Date().toISOString().slice(0,10);
     const todayEntry = entries.find(e => (typeof e === 'string' ? e : e.date) === todayStr);
-    const closeExists = todayEntry && typeof todayEntry === 'object' ? todayEntry.close : false;
-    if (closeExists && !isArchive) closeLink.classList.remove('disabled');
+    const closeExists = todayEntry && typeof todayEntry === 'object' && todayEntry.close;
+    if (closeExists && !isArchive) {
+      closeLink.classList.remove('disabled');
+      closeLink.classList.add('inactive');
+    }
 
     const c = document.getElementById('dateList');
     c.innerHTML = '';
+
     const tp = document.createElement('a');
     tp.href = base + '/';
     tp.className = 'date-pill' + (!isArchive ? ' active' : ' today-link');
-    tp.textContent = 'ì¤ë';
+    tp.textContent = '오늘';
     c.appendChild(tp);
 
     [...entries].reverse().forEach(entry => {
@@ -231,11 +235,11 @@
       const a = document.createElement('a');
       a.href = base + '/archive/' + d + '.html';
       a.className = 'date-pill' + (d === curDate && isArchive ? ' active' : '');
-      const [,m,day] = d.split('-');
-      a.textContent = parseInt(m) + '/' + parseInt(day);
+      const parts = d.split('-');
+      a.textContent = parseInt(parts[1]) + '/' + parseInt(parts[2]);
       c.appendChild(a);
     });
-  } catch(e) { document.getElementById('dateList').innerHTML = ''; }
+  } catch(e) {}
 })();
 </script>
 </body>
