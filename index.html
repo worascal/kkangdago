@@ -155,7 +155,7 @@
     </div>
   </div>
   <div class="picks-section">
-    <div class="section-header">🎯 상승 유망 종목 <span style="font-size:11px;font-weight:400;color:var(--muted);margin-left:6px">전일~당일 07:30 뉴스 감성분석 기반</span></div>
+    <div class="section-header">🎯 상승 유망 종목 <span style="font-size:11px;font-weight:400;color:var(--muted);margin-left:6px">전일~당일 07:00 뉴스 감성분석 기반</span></div>
     <table class="picks-table">
       <thead><tr><th>#</th><th>종목명</th><th>테마</th><th>감성분석 근거</th><th>리스크</th></tr></thead>
       <tbody>
@@ -169,7 +169,7 @@
     </table>
   </div>
   <div class="news-section">
-    <div class="section-header">📰 주요 뉴스 <span style="font-size:11px;font-weight:400;color:var(--muted);margin-left:6px">2026-06-10 ~ 2026-06-11 07:30 KST</span></div>
+    <div class="section-header">📰 주요 뉴스 <span style="font-size:11px;font-weight:400;color:var(--muted);margin-left:6px">2026-06-10 ~ 2026-06-11 07:00 KST</span></div>
     <div class="news-list">
       <div class="news-item"><div class="news-num">1</div><div class="news-body"><div class="news-title">코스피, 외인·기관 매도에 7700선까지 추락 … 30만전자·200만닉스 불안</div><div class="news-meta"><span class="news-tag tag-코스피">코스피</span><span class="news-time">2026.06.10 16:52</span></div></div></div>
       <div class="news-item"><div class="news-num">2</div><div class="news-body"><div class="news-title">[주식마감] 신재생에너지 '빅딜' 기대감에 SK이너틱스 상한가 — 아이로보틱스, 에스에너지 동반 강세</div><div class="news-meta"><span class="news-tag tag-에너지">신재생에너지</span><span class="news-time">2026.06.10 19:40</span></div></div></div>
@@ -180,9 +180,9 @@
       <div class="news-item"><div class="news-num">7</div><div class="news-body"><div class="news-title">대한광통신, AI 인프라 투자 관심 지속 — 반도체 차익실현 자금 광통신·광반도체로 이동 흐름</div><div class="news-meta"><span class="news-tag tag-광통신">광통신</span><span class="news-time">2026.06.10 (종합)</span></div></div></div>
     </div>
   </div>
-  <div class="disclaimer"><p>⚠️ <strong>투자 유의사항:</strong> 이 브리핑은 Naver 뉴스 감성분석을 기반으로 AI가 자동 생성한 정보입니다. 투자 판단의 최종 책임은 본인에게 있으며, 이 자료는 투자 권유나 종목 추천이 아닙니다. 주식 투자에는 원금 손실 위험이 있습니다. 매일 07:30 KST 자동 업데이트.</p></div>
+  <div class="disclaimer"><p>⚠️ <strong>투자 유의사항:</strong> 이 브리핑은 Naver 뉴스 감성분석을 기반으로 AI가 자동 생성한 정보입니다. 투자 판단의 최종 책임은 본인에게 있으며, 이 자료는 투자 권유나 종목 추천이 아닙니다. 주식 투자에는 원금 손실 위험이 있습니다. 매일 07:00 KST 자동 업데이트.</p></div>
 </div>
-<div class="footer">kkangdago.com · 장전 브리핑 · 자동 생성 07:30 KST · 투자는 본인 책임</div>
+<div class="footer">kkangdago.com · 장전 브리핑 · 자동 생성 07:00 KST · 투자는 본인 책임</div>
 <script>
 (async()=>{try{const base=location.hostname==='worascal.github.io'?'/kkangdago':'';const r=await fetch(base+'/archive/index.json?t='+Date.now());if(!r.ok){document.getElementById('dateList').innerHTML='';return;}const dates=await r.json();const isToday=!location.pathname.includes('/archive/');const cur=isToday?null:(location.pathname.match(/(\d{4}-\d{2}-\d{2})/)||[])[1];const c=document.getElementById('dateList');c.innerHTML='';const tp=document.createElement('a');tp.href=base+'/';tp.className='date-pill'+(isToday?' active':' today-link');tp.textContent='오늘';c.appendChild(tp);[...dates].reverse().forEach(d=>{const a=document.createElement('a');a.href=base+'/archive/'+d+'.html';a.className='date-pill'+(d===cur?' active':'');const[,m,day]=d.split('-');a.textContent=parseInt(m)+'/'+parseInt(day);c.appendChild(a);});}catch(e){document.getElementById('dateList').innerHTML='';}})();
 </script>
