@@ -105,12 +105,12 @@
     .change-down{color:var(--red);font-weight:600;}
   
     .brief-toggle { display: flex; gap: 8px; margin-left: 2px; }
-    .brief-btn { display: inline-flex; align-items: center; gap: 5px; font-size: 13px; font-weight: 700; padding: 5px 15px; border-radius: 20px; text-decoration: none; transition: all 0.15s; white-space: nowrap; }
+    .brief-btn { display: inline-flex; align-items: center; gap: 5px; font-size: 13px; font-weight: 700; padding: 5px 15px; border-radius: 20px; text-decoration: none; transition: opacity 0.15s; white-space: nowrap; }
     .brief-btn.active-open { background: #4f8ef7; color: #fff; }
     .brief-btn.active-close { background: #f59e0b; color: #fff; }
     .brief-btn.inactive { background: var(--surface2); color: var(--muted); border: 1.5px solid #2e3450; }
     .brief-btn.inactive:hover { border-color: #4f8ef7; color: #4f8ef7; }
-    .brief-btn.disabled { background: var(--surface2); color: #3a3f55; border: 1.5px solid #252840; cursor: default; pointer-events: none; }
+    .brief-btn.disabled { background: var(--surface2); color: #3a3f55; border: 1.5px solid #252840; cursor: default; pointer-events: none; opacity: 0.45; }
   </style>
 </head>
 <body>
@@ -119,10 +119,7 @@
     <div class="header-top">
       <div class="logo">ë°ì¼ë¦¬ <span>ê¹¡ë¤ê³ </span><span style="font-size:14px;color:#6b7a99;font-weight:500;margin-left:8px">Daily Kkangdago</span></div>
       <div class="date-badge">2026ë 6ì 11ì¼ (ëª©) ì¥ì  ë¸ë¦¬í</div>
-      <div class="brief-toggle">
-        <span class="brief-btn active-open">☀️ 장전 브리핑</span>
-        <a id="closeLink" href="close.html" class="brief-btn disabled">🌆 장마감 브리핑</a>
-      </div>
+      <div class="brief-toggle"><span class="brief-btn active-open">☀️ 장전 브리핑</span><a id="closeLink" href="close.html" class="brief-btn disabled">🌆 장마감 브리핑</a></div>
     </div>
     <div class="tagline">ì¤ë¥¼ ê² ê°ì¼ë©´ â <strong>ê±~ë¤ê³ .</strong> ë¶ì ë, ê² ìì´, ê¹¡ë¤êµ¬ ìê².</div>
     <div class="chips">
@@ -213,7 +210,7 @@
     if (!r.ok) return;
     const entries = await r.json();
 
-    const todayStr = new Date().toISOString().slice(0,10);
+    const todayStr = new Date().toISOString().slice(0, 10);
     const todayEntry = entries.find(e => (typeof e === 'string' ? e : e.date) === todayStr);
     const closeExists = todayEntry && typeof todayEntry === 'object' && todayEntry.close;
     if (closeExists && !isArchive) {
@@ -223,7 +220,6 @@
 
     const c = document.getElementById('dateList');
     c.innerHTML = '';
-
     const tp = document.createElement('a');
     tp.href = base + '/';
     tp.className = 'date-pill' + (!isArchive ? ' active' : ' today-link');
@@ -235,8 +231,8 @@
       const a = document.createElement('a');
       a.href = base + '/archive/' + d + '.html';
       a.className = 'date-pill' + (d === curDate && isArchive ? ' active' : '');
-      const parts = d.split('-');
-      a.textContent = parseInt(parts[1]) + '/' + parseInt(parts[2]);
+      const p = d.split('-');
+      a.textContent = parseInt(p[1]) + '/' + parseInt(p[2]);
       c.appendChild(a);
     });
   } catch(e) {}
