@@ -103,6 +103,12 @@
     .price-col{text-align:right;white-space:nowrap;font-size:13px;}
     .change-up{color:var(--green);font-weight:600;}
     .change-down{color:var(--red);font-weight:600;}
+  
+    .brief-toggle { display: flex; gap: 6px; margin-left: 4px; }
+    .brief-btn { font-size: 12px; font-weight: 700; padding: 5px 14px; border-radius: 20px; border: 1.5px solid #2e3450; color: var(--muted); background: var(--surface2); transition: all 0.15s; cursor: pointer; text-decoration: none; }
+    .brief-btn:hover:not(.disabled) { border-color: #4f8ef7; color: #4f8ef7; }
+    .brief-btn.active { background: #4f8ef7; border-color: #4f8ef7; color: #fff; }
+    .brief-btn.disabled { opacity: 0.35; cursor: default; pointer-events: none; }
   </style>
 </head>
 <body>
@@ -111,6 +117,10 @@
     <div class="header-top">
       <div class="logo">데일리 <span>깡다고</span><span style="font-size:14px;color:#6b7a99;font-weight:500;margin-left:8px">Daily Kkangdago</span></div>
       <div class="date-badge">2026년 6월 11일 (목) 장전 브리핑</div>
+      <div class="brief-toggle">
+        <span class="brief-btn active">☀️ 장전 브리핑</span>
+        <a id="closeLink" href="close.html" class="brief-btn disabled">🌆 장마감 브리핑</a>
+      </div>
     </div>
     <div class="tagline">오를 것 같으면 — <strong>걍~다고.</strong> 분석 끝, 겁 없이, 깡다구 있게.</div>
     <div class="chips">
@@ -185,7 +195,48 @@
 </div>
 <div class="footer">daily.kkangdago.com · 데일리 깡다고 · 자동 생성 07:00 KST · 투자는 본인 책임</div>
 <script>
-(async()=>{try{const base=location.hostname==='worascal.github.io'?'/kkangdago':'';const r=await fetch(base+'/archive/index.json?t='+Date.now());if(!r.ok){document.getElementById('dateList').innerHTML='';return;}const dates=await r.json();const isToday=!location.pathname.includes('/archive/');const cur=isToday?null:(location.pathname.match(/(\d{4}-\d{2}-\d{2})/)||[])[1];const c=document.getElementById('dateList');c.innerHTML='';const tp=document.createElement('a');tp.href=base+'/';tp.className='date-pill'+(isToday?' active':' today-link');tp.textContent='오늘';c.appendChild(tp);[...dates].reverse().forEach(d=>{const a=document.createElement('a');a.href=base+'/archive/'+d+'.html';a.className='date-pill'+(d===cur?' active':'');const[,m,day]=d.split('-');a.textContent=parseInt(m)+'/'+parseInt(day);c.appendChild(a);});}catch(e){document.getElementById('dateList').innerHTML='';}})();
+(async () => {
+  const base = location.hostname === 'worascal.github.io' ? '/kkangdago' : '';
+  const isArchive = location.pathname.includes('/archive/');
+  const dateMatch = location.pathname.match(/(\d{4}-\d{2}-\d{2})/);
+  const curDate = dateMatch ? dateMatch[1] : null;
+
+  // 장마감 링크 설정
+  const closeLink = document.getElementById('closeLink');
+  if (isArchive && curDate) {
+    closeLink.href = base + '/archive/' + curDate + '-close.html';
+  }
+
+  try {
+    const r = await fetch(base + '/archive/index.json?t=' + Date.now());
+    if (!r.ok) { document.getElementById('dateList').innerHTML = ''; return; }
+    const entries = await r.json();
+
+    // 오늘 close 존재 여부 체크
+    const todayStr = new Date().toLocaleDateString('sv-SE');
+    const todayEntry = entries.find(e => (typeof e === 'string' ? e : e.date) === todayStr);
+    const closeExists = todayEntry && typeof todayEntry === 'object' ? todayEntry.close : false;
+    if (closeExists && !isArchive) closeLink.classList.remove('disabled');
+
+    const c = document.getElementById('dateList');
+    c.innerHTML = '';
+    const tp = document.createElement('a');
+    tp.href = base + '/';
+    tp.className = 'date-pill' + (!isArchive ? ' active' : ' today-link');
+    tp.textContent = '오늘';
+    c.appendChild(tp);
+
+    [...entries].reverse().forEach(entry => {
+      const d = typeof entry === 'string' ? entry : entry.date;
+      const a = document.createElement('a');
+      a.href = base + '/archive/' + d + '.html';
+      a.className = 'date-pill' + (d === curDate && isArchive ? ' active' : '');
+      const [,m,day] = d.split('-');
+      a.textContent = parseInt(m) + '/' + parseInt(day);
+      c.appendChild(a);
+    });
+  } catch(e) { document.getElementById('dateList').innerHTML = ''; }
+})();
 </script>
 </body>
 </html>
