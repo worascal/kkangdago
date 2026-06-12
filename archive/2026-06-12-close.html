@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="naver-site-verification" content="b7206b63777faac34e0ee12c6dba74ae9ca18c40" />
+  <meta name="google-adsense-account" content="ca-pub-2869718539906266">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="데일리 깡다고 – 2026-06-12 장마감 브리핑">
+  <meta property="og:description" content="코스피 8,123 (+4.63%) · 코스닥 1,029 (+3.22%) — 외국인 25거래일만 귀환, 8천피 탈환">
+  <meta property="og:image" content="https://www.kkangdago.com/preview/close-latest.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://www.kkangdago.com/close.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://www.kkangdago.com/preview/close-latest.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>데일리 깡다고 – 장마감 브리핑</title>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2869718539906266" crossorigin="anonymous"></script>
+  <style>
+    :root {
+      --bg: #0f1117; --surface: #1a1d27; --surface2: #22263a;
+      --accent: #f59e0b; --accent2: #a78bfa; --green: #22c55e; --red: #ef4444;
+      --yellow: #f59e0b; --text: #e2e8f0; --muted: #8892a4;
+      --hot: #ef4444; --warm: #f59e0b; --mild: #22c55e;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'Pretendard', 'Apple SD Gothic Neo', sans-serif; min-height: 100vh; }
+    a { color: inherit; text-decoration: none; }
+    .header { background: linear-gradient(135deg, #1a0d00 0%, #1a1d27 60%, #0f1117 100%); padding: 28px 20px 20px; border-bottom: 1px solid #2a2f45; }
+    .header-inner { max-width: 900px; margin: 0 auto; }
+    .header-top { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .logo { font-size: 28px; font-weight: 800; color: #fff; letter-spacing: -1px; }
+    .logo span { color: var(--accent); }
+    .date-badge { background: var(--accent); color: #fff; font-size: 13px; font-weight: 700; padding: 5px 14px; border-radius: 20px; }
+    .brief-toggle { display: flex; gap: 8px; margin-left: 2px; }
+    .brief-btn { display: inline-flex; align-items: center; gap: 5px; font-size: 13px; font-weight: 700; padding: 5px 15px; border-radius: 20px; text-decoration: none; transition: opacity 0.15s; white-space: nowrap; }
+    .brief-btn.active-open { background: #4f8ef7; color: #fff; }
+    .brief-btn.active-close { background: #f59e0b; color: #fff; }
+    .brief-btn.inactive { background: var(--surface2); color: var(--muted); border: 1.5px solid #2e3450; }
+    .brief-btn.inactive:hover { border-color: #f59e0b; color: #f59e0b; }
+    .brief-btn.disabled { background: var(--surface2); color: #3a3f55; border: 1.5px solid #252840; cursor: default; pointer-events: none; opacity: 0.45; }
+    .tagline { margin-top: 6px; font-size: 13px; color: #6b7a99; }
+    .tagline strong { color: #fbbf24; font-weight: 700; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+    .chip { background: var(--surface2); border: 1px solid #2e3450; border-radius: 6px; padding: 4px 12px; font-size: 12px; color: var(--muted); display: flex; align-items: center; gap: 5px; }
+    .chip .dot { width: 7px; height: 7px; border-radius: 50%; }
+    .chip.green .dot { background: var(--green); }
+    .chip.yellow .dot { background: var(--yellow); }
+    .chip.red .dot { background: var(--red); }
+    .date-nav { margin-top: 14px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; border-top: 1px solid #232740; padding-top: 12px; }
+    .date-nav-label { font-size: 11px; color: var(--muted); white-space: nowrap; }
+    .date-pills { display: flex; gap: 5px; flex-wrap: wrap; }
+    .date-pill { background: var(--surface2); border: 1px solid #2e3450; border-radius: 5px; padding: 3px 10px; font-size: 12px; color: var(--muted); text-decoration: none; transition: all 0.15s; }
+    .date-pill:hover { background: #2a2f45; color: var(--text); }
+    .date-pill.active { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600; }
+    .date-pill.today-link { border-color: var(--accent); color: var(--accent); }
+    .main { max-width: 900px; margin: 0 auto; padding: 20px; }
+    .summary-card { background: linear-gradient(135deg, #2a1a00, #1a1d27); border: 1px solid #3a2800; border-radius: 12px; padding: 18px 20px; margin-bottom: 24px; }
+    .summary-card h2 { font-size: 13px; color: var(--accent); font-weight: 700; margin-bottom: 8px; letter-spacing: 1px; text-transform: uppercase; }
+    .summary-card p { font-size: 14px; line-height: 1.7; color: var(--text); }
+    .section-header { font-size: 13px; font-weight: 700; color: var(--muted); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+    .section-header::after { content: ''; flex: 1; height: 1px; background: #2a2f45; }
+    .themes-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; margin-bottom: 28px; }
+    .theme-card { background: var(--surface); border: 1px solid #2a2f45; border-radius: 10px; padding: 14px 16px; border-top-width: 3px; }
+    .theme-card.hot { border-top-color: var(--hot); }
+    .theme-card.warm { border-top-color: var(--warm); }
+    .theme-card.mild { border-top-color: var(--mild); }
+    .theme-name { font-size: 14px; font-weight: 700; margin-bottom: 5px; display: flex; justify-content: space-between; align-items: center; }
+    .theme-tag { font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 4px; }
+    .hot .theme-tag { background: rgba(239,68,68,0.15); color: var(--hot); }
+    .warm .theme-tag { background: rgba(245,158,11,0.15); color: var(--warm); }
+    .mild .theme-tag { background: rgba(34,197,94,0.15); color: var(--mild); }
+    .theme-reason { font-size: 12px; color: var(--muted); line-height: 1.5; margin-bottom: 8px; }
+    .theme-stocks { display: flex; flex-wrap: wrap; gap: 5px; }
+    .stock-tag { background: var(--surface2); border: 1px solid #2e3450; border-radius: 4px; font-size: 11px; padding: 2px 8px; color: var(--text); }
+    .picks-section { margin-bottom: 28px; }
+    .picks-table { width: 100%; border-collapse: collapse; background: var(--surface); border-radius: 10px; overflow: hidden; border: 1px solid #2a2f45; }
+    .picks-table th { background: var(--surface2); padding: 10px 14px; font-size: 11px; font-weight: 700; color: var(--muted); text-align: left; border-bottom: 1px solid #2a2f45; }
+    .picks-table td { padding: 11px 14px; font-size: 13px; border-bottom: 1px solid #1e2235; vertical-align: middle; }
+    .picks-table tr:last-child td { border-bottom: none; }
+    .picks-table tr:hover td { background: rgba(245,158,11,0.04); }
+    .stock-name { font-weight: 700; color: #fff; }
+    .stock-code { font-size: 11px; color: var(--muted); display: block; margin-top: 1px; }
+    .reason-text { font-size: 12px; color: #c4cad6; line-height: 1.4; }
+    .risk-badge { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 4px; white-space: nowrap; }
+    .risk-low { background: rgba(34,197,94,0.15); color: var(--green); }
+    .risk-mid { background: rgba(245,158,11,0.15); color: var(--yellow); }
+    .risk-high { background: rgba(239,68,68,0.15); color: var(--red); }
+    .theme-pill { font-size: 11px; background: rgba(245,158,11,0.12); color: var(--accent); border-radius: 4px; padding: 2px 7px; white-space: nowrap; }
+    .news-section { margin-bottom: 28px; }
+    .news-list { background: var(--surface); border: 1px solid #2a2f45; border-radius: 10px; overflow: hidden; }
+    .news-item { padding: 12px 16px; border-bottom: 1px solid #1e2235; display: flex; align-items: flex-start; gap: 10px; }
+    .news-item:last-child { border-bottom: none; }
+    .news-item.market-overview { background: rgba(245,158,11,0.05); border-left: 3px solid var(--accent); }
+    .news-num { font-size: 12px; color: var(--muted); width: 20px; flex-shrink: 0; padding-top: 1px; }
+    .news-body { flex: 1; }
+    .news-title { font-size: 13px; color: var(--text); line-height: 1.4; }
+    .news-title a { color: var(--text); text-decoration: none; }
+    .news-title a:hover { color: var(--accent); text-decoration: underline; }
+    .news-meta { display: flex; align-items: center; gap: 8px; margin-top: 4px; flex-wrap: wrap; }
+    .news-tag { font-size: 10px; padding: 1px 6px; border-radius: 3px; }
+    .tag-시장 { background: rgba(245,158,11,0.15); color: var(--accent); }
+    .tag-반도체 { background: rgba(167,139,250,0.15); color: #a78bfa; }
+    .tag-항공 { background: rgba(34,197,94,0.15); color: var(--green); }
+    .tag-이차전지 { background: rgba(79,142,247,0.15); color: #4f8ef7; }
+    .tag-수급 { background: rgba(236,72,153,0.15); color: #ec4899; }
+    .news-time { font-size: 11px; color: var(--muted); }
+    .tomorrow-section { margin-bottom: 28px; }
+    .tomorrow-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; }
+    .tomorrow-card { background: var(--surface); border: 1px solid #3a2800; border-radius: 10px; padding: 14px 16px; border-left: 3px solid var(--accent); }
+    .tomorrow-name { font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .tomorrow-reason { font-size: 12px; color: var(--muted); line-height: 1.5; }
+    .signoff { text-align: center; padding: 16px 0 8px; font-size: 15px; font-weight: 700; color: #fbbf24; }
+    .disclaimer { background: var(--surface); border: 1px solid #2a2f45; border-radius: 8px; padding: 12px 16px; margin-bottom: 20px; }
+    .disclaimer p { font-size: 11px; color: var(--muted); line-height: 1.6; }
+    .footer { text-align: center; padding: 16px; font-size: 11px; color: #4a5068; border-top: 1px solid #1e2235; }
+    @media (max-width: 600px) {
+      .themes-grid { grid-template-columns: 1fr; }
+      .tomorrow-grid { grid-template-columns: 1fr 1fr; }
+      .picks-table th:nth-child(3), .picks-table td:nth-child(3) { display: none; }
+    }
+  </style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <div class="header-top">
+      <div class="logo">데일리 <span>깡다고</span><span style="font-size:14px;color:#6b7a99;font-weight:500;margin-left:8px">Daily Kkangdago</span></div>
+      <div class="date-badge">2026년 6월 12일 (금)</div>
+      <div class="brief-toggle">
+        <a id="openLink" href="index.html" class="brief-btn inactive">☀️ 장전 브리핑</a>
+        <span class="brief-btn active-close">🌆 장마감 브리핑</span>
+      </div>
+    </div>
+    <div class="tagline">오늘 장은 어떐어? — <strong>걍~다고.</strong> 결산 끝, 내일도 깡다구 있게.</div>
+    <div class="chips">
+      <div class="chip green"><span class="dot"></span>코스피 8,123 <span style="color:#22c55e;font-weight:700">+4.63%</span></div>
+      <div class="chip green"><span class="dot"></span>코스닥 1,029 <span style="color:#22c55e;font-weight:700">+3.22%</span></div>
+      <div class="chip green"><span class="dot"></span>환율 1,510원대 하락</div>
+      <div class="chip yellow"><span class="dot"></span>외국인 25거래일만 복귀</div>
+      <div class="chip yellow"><span class="dot"></span>미-이란 종전 합의</div>
+    </div>
+    <div class="date-nav">
+      <span class="date-nav-label">📅 히스토리</span>
+      <div id="dateList" class="date-pills"><span style="font-size:12px;color:#4a5068">로딩 중…</span></div>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="summary-card">
+    <h2>📊 오늘 시장 결산</h2>
+    <p>코스피가 전일 대비 +4.63%(+359.67p) 급등한 <strong>8,123.62</strong>에 마감하며 8천피를 탈환했고, 코스닥도 +3.22%로 <strong>1,029.05</strong>에 오르며 '천스닥'을 회복했다. 트럼프 대통령이 이란 공습을 전격 취소하며 미-이란 종전 합의가 가시화되자 미국 필라델피아 반도체지수가 전날 밤 8% 급등한 영향이 국내 시장을 직접 끌어올렸다. 수급 면에서 24거래일 연속 순매도했던 외국인이 코스피에서 2.1조 원 넘게 순매수로 돌아섰고 기관도 2.4조 이상 합류했다. 반도체 소부장주가 10~30% 폭등하며 오늘의 주역을 맡았고, 유가 급락으로 항공주도 강세를 보였다. 원·달러 환율은 1,510원대로 하락했다.</p>
+  </div>
+  <div class="section-header">🔥 오늘 주요 테마 결산 <span style="font-size:11px;font-weight:400;color:var(--muted);margin-left:6px">2026-06-12 09:00~15:30 기준</span></div>
+  <div class="themes-grid">
+    <div class="theme-card hot">
+      <div class="theme-name">반도체 소부장 <span class="theme-tag">🔥 최강</span></div>
+      <div class="theme-reason">마이크론 +11.6%, 필라델피아 반도체지수 +8% 급등 영향. 국내 HBM 장비·소재 수혜주에 외국인·기관 매수 집중. 원익IPS 상한가, 한미반도체 +24%, 이오테크닉스 +21%.</div>
+      <div class="theme-stocks">
+        <span class="stock-tag">원익IPS +30%</span><span class="stock-tag">한미반도체 +24%</span><span class="stock-tag">이오테크닉스 +21%</span><span class="stock-tag">HPSP</span><span class="stock-tag">리노공업 +4.7%</span>
+      </div>
+    </div>
+    <div class="theme-card hot">
+      <div class="theme-name">항공 <span class="theme-tag">🔥 강세</span></div>
+      <div class="theme-reason">미-이란 종전 합의로 국제유가가 급락하며 항공사 연료비 부담이 대폭 완화. 중동 노선 수요 회복 기대까지 겹치며 항공주 전반에 즉각적인 매수세.</div>
+      <div class="theme-stocks">
+        <span class="stock-tag">대한항공</span><span class="stock-tag">진에어</span><span class="stock-tag">제주항공</span><span class="stock-tag">에어부산</span>
+      </div>
+    </div>
+    <div class="theme-card warm">
+      <div class="theme-name">이차전지 <span class="theme-tag">⚡ 반등</span></div>
+      <div class="theme-reason">지수 급등 분위기에 이차전지 대장주 에코프로·에코프로비엠이 동반 반등. 지정학적 리스크 완화가 전기차 수요 회복 기대감과 맞물림.</div>
+      <div class="theme-stocks">
+        <span class="stock-tag">에코프로 +6.3%</span><span class="stock-tag">에코프로비엠 +3.5%</span>
+      </div>
+    </div>
+    <div class="theme-card warm">
+      <div class="theme-name">로봇 <span class="theme-tag">⚡ 주목</span></div>
+      <div class="theme-reason">글로벌 AI 인프라 투자 확대 기대감 속 레인보우로보틱스 상승. 삼성전자의 로봇 사업 연계 기대감도 유효.</div>
+      <div class="theme-stocks">
+        <span class="stock-tag">레인보우로보틱스 +3.1%</span>
+      </div>
+    </div>
+    <div class="theme-card mild">
+      <div class="theme-name">반도체 대형주 <span class="theme-tag">🟢 혼조</span></div>
+      <div class="theme-reason">SK하이닉스 등 HBM 수혜주 강세, SK스퀘어 +4.48%. 삼성전자는 장중 11% 급등 후 -1.16% 반락해 혼조 마감. 외국인 복귀로 내일 추가 상승 기대.</div>
+      <div class="theme-stocks">
+        <span class="stock-tag">SK스퀘어 +4.5%</span><span class="stock-tag">SK하이닉스 강세</span><span class="stock-tag">삼성전자 -1.2%</span>
+      </div>
+    </div>
+  </div>
+  <div class="picks-section">
+    <div class="section-header">📈 오늘 급등 주목 종목 <span style="font-size:11px;font-weight:400;color:var(--muted);margin-left:6px">2026-06-12 장중 실적 기반 · 대형·중형주 우선</span></div>
+    <table class="picks-table">
+      <thead><tr><th>#</th><th>종목명</th><th>테마</th><th>급등 근거</th><th>리스크</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td><span class="stock-name">한미반도체</span><span class="stock-code">042700</span></td>
+          <td><span class="theme-pill">반도체 소부장</span></td>
+          <td class="reason-text">마이크론 +11.6% 급등 → HBM 장비 수요 가속화 직접 수혜. 기관 대규모 순매수. 코스닥 시총 상위 종목 중 가장 큰 폭 상승.</td>
+          <td><span class="risk-badge risk-mid">중간</span></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><span class="stock-name">SK스퀘어</span><span class="stock-code">402340</span></td>
+          <td><span class="theme-pill">반도체 지주</span></td>
+          <td class="reason-text">SK하이닉스 강세 + 외국인 25거래일만 복귀로 반도체 대형주 재평가. SK하이닉스 지분 가치 상승 직접 반영.</td>
+          <td><span class="risk-badge risk-low">낮음</span></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><span class="stock-name">에코프로</span><span class="stock-code">086520</span></td>
+          <td><span class="theme-pill">이차전지</span></td>
+          <td class="reason-text">종전 합의에 따른 지정학적 리스크 완화로 전기차·이차전지 섹터 전반 반등. 코스피200 편입 종목 중 외국인 복귀 수혜.</td>
+          <td><span class="risk-badge risk-mid">중간</span></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td><span class="stock-name">이오테크닉스</span><span class="stock-code">039030</span></td>
+          <td><span class="theme-pill">반도체 소부장</span></td>
+          <td class="reason-text">반도체 레이저 장비 전문업체. 국내 반도체 소부장 강세 흐름 동반 급등 +21.43%. 설비투자 확대 사이클 진입 기대.</td>
+          <td><span class="risk-badge risk-mid">중간</span></td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td><span class="stock-name">리노공업</span><span class="stock-code">058470</span></td>
+          <td><span class="theme-pill">반도체 소부장</span></td>
+          <td class="reason-text">반도체 테스트 소켓 전문업체. 반도체 소부장 강세 테마 편승 +4.71%. 기관 매수 유입, 수익성 우수 중형 우량주.</td>
+          <td><span class="risk-badge risk-low">낮음</span></td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td><span class="stock-name">레인보우로보틱스</span><span class="stock-code">277810</span></td>
+          <td><span class="theme-pill">로봇</span></td>
+          <td class="reason-text">글로벌 AI 인프라·공장 자동화 투자 확대 기대. 삼성전자 로봇 사업 협력 기대감 지속. 지수 급등 분위기에 성장주 재부각.</td>
+          <td><span class="risk-badge risk-mid">중간</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="tomorrow-section">
+    <div class="section-header">🔮 내일 주목 종목 <span style="font-size:11px;font-weight:400;color:var(--muted);margin-left:6px">2026-06-12 15:30~18:00 호재 발표 기반 · 대형·중형주 우선</span></div>
+    <div class="tomorrow-grid">
+      <div class="tomorrow-card">
+        <div class="tomorrow-name">삼성전자 <span style="font-size:11px;color:var(--muted)">005930</span></div>
+        <div class="tomorrow-reason">장중 11% 급등 후 -1.16% 반락 마감. 필라델피아 반도체지수 8% 급등 + 외국인 복귀 흐름이 내일 재차 유입될 가능성. 30만원선 재탈환 시도 기대.</div>
+      </div>
+      <div class="tomorrow-card">
+        <div class="tomorrow-name">SK하이닉스 <span style="font-size:11px;color:var(--muted)">000660</span></div>
+        <div class="tomorrow-reason">마이크론 +11.6% 급등 → HBM 수요 확인. 외국인이 오늘 코스피 2.1조 순매수 복귀, 내일도 반도체 대형주 집중 기대. 200만닉스 재도전.</div>
+      </div>
+      <div class="tomorrow-card">
+        <div class="tomorrow-name">대한항공 <span style="font-size:11px;color:var(--muted)">003490</span></div>
+        <div class="tomorrow-reason">미-이란 종전 합의 완료 시 국제유가 추가 하락 기대. 중동 노선 정상화 + 연료비 절감 효과로 실적 개선 기대. 항공주 내 최대 수혜주.</div>
+      </div>
+      <div class="tomorrow-card">
+        <div class="tomorrow-name">현대차 <span style="font-size:11px;color:var(--muted)">005380</span></div>
+        <div class="tomorrow-reason">중동 지역 긴장 완화로 수출 불확실성 해소. 오늘 +1.83% 상승에 이어 외국인 복귀 시 대형주 순환매 수혜 예상. 스페이스X IPO 등 글로벌 투심 회복도 긍정적.</div>
+      </div>
+    </div>
+  </div>
+  <div class="news-section">
+    <div class="section-header">📰 오늘 주요 뉴스 <span style="font-size:11px;font-weight:400;color:var(--muted);margin-left:6px">2026-06-12 09:00~18:00 KST</span></div>
+    <div class="news-list">
+      <div class="news-item market-overview">
+        <div class="news-num">1</div>
+        <div class="news-body">
+          <div class="news-title"><a href="https://n.news.naver.com/mnews/article/081/0003652138?sid=101" target="_blank" rel="noopener">한 달 만에 돌아온 外人에 코스피 8100대 마감…'천스닥' 복귀</a></div>
+          <div class="news-meta"><span class="news-tag tag-시장">시장</span><span class="news-time">서울신문 · 16:15</span></div>
+        </div>
+      </div>
+      <div class="news-item">
+        <div class="news-num">2</div>
+        <div class="news-body">
+          <div class="news-title"><a href="https://www.businesspost.co.kr/BP?command=article_view&amp;num=439919" target="_blank" rel="noopener">[오늘의 주목주] '반도체 강세' 한미반도체 주가 24%대 급등, 코스피 '돌파'</a></div>
+          <div class="news-meta"><span class="news-tag tag-반도체">반도체</span><span class="news-time">비즈니스포스트 · 17:38</span></div>
+        </div>
+      </div>
+      <div class="news-item">
+        <div class="news-num">3</div>
+        <div class="news-body">
+          <div class="news-title"><a href="https://n.news.naver.com/mnews/article/052/0002365738?sid=101" target="_blank" rel="noopener">코스피, '8천선' 회복...코스닥은 '천스닥' 탈환 — 외국인 25거래일만 귀환</a></div>
+          <div class="news-meta"><span class="news-tag tag-수급">수급</span><span class="news-time">YTN · 17:02</span></div>
+        </div>
+      </div>
+      <div class="news-item">
+        <div class="news-num">4</div>
+        <div class="news-body">
+          <div class="news-title"><a href="https://n.news.naver.com/mnews/article/422/0000874188?sid=101" target="_blank" rel="noopener">[퇴근길머니] 돌아온 외국인에 다시 '8천피'…불금에 뜨는 스페이스X</a></div>
+          <div class="news-meta"><span class="news-tag tag-시장">시장</span><span class="news-time">연합뉴스TV · 17:36</span></div>
+        </div>
+      </div>
+      <div class="news-item">
+        <div class="news-num">5</div>
+        <div class="news-body">
+          <div class="news-title"><a href="https://www.thefairnews.co.kr/news/articleView.html?idxno=79349" target="_blank" rel="noopener">[증시 오늘(12일) 핵심 특징주] 중동 종전 임박 훈풍에 코스피 8300선 폭주…항공주 날개</a></div>
+          <div class="news-meta"><span class="news-tag tag-항공">항공</span><span class="news-time">더페어뉴스 · 10:28</span></div>
+        </div>
+      </div>
+      <div class="news-item">
+        <div class="news-num">6</div>
+        <div class="news-body">
+          <div class="news-title"><a href="http://www.queen.co.kr/news/articleView.html?idxno=458520" target="_blank" rel="noopener">[오늘증시] 외국인·기관 매수에 코스피 '팔천피' 회복…코스닥도 '천스닥'</a></div>
+          <div class="news-meta"><span class="news-tag tag-수급">수급</span><span class="news-time">퀸 · 17:30</span></div>
+        </div>
+      </div>
+      <div class="news-item">
+        <div class="news-num">7</div>
+        <div class="news-body">
+          <div class="news-title"><a href="https://n.news.naver.com/mnews/article/003/0014003809?sid=101" target="_blank" rel="noopener">오늘의 국내 증시 마감 시황 — 코스피 +4.63%, 코스닥 +3.22% 장 마감</a></div>
+          <div class="news-meta"><span class="news-tag tag-시장">시장</span><span class="news-time">뉴시스 · 15:53</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="signoff">오늘의 데일리깡은 여기까지! 👊</div>
+  <div class="disclaimer">
+    <p>⚠️ <strong>투자 유의사항:</strong> 이 브리핑은 Naver 뉴스 감성분석을 기반으로 AI가 자동 생성한 정보입니다. 투자 판단의 최종 책임은 본인에게 있으며, 이 자료는 투자 권유나 종목 추천이 아닙니다. 주식 투자에는 원금 손실 위험이 있습니다. 매일 18:00 KST 자동 업데이트.</p>
+  </div>
+</div>
+<div class="footer">www.kkangdago.com · 데일리 깡다고 · 자동 생성 18:00 KST · 투자는 본인 책임</div>
+<script>
+(async () => {
+  const base = location.hostname === 'worascal.github.io' ? '/kkangdago' : '';
+  const isArchive = location.pathname.includes('/archive/');
+  const m = location.pathname.match(/(\d{4}-\d{2}-\d{2})/);
+  const curDate = m ? m[1] : null;
+  const openLink = document.getElementById('openLink');
+  if (isArchive && curDate) openLink.href = base + '/archive/' + curDate + '.html';
+  try {
+    const r = await fetch(base + '/archive/index.json?t=' + Date.now());
+    if (!r.ok) return;
+    const entries = await r.json();
+    const c = document.getElementById('dateList');
+    c.innerHTML = '';
+    const tp = document.createElement('a');
+    tp.href = base + '/close.html'; tp.className = 'date-pill' + (!isArchive ? ' active' : ' today-link'); tp.textContent = '오늘';
+    c.appendChild(tp);
+    [...entries].reverse().forEach(entry => {
+      const d = typeof entry === 'string' ? entry : entry.date;
+      const hasClose = typeof entry === 'object' && entry.close;
+      if (!hasClose) return;
+      const a = document.createElement('a');
+      a.href = base + '/archive/' + d + '-close.html';
+      a.className = 'date-pill' + (d === curDate && isArchive ? ' active' : '');
+      const p = d.split('-'); a.textContent = parseInt(p[1]) + '/' + parseInt(p[2]);
+      c.appendChild(a);
+    });
+  } catch(e) {}
+})();
+</script>
+</body>
+</html>
