@@ -4,141 +4,397 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>kkangdago US Signal | 2026-06-13 장전 브리핑</title>
-<meta name="description" content="미국 주식 장전 브리핑 - 2026-06-13. AI가 분석한 뉴욕증시 프리마켓 시황, 추천 종목, 테마 분석.">
 <style>
-:root{--bg:#0d0d0d;--surface:#161616;--accent:#00d4aa;--signal:#f0c040;--up:#26a69a;--down:#ef5350;--text:#e0e0e0;--muted:#888;--border:#2a2a2a}
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--text);font-family:'Segoe UI',-apple-system,sans-serif;min-height:100vh}
-a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
-header{background:var(--surface);border-bottom:1px solid var(--border);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
-.logo{font-size:1.5rem;font-weight:800;color:#fff;letter-spacing:-.5px}.logo span{color:var(--accent)}.logo .sig{color:var(--signal)}
-.lbtn{background:var(--border);border:none;color:var(--text);padding:6px 14px;border-radius:20px;cursor:pointer;font-size:.85rem}
-.lbtn:hover{background:var(--accent);color:#000}
-.container{max-width:1100px;margin:0 auto;padding:24px 16px 60px}
-.hnav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
-.hpill{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:5px 14px;font-size:.8rem;color:var(--muted);transition:all .2s}
-.hpill:hover,.hpill.active{background:var(--accent);color:#000;border-color:var(--accent)}.hpill.active{font-weight:700}
-.badges{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px;align-items:center}
-.badge{border-radius:20px;padding:5px 14px;font-size:.78rem;font-weight:600}
-.bpre{background:rgba(0,212,170,.15);color:var(--accent);border:1px solid var(--accent)}
-.bai{background:rgba(240,192,64,.15);color:var(--signal);border:1px solid var(--signal)}
-.bdate{background:var(--surface);color:var(--muted);border:1px solid var(--border)}
-.stitle{font-size:.75rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);margin-bottom:12px;font-weight:600}
-.igrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin-bottom:28px}
-.icard{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px;transition:border-color .2s}
-.icard:hover{border-color:var(--accent)}
-.iname{font-size:.75rem;color:var(--muted);margin-bottom:4px}
-.ival{font-size:1.2rem;font-weight:700;color:#fff}
-.ichg{font-size:.85rem;margin-top:4px;font-weight:600}
-.up{color:var(--up)}.down{color:var(--down)}.neu{color:var(--muted)}
-.scard{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin-bottom:28px;line-height:1.7}
-.scard p{color:var(--text);font-size:.95rem}
-.tgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-bottom:28px}
-.tcard{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px;border-left:3px solid var(--accent)}
-.tname{font-size:.95rem;font-weight:700;color:var(--accent);margin-bottom:6px}
-.tdesc{font-size:.82rem;color:var(--muted);line-height:1.5}
-.kgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:12px;margin-bottom:28px}
-.kcard{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px 18px;transition:border-color .2s}
-.kcard:hover{border-color:var(--up)}
-.khead{display:flex;align-items:center;gap:10px;margin-bottom:10px}
-.tbadge{background:rgba(38,166,154,.15);color:var(--up);border:1px solid var(--up);border-radius:6px;padding:3px 8px;font-size:.75rem;font-weight:700;font-family:monospace}
-.kname{font-size:1rem;font-weight:700;color:#fff}
-.sscore{margin-left:auto;font-size:.8rem;color:var(--signal);font-weight:600}
-.kreason{font-size:.82rem;color:var(--muted);line-height:1.5}
-.rcard{background:rgba(239,83,80,.08);border:1px solid rgba(239,83,80,.3);border-radius:12px;padding:20px 24px;margin-bottom:28px}
-.rtitle{font-size:.95rem;font-weight:700;color:var(--down);margin-bottom:8px}
-.rdesc{font-size:.85rem;color:var(--muted);line-height:1.6}
-.nlist{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:28px}
-.nitem{padding:14px 18px;border-bottom:1px solid var(--border);display:flex;flex-direction:column;gap:4px;transition:background .15s}
-.nitem:last-child{border-bottom:none}.nitem:hover{background:rgba(255,255,255,.03)}
-.ntitle{font-size:.9rem;color:var(--text);font-weight:500}
-.nmeta{font-size:.75rem;color:var(--muted)}
-.disc{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px 20px}
-.disc p{font-size:.78rem;color:var(--muted);line-height:1.6}
+:root {
+  --bg: #0d0d0d;
+  --surface: #161616;
+  --surface2: #1e1e1e;
+  --accent: #00d4aa;
+  --signal: #f0c040;
+  --up: #26a69a;
+  --down: #ef5350;
+  --text: #e8e8e8;
+  --muted: #888;
+  --border: #2a2a2a;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); font-family: -apple-system, 'Segoe UI', sans-serif; min-height: 100vh; }
+
+/* HEADER */
+.header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 0 20px; position: sticky; top: 0; z-index: 100; }
+.header-top { display: flex; align-items: center; gap: 12px; padding: 12px 0; flex-wrap: wrap; }
+.logo { font-size: 20px; font-weight: 900; color: var(--text); text-decoration: none; letter-spacing: -0.5px; }
+.logo span:first-child { color: var(--accent); }
+.logo .signal { color: var(--signal); margin-left: 4px; }
+.date-badge { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 4px 10px; font-size: 12px; color: var(--muted); font-weight: 600; }
+.brief-toggle { display: flex; gap: 6px; margin-left: auto; }
+.brief-btn { display: inline-flex; align-items: center; gap: 5px; font-size: 13px; font-weight: 700; padding: 5px 15px; border-radius: 20px; text-decoration: none; transition: opacity 0.15s; white-space: nowrap; }
+.brief-btn.active-open { background: var(--accent); color: #000; }
+.brief-btn.active-close { background: var(--signal); color: #000; }
+.brief-btn.inactive { background: var(--surface2); color: #666; border: 1.5px solid #333; }
+.brief-btn.inactive:hover { border-color: var(--accent); color: var(--accent); }
+.brief-btn.disabled { background: var(--surface2); color: #333; border: 1.5px solid #252525; cursor: default; pointer-events: none; opacity: 0.45; }
+.lang-toggle { display: flex; gap: 4px; }
+.lang-btn { background: none; border: 1px solid var(--border); color: var(--muted); padding: 4px 10px; border-radius: 12px; font-size: 12px; cursor: pointer; transition: all 0.15s; }
+.lang-btn.active { background: var(--accent); color: #000; border-color: var(--accent); font-weight: 700; }
+
+/* HISTORY NAV */
+.history-nav { padding: 10px 0 6px; overflow-x: auto; scrollbar-width: none; }
+.history-nav::-webkit-scrollbar { display: none; }
+.date-list { display: flex; gap: 6px; white-space: nowrap; }
+.date-pill { display: inline-block; padding: 4px 12px; border-radius: 14px; font-size: 12px; background: var(--surface2); color: var(--muted); text-decoration: none; border: 1px solid var(--border); transition: all 0.15s; }
+.date-pill:hover { border-color: var(--accent); color: var(--accent); }
+.date-pill.active { background: var(--accent); color: #000; border-color: var(--accent); font-weight: 700; }
+.date-pill.today-link { border-color: var(--accent); color: var(--accent); }
+
+/* MAIN */
+.main { max-width: 900px; margin: 0 auto; padding: 24px 20px; }
+
+/* BADGE ROW */
+.badge-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; align-items: center; }
+.badge { padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 700; }
+.badge-open { background: rgba(0,212,170,0.15); color: var(--accent); border: 1px solid rgba(0,212,170,0.3); }
+.badge-ai { background: rgba(240,192,64,0.12); color: var(--signal); border: 1px solid rgba(240,192,64,0.25); }
+.badge-time { background: var(--surface2); color: var(--muted); border: 1px solid var(--border); }
+.badge-weekend { background: rgba(239,83,80,0.12); color: var(--down); border: 1px solid rgba(239,83,80,0.25); }
+
+/* INDEX CARDS */
+.section-title { font-size: 13px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; }
+.index-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 28px; }
+@media (max-width: 600px) { .index-grid { grid-template-columns: repeat(2, 1fr); } }
+.index-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; }
+.index-label { font-size: 11px; color: var(--muted); font-weight: 600; margin-bottom: 6px; }
+.index-value { font-size: 20px; font-weight: 800; margin-bottom: 4px; }
+.index-change { font-size: 12px; font-weight: 700; }
+.up { color: var(--up); }
+.down { color: var(--down); }
+.neutral { color: var(--muted); }
+
+/* CARDS */
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 20px; margin-bottom: 20px; }
+.card-title { font-size: 15px; font-weight: 800; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+.card-title .icon { font-size: 18px; }
+.summary-text { font-size: 14px; line-height: 1.75; color: #d0d0d0; }
+
+/* THEMES */
+.themes-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; margin-bottom: 20px; }
+.theme-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; border-left: 3px solid var(--accent); }
+.theme-name { font-size: 14px; font-weight: 800; margin-bottom: 6px; color: var(--text); }
+.theme-desc { font-size: 12px; color: var(--muted); line-height: 1.6; }
+
+/* STOCKS */
+.stocks-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; margin-bottom: 20px; }
+.stock-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; }
+.stock-header { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.ticker { background: var(--accent); color: #000; font-size: 11px; font-weight: 900; padding: 3px 8px; border-radius: 6px; }
+.stock-name { font-size: 14px; font-weight: 800; }
+.stock-reason { font-size: 12px; color: #bbb; line-height: 1.6; margin-bottom: 8px; }
+.sentiment { display: flex; align-items: center; gap: 6px; }
+.sentiment-label { font-size: 11px; color: var(--muted); }
+.stars { color: var(--signal); font-size: 12px; }
+
+/* RISK */
+.risk-item { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 12px; }
+.risk-item:last-child { margin-bottom: 0; }
+.risk-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+.risk-content .risk-title { font-size: 14px; font-weight: 700; margin-bottom: 4px; color: #ffb3b3; }
+.risk-content .risk-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+/* NEWS */
+.news-list { list-style: none; }
+.news-item { border-bottom: 1px solid var(--border); padding: 12px 0; }
+.news-item:last-child { border-bottom: none; }
+.news-item a { text-decoration: none; color: var(--text); font-size: 14px; font-weight: 600; line-height: 1.5; display: block; margin-bottom: 4px; }
+.news-item a:hover { color: var(--accent); }
+.news-meta { font-size: 11px; color: var(--muted); }
+
+/* DISCLAIMER */
+.disclaimer { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; margin-top: 28px; }
+.disclaimer p { font-size: 11px; color: var(--muted); line-height: 1.7; }
+
+.footer { text-align: center; padding: 24px; font-size: 11px; color: #444; }
 </style>
 </head>
 <body>
-<header>
-  <a class="logo" href="/us">kkang<span>dago</span> <span class="sig">US</span></a>
-  <button class="lbtn" onclick="toggleLang()">EN</button>
-</header>
-<div class="container">
-  <div class="hnav" id="hnav"><a class="hpill active" href="/us">2026-06-13</a></div>
-  <div class="badges">
-    <span class="badge bpre" data-ko="장전 브리핑" data-en="Pre-Market Brief">장전 브리핑</span>
-    <span class="badge bai">AI Generated</span>
-    <span class="badge bdate">2026-06-13 · EDT 08:30</span>
-  </div>
 
-  <div class="stitle" data-ko="주요 지수" data-en="Key Indices">주요 지수</div>
-  <div class="igrid">
-    <div class="icard"><div class="iname">S&P 500</div><div class="ival">7,431.46</div><div class="ichg up">▲ +37.16 (+0.50%)</div></div>
-    <div class="icard"><div class="iname">NASDAQ</div><div class="ival">25,888.84</div><div class="ichg up">▲ +79.18 (+0.31%)</div></div>
-    <div class="icard"><div class="iname">DOW</div><div class="ival">51,202.26</div><div class="ichg up">▲ +353.51 (+0.70%)</div></div>
-    <div class="icard"><div class="iname">VIX</div><div class="ival">—</div><div class="ichg neu" data-ko="지정학 리스크 완화" data-en="Geopolitical Risk Easing">지정학 리스크 완화</div></div>
-    <div class="icard"><div class="iname">USD/KRW</div><div class="ival">~1,330</div><div class="ichg neu" data-ko="원화 강세 전환" data-en="KRW Strengthening">원화 강세 전환</div></div>
-    <div class="icard"><div class="iname">Gold</div><div class="ival">$4,224</div><div class="ichg neu" data-ko="온스당" data-en="Per oz.">온스당</div></div>
+<div class="header">
+  <div class="header-top">
+    <a class="logo" href="/us/"><span>kkang</span>dago <span class="signal">US</span></a>
+    <div class="date-badge">2026-06-13</div>
+    <div class="brief-toggle">
+      <span class="brief-btn active-open" data-ko="☀️ 장전 브리핑" data-en="☀️ Pre-Market">☀️ 장전 브리핑</span>
+      <a id="closeLink" href="close.html" class="brief-btn disabled" data-ko="🌆 장마감 브리핑" data-en="🌆 After-Hours">🌆 장마감 브리핑</a>
+    </div>
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('ko')">KO</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+    </div>
   </div>
-
-  <div class="stitle" data-ko="시장 요약" data-en="Market Summary">시장 요약</div>
-  <div class="scard">
-    <p data-ko="6월 12일(현지시간) 뉴욕증시는 미·이란 종전 합의 기대감과 스페이스X 나스닥 상장 성공이 맞물리며 3대 지수가 일제히 상승 마감했습니다. 다우 +0.70%, S&P500 +0.50%, 나스닥 +0.31%를 기록했으며, 스페이스X는 상장 첫날 19.3% 급등해 시총 6위로 등극했습니다. 빅테크는 혼조세로, 엔비디아·MS는 소폭 상승했지만 애플은 -1.52% 하락했습니다. 5월 CPI가 4.2%(3년1개월 최고)로 발표돼 연준 금리 인상 우려가 부각되고 있으며, 버핏 지수는 232%로 사상 최고치를 경신해 시장 고평가 경고가 나오고 있습니다. 주말 장전 분위기는 지정학적 리스크 완화 기대가 긍정적이나 금리 불확실성이 상방을 제한할 전망입니다." data-en="On June 12, all three major US indices closed higher, driven by US-Iran ceasefire hopes and SpaceX's landmark NASDAQ debut. DOW +0.70%, S&P500 +0.50%, NASDAQ +0.31%. SpaceX surged 19.3% on its first trading day, becoming the world's 6th largest company by market cap. Big tech was mixed — NVIDIA and Microsoft edged higher while Apple fell 1.52%. May CPI came in at 4.2% (3-year high), fueling Fed rate hike fears. The Buffett Indicator hit an all-time high of 232%, raising structural overvaluation concerns. Geopolitical de-escalation supports the upside, but Fed uncertainty caps further gains.">6월 12일(현지시간) 뉴욕증시는 미·이란 종전 합의 기대감과 스페이스X 나스닥 상장 성공이 맞물리며 3대 지수가 일제히 상승 마감했습니다. 다우 +0.70%, S&P500 +0.50%, 나스닥 +0.31%를 기록했으며, 스페이스X는 상장 첫날 19.3% 급등해 시총 6위로 등극했습니다. 빅테크는 혼조세로, 엔비디아·MS는 소폭 상승했지만 애플은 -1.52% 하락했습니다. 5월 CPI가 4.2%(3년1개월 최고)로 발표돼 연준 금리 인상 우려가 부각되고 있으며, 버핏 지수는 232%로 사상 최고치를 경신해 시장 고평가 경고가 나오고 있습니다. 주말 장전 분위기는 지정학적 리스크 완화 기대가 긍정적이나 금리 불확실성이 상방을 제한할 전망입니다.</p>
-  </div>
-
-  <div class="stitle" data-ko="주목 테마" data-en="Key Themes">주목 테마</div>
-  <div class="tgrid">
-    <div class="tcard"><div class="tname" data-ko="🚀 스페이스X IPO 효과" data-en="🚀 SpaceX IPO Effect">🚀 스페이스X IPO 효과</div><div class="tdesc" data-ko="나스닥 첫날 +19.3%, 시총 6위 등극. 우주경제·민간항공 테마 전반 모멘텀 확산 기대" data-en="+19.3% on debut, ranked #6 globally. Momentum expected to spread across space economy and aerospace.">나스닥 첫날 +19.3%, 시총 6위 등극. 우주경제·민간항공 테마 전반 모멘텀 확산 기대</div></div>
-    <div class="tcard"><div class="tname" data-ko="🕊️ 미·이란 종전 기대" data-en="🕊️ US-Iran Peace Talks">🕊️ 미·이란 종전 기대</div><div class="tdesc" data-ko="트럼프 대통령 종전 합의 임박 보도. 에너지·방산 섹터 변동성 주목" data-en="Trump signals imminent ceasefire deal. Watch volatility in energy and defense sectors.">트럼프 대통령 종전 합의 임박 보도. 에너지·방산 섹터 변동성 주목</div></div>
-    <div class="tcard"><div class="tname" data-ko="🤖 AI 인프라 확장" data-en="🤖 AI Infrastructure">🤖 AI 인프라 확장</div><div class="tdesc" data-ko="1,590억달러 규모 데이터센터·전력망 투자 경쟁 지속. AI 칩 수요 견조" data-en="$159B data center &amp; power grid investment race ongoing. AI chip demand robust.">1,590억달러 규모 데이터센터·전력망 투자 경쟁 지속. AI 칩 수요 견조</div></div>
-    <div class="tcard"><div class="tname" data-ko="📊 연준 금리인상 리스크" data-en="📊 Fed Rate Hike Risk">📊 연준 금리인상 리스크</div><div class="tdesc" data-ko="5월 CPI 4.2%(3년1개월 최고). 케빈 워시 첫 FOMC 임박, 인상 확률 67%" data-en="May CPI 4.2% (3-year high). Kevin Walsh's first FOMC near; futures pricing 67% hike.">5월 CPI 4.2%(3년1개월 최고). 케빈 워시 첫 FOMC 임박, 인상 확률 67%</div></div>
-    <div class="tcard"><div class="tname" data-ko="⚠️ 시장 고평가 경고" data-en="⚠️ Overvaluation Warning">⚠️ 시장 고평가 경고</div><div class="tdesc" data-ko="버핏 지수 232% 사상 최고. GDP 대비 증시 규모 2.3배 돌파" data-en="Buffett Indicator at record 232%. Market cap exceeds 2.3x GDP.">버핏 지수 232% 사상 최고. GDP 대비 증시 규모 2.3배 돌파</div></div>
-  </div>
-
-  <div class="stitle" data-ko="AI 추천 종목 (뉴스 근거)" data-en="AI Stock Picks (News-Based)">AI 추천 종목 (뉴스 근거)</div>
-  <div class="kgrid">
-    <div class="kcard"><div class="khead"><span class="tbadge">NVDA</span><span class="kname" data-ko="엔비디아" data-en="NVIDIA">엔비디아</span><span class="sscore">★ 8.5</span></div><div class="kreason" data-ko="AI 칩 수요 견고. 전일 +0.16% $205.19 마감, 시총 4조6천억달러 이상. 데이터센터 인프라 경쟁 핵심 수혜주 지위 공고." data-en="Robust AI chip demand. Closed +0.16% at $205.19, market cap above $4.6T. Core AI infrastructure beneficiary.">AI 칩 수요 견고. 전일 +0.16% $205.19 마감, 시총 4조6천억달러 이상. 데이터센터 인프라 경쟁 핵심 수혜주 지위 공고.</div></div>
-    <div class="kcard"><div class="khead"><span class="tbadge">MSFT</span><span class="kname" data-ko="마이크로소프트" data-en="Microsoft">마이크로소프트</span><span class="sscore">★ 8.0</span></div><div class="kreason" data-ko="전일 +0.10% $390.74 마감. 빅테크 중 방어적 강세. Azure AI 클라우드 수익성 견조." data-en="Closed +0.10% at $390.74. Defensive strength among big tech. Azure AI cloud profitability solid.">전일 +0.10% $390.74 마감. 빅테크 중 방어적 강세. Azure AI 클라우드 수익성 견조.</div></div>
-    <div class="kcard"><div class="khead"><span class="tbadge">AVGO</span><span class="kname" data-ko="브로드컴" data-en="Broadcom">브로드컴</span><span class="sscore">★ 8.3</span></div><div class="kreason" data-ko="AI 반도체 매출 성장 부각, 실적 발표 후 장전 급등 언급. 커스텀 AI 칩·네트워킹 데이터센터 투자 직접 수혜." data-en="AI revenue growth highlighted; noted surging pre-market post-earnings. Custom AI chips and networking directly benefit from capex surge.">AI 반도체 매출 성장 부각, 실적 발표 후 장전 급등 언급. 커스텀 AI 칩·네트워킹 데이터센터 투자 직접 수혜.</div></div>
-    <div class="kcard"><div class="khead"><span class="tbadge">AMZN</span><span class="kname" data-ko="아마존" data-en="Amazon">아마존</span><span class="sscore">★ 7.8</span></div><div class="kreason" data-ko="차세대 데이터센터 구축·전력망 선점 1,590억달러 AI 인프라 투자. AWS 클라우드 AI 서비스 확장 가속." data-en="Part of $159B AI infrastructure race. AWS cloud AI services accelerating alongside major capex.">차세대 데이터센터 구축·전력망 선점 1,590억달러 AI 인프라 투자. AWS 클라우드 AI 서비스 확장 가속.</div></div>
-    <div class="kcard"><div class="khead"><span class="tbadge">META</span><span class="kname" data-ko="메타" data-en="Meta">메타</span><span class="sscore">★ 7.5</span></div><div class="kreason" data-ko="AI 인프라 수혜주로 복수 기사 언급. 자체 AI(라마)+광고 플랫폼 수익성 차별화. 스페이스X IPO 이후 자금 재배분 기대." data-en="Cited in multiple articles as AI infrastructure beneficiary. Unique Llama AI + ad platform profitability. Capital reallocation expected post-SpaceX IPO.">AI 인프라 수혜주로 복수 기사 언급. 자체 AI(라마)+광고 플랫폼 수익성 차별화. 스페이스X IPO 이후 자금 재배분 기대.</div></div>
-    <div class="kcard"><div class="khead"><span class="tbadge">GOOG</span><span class="kname" data-ko="알파벳(구글)" data-en="Alphabet (Google)">알파벳(구글)</span><span class="sscore">★ 7.6</span></div><div class="kreason" data-ko="스페이스X 상장으로 시총 5위 밀렸으나 AI 검색·GCP 성장 스토리 유효. 지정학 리스크 완화 시 광고 수익 정상화 기대." data-en="Dropped to 5th in market cap post-SpaceX, but AI search and GCP growth story intact. Geopolitical de-escalation supports ad revenue.">스페이스X 상장으로 시총 5위 밀렸으나 AI 검색·GCP 성장 스토리 유효. 지정학 리스크 완화 시 광고 수익 정상화 기대.</div></div>
-  </div>
-
-  <div class="stitle" data-ko="주요 리스크" data-en="Key Risks">주요 리스크</div>
-  <div class="rcard">
-    <div class="rtitle">⚠️ <span data-ko="연준 금리인상 현실화 + 시장 고평가" data-en="Fed Rate Hike Risk + Market Overvaluation">연준 금리인상 현실화 + 시장 고평가</span></div>
-    <div class="rdesc" data-ko="5월 CPI 4.2%(3년1개월 최고)로 케빈 워시 신임 연준 의장 첫 FOMC에서 금리 인상 가능성이 선물 시장에서 67%로 반영되고 있습니다. 버핏 지수 232% 사상 최고치는 미국 증시의 구조적 고평가를 경고합니다. 스페이스X IPO로 인한 기존 빅테크 자금 이탈 시 나스닥 변동성 확대 가능성을 주시해야 합니다." data-en="May CPI at 4.2% (3-year high) has rate futures pricing a 67% hike probability at Kevin Walsh's inaugural FOMC. The Buffett Indicator at a record 232% warns of structural overvaluation. SpaceX-driven capital rotation could amplify NASDAQ volatility if existing mega-caps face significant selling pressure.">5월 CPI 4.2%(3년1개월 최고)로 케빈 워시 신임 연준 의장 첫 FOMC에서 금리 인상 가능성이 선물 시장에서 67%로 반영되고 있습니다. 버핏 지수 232% 사상 최고치는 미국 증시의 구조적 고평가를 경고합니다. 스페이스X IPO로 인한 기존 빅테크 자금 이탈 시 나스닥 변동성 확대 가능성을 주시해야 합니다.</div>
-  </div>
-
-  <div class="stitle" data-ko="주요 뉴스" data-en="Key News">주요 뉴스</div>
-  <div class="nlist">
-    <a class="nitem" href="https://n.news.naver.com/mnews/article/374/0000515718?sid=101" target="_blank" rel="noopener"><div class="ntitle" data-ko="[글로벌 증시] &quot;이란과 종전 임박&quot; 미국증시 다시 날아오르나" data-en="[Global Markets] 'Iran Ceasefire Imminent' — US Stocks Ready to Soar?">[글로벌 증시] "이란과 종전 임박" 미국증시 다시 날아오르나</div><div class="nmeta">SBS Biz · 2026.06.12</div></a>
-    <a class="nitem" href="https://n.news.naver.com/mnews/article/014/0005534327?sid=101" target="_blank" rel="noopener"><div class="ntitle" data-ko="[뉴욕증시] 스페이스X·이란 종전 MOU 기대감에 상승…스페이스X 첫날 19% ↑" data-en="[NYSE] Stocks Rise on SpaceX IPO & Iran Ceasefire MOU — SpaceX +19% Day One">[뉴욕증시] 스페이스X·이란 종전 MOU 기대감에 상승…스페이스X 첫날 19% ↑</div><div class="nmeta">파이낸셜뉴스 · 2026.06.13</div></a>
-    <a class="nitem" href="https://n.news.naver.com/mnews/article/008/0005371337?sid=104" target="_blank" rel="noopener"><div class="ntitle" data-ko="스페이스X 초대박, '조만장자' 된 머스크 — 시총 6위 등극" data-en="SpaceX Mega-Hit: Musk Becomes Trillionaire+ — Ranked #6 by Market Cap">스페이스X 초대박, '조만장자' 된 머스크 — 시총 6위 등극</div><div class="nmeta">머니투데이 · 2026.06.13</div></a>
-    <a class="nitem" href="https://n.news.naver.com/mnews/article/050/0000107262?sid=101" target="_blank" rel="noopener"><div class="ntitle" data-ko="버핏 지수 232% 역대 최고…&quot;美증시 심각한 고평가 경고&quot;" data-en="Buffett Indicator Hits Record 232% — Severe US Market Overvaluation Warning">버핏 지수 232% 역대 최고…"美증시 심각한 고평가 경고"</div><div class="nmeta">한국경제 · 2026.06.13</div></a>
-    <a class="nitem" href="https://n.news.naver.com/mnews/article/079/0004156877?sid=100" target="_blank" rel="noopener"><div class="ntitle" data-ko="허준영 &quot;하반기 환율 약 1450원까지 하락…연준 금리 쉽게 인상 못해&quot;" data-en="Prof. Heo: 'H2 KRW to ~1,450; Fed Cannot Easily Hike'">허준영 "하반기 환율 약 1450원까지 하락…연준 금리 쉽게 인상 못해"</div><div class="nmeta">노컷뉴스 · 2026.06.11</div></a>
-  </div>
-
-  <div class="disc">
-    <p data-ko="⚠️ 본 브리핑은 AI가 뉴스 기사를 분석하여 자동 생성한 정보로, 투자 권유나 재정 조언이 아닙니다. 모든 투자 결정은 본인의 판단과 책임 하에 이루어져야 하며, 전문 투자 상담사와 상의하시기 바랍니다. 과거 성과는 미래 수익을 보장하지 않습니다." data-en="⚠️ This briefing is auto-generated by AI based on news analysis and does not constitute investment advice. All investment decisions are made at your own risk. Please consult a qualified financial advisor. Past performance does not guarantee future results.">⚠️ 본 브리핑은 AI가 뉴스 기사를 분석하여 자동 생성한 정보로, 투자 권유나 재정 조언이 아닙니다. 모든 투자 결정은 본인의 판단과 책임 하에 이루어져야 하며, 전문 투자 상담사와 상의하시기 바랍니다. 과거 성과는 미래 수익을 보장하지 않습니다.</p>
+  <div class="history-nav">
+    <div class="date-list" id="dateList">
+      <a href="/us/" class="date-pill active">오늘</a>
+    </div>
   </div>
 </div>
+
+<div class="main">
+
+  <!-- BADGE ROW -->
+  <div class="badge-row">
+    <span class="badge badge-open" data-ko="☀️ 장전 브리핑 | Pre-Market" data-en="☀️ Pre-Market Briefing">☀️ 장전 브리핑 | Pre-Market</span>
+    <span class="badge badge-ai" data-ko="🤖 AI Generated" data-en="🤖 AI Generated">🤖 AI Generated</span>
+    <span class="badge badge-time">2026-06-13 · EDT 08:30</span>
+    <span class="badge badge-weekend" data-ko="📅 주말 — 월요일 시장 전망" data-en="📅 Weekend — Monday Outlook">📅 주말 — 월요일 시장 전망</span>
+  </div>
+
+  <!-- INDEX CARDS -->
+  <div class="section-title" data-ko="전일 종가 (6/12 미국 마감)" data-en="Previous Close (Jun 12 US)">전일 종가 (6/12 미국 마감)</div>
+  <div class="index-grid">
+    <div class="index-card">
+      <div class="index-label">S&amp;P 500</div>
+      <div class="index-value up">7,431.46</div>
+      <div class="index-change up">▲ +37.16 (+0.50%)</div>
+    </div>
+    <div class="index-card">
+      <div class="index-label">NASDAQ</div>
+      <div class="index-value up">25,888.84</div>
+      <div class="index-change up">▲ +79.18 (+0.31%)</div>
+    </div>
+    <div class="index-card">
+      <div class="index-label">DOW JONES</div>
+      <div class="index-value up">51,202.26</div>
+      <div class="index-change up">▲ +353.51 (+0.70%)</div>
+    </div>
+    <div class="index-card">
+      <div class="index-label">VIX</div>
+      <div class="index-value neutral">—</div>
+      <div class="index-change neutral">데이터 미수집</div>
+    </div>
+    <div class="index-card">
+      <div class="index-label">USD/KRW</div>
+      <div class="index-value neutral">~1,450</div>
+      <div class="index-change neutral">추정치</div>
+    </div>
+    <div class="index-card">
+      <div class="index-label">WTI 원유</div>
+      <div class="index-value neutral">—</div>
+      <div class="index-change neutral">데이터 미수집</div>
+    </div>
+  </div>
+
+  <!-- MARKET SUMMARY -->
+  <div class="card">
+    <div class="card-title"><span class="icon">📊</span> <span data-ko="시장 요약" data-en="Market Summary">시장 요약</span></div>
+    <p class="summary-text" data-ko="6월 12일(미국 현지시간) 뉴욕증시는 미·이란 종전 합의 기대감과 스페이스X의 나스닥 상장 성공에 힘입어 다우·S&P500·나스닥 3대 지수가 일제히 상승 마감했습니다. 다우는 0.70%, S&P500은 0.50%, 나스닥은 0.31% 올랐으며, S&P500은 7,431을 돌파했습니다. 스페이스X는 상장 첫날 19.3% 급등하며 시총 6위(엔비디아·알파벳·애플·MS·아마존 다음)로 직행했고, 머스크는 '조만장자' 반열에 올랐습니다. 빅테크는 혼조세로, 엔비디아(+0.16%)·MS(+0.10%)는 소폭 올랐으나 애플은 1.52% 하락했습니다. 주말인 6월 13일 미국 시장은 휴장이며, 이번 브리핑은 6/12 마감 결과를 바탕으로 월요일(6/16) 시장 전망을 제공합니다." data-en="U.S. markets closed higher on June 12 as optimism over a U.S.-Iran ceasefire agreement combined with SpaceX's blockbuster NASDAQ debut to lift all three major indices. The Dow rose 0.70%, S&P 500 gained 0.50%, and Nasdaq advanced 0.31%, with S&P 500 breaking above 7,431. SpaceX surged 19.3% on its first trading day, vaulting to 6th largest market cap globally. Big Tech was mixed: NVDA (+0.16%) and MSFT (+0.10%) edged higher, while Apple fell 1.52%. U.S. markets are closed Saturday June 13; this briefing previews the Monday (Jun 16) open.">6월 12일(미국 현지시간) 뉴욕증시는 미·이란 종전 합의 기대감과 스페이스X의 나스닥 상장 성공에 힘입어 다우·S&P500·나스닥 3대 지수가 일제히 상승 마감했습니다. 다우는 0.70%, S&P500은 0.50%, 나스닥은 0.31% 올랐으며, S&P500은 7,431을 돌파했습니다. 스페이스X는 상장 첫날 19.3% 급등하며 시총 6위(엔비디아·알파벳·애플·MS·아마존 다음)로 직행했고, 머스크는 '조만장자' 반열에 올랐습니다. 빅테크는 혼조세로, 엔비디아(+0.16%)·MS(+0.10%)는 소폭 올랐으나 애플은 1.52% 하락했습니다. 주말인 6월 13일 미국 시장은 휴장이며, 이번 브리핑은 6/12 마감 결과를 바탕으로 월요일(6/16) 시장 전망을 제공합니다.</p>
+  </div>
+
+  <!-- KEY THEMES -->
+  <div class="section-title" data-ko="주목 테마" data-en="Key Themes">주목 테마</div>
+  <div class="themes-grid">
+    <div class="theme-card">
+      <div class="theme-name" data-ko="🚀 스페이스X IPO 빅뱅" data-en="🚀 SpaceX IPO Blowout">🚀 스페이스X IPO 빅뱅</div>
+      <div class="theme-desc" data-ko="나스닥 상장 첫날 19.3% 급등, 시총 6위 진입. 우주·위성인터넷 테마 자금 유입 본격화." data-en="SpaceX surged 19.3% on debut, entering global top-6 by market cap. Space and satellite internet theme accelerating.">나스닥 상장 첫날 19.3% 급등, 시총 6위 진입. 우주·위성인터넷 테마 자금 유입 본격화.</div>
+    </div>
+    <div class="theme-card">
+      <div class="theme-name" data-ko="🕊️ 미·이란 종전 기대" data-en="🕊️ US-Iran Ceasefire Hope">🕊️ 미·이란 종전 기대</div>
+      <div class="theme-desc" data-ko="트럼프 대통령이 이란과의 종전 합의를 시사하며 중동 지정학적 리스크 완화, 증시 전반 상승 동력." data-en="Trump signals US-Iran ceasefire deal, easing geopolitical risk in Middle East and boosting overall market sentiment.">트럼프 대통령이 이란과의 종전 합의를 시사하며 중동 지정학적 리스크 완화, 증시 전반 상승 동력.</div>
+    </div>
+    <div class="theme-card">
+      <div class="theme-name" data-ko="🤖 AI·빅테크 혼조" data-en="🤖 AI/Big Tech Mixed">🤖 AI·빅테크 혼조</div>
+      <div class="theme-desc" data-ko="스페이스X IPO로 M7 일부 매도 압력. 엔비디아·MS 소폭 상승, 애플 하락. AI 인프라 수요는 견조." data-en="SpaceX IPO drew some selling from Mag-7. NVDA and MSFT edged up, Apple slipped. AI infra demand remains solid.">스페이스X IPO로 M7 일부 매도 압력. 엔비디아·MS 소폭 상승, 애플 하락. AI 인프라 수요는 견조.</div>
+    </div>
+    <div class="theme-card">
+      <div class="theme-name" data-ko="⚡ FOMC·인플레 긴장" data-en="⚡ FOMC &amp; Inflation Tension">⚡ FOMC·인플레 긴장</div>
+      <div class="theme-desc" data-ko="5월 CPI 4.2%(3년1개월 최대), 케빈 워시 첫 FOMC 앞두고 금리인상 가능성 67% 선반영 중." data-en="May CPI hit 4.2% (highest in 3+ years); markets pricing 67% chance of rate hike at Kevin Warsh's first FOMC.">5월 CPI 4.2%(3년1개월 최대), 케빈 워시 첫 FOMC 앞두고 금리인상 가능성 67% 선반영 중.</div>
+    </div>
+    <div class="theme-card">
+      <div class="theme-name" data-ko="⚠️ 버핏 지수 232% 경고" data-en="⚠️ Buffett Indicator at 232%">⚠️ 버핏 지수 232% 경고</div>
+      <div class="theme-desc" data-ko="미국 시총/GDP 비율 역대 최고치 232%. 스페이스X·AI 주도의 유동성 장세지만 밸류에이션 부담 확대." data-en="US market cap/GDP ratio hit all-time high of 232%, raising valuation concerns amid SpaceX/AI-driven liquidity rally.">미국 시총/GDP 비율 역대 최고치 232%. 스페이스X·AI 주도의 유동성 장세지만 밸류에이션 부담 확대.</div>
+    </div>
+  </div>
+
+  <!-- STOCK PICKS -->
+  <div class="section-title" data-ko="상승 유망 종목 (뉴스 기반)" data-en="Top Picks (News-Based)">상승 유망 종목 (뉴스 기반)</div>
+  <div class="stocks-grid">
+    <div class="stock-card">
+      <div class="stock-header">
+        <span class="ticker">SPACX</span>
+        <span class="stock-name" data-ko="스페이스X" data-en="SpaceX">스페이스X</span>
+      </div>
+      <div class="stock-reason" data-ko="나스닥 상장 첫날 19.3% 폭등. IPO 이후 추가 매수세 유입 기대. PSR 약 100배 이상이나 우주·스타링크 성장 프리미엄 반영. 머스크 효과로 투자 심리 강세." data-en="Surged 19.3% on IPO day. Post-listing buying interest expected. High PSR (~100x+) reflects Space/Starlink growth premium.">나스닥 상장 첫날 19.3% 폭등. IPO 이후 추가 매수세 유입 기대. PSR 약 100배 이상이나 우주·스타링크 성장 프리미엄 반영. 머스크 효과로 투자 심리 강세.</div>
+      <div class="sentiment">
+        <span class="sentiment-label" data-ko="감성:" data-en="Sentiment:">감성:</span>
+        <span class="stars">★★★★★</span>
+      </div>
+    </div>
+    <div class="stock-card">
+      <div class="stock-header">
+        <span class="ticker">NVDA</span>
+        <span class="stock-name">NVIDIA</span>
+      </div>
+      <div class="stock-reason" data-ko="AI 반도체 수요 견조 확인. $205.19 소폭 상승. 필라델피아 반도체지수 강세 유지. SpaceX 스타쉴드 등 AI 인프라 확장 최대 수혜." data-en="Closed at $205.19 (+0.16%). AI chip demand confirmed solid. Largest beneficiary of SpaceX Starshield and AI infra expansion.">AI 반도체 수요 견조 확인. $205.19 소폭 상승. 필라델피아 반도체지수 강세 유지. SpaceX 스타쉴드 등 AI 인프라 확장 최대 수혜.</div>
+      <div class="sentiment">
+        <span class="sentiment-label" data-ko="감성:" data-en="Sentiment:">감성:</span>
+        <span class="stars">★★★★☆</span>
+      </div>
+    </div>
+    <div class="stock-card">
+      <div class="stock-header">
+        <span class="ticker">META</span>
+        <span class="stock-name">Meta Platforms</span>
+      </div>
+      <div class="stock-reason" data-ko="AI 인프라 투자 확대 경쟁에서 빅테크 중 가장 공격적인 데이터센터 지출. AI 광고 수익 개선 기대. 중동 긴장 완화로 글로벌 광고 시장 회복 전망." data-en="Most aggressive AI datacenter capex among Big Tech. AI-driven ad revenue improving. Middle East stabilization benefits global ad market.">AI 인프라 투자 확대 경쟁에서 빅테크 중 가장 공격적인 데이터센터 지출. AI 광고 수익 개선 기대. 중동 긴장 완화로 글로벌 광고 시장 회복 전망.</div>
+      <div class="sentiment">
+        <span class="sentiment-label" data-ko="감성:" data-en="Sentiment:">감성:</span>
+        <span class="stars">★★★★☆</span>
+      </div>
+    </div>
+    <div class="stock-card">
+      <div class="stock-header">
+        <span class="ticker">GOOGL</span>
+        <span class="stock-name">Alphabet</span>
+      </div>
+      <div class="stock-reason" data-ko="스페이스X와 시총 경쟁 심화. AI 검색·클라우드 성장 지속. SpaceX IPO 이후에도 AI 인프라 플랫폼 수혜. 뉴스에 시총 5위권 언급." data-en="Competes directly with SpaceX for market cap top-5. AI search and cloud growth continue. Referenced as top-5 market cap in SpaceX IPO coverage.">스페이스X와 시총 경쟁 심화. AI 검색·클라우드 성장 지속. SpaceX IPO 이후에도 AI 인프라 플랫폼 수혜. 뉴스에 시총 5위권 언급.</div>
+      <div class="sentiment">
+        <span class="sentiment-label" data-ko="감성:" data-en="Sentiment:">감성:</span>
+        <span class="stars">★★★★☆</span>
+      </div>
+    </div>
+    <div class="stock-card">
+      <div class="stock-header">
+        <span class="ticker">MSFT</span>
+        <span class="stock-name">Microsoft</span>
+      </div>
+      <div class="stock-reason" data-ko="$390.74 (+0.10%) 소폭 상승 마감. Azure AI 클라우드 성장 지속. 차세대 데이터센터 구축·전력망 선점 경쟁 참여. 안정적 대형주 포지셔닝." data-en="Closed at $390.74 (+0.10%). Azure AI cloud momentum continues. Competing in next-gen datacenter buildout. Stable large-cap positioning.">$390.74 (+0.10%) 소폭 상승 마감. Azure AI 클라우드 성장 지속. 차세대 데이터센터 구축·전력망 선점 경쟁 참여. 안정적 대형주 포지셔닝.</div>
+      <div class="sentiment">
+        <span class="sentiment-label" data-ko="감성:" data-en="Sentiment:">감성:</span>
+        <span class="stars">★★★☆☆</span>
+      </div>
+    </div>
+    <div class="stock-card">
+      <div class="stock-header">
+        <span class="ticker">AMZN</span>
+        <span class="stock-name">Amazon</span>
+      </div>
+      <div class="stock-reason" data-ko="AI 클라우듞(AWS) 성장세 지속. 스페이스X 뉴스에 시총 경쟁 상위권 언급. 중동 긴장 완화로 물류·소비 회복 기대. 차세대 데이터센터 확장." data-en="AWS cloud growth continuing. Mentioned in SpaceX top market cap competition. Logistics/consumer recovery expected from Middle East stabilization.">AI 클라우드(AWS) 성장세 지속. 스페이스X 뉴스에 시총 경쟁 상위권 언급. 중동 긴장 완화로 물류·소비 회복 기대. 차세대 데이터센터 확장.</div>
+      <div class="sentiment">
+        <span class="sentiment-label" data-ko="감성:" data-en="Sentiment:">감성:</span>
+        <span class="stars">★★★☆☆</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- RISK -->
+  <div class="card">
+    <div class="card-title"><span class="icon">⚠️</span> <span data-ko="주요 리스크 요인" data-en="Key Risk Factors">주요 리스크 요인</span></div>
+    <div class="risk-item">
+      <div class="risk-icon">📈</div>
+      <div class="risk-content">
+        <div class="risk-title" data-ko="연준 금리 인상 리스크" data-en="Fed Rate Hike Risk">연준 금리 인상 리스크</div>
+        <div class="risk-desc" data-ko="5월 CPI가 4.2%(YoY, 3년1개월 최고치)로 예상을 크게 상회했습니다. 금리선물 시장은 케빈 워시 신임 연준 의장의 첫 FOMC에서 금리인상 가능성을 67%로 반영하고 있어, 고밸류에이션 성장주에 하방 압력이 될 수 있습니다." data-en="May CPI surged 4.2% YoY (highest in 3+ years), well above expectations. Rate futures price a 67% probability of a hike at new Fed Chair Kevin Warsh's first FOMC, creating downside pressure for high-valuation growth stocks.">5월 CPI가 4.2%(YoY, 3년1개월 최고치)로 예상을 크게 상회했습니다. 금리선물 시장은 케빈 워시 신임 연준 의장의 첫 FOMC에서 금리인상 가능성을 67%로 반영하고 있어, 고밸류에이션 성장주에 하방 압력이 될 수 있습니다.</div>
+      </div>
+    </div>
+    <div class="risk-item">
+      <div class="risk-icon">💹</div>
+      <div class="risk-content">
+        <div class="risk-title" data-ko="버핏 지수 232% — 역대 최고 과열 경고" data-en="Buffett Indicator 232% — Record High Overvaluation">버핏 지수 232% — 역대 최고 과열 경고</div>
+        <div class="risk-desc" data-ko="미국 시총/GDP 비율이 232%로 역대 최고치를 기록했습니다. 스페이스X·AI 주도의 유동성 장세로 증시가 급등했으나, 실물 경제 대비 심각한 고평가 상태. 차익실현 매물 출회 시 낙폭 확대 가능성이 있습니다." data-en="US market cap/GDP ratio hit an all-time record of 232%. While SpaceX/AI have driven gains, severe overvaluation vs. real economy means large-scale profit-taking could amplify any correction.">미국 시총/GDP 비율이 232%로 역대 최고치를 기록했습니다. 스페이스X·AI 주도의 유동성 장세로 증시가 급등했으나, 실물 경제 대비 심각한 고평가 상태. 차익실현 매물 출회 시 낙폭 확대 가능성이 있습니다.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NEWS LIST -->
+  <div class="card">
+    <div class="card-title"><span class="icon">📰</span> <span data-ko="주요 뉴스" data-en="Key News">주요 뉴스</span></div>
+    <ul class="news-list">
+      <li class="news-item">
+        <a href="http://www.newsroad.co.kr/news/articleView.html?idxno=60384" target="_blank" rel="noopener">미·이란 종전 합의 임박에 뉴욕증시 상승…스페이스X 상장 첫날 19% 급등</a>
+        <div class="news-meta">newsroad · 2026.06.13</div>
+      </li>
+      <li class="news-item">
+        <a href="https://n.news.naver.com/mnews/article/014/0005534327?sid=101" target="_blank" rel="noopener">[뉴욕증시] 스페이스X·이란 종전 MOU 기대감에 상승…스페이스X, 첫날 19% 급등</a>
+        <div class="news-meta">파이낸셜뉴스 · 2026.06.13</div>
+      </li>
+      <li class="news-item">
+        <a href="https://news.einfomax.co.kr/news/articleView.html?idxno=4419796" target="_blank" rel="noopener">[뉴욕마켓워치] 스페이스X 초대박에 머스크는 조만장자…주가·달러↑채권↓</a>
+        <div class="news-meta">연합인포맥스 · 2026.06.13</div>
+      </li>
+      <li class="news-item">
+        <a href="http://www.newsroad.co.kr/news/articleView.html?idxno=60385" target="_blank" rel="noopener">스페이스X, 나스닥 입성 첫날 19.3% 급등…단숨에 시총 6위 '고공 비행'</a>
+        <div class="news-meta">newsroad · 2026.06.13</div>
+      </li>
+      <li class="news-item">
+        <a href="https://n.news.naver.com/mnews/article/050/0000107262?sid=101" target="_blank" rel="noopener">버핏 지수 232% 역대 최고..."美증시 심각한 고평가 경고"</a>
+        <div class="news-meta">한국경제 · 2026.06.13</div>
+      </li>
+      <li class="news-item">
+        <a href="https://n.news.naver.com/mnews/article/374/0000515718?sid=101" target="_blank" rel="noopener">[글로벌 증시 따라잡기] "이란과 종전 임박" 미국증시 다시 날아오르나…금리인상 향하는 경제지표</a>
+        <div class="news-meta">SBS Biz · 2026.06.12</div>
+      </li>
+      <li class="news-item">
+        <a href="https://biz.heraldcorp.com/article/10770593?ref=naver" target="_blank" rel="noopener">'170억달러면 얼마야?' 스페이스X '블랙홀', 기존 빅테크 자금 이동 주의</a>
+        <div class="news-meta">헤럴드경제 · 2026.06.12</div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- DISCLAIMER -->
+  <div class="disclaimer">
+    <p data-ko="⚠️ 본 브리핑은 AI가 뉴스 기사를 수집·분석하여 자동 생성한 정보 제공 콘텐츠입니다. 투자 권유나 매매 추천이 아니며, 실제 투자 결정은 본인의 판단과 책임 하에 이루어져야 합니다. 언급된 종목은 뉴스 기사에 근거한 정보 제공 목적으로만 제시되었습니다. 과거 수익률이 미래 수익률을 보장하지 않습니다." data-en="⚠️ This briefing is AI-generated content based on news article collection and analysis. It is not investment advice or a solicitation to trade. All investment decisions are solely the responsibility of the investor. Mentioned securities are for informational purposes only. Past performance does not guarantee future results.">⚠️ 본 브리핑은 AI가 뉴스 기사를 수집·분석하여 자동 생성한 정보 제공 콘텐츠입니다. 투자 권유나 매매 추천이 아니며, 실제 투자 결정은 본인의 판단과 책임 하에 이루어져야 합니다. 언급된 종목은 뉴스 기사에 근거한 정보 제공 목적으로만 제시되었습니다. 과거 수익률이 미래 수익률을 보장하지 않습니다.</p>
+  </div>
+
+  <div class="footer">© 2026 kkangdago · Powered by Claude AI</div>
+</div>
+
 <script>
-let lang='ko';
-function toggleLang(){
-  lang=lang==='ko'?'en':'ko';
-  document.querySelector('.lbtn').textContent=lang==='ko'?'EN':'한';
-  document.querySelectorAll('[data-ko]').forEach(el=>{el.textContent=lang==='ko'?el.dataset.ko:el.dataset.en;});
-}
-fetch('/archive/us-index.json').then(r=>r.json()).then(dates=>{
-  const nav=document.getElementById('hnav');nav.innerHTML='';
-  [...dates].reverse().slice(0,8).forEach(d=>{
-    const a=document.createElement('a');
-    a.className='hpill'+(d==='2026-06-13'?' active':'');
-    a.href=d==='2026-06-13'?'/us':'/archive/us/'+d+'.html';
-    a.textContent=d;nav.appendChild(a);
+// Language toggle
+let currentLang = 'ko';
+function setLang(lang) {
+  currentLang = lang;
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+  document.querySelectorAll('[data-ko]').forEach(el => {
+    el.textContent = el.dataset[lang] || el.dataset.ko;
   });
-}).catch(()=>{});
+}
+
+// History nav + closeLink
+(async () => {
+  const base = '';
+  const isArchive = location.pathname.includes('/archive/');
+  const m = location.pathname.match(/(\d{4}-\d{2}-\d{2})/);
+  const curDate = m ? m[1] : null;
+  const closeLink = document.getElementById('closeLink');
+  if (isArchive && curDate) closeLink.href = base + '/archive/us/' + curDate + '-close.html';
+  try {
+    const r = await fetch(base + '/archive/us-index.json?t=' + Date.now());
+    if (!r.ok) return;
+    const entries = await r.json();
+    const todayStr = '2026-06-13';
+    const todayEntry = entries.find(e => (typeof e === 'string' ? e : e.date) === todayStr);
+    const closeExists = todayEntry && typeof todayEntry === 'object' && todayEntry.close;
+    if (closeExists && !isArchive) {
+      closeLink.classList.remove('disabled');
+      closeLink.classList.add('inactive');
+    }
+    const c = document.getElementById('dateList');
+    c.innerHTML = '';
+    const tp = document.createElement('a');
+    tp.href = base + '/us/';
+    tp.className = 'date-pill' + (!isArchive ? ' active' : ' today-link');
+    tp.textContent = '오늘';
+    c.appendChild(tp);
+    [...entries].reverse().forEach(entry => {
+      const d = typeof entry === 'string' ? entry : entry.date;
+      const a = document.createElement('a');
+      a.href = base + '/archive/us/' + d + '.html';
+      a.className = 'date-pill' + (d === curDate && isArchive ? ' active' : '');
+      const p = d.split('-');
+      a.textContent = parseInt(p[1]) + '/' + parseInt(p[2]);
+      c.appendChild(a);
+    });
+  } catch(e) {}
+})();
 </script>
 </body>
 </html>
