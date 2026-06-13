@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-adsense-account" content="ca-pub-2869718539906266">
+  <title>kkangdago US — 미국 증시 AI 브리핑</title>
+  <meta name="description" content="AI 기반 미국 증시 장전·장마감 브리핑. S&P500, 나스닥, 다우존스 주요 테마와 추천 종목.">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2869718539906266" crossorigin="anonymous"></script>
+  <style>
+    :root {
+      --bg: #0d0d0d;
+      --surface: #161616;
+      --surface2: #1e1e1e;
+      --border: #2a2a2a;
+      --text: #e8e8e8;
+      --text-muted: #888;
+      --accent: #00d4aa;
+      --accent2: #ff6b35;
+      --signal: #f0c040;
+      --up: #26a69a;
+      --down: #ef5350;
+      --font: 'Segoe UI', -apple-system, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: var(--font); line-height: 1.6; min-height: 100vh; }
+    header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 0 1.5rem; position: sticky; top: 0; z-index: 100; }
+    .header-inner { max-width: 960px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 56px; }
+    .logo { font-size: 1.4rem; font-weight: 800; letter-spacing: -0.5px; text-decoration: none; color: var(--text); }
+    .logo span { color: var(--accent); }
+    .logo .signal { color: var(--signal); font-size: 1rem; vertical-align: super; margin-left: 2px; }
+    .lang-btn { background: var(--surface2); border: 1px solid var(--border); color: var(--text-muted); padding: 6px 14px; border-radius: 20px; cursor: pointer; font-size: 0.85rem; transition: all 0.2s; }
+    .lang-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .container { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem; }
+    .hero { text-align: center; padding: 4rem 1rem 3rem; }
+    .hero-badge { display: inline-block; background: var(--surface2); border: 1px solid var(--border); color: var(--accent); font-size: 0.8rem; padding: 4px 12px; border-radius: 20px; margin-bottom: 1.2rem; letter-spacing: 1px; text-transform: uppercase; }
+    .hero h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 1rem; }
+    .hero h1 em { color: var(--accent); font-style: normal; }
+    .hero p { color: var(--text-muted); font-size: 1rem; max-width: 480px; margin: 0 auto 2rem; }
+    .coming-soon { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 3rem 2rem; text-align: center; max-width: 500px; margin: 0 auto; }
+    .coming-soon .icon { font-size: 3rem; margin-bottom: 1rem; }
+    .coming-soon h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.8rem; }
+    .coming-soon p { color: var(--text-muted); font-size: 0.95rem; }
+    .section { margin-bottom: 2.5rem; }
+    .section-title { font-size: 1rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.2rem 1.5rem; margin-bottom: 1rem; }
+    .placeholder-row { display: flex; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap; }
+    .placeholder-box { flex: 1; min-width: 200px; background: var(--surface2); border-radius: 10px; padding: 1.5rem; text-align: center; color: var(--text-muted); font-size: 0.9rem; }
+    .nav-bar { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1rem 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center; margin-bottom: 2rem; }
+    .nav-bar span { color: var(--text-muted); font-size: 0.85rem; margin-right: 0.5rem; }
+    .nav-date { background: var(--surface2); border: 1px solid var(--border); color: var(--text-muted); padding: 4px 12px; border-radius: 8px; font-size: 0.85rem; cursor: pointer; text-decoration: none; transition: all 0.2s; }
+    .nav-date:hover, .nav-date.active { background: var(--accent); color: #000; border-color: var(--accent); }
+    footer { border-top: 1px solid var(--border); padding: 2rem 1.5rem; text-align: center; color: var(--text-muted); font-size: 0.82rem; }
+    .disclaimer { background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.5rem; font-size: 0.82rem; color: var(--text-muted); margin-bottom: 2rem; line-height: 1.8; }
+  </style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/us" class="logo">kkang<span>dago</span> <span class="signal">US</span></a>
+    <button class="lang-btn" id="langBtn" onclick="toggleLang()">EN</button>
+  </div>
+</header>
+
+<div class="container">
+  <!-- History Navigation -->
+  <div class="nav-bar" id="historyNav">
+    <span data-ko="히스토리:" data-en="History:">히스토리:</span>
+    <span style="color:var(--text-muted);font-size:0.85rem;" data-ko="브리핑이 쌓이면 여기에 표시됩니다." data-en="Past briefings will appear here.">브리핑이 쌓이면 여기에 표시됩니다.</span>
+  </div>
+
+  <!-- Main Coming Soon -->
+  <div class="hero">
+    <div class="hero-badge" data-ko="미국 증시 AI 브리핑" data-en="US Market AI Briefing">미국 증시 AI 브리핑</div>
+    <h1 data-ko="<em>kkangdago</em> US가<br>곧 시작됩니다" data-en="<em>kkangdago</em> US is<br>Coming Soon">
+      <em>kkangdago</em> US가<br>곧 시작됩니다
+    </h1>
+    <p data-ko="매일 KST 21:30 장전 브리핑, KST 05:30 장마감 브리핑이 AI로 자동 생성됩니다." 
+       data-en="Pre-market briefing at 8:30 AM EDT and after-hours briefing at 4:30 PM EDT will be auto-generated daily by AI.">
+      매일 KST 21:30 장전 브리핑, KST 05:30 장마감 브리핑이 AI로 자동 생성됩니다.
+    </p>
+    <div class="coming-soon">
+      <div class="icon">📈</div>
+      <h2 data-ko="브리핑 준비 중" data-en="Briefing Coming Soon">브리핑 준비 중</h2>
+      <p data-ko="S&P500 · 나스닥 · 다우 주요 테마 및 추천 종목 분석이 곧 제공될 예정입니다." 
+         data-en="Analysis of S&P500, Nasdaq, Dow themes and stock picks will be available soon.">
+        S&P500 · 나스닥 · 다우 주요 테마 및 추천 종목 분석이 곧 제공될 예정입니다.
+      </p>
+    </div>
+  </div>
+
+  <!-- Preview Sections -->
+  <div class="section">
+    <div class="section-title" data-ko="시장 요약" data-en="Market Summary">시장 요약</div>
+    <div class="placeholder-row">
+      <div class="placeholder-box">S&amp;P 500<br><span>—</span></div>
+      <div class="placeholder-box">NASDAQ<br><span>—</span></div>
+      <div class="placeholder-box">DOW<br><span>—</span></div>
+      <div class="placeholder-box">VIX<br><span>—</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title" data-ko="주요 테마" data-en="Key Themes">주요 테마</div>
+    <div class="card" style="color:var(--text-muted);text-align:center;" data-ko="다음 브리핑에 표시됩니다." data-en="Will appear in the next briefing.">다음 브리핑에 표시됩니다.</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title" data-ko="추천 종목" data-en="Stock Picks">추천 종목</div>
+    <div class="card" style="color:var(--text-muted);text-align:center;" data-ko="다음 브리핑에 표시됩니다." data-en="Will appear in the next briefing.">다음 브리핑에 표시됩니다.</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title" data-ko="주요 뉴스" data-en="Key News">주요 뉴스</div>
+    <div class="card" style="color:var(--text-muted);text-align:center;" data-ko="다음 브리핑에 표시됩니다." data-en="Will appear in the next briefing.">다음 브리핑에 표시됩니다.</div>
+  </div>
+
+  <!-- Disclaimer -->
+  <div class="disclaimer">
+    <span data-ko="⚠️ 면책 조항: 본 브리핑은 AI가 뉴스를 기반으로 자동 생성한 정보로, 투자 권유가 아닙니다. 투자 결정은 본인의 판단과 책임 하에 이루어져야 하며, 본 사이트는 투자 결과에 대한 책임을 지지 않습니다."
+          data-en="⚠️ Disclaimer: This briefing is automatically generated by AI based on news and does not constitute investment advice. All investment decisions are made at your own risk and discretion. This site is not responsible for any investment outcomes.">
+      ⚠️ 면책 조항: 본 브리핑은 AI가 뉴스를 기반으로 자동 생성한 정보로, 투자 권유가 아닙니다. 투자 결정은 본인의 판단과 책임 하에 이루어져야 하며, 본 사이트는 투자 결과에 대한 책임을 지지 않습니다.
+    </span>
+  </div>
+</div>
+
+<footer>
+  <p>© 2025 kkangdago.com/us — AI-powered US Market Briefing</p>
+</footer>
+
+<script>
+  let currentLang = localStorage.getItem('kkangdago-lang') || 'ko';
+  
+  function applyLang(lang) {
+    currentLang = lang;
+    localStorage.setItem('kkangdago-lang', lang);
+    document.documentElement.lang = lang;
+    document.getElementById('langBtn').textContent = lang === 'ko' ? 'EN' : '한';
+    document.querySelectorAll('[data-ko]').forEach(el => {
+      const txt = el.getAttribute('data-' + lang);
+      if (txt) el.innerHTML = txt;
+    });
+  }
+  
+  function toggleLang() {
+    applyLang(currentLang === 'ko' ? 'en' : 'ko');
+  }
+  
+  // Load history from archive
+  (async () => {
+    try {
+      const r = await fetch('/archive/us-index.json?_=' + Date.now());
+      const dates = await r.json();
+      if (dates.length === 0) return;
+      const nav = document.getElementById('historyNav');
+      nav.innerHTML = '<span data-ko="히스토리:" data-en="History:">히스토리:</span>';
+      dates.slice(-10).reverse().forEach(d => {
+        const a = document.createElement('a');
+        a.href = '/archive/us/' + d + '.html';
+        a.className = 'nav-date';
+        a.textContent = d;
+        nav.appendChild(a);
+      });
+    } catch(e) {}
+  })();
+  
+  applyLang(currentLang);
+</script>
+</body>
+</html>
