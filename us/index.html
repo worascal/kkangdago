@@ -3,336 +3,324 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>kkangdago US Signal | 2026-06-13 ì¥ì „ ë¸Œë¦¬í•‘</title>
+<title>kkangdago US Signal | 2026-06-15 ì¥ì „ ë¸Œë¦¬í•‘</title>
 <style>
 :root {
-  --bg: #0d0d0d;
-  --surface: #161616;
-  --surface2: #1e1e1e;
-  --accent: #00d4aa;
-  --signal: #f0c040;
-  --up: #26a69a;
-  --down: #ef5350;
-  --text: #e8e8e8;
-  --muted: #888;
-  --border: #2a2a2a;
+  --bg:#0d0d0d;
+  --surface:#161616;
+  --accent:#00d4aa;
+  --signal:#f0c040;
+  --up:#26a69a;
+  --down:#ef5350;
+  --text:#e0e0e0;
+  --muted:#888;
 }
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { background: var(--bg); color: var(--text); font-family: -apple-system, 'Segoe UI', sans-serif; min-height: 100vh; }
-
-/* HEADER */
+* { box-sizing:border-box; margin:0; padding:0; }
+body { background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; font-size:14px; line-height:1.6; }
 .container { max-width:900px; margin:0 auto; padding:16px; }
 .header-top { display:flex; align-items:center; gap:12px; flex-wrap:wrap; padding:12px 0 16px; border-bottom:1px solid #222; }
-.logo { font-size: 20px; font-weight: 900; color: var(--text); text-decoration: none; letter-spacing: -0.5px; }
-.logo span:first-child { color: var(--accent); }
-.logo .signal { color: var(--signal); margin-left: 4px; }
-.date-badge { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 4px 10px; font-size: 12px; color: var(--muted); font-weight: 600; }
-.brief-toggle { display: flex; gap: 6px; margin-left: auto; }
-.brief-btn { display: inline-flex; align-items: center; gap: 5px; font-size: 13px; font-weight: 700; padding: 5px 15px; border-radius: 20px; text-decoration: none; transition: opacity 0.15s; white-space: nowrap; }
-.brief-btn.active-open { background: var(--accent); color: #000; }
-.brief-btn.active-close { background: var(--signal); color: #000; }
-.brief-btn.inactive { background: var(--surface2); color: #666; border: 1.5px solid #333; }
-.brief-btn.inactive:hover { border-color: var(--accent); color: var(--accent); }
-.brief-btn.disabled { background: var(--surface2); color: #333; border: 1.5px solid #252525; cursor: default; pointer-events: none; opacity: 0.45; }
-.lang-toggle { display: flex; gap: 4px; }
+.logo { font-size:20px; font-weight:900; letter-spacing:-0.5px; color:#fff; text-decoration:none; }
+.logo span:first-child { color:var(--accent); }
+.logo .signal { color:var(--signal); font-size:14px; vertical-align:super; }
+.date-badge { background:#1e1e1e; border:1px solid #333; border-radius:6px; padding:4px 10px; font-size:12px; color:#aaa; }
+.brief-toggle { display:flex; gap:8px; margin-left:auto; }
+.brief-btn { display:inline-flex; align-items:center; gap:5px; font-size:13px; font-weight:700; padding:5px 15px; border-radius:20px; text-decoration:none; transition:opacity 0.15s; white-space:nowrap; }
+.brief-btn.active-open { background:#00d4aa; color:#000; }
+.brief-btn.active-close { background:#f0c040; color:#000; }
+.brief-btn.inactive { background:#1e1e1e; color:#666; border:1.5px solid #333; }
+.brief-btn.inactive:hover { border-color:#00d4aa; color:#00d4aa; }
+.brief-btn.disabled { background:#1e1e1e; color:#333; border:1.5px solid #252525; cursor:default; pointer-events:none; opacity:0.45; }
+.lang-toggle { display:flex; gap:4px; }
 .lang-btn { background:#1e1e1e; border:1px solid #333; border-radius:4px; padding:3px 8px; font-size:12px; cursor:pointer; color:#888; }
-.lang-btn.active { background:var(--accent); color:#000; border-color:var(--accent); font-weight:700; }
-
-/* HISTORY NAV */
-.date-nav { display:flex; gap:6px; flex-wrap:wrap; overflow-x:auto; padding:8px 0 4px; }
+.lang-btn.active { background:var(--accent); color:#000; border-color:var(--accent); }
+.date-nav { display:flex; gap:6px; flex-wrap:wrap; overflow-x:auto; padding-bottom:4px; }
 .date-pill { background:#1a1a1a; border:1px solid #2a2a2a; border-radius:20px; padding:5px 14px; font-size:12px; color:#888; white-space:nowrap; cursor:pointer; transition:all 0.15s; text-decoration:none; display:inline-block; }
-.date-pill:hover, .date-pill.active { background:var(--accent); color:#000; border-color:var(--accent); font-weight:700; }
+.date-pill:hover, .date-pill.active { background:var(--accent); color:#000; border-color:var(--accent); }
 .date-pill.today-link { border-color:#444; color:#ccc; }
-
-
-/* BADGE ROW */
-.badge-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; align-items: center; }
-.badge { padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 700; }
-.badge-open { background: rgba(0,212,170,0.15); color: var(--accent); border: 1px solid rgba(0,212,170,0.3); }
-.badge-ai { background: rgba(240,192,64,0.12); color: var(--signal); border: 1px solid rgba(240,192,64,0.25); }
-.badge-time { background: var(--surface2); color: var(--muted); border: 1px solid var(--border); }
-.badge-weekend { background: rgba(239,83,80,0.12); color: var(--down); border: 1px solid rgba(239,83,80,0.25); }
-
-/* INDEX CARDS */
-.section-title { font-size: 13px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; }
-.index-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 28px; }
-@media (max-width: 600px) { .index-grid { grid-template-columns: repeat(2, 1fr); } }
-.index-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; }
-.index-label { font-size: 11px; color: var(--muted); font-weight: 600; margin-bottom: 6px; }
-.index-value { font-size: 20px; font-weight: 800; margin-bottom: 4px; }
-.index-change { font-size: 12px; font-weight: 700; }
-.up { color: var(--up); }
-.down { color: var(--down); }
-.neutral { color: var(--muted); }
-
-/* CARDS */
-.card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 20px; margin-bottom: 20px; }
-.card-title { font-size: 15px; font-weight: 800; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
-.card-title .icon { font-size: 18px; }
-.summary-text { font-size: 14px; line-height: 1.75; color: #d0d0d0; }
-
-/* THEMES */
-.themes-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; margin-bottom: 20px; }
-.theme-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; border-left: 3px solid var(--accent); }
-.theme-name { font-size: 14px; font-weight: 800; margin-bottom: 6px; color: var(--text); }
-.theme-desc { font-size: 12px; color: var(--muted); line-height: 1.6; }
-
-/* STOCKS */
-.stocks-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; margin-bottom: 20px; }
-.stock-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; }
-.stock-header { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
-.ticker { background: var(--accent); color: #000; font-size: 11px; font-weight: 900; padding: 3px 8px; border-radius: 6px; }
-.stock-name { font-size: 14px; font-weight: 800; }
-.stock-reason { font-size: 12px; color: #bbb; line-height: 1.6; margin-bottom: 8px; }
-.sentiment { display: flex; align-items: center; gap: 6px; }
-.sentiment-label { font-size: 11px; color: var(--muted); }
-.stars { color: var(--signal); font-size: 12px; }
-
-/* RISK */
-.risk-item { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 12px; }
-.risk-item:last-child { margin-bottom: 0; }
-.risk-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
-.risk-content .risk-title { font-size: 14px; font-weight: 700; margin-bottom: 4px; color: #ffb3b3; }
-.risk-content .risk-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
-
-/* NEWS */
-.news-list { list-style: none; }
-.news-item { border-bottom: 1px solid var(--border); padding: 12px 0; }
-.news-item:last-child { border-bottom: none; }
-.news-item a { text-decoration: none; color: var(--text); font-size: 14px; font-weight: 600; line-height: 1.5; display: block; margin-bottom: 4px; }
-.news-item a:hover { color: var(--accent); }
-.news-meta { font-size: 11px; color: var(--muted); }
-
-/* DISCLAIMER */
-.disclaimer { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; margin-top: 28px; }
-.disclaimer p { font-size: 11px; color: var(--muted); line-height: 1.7; }
-
-.footer { text-align: center; padding: 24px; font-size: 11px; color: #444; }
+.section { margin:20px 0; }
+.badge-row { display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-bottom:16px; }
+.badge { display:inline-flex; align-items:center; gap:5px; padding:4px 12px; border-radius:20px; font-size:12px; font-weight:700; }
+.badge-premarket { background:rgba(0,212,170,0.15); border:1px solid var(--accent); color:var(--accent); }
+.badge-time { background:#1e1e1e; border:1px solid #333; color:#aaa; }
+.index-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(130px,1fr)); gap:10px; }
+.index-card { background:var(--surface); border:1px solid #222; border-radius:10px; padding:12px; }
+.index-card .label { font-size:11px; color:var(--muted); margin-bottom:4px; }
+.index-card .value { font-size:18px; font-weight:800; color:#fff; }
+.index-card .change { font-size:12px; font-weight:700; margin-top:2px; }
+.up { color:var(--up); }
+.down { color:var(--down); }
+.card { background:var(--surface); border:1px solid #222; border-radius:10px; padding:16px; margin-bottom:12px; }
+.card-title { font-size:13px; font-weight:700; color:var(--accent); margin-bottom:10px; text-transform:uppercase; letter-spacing:0.5px; }
+.summary-text { font-size:14px; line-height:1.7; color:#ccc; }
+.theme-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:10px; }
+.theme-card { background:#1a1a1a; border:1px solid #2a2a2a; border-radius:10px; padding:14px; }
+.theme-name { font-size:13px; font-weight:800; color:#fff; margin-bottom:6px; }
+.theme-desc { font-size:12px; color:#999; line-height:1.5; }
+.stock-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:10px; }
+.stock-card { background:#1a1a1a; border:1px solid #2a2a2a; border-radius:10px; padding:14px; }
+.stock-header { display:flex; align-items:center; gap:8px; margin-bottom:8px; }
+.ticker-badge { background:rgba(0,212,170,0.15); border:1px solid rgba(0,212,170,0.3); color:var(--accent); font-size:11px; font-weight:800; padding:2px 8px; border-radius:6px; }
+.stock-name { font-size:14px; font-weight:800; color:#fff; }
+.score-bar-wrap { margin:8px 0; }
+.score-label { font-size:11px; color:#666; margin-bottom:3px; }
+.score-bar { height:4px; background:#222; border-radius:2px; overflow:hidden; }
+.score-fill { height:100%; background:var(--accent); border-radius:2px; }
+.stock-reason { font-size:12px; color:#999; line-height:1.5; }
+.risk-item { padding:10px 14px; background:#1a1a1a; border-left:3px solid var(--down); border-radius:0 8px 8px 0; margin-bottom:8px; }
+.risk-title { font-size:13px; font-weight:700; color:#f0a0a0; margin-bottom:4px; }
+.risk-desc { font-size:12px; color:#999; }
+.news-list { list-style:none; }
+.news-item { padding:12px 0; border-bottom:1px solid #1e1e1e; }
+.news-item:last-child { border-bottom:none; }
+.news-source { font-size:11px; color:var(--muted); margin-bottom:4px; display:flex; gap:8px; align-items:center; }
+.news-title a { color:#ddd; text-decoration:none; font-size:13px; font-weight:600; line-height:1.5; }
+.news-title a:hover { color:var(--accent); }
+.source-tag { background:#252525; border-radius:4px; padding:1px 6px; font-size:10px; color:#777; }
+.disclaimer { font-size:11px; color:#555; padding:16px; background:#111; border-radius:8px; line-height:1.6; margin-top:20px; }
+@media (max-width:600px) {
+  .index-grid { grid-template-columns:repeat(3,1fr); }
+  .theme-grid { grid-template-columns:1fr; }
+  .stock-grid { grid-template-columns:1fr; }
+  .brief-toggle { order:3; width:100%; }
+}
 </style>
 </head>
 <body>
-
 <div class="container">
+  <!-- Header -->
   <div class="header-top">
-    <a class="logo" href="/us/">Daily <span>kkang</span>dago <span class="signal">US</span></a>
-    <div class="date-badge">2026-06-13</div>
+    <a class="logo" href="/us/"><span>kkang</span>dago <span class="signal">US</span></a>
+    <div class="date-badge">2026-06-15</div>
     <div class="brief-toggle">
       <span class="brief-btn active-open" data-ko="â˜€ï¸ ì¥ì „ ë¸Œë¦¬í•‘" data-en="â˜€ï¸ Pre-Market">â˜€ï¸ ì¥ì „ ë¸Œë¦¬í•‘</span>
-      <a id="closeLink" href="close.html" class="brief-btn disabled" data-ko="ğŸŒ† ì¥ë§ˆê° ë¸Œë¦¬í•‘" data-en="ğŸŒ† After-Hours">ğŸŒ† ì¥ë§ˆê° ë¸Œë¦¬í•‘</a>
+      <a id="closeLink" href="close.html" class="brief-btn disabled" data-ko="ğŸŒ† ì¥ë§ˆê° ë¸Œë¦¬í•‘" data-en="ğŸŒ† After-Market">ğŸŒ† ì¥ë§ˆê° ë¸Œë¦¬í•‘</a>
     </div>
     <div class="lang-toggle">
       <button class="lang-btn active" onclick="setLang('ko')">í•œêµ­ì–´</button>
       <button class="lang-btn" onclick="setLang('en')">EN</button>
     </div>
   </div>
-  <div class="section" style="margin-top:8px;">
+
+  <!-- Date Nav -->
+  <div class="section">
     <div class="date-nav" id="dateList"></div>
   </div>
 
-  <!-- BADGE ROW -->
+  <!-- Brief Badge -->
   <div class="badge-row">
-    <span class="badge badge-open" data-ko="â˜€ï¸ ì¥ì „ ë¸Œë¦¬í•‘ | Pre-Market" data-en="â˜€ï¸ Pre-Market Briefing">â˜€ï¸ ì¥ì „ ë¸Œë¦¬í•‘ | Pre-Market</span>
-    <span class="badge badge-time">2026-06-13 Â· EDT 08:30</span>
-    <span class="badge badge-weekend" data-ko="ğŸ“… ì£¼ë§ â€” ì›”ìš”ì¼ ì‹œì¥ ì „ë§" data-en="ğŸ“… Weekend â€” Monday Outlook">ğŸ“… ì£¼ë§ â€” ì›”ìš”ì¼ ì‹œì¥ ì „ë§</span>
+    <span class="badge badge-premarket" data-ko="â˜€ï¸ ì¥ì „ ë¸Œë¦¬í•‘ | Pre-Market" data-en="â˜€ï¸ Pre-Market Brief">â˜€ï¸ ì¥ì „ ë¸Œë¦¬í•‘ | Pre-Market</span>
+    <span class="badge badge-time">2026-06-15 Â· EDT 04:00</span>
   </div>
 
-  <!-- INDEX CARDS -->
-  <div class="section-title" data-ko="ì „ì¼ ì¢…ê°€ (6/12 ë¯¸êµ­ ë§ˆê°)" data-en="Previous Close (Jun 12 US)">ì „ì¼ ì¢…ê°€ (6/12 ë¯¸êµ­ ë§ˆê°)</div>
-  <div class="index-grid">
-    <div class="index-card">
-      <div class="index-label">S&amp;P 500</div>
-      <div class="index-value up">7,431.46</div>
-      <div class="index-change up">â–² +37.16 (+0.50%)</div>
-    </div>
-    <div class="index-card">
-      <div class="index-label">NASDAQ</div>
-      <div class="index-value up">25,888.84</div>
-      <div class="index-change up">â–² +79.18 (+0.31%)</div>
-    </div>
-    <div class="index-card">
-      <div class="index-label">DOW JONES</div>
-      <div class="index-value up">51,202.26</div>
-      <div class="index-change up">â–² +353.51 (+0.70%)</div>
-    </div>
-    <div class="index-card">
-      <div class="index-label">VIX</div>
-      <div class="index-value neutral">â€”</div>
-      <div class="index-change neutral">ë°ì´í„° ë¯¸ìˆ˜ì§‘</div>
-    </div>
-    <div class="index-card">
-      <div class="index-label">USD/KRW</div>
-      <div class="index-value neutral">~1,450</div>
-      <div class="index-change neutral">ì¶”ì •ì¹˜</div>
-    </div>
-    <div class="index-card">
-      <div class="index-label">WTI ì›ìœ </div>
-      <div class="index-value neutral">â€”</div>
-      <div class="index-change neutral">ë°ì´í„° ë¯¸ìˆ˜ì§‘</div>
-    </div>
-  </div>
-
-  <!-- MARKET SUMMARY -->
-  <div class="card">
-    <div class="card-title"><span class="icon">ğŸ“Š</span> <span data-ko="ì‹œì¥ ìš”ì•½" data-en="Market Summary">ì‹œì¥ ìš”ì•½</span></div>
-    <p class="summary-text" data-ko="6ì›” 12ì¼(ë¯¸êµ­ í˜„ì§€ì‹œê°„) ë‰´ìš•ì¦ì‹œëŠ” ë¯¸Â·ì´ë€ ì¢…ì „ í•©ì˜ ê¸°ëŒ€ê°ê³¼ ìŠ¤í˜ì´ìŠ¤Xì˜ ë‚˜ìŠ¤ë‹¥ ìƒì¥ ì„±ê³µì— í˜ì…ì–´ ë‹¤ìš°Â·S&P500Â·ë‚˜ìŠ¤ë‹¥ 3ëŒ€ ì§€ìˆ˜ê°€ ì¼ì œíˆ ìƒìŠ¹ ë§ˆê°í–ˆìŠµë‹ˆë‹¤. ë‹¤ìš°ëŠ” 0.70%, S&P500ì€ 0.50%, ë‚˜ìŠ¤ë‹¥ì€ 0.31% ì˜¬ëìœ¼ë©°, S&P500ì€ 7,431ì„ ëŒíŒŒí–ˆìŠµë‹ˆë‹¤. ìŠ¤í˜ì´ìŠ¤XëŠ” ìƒì¥ ì²«ë‚  19.3% ê¸‰ë“±í•˜ë©° ì‹œì´ 6ìœ„(ì—”ë¹„ë””ì•„Â·ì•ŒíŒŒë²³Â·ì• í”ŒÂ·MSÂ·ì•„ë§ˆì¡´ ë‹¤ìŒ)ë¡œ ì§í–‰í–ˆê³ , ë¨¸ìŠ¤í¬ëŠ” 'ì¡°ë§Œì¥ì' ë°˜ì—´ì— ì˜¬ëìŠµë‹ˆë‹¤. ë¹…í…Œí¬ëŠ” í˜¼ì¡°ì„¸ë¡œ, ì—”ë¹„ë””ì•„(+0.16%)Â·MS(+0.10%)ëŠ” ì†Œí­ ì˜¬ëìœ¼ë‚˜ ì• í”Œì€ 1.52% í•˜ë½í–ˆìŠµë‹ˆë‹¤. ì£¼ë§ì¸ 6ì›” 13ì¼ ë¯¸êµ­ ì‹œì¥ì€ íœ´ì¥ì´ë©°, ì´ë²ˆ ë¸Œë¦¬í•‘ì€ 6/12 ë§ˆê° ê²°ê³¼ë¥¼ ë°”íƒ•ìœ¼ë¡œ ì›”ìš”ì¼(6/16) ì‹œì¥ ì „ë§ì„ ì œê³µí•©ë‹ˆë‹¤." data-en="U.S. markets closed higher on June 12 as optimism over a U.S.-Iran ceasefire agreement combined with SpaceX's blockbuster NASDAQ debut to lift all three major indices. The Dow rose 0.70%, S&P 500 gained 0.50%, and Nasdaq advanced 0.31%, with S&P 500 breaking above 7,431. SpaceX surged 19.3% on its first trading day, vaulting to 6th largest market cap globally. Big Tech was mixed: NVDA (+0.16%) and MSFT (+0.10%) edged higher, while Apple fell 1.52%. U.S. markets are closed Saturday June 13; this briefing previews the Monday (Jun 16) open.">6ì›” 12ì¼(ë¯¸êµ­ í˜„ì§€ì‹œê°„) ë‰´ìš•ì¦ì‹œëŠ” ë¯¸Â·ì´ë€ ì¢…ì „ í•©ì˜ ê¸°ëŒ€ê°ê³¼ ìŠ¤í˜ì´ìŠ¤Xì˜ ë‚˜ìŠ¤ë‹¥ ìƒì¥ ì„±ê³µì— í˜ì…ì–´ ë‹¤ìš°Â·S&P500Â·ë‚˜ìŠ¤ë‹¥ 3ëŒ€ ì§€ìˆ˜ê°€ ì¼ì œíˆ ìƒìŠ¹ ë§ˆê°í–ˆìŠµë‹ˆë‹¤. ë‹¤ìš°ëŠ” 0.70%, S&P500ì€ 0.50%, ë‚˜ìŠ¤ë‹¥ì€ 0.31% ì˜¬ëìœ¼ë©°, S&P500ì€ 7,431ì„ ëŒíŒŒí–ˆìŠµë‹ˆë‹¤. ìŠ¤í˜ì´ìŠ¤XëŠ” ìƒì¥ ì²«ë‚  19.3% ê¸‰ë“±í•˜ë©° ì‹œì´ 6ìœ„(ì—”ë¹„ë””ì•„Â·ì•ŒíŒŒë²³Â·ì• í”ŒÂ·MSÂ·ì•„ë§ˆì¡´ ë‹¤ìŒ)ë¡œ ì§í–‰í–ˆê³ , ë¨¸ìŠ¤í¬ëŠ” 'ì¡°ë§Œì¥ì' ë°˜ì—´ì— ì˜¬ëìŠµë‹ˆë‹¤. ë¹…í…Œí¬ëŠ” í˜¼ì¡°ì„¸ë¡œ, ì—”ë¹„ë””ì•„(+0.16%)Â·MS(+0.10%)ëŠ” ì†Œí­ ì˜¬ëìœ¼ë‚˜ ì• í”Œì€ 1.52% í•˜ë½í–ˆìŠµë‹ˆë‹¤. ì£¼ë§ì¸ 6ì›” 13ì¼ ë¯¸êµ­ ì‹œì¥ì€ íœ´ì¥ì´ë©°, ì´ë²ˆ ë¸Œë¦¬í•‘ì€ 6/12 ë§ˆê° ê²°ê³¼ë¥¼ ë°”íƒ•ìœ¼ë¡œ ì›”ìš”ì¼(6/16) ì‹œì¥ ì „ë§ì„ ì œê³µí•©ë‹ˆë‹¤.</p>
-  </div>
-
-  <!-- KEY THEMES -->
-  <div class="section-title" data-ko="ì£¼ëª© í…Œë§ˆ" data-en="Key Themes">ì£¼ëª© í…Œë§ˆ</div>
-  <div class="themes-grid">
-    <div class="theme-card">
-      <div class="theme-name" data-ko="ğŸš€ ìŠ¤í˜ì´ìŠ¤X IPO ë¹…ë±…" data-en="ğŸš€ SpaceX IPO Blowout">ğŸš€ ìŠ¤í˜ì´ìŠ¤X IPO ë¹…ë±…</div>
-      <div class="theme-desc" data-ko="ë‚˜ìŠ¤ë‹¥ ìƒì¥ ì²«ë‚  19.3% ê¸‰ë“±, ì‹œì´ 6ìœ„ ì§„ì…. ìš°ì£¼Â·ìœ„ì„±ì¸í„°ë„· í…Œë§ˆ ìê¸ˆ ìœ ì… ë³¸ê²©í™”." data-en="SpaceX surged 19.3% on debut, entering global top-6 by market cap. Space and satellite internet theme accelerating.">ë‚˜ìŠ¤ë‹¥ ìƒì¥ ì²«ë‚  19.3% ê¸‰ë“±, ì‹œì´ 6ìœ„ ì§„ì…. ìš°ì£¼Â·ìœ„ì„±ì¸í„°ë„· í…Œë§ˆ ìê¸ˆ ìœ ì… ë³¸ê²©í™”.</div>
-    </div>
-    <div class="theme-card">
-      <div class="theme-name" data-ko="ğŸ•Šï¸ ë¯¸Â·ì´ë€ ì¢…ì „ ê¸°ëŒ€" data-en="ğŸ•Šï¸ US-Iran Ceasefire Hope">ğŸ•Šï¸ ë¯¸Â·ì´ë€ ì¢…ì „ ê¸°ëŒ€</div>
-      <div class="theme-desc" data-ko="íŠ¸ëŸ¼í”„ ëŒ€í†µë ¹ì´ ì´ë€ê³¼ì˜ ì¢…ì „ í•©ì˜ë¥¼ ì‹œì‚¬í•˜ë©° ì¤‘ë™ ì§€ì •í•™ì  ë¦¬ìŠ¤í¬ ì™„í™”, ì¦ì‹œ ì „ë°˜ ìƒìŠ¹ ë™ë ¥." data-en="Trump signals US-Iran ceasefire deal, easing geopolitical risk in Middle East and boosting overall market sentiment.">íŠ¸ëŸ¼í”„ ëŒ€í†µë ¹ì´ ì´ë€ê³¼ì˜ ì¢…ì „ í•©ì˜ë¥¼ ì‹œì‚¬í•˜ë©° ì¤‘ë™ ì§€ì •í•™ì  ë¦¬ìŠ¤í¬ ì™„í™”, ì¦ì‹œ ì „ë°˜ ìƒìŠ¹ ë™ë ¥.</div>
-    </div>
-    <div class="theme-card">
-      <div class="theme-name" data-ko="ğŸ¤– AIÂ·ë¹…í…Œí¬ í˜¼ì¡°" data-en="ğŸ¤– AI/Big Tech Mixed">ğŸ¤– AIÂ·ë¹…í…Œí¬ í˜¼ì¡°</div>
-      <div class="theme-desc" data-ko="ìŠ¤í˜ì´ìŠ¤X IPOë¡œ M7 ì¼ë¶€ ë§¤ë„ ì••ë ¥. ì—”ë¹„ë””ì•„Â·MS ì†Œí­ ìƒìŠ¹, ì• í”Œ í•˜ë½. AI ì¸í”„ë¼ ìˆ˜ìš”ëŠ” ê²¬ì¡°." data-en="SpaceX IPO drew some selling from Mag-7. NVDA and MSFT edged up, Apple slipped. AI infra demand remains solid.">ìŠ¤í˜ì´ìŠ¤X IPOë¡œ M7 ì¼ë¶€ ë§¤ë„ ì••ë ¥. ì—”ë¹„ë””ì•„Â·MS ì†Œí­ ìƒìŠ¹, ì• í”Œ í•˜ë½. AI ì¸í”„ë¼ ìˆ˜ìš”ëŠ” ê²¬ì¡°.</div>
-    </div>
-    <div class="theme-card">
-      <div class="theme-name" data-ko="âš¡ FOMCÂ·ì¸í”Œë ˆ ê¸´ì¥" data-en="âš¡ FOMC &amp; Inflation Tension">âš¡ FOMCÂ·ì¸í”Œë ˆ ê¸´ì¥</div>
-      <div class="theme-desc" data-ko="5ì›” CPI 4.2%(3ë…„1ê°œì›” ìµœëŒ€), ì¼€ë¹ˆ ì›Œì‹œ ì²« FOMC ì•ë‘ê³  ê¸ˆë¦¬ì¸ìƒ ê°€ëŠ¥ì„± 67% ì„ ë°˜ì˜ ì¤‘." data-en="May CPI hit 4.2% (highest in 3+ years); markets pricing 67% chance of rate hike at Kevin Warsh's first FOMC.">5ì›” CPI 4.2%(3ë…„1ê°œì›” ìµœëŒ€), ì¼€ë¹ˆ ì›Œì‹œ ì²« FOMC ì•ë‘ê³  ê¸ˆë¦¬ì¸ìƒ ê°€ëŠ¥ì„± 67% ì„ ë°˜ì˜ ì¤‘.</div>
-    </div>
-    <div class="theme-card">
-      <div class="theme-name" data-ko="âš ï¸ ë²„í• ì§€ìˆ˜ 232% ê²½ê³ " data-en="âš ï¸ Buffett Indicator at 232%">âš ï¸ ë²„í• ì§€ìˆ˜ 232% ê²½ê³ </div>
-      <div class="theme-desc" data-ko="ë¯¸êµ­ ì‹œì´/GDP ë¹„ìœ¨ ì—­ëŒ€ ìµœê³ ì¹˜ 232%. ìŠ¤í˜ì´ìŠ¤XÂ·AI ì£¼ë„ì˜ ìœ ë™ì„± ì¥ì„¸ì§€ë§Œ ë°¸ë¥˜ì—ì´ì…˜ ë¶€ë‹´ í™•ëŒ€." data-en="US market cap/GDP ratio hit all-time high of 232%, raising valuation concerns amid SpaceX/AI-driven liquidity rally.">ë¯¸êµ­ ì‹œì´/GDP ë¹„ìœ¨ ì—­ëŒ€ ìµœê³ ì¹˜ 232%. ìŠ¤í˜ì´ìŠ¤XÂ·AI ì£¼ë„ì˜ ìœ ë™ì„± ì¥ì„¸ì§€ë§Œ ë°¸ë¥˜ì—ì´ì…˜ ë¶€ë‹´ í™•ëŒ€.</div>
-    </div>
-  </div>
-
-  <!-- STOCK PICKS -->
-  <div class="section-title" data-ko="ìƒìŠ¹ ìœ ë§ ì¢…ëª© (ë‰´ìŠ¤ ê¸°ë°˜)" data-en="Top Picks (News-Based)">ìƒìŠ¹ ìœ ë§ ì¢…ëª© (ë‰´ìŠ¤ ê¸°ë°˜)</div>
-  <div class="stocks-grid">
-    <div class="stock-card">
-      <div class="stock-header">
-        <span class="ticker">SPACX</span>
-        <span class="stock-name" data-ko="ìŠ¤í˜ì´ìŠ¤X" data-en="SpaceX">ìŠ¤í˜ì´ìŠ¤X</span>
+  <!-- Index Cards -->
+  <div class="section">
+    <div class="index-grid">
+      <div class="index-card">
+        <div class="label">S&amp;P 500</div>
+        <div class="value">7,394</div>
+        <div class="change up">â–² +0.46% í”„ë¦¬</div>
       </div>
-      <div class="stock-reason" data-ko="ë‚˜ìŠ¤ë‹¥ ìƒì¥ ì²«ë‚  19.3% í­ë“±. IPO ì´í›„ ì¶”ê°€ ë§¤ìˆ˜ì„¸ ìœ ì… ê¸°ëŒ€. PSR ì•½ 100ë°° ì´ìƒì´ë‚˜ ìš°ì£¼Â·ìŠ¤íƒ€ë§í¬ ì„±ì¥ í”„ë¦¬ë¯¸ì—„ ë°˜ì˜. ë¨¸ìŠ¤í¬ íš¨ê³¼ë¡œ íˆ¬ì ì‹¬ë¦¬ ê°•ì„¸." data-en="Surged 19.3% on IPO day. Post-listing buying interest expected. High PSR (~100x+) reflects Space/Starlink growth premium.">ë‚˜ìŠ¤ë‹¥ ìƒì¥ ì²«ë‚  19.3% í­ë“±. IPO ì´í›„ ì¶”ê°€ ë§¤ìˆ˜ì„¸ ìœ ì… ê¸°ëŒ€. PSR ì•½ 100ë°° ì´ìƒì´ë‚˜ ìš°ì£¼Â·ìŠ¤íƒ€ë§í¬ ì„±ì¥ í”„ë¦¬ë¯¸ì—„ ë°˜ì˜. ë¨¸ìŠ¤í¬ íš¨ê³¼ë¡œ íˆ¬ì ì‹¬ë¦¬ ê°•ì„¸.</div>
-      <div class="sentiment">
-        <span class="sentiment-label" data-ko="ê°ì„±:" data-en="Sentiment:">ê°ì„±:</span>
-        <span class="stars">â˜…â˜…â˜…â˜…â˜…</span>
+      <div class="index-card">
+        <div class="label">NASDAQ</div>
+        <div class="value">25,809</div>
+        <div class="change up">â–² +1.30% í”„ë¦¬</div>
       </div>
-    </div>
-    <div class="stock-card">
-      <div class="stock-header">
-        <span class="ticker">NVDA</span>
-        <span class="stock-name">NVIDIA</span>
+      <div class="index-card">
+        <div class="label">DOW</div>
+        <div class="value">50,848</div>
+        <div class="change up">â–² +0.46% í”„ë¦¬</div>
       </div>
-      <div class="stock-reason" data-ko="AI ë°˜ë„ì²´ ìˆ˜ìš” ê²¬ì¡° í™•ì¸. $205.19 ì†Œí­ ìƒìŠ¹. í•„ë¼ë¸í”¼ì•„ ë°˜ë„ì²´ì§€ìˆ˜ ê°•ì„¸ ìœ ì§€. SpaceX ìŠ¤íƒ€ì‰´ë“œ ë“± AI ì¸í”„ë¼ í™•ì¥ ìµœëŒ€ ìˆ˜í˜œ." data-en="Closed at $205.19 (+0.16%). AI chip demand confirmed solid. Largest beneficiary of SpaceX Starshield and AI infra expansion.">AI ë°˜ë„ì²´ ìˆ˜ìš” ê²¬ì¡° í™•ì¸. $205.19 ì†Œí­ ìƒìŠ¹. í•„ë¼ë¸í”¼ì•„ ë°˜ë„ì²´ì§€ìˆ˜ ê°•ì„¸ ìœ ì§€. SpaceX ìŠ¤íƒ€ì‰´ë“œ ë“± AI ì¸í”„ë¼ í™•ì¥ ìµœëŒ€ ìˆ˜í˜œ.</div>
-      <div class="sentiment">
-        <span class="sentiment-label" data-ko="ê°ì„±:" data-en="Sentiment:">ê°ì„±:</span>
-        <span class="stars">â˜…â˜…â˜…â˜…â˜†</span>
+      <div class="index-card">
+        <div class="label">VIX</div>
+        <div class="value">~16.5</div>
+        <div class="change down">â–¼ ë¦¬ìŠ¤í¬ì˜¨ í•˜ë½</div>
       </div>
-    </div>
-    <div class="stock-card">
-      <div class="stock-header">
-        <span class="ticker">META</span>
-        <span class="stock-name">Meta Platforms</span>
+      <div class="index-card">
+        <div class="label">USD/KRW</div>
+        <div class="value">~1,372</div>
+        <div class="change up">ì›í™” ê°•ì„¸</div>
       </div>
-      <div class="stock-reason" data-ko="AI ì¸í”„ë¼ íˆ¬ì í™•ëŒ€ ê²½ìŸì—ì„œ ë¹…í…Œí¬ ì¤‘ ê°€ì¥ ê³µê²©ì ì¸ ë°ì´í„°ì„¼í„° ì§€ì¶œ. AI ê´‘ê³  ìˆ˜ìµ ê°œì„  ê¸°ëŒ€. ì¤‘ë™ ê¸´ì¥ ì™„í™”ë¡œ ê¸€ë¡œë²Œ ê´‘ê³  ì‹œì¥ íšŒë³µ ì „ë§." data-en="Most aggressive AI datacenter capex among Big Tech. AI-driven ad revenue improving. Middle East stabilization benefits global ad market.">AI ì¸í”„ë¼ íˆ¬ì í™•ëŒ€ ê²½ìŸì—ì„œ ë¹…í…Œí¬ ì¤‘ ê°€ì¥ ê³µê²©ì ì¸ ë°ì´í„°ì„¼í„° ì§€ì¶œ. AI ê´‘ê³  ìˆ˜ìµ ê°œì„  ê¸°ëŒ€. ì¤‘ë™ ê¸´ì¥ ì™„í™”ë¡œ ê¸€ë¡œë²Œ ê´‘ê³  ì‹œì¥ íšŒë³µ ì „ë§.</div>
-      <div class="sentiment">
-        <span class="sentiment-label" data-ko="ê°ì„±:" data-en="Sentiment:">ê°ì„±:</span>
-        <span class="stars">â˜…â˜…â˜…â˜…â˜†</span>
-      </div>
-    </div>
-    <div class="stock-card">
-      <div class="stock-header">
-        <span class="ticker">GOOGL</span>
-        <span class="stock-name">Alphabet</span>
-      </div>
-      <div class="stock-reason" data-ko="ìŠ¤í˜ì´ìŠ¤Xì™€ ì‹œì´ ê²½ìŸ ì‹¬í™”. AI ê²€ìƒ‰Â·í´ë¼ìš°ë“œ ì„±ì¥ ì§€ì†. SpaceX IPO ì´í›„ì—ë„ AI ì¸í”„ë¼ í”Œë«í¼ ìˆ˜í˜œ. ë‰´ìŠ¤ì— ì‹œì´ 5ìœ„ê¶Œ ì–¸ê¸‰." data-en="Competes directly with SpaceX for market cap top-5. AI search and cloud growth continue. Referenced as top-5 market cap in SpaceX IPO coverage.">ìŠ¤í˜ì´ìŠ¤Xì™€ ì‹œì´ ê²½ìŸ ì‹¬í™”. AI ê²€ìƒ‰Â·í´ë¼ìš°ë“œ ì„±ì¥ ì§€ì†. SpaceX IPO ì´í›„ì—ë„ AI ì¸í”„ë¼ í”Œë«í¼ ìˆ˜í˜œ. ë‰´ìŠ¤ì— ì‹œì´ 5ìœ„ê¶Œ ì–¸ê¸‰.</div>
-      <div class="sentiment">
-        <span class="sentiment-label" data-ko="ê°ì„±:" data-en="Sentiment:">ê°ì„±:</span>
-        <span class="stars">â˜…â˜…â˜…â˜…â˜†</span>
-      </div>
-    </div>
-    <div class="stock-card">
-      <div class="stock-header">
-        <span class="ticker">MSFT</span>
-        <span class="stock-name">Microsoft</span>
-      </div>
-      <div class="stock-reason" data-ko="$390.74 (+0.10%) ì†Œí­ ìƒìŠ¹ ë§ˆê°. Azure AI í´ë¼ìš°ë“œ ì„±ì¥ ì§€ì†. ì°¨ì„¸ëŒ€ ë°ì´í„°ì„¼í„° êµ¬ì¶•Â·ì „ë ¥ë§ ì„ ì  ê²½ìŸ ì°¸ì—¬. ì•ˆì •ì  ëŒ€í˜•ì£¼ í¬ì§€ì…”ë‹." data-en="Closed at $390.74 (+0.10%). Azure AI cloud momentum continues. Competing in next-gen datacenter buildout. Stable large-cap positioning.">$390.74 (+0.10%) ì†Œí­ ìƒìŠ¹ ë§ˆê°. Azure AI í´ë¼ìš°ë“œ ì„±ì¥ ì§€ì†. ì°¨ì„¸ëŒ€ ë°ì´í„°ì„¼í„° êµ¬ì¶•Â·ì „ë ¥ë§ ì„ ì  ê²½ìŸ ì°¸ì—¬. ì•ˆì •ì  ëŒ€í˜•ì£¼ í¬ì§€ì…”ë‹.</div>
-      <div class="sentiment">
-        <span class="sentiment-label" data-ko="ê°ì„±:" data-en="Sentiment:">ê°ì„±:</span>
-        <span class="stars">â˜…â˜…â˜…â˜†â˜†</span>
-      </div>
-    </div>
-    <div class="stock-card">
-      <div class="stock-header">
-        <span class="ticker">AMZN</span>
-        <span class="stock-name">Amazon</span>
-      </div>
-      <div class="stock-reason" data-ko="AI í´ë¼ìš°ë“(AWS) ì„±ì¥ì„¸ ì§€ì†. ìŠ¤í˜ì´ìŠ¤X ë‰´ìŠ¤ì— ì‹œì´ ê²½ìŸ ìƒìœ„ê¶Œ ì–¸ê¸‰. ì¤‘ë™ ê¸´ì¥ ì™„í™”ë¡œ ë¬¼ë¥˜Â·ì†Œë¹„ íšŒë³µ ê¸°ëŒ€. ì°¨ì„¸ëŒ€ ë°ì´í„°ì„¼í„° í™•ì¥." data-en="AWS cloud growth continuing. Mentioned in SpaceX top market cap competition. Logistics/consumer recovery expected from Middle East stabilization.">AI í´ë¼ìš°ë“œ(AWS) ì„±ì¥ì„¸ ì§€ì†. ìŠ¤í˜ì´ìŠ¤X ë‰´ìŠ¤ì— ì‹œì´ ê²½ìŸ ìƒìœ„ê¶Œ ì–¸ê¸‰. ì¤‘ë™ ê¸´ì¥ ì™„í™”ë¡œ ë¬¼ë¥˜Â·ì†Œë¹„ íšŒë³µ ê¸°ëŒ€. ì°¨ì„¸ëŒ€ ë°ì´í„°ì„¼í„° í™•ì¥.</div>
-      <div class="sentiment">
-        <span class="sentiment-label" data-ko="ê°ì„±:" data-en="Sentiment:">ê°ì„±:</span>
-        <span class="stars">â˜…â˜…â˜…â˜†â˜†</span>
+      <div class="index-card">
+        <div class="label">WTI ì›ìœ </div>
+        <div class="value">$80.02</div>
+        <div class="change down">â–¼ -5.72%</div>
       </div>
     </div>
   </div>
 
-  <!-- RISK -->
-  <div class="card">
-    <div class="card-title"><span class="icon">âš ï¸</span> <span data-ko="ì£¼ìš” ë¦¬ìŠ¤í¬ ìš”ì¸" data-en="Key Risk Factors">ì£¼ìš” ë¦¬ìŠ¤í¬ ìš”ì¸</span></div>
-    <div class="risk-item">
-      <div class="risk-icon">ğŸ“ˆ</div>
-      <div class="risk-content">
-        <div class="risk-title" data-ko="ì—°ì¤€ ê¸ˆë¦¬ ì¸ìƒ ë¦¬ìŠ¤í¬" data-en="Fed Rate Hike Risk">ì—°ì¤€ ê¸ˆë¦¬ ì¸ìƒ ë¦¬ìŠ¤í¬</div>
-        <div class="risk-desc" data-ko="5ì›” CPIê°€ 4.2%(YoY, 3ë…„1ê°œì›” ìµœê³ ì¹˜)ë¡œ ì˜ˆìƒì„ í¬ê²Œ ìƒíšŒí–ˆìŠµë‹ˆë‹¤. ê¸ˆë¦¬ì„ ë¬¼ ì‹œì¥ì€ ì¼€ë¹ˆ ì›Œì‹œ ì‹ ì„ ì—°ì¤€ ì˜ì¥ì˜ ì²« FOMCì—ì„œ ê¸ˆë¦¬ì¸ìƒ ê°€ëŠ¥ì„±ì„ 67%ë¡œ ë°˜ì˜í•˜ê³  ìˆì–´, ê³ ë°¸ë¥˜ì—ì´ì…˜ ì„±ì¥ì£¼ì— í•˜ë°© ì••ë ¥ì´ ë  ìˆ˜ ìˆìŠµë‹ˆë‹¤." data-en="May CPI surged 4.2% YoY (highest in 3+ years), well above expectations. Rate futures price a 67% probability of a hike at new Fed Chair Kevin Warsh's first FOMC, creating downside pressure for high-valuation growth stocks.">5ì›” CPIê°€ 4.2%(YoY, 3ë…„1ê°œì›” ìµœê³ ì¹˜)ë¡œ ì˜ˆìƒì„ í¬ê²Œ ìƒíšŒí–ˆìŠµë‹ˆë‹¤. ê¸ˆë¦¬ì„ ë¬¼ ì‹œì¥ì€ ì¼€ë¹ˆ ì›Œì‹œ ì‹ ì„ ì—°ì¤€ ì˜ì¥ì˜ ì²« FOMCì—ì„œ ê¸ˆë¦¬ì¸ìƒ ê°€ëŠ¥ì„±ì„ 67%ë¡œ ë°˜ì˜í•˜ê³  ìˆì–´, ê³ ë°¸ë¥˜ì—ì´ì…˜ ì„±ì¥ì£¼ì— í•˜ë°© ì••ë ¥ì´ ë  ìˆ˜ ìˆìŠµë‹ˆë‹¤.</div>
-      </div>
-    </div>
-    <div class="risk-item">
-      <div class="risk-icon">ğŸ’¹</div>
-      <div class="risk-content">
-        <div class="risk-title" data-ko="ë²„í• ì§€ìˆ˜ 232% â€” ì—­ëŒ€ ìµœê³  ê³¼ì—´ ê²½ê³ " data-en="Buffett Indicator 232% â€” Record High Overvaluation">ë²„í• ì§€ìˆ˜ 232% â€” ì—­ëŒ€ ìµœê³  ê³¼ì—´ ê²½ê³ </div>
-        <div class="risk-desc" data-ko="ë¯¸êµ­ ì‹œì´/GDP ë¹„ìœ¨ì´ 232%ë¡œ ì—­ëŒ€ ìµœê³ ì¹˜ë¥¼ ê¸°ë¡í–ˆìŠµë‹ˆë‹¤. ìŠ¤í˜ì´ìŠ¤XÂ·AI ì£¼ë„ì˜ ìœ ë™ì„± ì¥ì„¸ë¡œ ì¦ì‹œê°€ ê¸‰ë“±í–ˆìœ¼ë‚˜, ì‹¤ë¬¼ ê²½ì œ ëŒ€ë¹„ ì‹¬ê°í•œ ê³ í‰ê°€ ìƒíƒœ. ì°¨ìµì‹¤í˜„ ë§¤ë¬¼ ì¶œíšŒ ì‹œ ë‚™í­ í™•ëŒ€ ê°€ëŠ¥ì„±ì´ ìˆìŠµë‹ˆë‹¤." data-en="US market cap/GDP ratio hit an all-time record of 232%. While SpaceX/AI have driven gains, severe overvaluation vs. real economy means large-scale profit-taking could amplify any correction.">ë¯¸êµ­ ì‹œì´/GDP ë¹„ìœ¨ì´ 232%ë¡œ ì—­ëŒ€ ìµœê³ ì¹˜ë¥¼ ê¸°ë¡í–ˆìŠµë‹ˆë‹¤. ìŠ¤í˜ì´ìŠ¤XÂ·AI ì£¼ë„ì˜ ìœ ë™ì„± ì¥ì„¸ë¡œ ì¦ì‹œê°€ ê¸‰ë“±í–ˆìœ¼ë‚˜, ì‹¤ë¬¼ ê²½ì œ ëŒ€ë¹„ ì‹¬ê°í•œ ê³ í‰ê°€ ìƒíƒœ. ì°¨ìµì‹¤í˜„ ë§¤ë¬¼ ì¶œíšŒ ì‹œ ë‚™í­ í™•ëŒ€ ê°€ëŠ¥ì„±ì´ ìˆìŠµë‹ˆë‹¤.</div>
-      </div>
+  <!-- Market Summary -->
+  <div class="section">
+    <div class="card">
+      <div class="card-title" data-ko="ğŸ“Š ì‹œì¥ ìš”ì•½" data-en="ğŸ“Š Market Summary">ğŸ“Š ì‹œì¥ ìš”ì•½</div>
+      <p class="summary-text" data-ko="ì§€ë‚œì£¼ ê¸ˆìš”ì¼ ë‰´ìš•ì¦ì‹œëŠ” ë¯¸êµ­ê³¼ ì´ë€ì˜ ì¢…ì „ í•©ì˜ ê¸°ëŒ€ê° ì†ì— 3ëŒ€ ì§€ìˆ˜ ëª¨ë‘ ìƒìŠ¹ ë§ˆê°í–ˆìŠµë‹ˆë‹¤. ë‹¤ìš° +0.70%, S&P 500 +0.50%, ë‚˜ìŠ¤ë‹¥ +0.31%ë¥¼ ê¸°ë¡í•˜ë©° ì´í‹€ ì—°ì† ë ë¦¬ë¥¼ ì´ì–´ê°”ìŠµë‹ˆë‹¤. ì´ë²ˆ ì£¼ ì›”ìš”ì¼(6/15) í”„ë¦¬ë§ˆì¼“ì€ ë¯¸-ì´ë€ì´ í˜¸ë¥´ë¬´ì¦ˆ í•´í˜‘ ì¬ê°œë°© ë° ì¦‰ê°ì  ì¢…ì „ì— ìµœì¢… í•©ì˜í•œ ì†Œì‹ì— S&P 500 ì„ ë¬¼ +0.46%, ë‚˜ìŠ¤ë‹¥ 100 ì„ ë¬¼ +1.30%ë¡œ ê°•ì„¸ë¥¼ ë³´ì´ê³  ìˆìŠµë‹ˆë‹¤. WTI ì›ìœ ëŠ” 5.72% í­ë½í•´ $80 ì„ ìœ¼ë¡œ ë‚´ë ¤ì™”ìœ¼ë©°, ì•„ì‹œì•„ ì¦ì‹œëŠ” ì¼ì œíˆ ê¸‰ë“±(ë‹›ì¼€ì´ +5.5%, ì½”ìŠ¤í”¼ +5.2%)í•˜ë©° ìœ„í—˜ìì‚° ì„ í˜¸ ì‹¬ë¦¬ê°€ ê³ ì¡°ë˜ê³  ìˆìŠµë‹ˆë‹¤. ì˜¤ëŠ” 6ì›” 19ì¼(ê¸ˆ) ìŠ¤ìœ„ìŠ¤ì—ì„œ ê³µì‹ ì¢…ì „ í•©ì˜ MOU ì„œëª…ì‹ì´ ì˜ˆì •ë˜ì–´ ìˆìŠµë‹ˆë‹¤." data-en="Wall Street closed higher Friday as US-Iran peace deal hopes powered a second consecutive day of gains: Dow +0.70%, S&P 500 +0.50%, Nasdaq +0.31%. This Monday's premarket opens with further upside â€” S&P 500 futures +0.46%, Nasdaq 100 futures +1.30% â€” after the US and Iran formally confirmed a permanent ceasefire deal including the reopening of the Strait of Hormuz. WTI crude plunged 5.72% to $80.02 as the supply-blockade risk evaporated. Asian equities surged (Nikkei +5.5%, Kospi +5.2%), underscoring broad risk-on sentiment. An official peace MOU signing ceremony is scheduled in Switzerland on June 19.">ì§€ë‚œì£¼ ê¸ˆìš”ì¼ ë‰´ìš•ì¦ì‹œëŠ” ë¯¸êµ­ê³¼ ì´ë€ì˜ ì¢…ì „ í•©ì˜ ê¸°ëŒ€ê° ì†ì— 3ëŒ€ ì§€ìˆ˜ ëª¨ë‘ ìƒìŠ¹ ë§ˆê°í–ˆìŠµë‹ˆë‹¤. ë‹¤ìš° +0.70%, S&amp;P 500 +0.50%, ë‚˜ìŠ¤ë‹¥ +0.31%ë¥¼ ê¸°ë¡í•˜ë©° ì´í‹€ ì—°ì† ë ë¦¬ë¥¼ ì´ì–´ê°”ìŠµë‹ˆë‹¤. ì´ë²ˆ ì£¼ ì›”ìš”ì¼(6/15) í”„ë¦¬ë§ˆì¼“ì€ ë¯¸-ì´ë€ì´ í˜¸ë¥´ë¬´ì¦ˆ í•´í˜‘ ì¬ê°œë°© ë° ì¦‰ê°ì  ì¢…ì „ì— ìµœì¢… í•©ì˜í•œ ì†Œì‹ì— S&amp;P 500 ì„ ë¬¼ +0.46%, ë‚˜ìŠ¤ë‹¥ 100 ì„ ë¬¼ +1.30%ë¡œ ê°•ì„¸ë¥¼ ë³´ì´ê³  ìˆìŠµë‹ˆë‹¤. WTI ì›ìœ ëŠ” 5.72% í­ë½í•´ $80 ì„ ìœ¼ë¡œ ë‚´ë ¤ì™”ìœ¼ë©°, ì•„ì‹œì•„ ì¦ì‹œëŠ” ì¼ì œíˆ ê¸‰ë“±(ë‹›ì¼€ì´ +5.5%, ì½”ìŠ¤í”¼ +5.2%)í•˜ë©° ìœ„í—˜ìì‚° ì„ í˜¸ ì‹¬ë¦¬ê°€ ê³ ì¡°ë˜ê³  ìˆìŠµë‹ˆë‹¤. ì˜¤ëŠ” 6ì›” 19ì¼(ê¸ˆ) ìŠ¤ìœ„ìŠ¤ì—ì„œ ê³µì‹ ì¢…ì „ í•©ì˜ MOU ì„œëª…ì‹ì´ ì˜ˆì •ë˜ì–´ ìˆìŠµë‹ˆë‹¤.</p>
     </div>
   </div>
 
-  <!-- NEWS LIST -->
-  <div class="card">
-    <div class="card-title"><span class="icon">ğŸ“°</span> <span data-ko="ì£¼ìš” ë‰´ìŠ¤" data-en="Key News">ì£¼ìš” ë‰´ìŠ¤</span></div>
-    <ul class="news-list">
-      <li class="news-item">
-        <a href="http://www.newsroad.co.kr/news/articleView.html?idxno=60384" target="_blank" rel="noopener">ë¯¸Â·ì´ë€ ì¢…ì „ í•©ì˜ ì„ë°•ì— ë‰´ìš•ì¦ì‹œ ìƒìŠ¹â€¦ìŠ¤í˜ì´ìŠ¤X ìƒì¥ ì²«ë‚  19% ê¸‰ë“±</a>
-        <div class="news-meta">newsroad Â· 2026.06.13</div>
-      </li>
-      <li class="news-item">
-        <a href="https://n.news.naver.com/mnews/article/014/0005534327?sid=101" target="_blank" rel="noopener">[ë‰´ìš•ì¦ì‹œ] ìŠ¤í˜ì´ìŠ¤XÂ·ì´ë€ ì¢…ì „ MOU ê¸°ëŒ€ê°ì— ìƒìŠ¹â€¦ìŠ¤í˜ì´ìŠ¤X, ì²«ë‚  19% ê¸‰ë“±</a>
-        <div class="news-meta">íŒŒì´ë‚¸ì…œë‰´ìŠ¤ Â· 2026.06.13</div>
-      </li>
-      <li class="news-item">
-        <a href="https://news.einfomax.co.kr/news/articleView.html?idxno=4419796" target="_blank" rel="noopener">[ë‰´ìš•ë§ˆì¼“ì›Œì¹˜] ìŠ¤í˜ì´ìŠ¤X ì´ˆëŒ€ë°•ì— ë¨¸ìŠ¤í¬ëŠ” ì¡°ë§Œì¥ìâ€¦ì£¼ê°€Â·ë‹¬ëŸ¬â†‘ì±„ê¶Œâ†“</a>
-        <div class="news-meta">ì—°í•©ì¸í¬ë§¥ìŠ¤ Â· 2026.06.13</div>
-      </li>
-      <li class="news-item">
-        <a href="http://www.newsroad.co.kr/news/articleView.html?idxno=60385" target="_blank" rel="noopener">ìŠ¤í˜ì´ìŠ¤X, ë‚˜ìŠ¤ë‹¥ ì…ì„± ì²«ë‚  19.3% ê¸‰ë“±â€¦ë‹¨ìˆ¨ì— ì‹œì´ 6ìœ„ 'ê³ ê³µ ë¹„í–‰'</a>
-        <div class="news-meta">newsroad Â· 2026.06.13</div>
-      </li>
-      <li class="news-item">
-        <a href="https://n.news.naver.com/mnews/article/050/0000107262?sid=101" target="_blank" rel="noopener">ë²„í• ì§€ìˆ˜ 232% ì—­ëŒ€ ìµœê³ ..."ç¾ì¦ì‹œ ì‹¬ê°í•œ ê³ í‰ê°€ ê²½ê³ "</a>
-        <div class="news-meta">í•œêµ­ê²½ì œ Â· 2026.06.13</div>
-      </li>
-      <li class="news-item">
-        <a href="https://n.news.naver.com/mnews/article/374/0000515718?sid=101" target="_blank" rel="noopener">[ê¸€ë¡œë²Œ ì¦ì‹œ ë”°ë¼ì¡ê¸°] "ì´ë€ê³¼ ì¢…ì „ ì„ë°•" ë¯¸êµ­ì¦ì‹œ ë‹¤ì‹œ ë‚ ì•„ì˜¤ë¥´ë‚˜â€¦ê¸ˆë¦¬ì¸ìƒ í–¥í•˜ëŠ” ê²½ì œì§€í‘œ</a>
-        <div class="news-meta">SBS Biz Â· 2026.06.12</div>
-      </li>
-      <li class="news-item">
-        <a href="https://biz.heraldcorp.com/article/10770593?ref=naver" target="_blank" rel="noopener">'170ì–µë‹¬ëŸ¬ë©´ ì–¼ë§ˆì•¼?' ìŠ¤í˜ì´ìŠ¤X 'ë¸”ë™í™€', ê¸°ì¡´ ë¹…í…Œí¬ ìê¸ˆ ì´ë™ ì£¼ì˜</a>
-        <div class="news-meta">í—¤ëŸ´ë“œê²½ì œ Â· 2026.06.12</div>
-      </li>
-    </ul>
+  <!-- Themes -->
+  <div class="section">
+    <div class="card-title" data-ko="ğŸ”¥ ì£¼ëª© í…Œë§ˆ" data-en="ğŸ”¥ Key Themes">ğŸ”¥ ì£¼ëª© í…Œë§ˆ</div>
+    <div class="theme-grid" style="margin-top:10px;">
+      <div class="theme-card">
+        <div class="theme-name" data-ko="ğŸ•Šï¸ ë¯¸-ì´ë€ ì¢…ì „ í•©ì˜" data-en="ğŸ•Šï¸ US-Iran Peace Deal">ğŸ•Šï¸ ë¯¸-ì´ë€ ì¢…ì „ í•©ì˜</div>
+        <div class="theme-desc" data-ko="í˜¸ë¥´ë¬´ì¦ˆ í•´í˜‘ ì¬ê°œë°© ë° ì´ë€ í•­êµ¬ ë´‰ì‡„ ì¦‰ê° í•´ì œ. 6/19 ìŠ¤ìœ„ìŠ¤ ê³µì‹ ì„œëª… ì˜ˆì •. ì¤‘ë™ ì§€ì •í•™ ë¦¬ìŠ¤í¬ ê¸‰ê°." data-en="Strait of Hormuz to reopen; US naval blockade of Iranian ports lifted. Official MOU signing in Switzerland June 19. Middle East geopolitical risk sharply reduced.">í˜¸ë¥´ë¬´ì¦ˆ í•´í˜‘ ì¬ê°œë°© ë° ì´ë€ í•­êµ¬ ë´‰ì‡„ ì¦‰ê° í•´ì œ. 6/19 ìŠ¤ìœ„ìŠ¤ ê³µì‹ ì„œëª… ì˜ˆì •. ì¤‘ë™ ì§€ì •í•™ ë¦¬ìŠ¤í¬ ê¸‰ê°.</div>
+      </div>
+      <div class="theme-card">
+        <div class="theme-name" data-ko="ğŸ¤– AI ë°˜ë„ì²´ ë ë¦¬" data-en="ğŸ¤– AI Chipmaker Rally">ğŸ¤– AI ë°˜ë„ì²´ ë ë¦¬</div>
+        <div class="theme-desc" data-ko="í•„ë¼ë¸í”¼ì•„ ë°˜ë„ì²´ì§€ìˆ˜ +7.9%(ì¢…ì „ ë°œí‘œ ë‹¹ì¼ ìµœëŒ€ ìƒìŠ¹). ì—”ë¹„ë””ì•„Â·AMDÂ·ë§ˆì´í¬ë¡  ë“± AI ì¹© í•µì‹¬ì£¼ ê¸‰ë“±. ë¦¬ìŠ¤í¬ì˜¨ ìê¸ˆì´ AI ê¸°ìˆ ì£¼ë¡œ ì§‘ì¤‘." data-en="PHLX Semiconductor Index surged 7.9% on ceasefire day â€” biggest one-day gain since April 2025. Nvidia, AMD, Micron leading. Risk-on capital pouring into AI chip names.">í•„ë¼ë¸í”¼ì•„ ë°˜ë„ì²´ì§€ìˆ˜ +7.9%(ì¢…ì „ ë°œí‘œ ë‹¹ì¼ ìµœëŒ€ ìƒìŠ¹). ì—”ë¹„ë””ì•„Â·AMDÂ·ë§ˆì´í¬ë¡  ë“± AI ì¹© í•µì‹¬ì£¼ ê¸‰ë“±. ë¦¬ìŠ¤í¬ì˜¨ ìê¸ˆì´ AI ê¸°ìˆ ì£¼ë¡œ ì§‘ì¤‘.</div>
+      </div>
+      <div class="theme-card">
+        <div class="theme-name" data-ko="ğŸ›¢ï¸ ìœ ê°€ ê¸‰ë½" data-en="ğŸ›¢ï¸ Oil Price Crash">ğŸ›¢ï¸ ìœ ê°€ ê¸‰ë½</div>
+        <div class="theme-desc" data-ko="WTI -5.72%ë¡œ $80.02 ëŒíŒŒ í•˜ë½. ì´ë€ ì›ìœ  ê³µê¸‰ ì¬ê°œ ê¸°ëŒ€ê°. ì¸í”Œë ˆì´ì…˜ ì••ë ¥ ì™„í™” â†’ ì—°ì¤€ ê¸ˆë¦¬ ì¸í•˜ ê¸°ëŒ€ ë™ë°˜ ìƒìŠ¹." data-en="WTI crude -5.72% to $80.02 â€” two-month low. Iranian oil supply set to resume. Easing inflation pressure raises Fed rate-cut expectations.">WTI -5.72%ë¡œ $80.02 ëŒíŒŒ í•˜ë½. ì´ë€ ì›ìœ  ê³µê¸‰ ì¬ê°œ ê¸°ëŒ€ê°. ì¸í”Œë ˆì´ì…˜ ì••ë ¥ ì™„í™” â†’ ì—°ì¤€ ê¸ˆë¦¬ ì¸í•˜ ê¸°ëŒ€ ë™ë°˜ ìƒìŠ¹.</div>
+      </div>
+      <div class="theme-card">
+        <div class="theme-name" data-ko="ğŸš€ ìŠ¤í˜ì´ìŠ¤X IPO ì—¬ì§„" data-en="ğŸš€ SpaceX IPO Afterglow">ğŸš€ ìŠ¤í˜ì´ìŠ¤X IPO ì—¬ì§„</div>
+        <div class="theme-desc" data-ko="6/12 ë‚˜ìŠ¤ë‹¥ ìƒì¥ SPCX, IPO ï²Ê¯®
+€€¬ÌÄ”ƒ¶>·®NÄ£ªÎ×®ª£ªÂ €ÄÌ×ŠHÄÔÀƒ²b“¶R ”¸€ÜÔÃ²ZÔƒ®.³®~°ƒ²†Ã®.³®†pƒ²
+³²ƒ²Ös®2 %A<¸'
+ß²jÃ²ğƒ¶3® ƒ¶"³²z@ƒ².³®š°ƒ²zCªŞä¸ˆ‘…Ñ„µ•¸ô‰MÁ…•`€¡MA`¤‘•‰ÕÑ•½¸9…Í‘…Ä)Õ¹”€ÄÈ°Í½…É¥¹œ€ÌÄ”½¸%A<‘…ä€¡½Á•¹•…Ğ€ÄÔÀÙÌ€ÄÌÔ½™™•È¤¸I•½É€ÜÕÉ…¥Í”¸	½½ÍÑ¥¹œ$…¹ÍÁ…”µÑ• Í•¹Ñ¥µ•¹Ğ¸ˆøØ¼ÄÈƒ®
+c²*“®.”ƒ²²z”MA`°%A<ƒ²Ê¯®
+€€¬ÌÄ”ƒ¶>·®NÄ£ªÎ×®ª£ªÂ €ÄÌ×ŠHÄÔÀƒ²b“¶R ¤¸€ÜÔÃ²ZÔƒ®.³®~°ƒ²†Ã®.³®†pƒ²
+³²ƒ²Ös®2 %A<¸'
+ß²jÃ²ğƒ¶3® ƒ¶"³²z@ƒ².³®š°ƒ²zCªŞä¸ğ½‘¥Øø(€€€€€€ğ½‘¥Øø(€€€€€€ñ‘¥Ø±…ÍÌô‰Ñ¡•µ”µ…Éˆø(€€€€€€€€ñ‘¥Ø±…ÍÌô‰Ñ¡•µ”µ¹…µ”ˆ‘…Ñ„µ­¼ô‹Â~2<ƒªâ®†s®Ê0ƒ®š³²*“¶³²b ˆ‘…Ñ„µ•¸ô‹Â~2<±½‰…°I¥Í¬µ=¸ˆûÂ~2<ƒªâ®†s®Ê0ƒ®š³²*“¶³²b ğ½‘¥Øø(€€€€€€€€ñ‘¥Ø±…ÍÌô‰Ñ¡•µ”µ‘•ÍŒˆ‘…Ñ„µ­¼ô‹®.o²ò²vĞ€¬Ô¸Ô”°ƒ²öS²*“¶Rğ€¬Ô¸È”°ƒ®2®3²šw².p€¬È¸Ü”ƒ²vó²‚pƒªâ'®NÄ¸ƒ²’G®>dƒ®š³²*“¶°ƒ¶VÓ²3®†pƒ²fãªÖ·²vàƒ²zCªâ ƒ².ƒ¶v—ªÖ´ƒ®Î×ªŞ ¸ƒ²V#²‚²zC²
+À£ªâ#
+ß®.³®~³
+ßªÖ·²Æ¤ƒ²V÷²à¸ˆ‘…Ñ„µ•¸ô‰9¥­­•¤€¬Ô¸Ô”°-½ÍÁ¤€¬Ô¸È”°Q…¥İ…¸Q…¥•à€¬È¸Ü”…±°ÍÕÉ¥¹œ¸½É•¥¸…Á¥Ñ…°É•ÑÕÉ¹¥¹œÑ¼4…™Ñ•È5¥‘‘±”…ÍĞÉ¥Í¬É•Í½±ÕÑ¥½¸¸½±°UM°QÉ•…ÍÕÉ¥•ÌÉ•ÑÉ•…Ñ¥¹œ¸ˆû®.o²ò²vĞ€¬Ô¸Ô”°ƒ²öS²*“¶Rğ€¬Ô¸È”°ƒ®2®3²šw².p€¬È¸Ü”ƒ²vó²‚pƒªâ'®NÄ¸ƒ²’G®>dƒ®š³²*“¶°ƒ¶VÓ²3®†pƒ²fãªÖ·²vàƒ²zCªâ ƒ².ƒ¶v—ªÖ´ƒ®Î×ªŞ ¸ƒ²V#²‚²zC²
+À£ªâ#
+ß®.³®~³
+ßªÖ·²Æ¤ƒ²V÷²à¸ğ½‘¥Øø(€€€€€€ğ½‘¥Øø(€€€€ğ½‘¥Øø(€€ğ½‘¥Øø((€€ğ„´´MÑ½¬A¥­Ì€´´ø(€€ñ‘¥Ø±…ÍÌô‰Í•Ñ¥½¸ˆø(€€€€ñ‘¥Ø±…ÍÌô‰…ÉµÑ¥Ñ±”ˆ‘…Ñ„µ­¼ô‹Šj„ƒ²b“®*c²v`ƒ²ó®ª¤ƒ²Š®ª¤ˆ‘…Ñ„µ•¸ô‹Šj„MÑ½­ÌÑ¼]…Ñ ˆûŠj„ƒ²b“®*c²v`ƒ²ó®ª¤ƒ²Š®ª¤ğ½‘¥Øø(€€€€ñ‘¥Ø±…ÍÌô‰ÍÑ½¬µÉ¥ˆÍÑå±”ô‰µ…É¥¸µÑ½ÀèÄÁÁàìˆø(€€€€€€ñ‘¥Ø±…ÍÌô‰ÍÑ½¬µ…Éˆø(€€€€€€€€ñ‘¥Ø±…ÍÌô‰ÍÑ½¬µ¡•…‘•Èˆø(€€€€€€€€€€ñÍÁ…¸±…ÍÌô‰Ñ¥­•Èµ‰…‘”ˆù9Yğ½ÍÁ…¸ø(€€€€€€€€€€ñÍÁ…¸±…ÍÌô‰ÍÑ½¬µ¹…µ”ˆ‘…Ñ„µ­¼ô‹²^S®æ®RS²Vˆ‘…Ñ„µ•¸ô‰9Y%%ˆû²^S®æ®RS²Vğ½ÍÁ…¸ø(€€€€€€€€ğ½‘¥Øø(€€€€€€€€ñ‘¥Ø±…ÍÌô‰Í½É”µ‰…ÈµİÉ…Àˆø(€€€€€€€€€€ñ‘¥Ø±…ÍÌô‰Í½É”µ±…‰•°ˆ‘…Ñ„µ­¼ô‹ªÂC²Äƒ²‚C²"`ˆ‘…Ñ„µ•¸ô‰M•¹Ñ¥µ•¹ĞˆûªÂC²Äƒ²‚C²"`ğ½‘¥Øø(€€€€€€€€€€ñ‘¥Ø±…ÍÌô‰Í½É”µ‰…Èˆøñ‘¥Ø±…ÍÌô‰Í½É”µ™¥±°ˆÍÑå±”ô‰İ¥‘Ñ èäÈ”ˆøğ½‘¥Øøğ½‘¥Øø(€€€€€€€€ğ½‘¥Øø(€€€€€€€€ñ‘¥Ø±…ÍÌô‰ÍÑ½¬µÉ•…Í½¸ˆ‘…Ñ„µ­¼ô‰$ƒ²æ¤ƒ®2²z—²ğ¸ƒ²Š²‚ƒ®Âs¶Fpƒ¶nƒ®Âc®>²ÊÓ²²"`€¬Ü¸ä”ƒ²ó®>¸ƒ¶V®vó®6ã¶Ró²Vƒ®Âc®>²ÊĞƒ®.£²vğƒ²Ös®2 ƒªâ'®NÇ²vğƒ²ƒ®>¸ƒ²²‚W¶Vdƒ®š³²*“¶°ƒ¶VÓ²3®†p$ƒ¶"³²z@ƒªÂ²7¶fPƒªâÃ®2 ¸ˆ‘…Ñ„µ•¸ô‰$¡¥À‰•±±İ•Ñ¡•È¸1•A!1`M•µ¥½¹‘ÕÑ½ÈÌ€Ü¸ä”ÍÕÉ”½¸•…Í•™¥É”‘…äƒŠP‰¥•ÍĞÍ¥¹±”µ‘…ä…¥¸Í¥¹”ÁÉ¥°€ÈÀÈÔ¸$…Á•à…•±•É…Ñ¥½¸•áÁ•Ñ•…Ì•½Á½±¥Ñ¥…°É¥Í¬±•…ÉÌ¸ˆù$ƒ²æ¤ƒ®2²z—²ğ¸ƒ²Š²‚ƒ®Âs¶Fpƒ¶nƒ®Âc®>²ÊÓ²²"`€¬Ü¸ä”ƒ²ó®>¸ƒ¶V®vó®6ã¶Ró²Vƒ®Âc®>²ÊĞƒ®.£²vğƒ²Ös®2 ƒªâ'®NÇ²vğƒ²ƒ®>¸ƒ²²‚W¶Vdƒ®š³²*“¶°ƒ¶VÓ²3®†p$ƒ¶"³²z@ƒªÂ²7¶fPƒªâÃ®2 ¸ğ½‘¥Øø(€€€€€€ğ½‘¥Øø(€€€€€€ñ‘¥Ø±…ÍÌô‰ÍÑ½¬µ…Éˆø(€€€€€€€€ñ‘¥Ø±…ÍÌô‰ÍÑ½¬µ¡•…‘•Èˆø(€€€€€€€€€€ñÍÁ…¸±…ÍÌô‰Ñ¥­•Èµ‰…‘”ˆù5ğ½ÍÁ…¸ø(€€€€€€€€€€ñÍÁ…¸±…ÍÌô‰ÍÑ½¬µ¹…µ”ˆ‘…Ñ„µ­¼ô‰5ˆ‘…Ñ„µ•¸ô‰5ˆù5ğ½ÍÁ…¸ø(€€€€€€€€ğ½‘¥Øø(€€€€€€€€ñ‘¥Ø±…ÍÌô‰Í½É”µ‰…ÈµİÉ…Àˆø(€€€€€€€€€€ñ‘¥Ø±…ÍÌô‰Í½É”µ±…‰•°ˆ‘…Ñ„µ­¼ô‹ªÂC²Äƒ²‚C²"`ˆ‘…Ñ„µ•¸ô‰M•¹Ñ¥µ•¹ĞˆûªÂC²Äƒ²‚C²"`ğ½‘¥Øø(€€€€€€€€€€ñ‘¥Ø±…ÍÌô‰Í½É”µ‰…Èˆøñ‘¥Ø±…ÍÌô‰Í½É”µ™¥±°ˆÍÑå±”ô‰İ¥‘Ñ èàÜ”ˆøğ½‘¥Øøğ½‘¥Øø(€€€€€€€€ğ½‘¥Øø(€€€€€€€€ñ‘¥Ø±…ÍÌô‰ÍÑ½¬µÉ•…Í½¸ˆ‘…Ñ„µ­¼ô‹²Š²‚ƒ®Âs¶Fpƒ¶n9Ù¥‘¥‡
+İ5¥É½»ªÎğƒ¶V£ªî`$ƒ®Âc®>²ÊĞƒ®zƒ®š°€Ï®2 ƒ¶V×².³²ó®†pƒ®Ú²¸ƒ²’G®>dƒ²V#²‚W¶fS®†pƒªâ®†s®Ê0ƒ®6Ã²vÓ¶Ã²ó¶Àƒ¶"³²z@ƒ²z³ªÂpƒ²"c¶bpƒªâÃ®2 ¸ˆ‘…Ñ„µ•¸ô‰½É”$¡¥À¹…µ”¥¸Ñ¡”•…Í•™¥É”É…±±ä…±½¹Í¥‘”9Ù¥‘¥„…¹5¥É½¸¸±½‰…°‘…Ñ„•¹Ñ•È…Á•à•áÁ•Ñ•Ñ¼É•ÍÕµ”…Ì5¥‘‘±”…ÍĞÍÑ…‰¥±¥é•Ì¸ˆû²Š²‚ƒ®Âs¶Fpƒ¶n9Ù¥‘¥‡
+İ5¥É½»ªÎğƒ¶V£ªî`$ƒ®Âc®>²ÊĞƒ®zƒ®š°€Ï®2 ƒ¶V×².³²ó®†pƒ®Ú²¸ƒ²’G®>dƒ²V#²‚W¶fS®†pƒªâ®†s®Ê0ƒ®6Ã²vÓ¶Ã²ó¶Àƒ¶"³²z@ƒ²z³ªÂpƒ²"c¶bpƒªâÃ®2 ¸ğ½‘¥Øø(€€€€€€ğ½‘¥Øø(€€€€€€ñ‘¥Ø±…ÍÌô‰ÍÑ½¬µ…Éˆø(€€€€€€€€ñ‘¥Ø±…ÍÌô‰ÍÑ½¬µ¡•…‘•Èˆø(€€€€€€€€€€ñÍÁ…¸±…ÍÌô‰Ñ¥­•Èµ‰…‘”ˆù5Tğ½ÍÁ…¸ø(€€€€€€€€€€ñÍÁ…¸±…ÍÌô‰ÍÑ½¬µ¹…µ”ˆ‘…Ñ„µ­¼ô‹®#²vÓ¶³®†€ˆ‘…Ñ„µ•¸ô‰5¥É½¸ˆû®#²vÓ¶³®†€ğ½ÍÁ…¸ø(€€€€€€€€ğ½‘¥Øø(€€€€€€€€ñ‘¥Ø±…ÍÌô‰Í½É”µ‰…ÈµİÉ…Àˆø(€€€€€€€€€€ñ‘¥Ø±…ÍÌô‰Í½É”µ±…‰•°ˆ‘…Ñ„µ­¼ô‹ªÂC²Äƒ²‚C²"`ˆ‘…Ñ„µ•¸ô‰M•¹Ñ¥µ•¹ĞˆûªÂC²Äƒ²‚C²"`ğ½‘¥Øø(€€€€€€€€€€ñ‘¥Ø±…ÍÌô‰Í½É”µ‰…Èˆøñ‘¥Ø±…ÍÌô‰Í½É”µ™¥±°ˆÍÑå±”ô‰İ¥‘Ñ èàÔ”ˆøğ½‘¥Øøğ½‘¥Øø(€€€€€€€€ğ½‘¥Øø(€€€€€€€€ñ‘¥Ø±…ÍÌô‰ÍÑ½¬µÉ•…Í½¸ˆ‘…Ñ„µ­¼ô‹®Âc®>²ÊÓ²²"`ƒªâ'®NÇ²vƒ²ƒ®>¶Vpƒ¶V×².°ƒ®¦S®ª£®š°ƒ²æ¤ƒ²Š®ª¤¸$ƒ¶n#®‚ ƒ²vã¶R®vğƒ¶fW²z”ƒ²"c²jPƒ²²‚Dƒ²"c¶bp¸ƒ²Š²‚ƒ²vÓ¶nƒªÎ×ªâ'®tƒ²V#²‚W¶fPƒªâÃ®2 ¸ˆ‘…Ñ„µ•¸ô‰-•äµ•µ½Éä¡¥À¹…µ”Ñ¡…Ğ±•Ñ¡”Í•µ¥½¹‘ÕÑ½È¥¹‘•àÍÕÉ”¸¥É•Ğ‰•¹•™¥¥…Éä½˜$ÑÉ…¥¹¥¹œ¥¹™É…ÍÑÉÕÑÕÉ”•áÁ…¹Í¥½¸¸MÕÁÁ±ä¡…¥¸ÍÑ…‰¥±¥é…Ñ¥½¸•áÁ•Ñ•Á½ÍĞµ•…Í•™¥É”¸ˆû®Âc®>²ÊÓ²²"`ƒªâ'®NÇ²vƒ²ƒ®>¶Vpƒ¶V×².°ƒ®¦S®ª£®š°ƒ²æ¤ƒ²Š®ª¤¸$ƒ¶n#®‚ ƒ²vã¶R®vğƒ¶fW²z”ƒ²"c²jPƒ²²‚Dƒ²"c¶bp¸ƒ²Š²‚ƒ²vÓ¶nƒªÎ×ªâ'®tƒ²V#²‚W¶fPƒªâÃ®2 ¸ğ½‘¥Øø(€€€€€€ğ½‘¥Øø(€€€€€€ñ‘¥Ø±…ÍÌô‰ÍÑ½¬µ…Éˆø(€€€€€€€€ñ‘¥Ø±…ÍÌô‰ÍÑ½¬µ¡•…‘•Èˆø(€€€€€€€€€€ñÍÁ…¸±…ÍÌô‰Ñ¥­•Èµ‰…‘”ˆù5Qğ½ÍÁ…¸ø(€€€€€€€€€€ñÍÁ…¸±…ÍÌô‰ÍÑ½¬µ¹…µ”ˆ‘…Ñ„µ­¼ô‹®¦S¶ ˆ‘…Ñ„µ•¸ô‰5•Ñ„ˆû®¦S¶ ğ½ÍÁ…¸ø(€€€€€€€€ğ½‘¥Øø(€€€€€€€€ñ‘¥Ø±…ÍÌô‰Í½É”µ‰…ÈµİÉ…Àˆø(€€€€€€€€€€ñ‘¥Ø±…ÍÌô‰Í½É”µ±…‰•°ˆ‘…Ñ„µ­¼ô‹ªÂC²Äƒ²‚C²"`ˆ‘…Ñ„µ•¸ô‰M•¹Ñ¥µ•¹ĞˆûªÂC²Äƒ²‚C²"`ğ½‘¥Øø(€€€€€€€€€€ñ‘¥Ø±…ÍÌô‰Í½É”µ‰…Èˆøñ‘¥Ø±…ÍÌô‰Í½É”µ™¥±°ˆÍÑå±”ô‰İ¥‘Ñ èàÌ”ˆøğ½‘¥Øøğ½‘¥Øø(€€€€€€€€ğ½‘¥Øø(€€€€€€€€ñ‘¥Ø±…ÍÌô‰ÍÑ½¬µÉ•…Í½¸ˆ‘…Ñ„µ­¼ô‹²Š²‚ƒ²3².w²^@±Á¡…‰•Ó
+İµ…é½»ªÎğƒ¶V£ªî`ƒ®æ¶3¶°ƒ®zƒ®š°ƒ²ó®>¸$ƒªÒGªÎ€ƒ¶R3®z¯¶>ğƒ²Ç²z—²à€¬ƒ®š³²*“¶³²b ƒ²zCªâ ƒ²rƒ²z²ró®†pƒªÂW²àƒ²²4ƒ²‚®t¸ˆ‘…Ñ„µ•¸ô‰1•‰¥œµÑ• É…±±äİ¥Ñ ±Á¡…‰•Ğ…¹µ…é½¸½¸•…Í•™¥É”¹•İÌ¸$µÁ½İ•É•…Á±…Ñ™½É´É½İÑ Á±ÕÌÉ¥Í¬µ½¸…Á¥Ñ…°¥¹™±½ÜÍÕÁÁ½ÉĞ½¹Ñ¥¹Õ•ÍÑÉ•¹Ñ ¸ˆû²Š²‚ƒ²3².w²^@±Á¡…‰•Ó
+İµ…é½»ªÎğƒ¶V£ªî`ƒ®æ¶3¶°ƒ®zƒ®š°ƒ²ó®>¸$ƒªÒGªÎ€ƒ¶R3®z¯¶>ğƒ²Ç²z—²à€¬ƒ®š³²*“¶³²b ƒ²zCªâ ƒ²rƒ²z²ró®†pƒªÂW²àƒ²²4ƒ²‚®t¸ğ½‘¥Øø(€€€€€€ğ½‘¥Øø(€€€€€€ñ‘¥Ø±…ÍÌô‰ÍÑ½¬µ…Éˆø(€€€€€€€€ñ‘¥Ø±…ÍÌô‰ÍÑ½¬µ¡•…‘•Èˆø(€€€€€€€€€€ñÍÁ…¸±…ÍÌô‰Ñ¥­•Èµ‰…‘”ˆùMA`ğ½ÍÁ…¸ø(€€€€€€€€€€ñÍÁ…¸±…ÍÌô‰ÍÑ½¬µ¹…µ”ˆ‘…Ñ„µ­¼ô‹²*“¶:c²vÓ²*‘`ˆ‘…Ñ„µ•¸ô‰MÁ…•`ˆû²*“¶:c²vÓ²*‘`ğ½ÍÁ…¸ø(€€€€€€€€ğ½‘¥Øø(€€€€€€€€ñ‘¥Ø±…ÍÌô‰Í½É”µ‰…ÈµİÉ…Àˆø(€€€€€€€€€€ñ‘¥Ø±…ÍÌô‰Í½É”µ±…‰•°ˆ‘…Ñ„µ­¼ô‹ªÂC²Äƒ²‚C²"`ˆ‘…Ñ„µ•¸ô‰M•¹Ñ¥µ•¹ĞˆûªÂC²Äƒ²‚C²"`ğ½‘¥Øø(€€€€€€€€€€ñ‘¥Ø±…ÍÌô‰Í½É”µ‰…Èˆøñ‘¥Ø±…ÍÌô‰Í½É”µ™¥±°ˆÍÑå±”ô‰İ¥‘Ñ èàà”ˆøğ½‘¥Øøğ½‘¥Øø(€€€€€€€€ğ½‘¥Øø(€€€€€€€€ñ‘¥Ø±…ÍÌô‰ÍÑ½¬µÉ•…Í½¸ˆ‘…Ñ„µ­¼ôˆØ¼ÄÈƒ®
+c²*“®.”%A<ƒ¾Ë*¾¸*³3RØúŞ¹;âsSÉkR¸ºÎ¹úÂÈ*ÎÈ8ËYÎ¸È«yÎºª‚•òâçF‡&÷–>«;ÂCSÉkRş¸XB’¸ÛÉÛNØKÈKÎØK«8NÉ[ÒË+N«+âÉ«Ê;Ì+t’»;^ÙZ’ØXÎºx‚È‰Ù‰ÎÊ;Ââ"FFÖVã"IPO'd on Nasdaq June 12, soaring 31% on debut. Record $75B raise. $15B/yr AI data center contract with Anthropic. Dual space + AI theme play.">6/12 ë‚˜ìŠ¤ë‹¥ IPO ì²«ë‚  +31% í­ë“±. 750ì–µ ë‹¬ëŸ¬ ì‚¬ìƒ ìµœëŒ€ ê·œëª¨ IPO. Anthropicê³¼ $150ì–µ/ë…„ AI ë°ì´í„°ì„¼í„° ê³„ì•½ ì²´ê²°. ìš°ì£¼Â·AI ë³µí•© í…Œë§ˆ ìˆ˜í˜œì£¼.</div>
+      </div>
+      <div class="stock-card">
+        <div class="stock-header">
+          <span class="ticker-badge">TSLA</span>
+          <span class="stock-name" data-ko="í…ŒìŠ¬ë¼" data-en="Tesla">í…ŒìŠ¬ë¼</span>
+        </div>
+        <div class="score-bar-wrap">
+          <div class="score-label" data-ko="ê°ì„± ì ìˆ˜" data-en="Sentiment">ê°ì„± ì ìˆ˜</div>
+          <div class="score-bar"><div class="score-fill" style="width:79%"></div></div>
+        </div>
+        <div class="stock-reason" data-ko="ì¤‘ë™ ì¢…ì „ì— ë”°ë¥¸ ë¦¬ìŠ¤í¬ì˜¨ ë¶„ìœ„ê¸°ì—ì„œ AIÂ·EV ë³µí•©ì£¼ë¡œ +4~10% ìƒìŠ¹. ìœ ê°€ í•˜ë½ì´ EV ì „í™˜ ëª¨ë©˜í…€ ì™„í™” ìš°ë ¤ë¥¼ í¬ì„. ììœ¨ì£¼í–‰ AI ê¸°ëŒ€ê°ë„ ë™ë°˜." data-en="Rose 4-10% in the risk-on surge post-ceasefire. Lower oil prices dilute EV-vs-gas competitive concerns. Autonomous driving AI narrative adds upside optionality.">ì¤‘ë™ ì¢…ì „ì— ë”°ë¥¸ ë¦¬ìŠ¤í¬ì˜¨ ë¶„ìœ„ê¸°ì—ì„œ AIÂ·EV ë³µí•©ì£¼ë¡œ +4~10% ìƒìŠ¹. ìœ ê°€ í•˜ë½ì´ EV ì „í™˜ ëª¨ë©˜í…€ ì™„í™” ìš°ë ¤ë¥¼ í¬ì„. ììœ¨ì£¼í–‰ AI ê¸°ëŒ€ê°ë„ ë™ë°˜.</div>
+      </div>
+    </div>
   </div>
 
-  <!-- DISCLAIMER -->
-  <div class="disclaimer">
-    <p data-ko="âš ï¸ ë³¸ ë¸Œë¦¬í•‘ì€ AIê°€ ë‰´ìŠ¤ ê¸°ì‚¬ë¥¼ ìˆ˜ì§‘Â·ë¶„ì„í•˜ì—¬ ìë™ ìƒì„±í•œ ì •ë³´ ì œê³µ ì½˜í…ì¸ ì…ë‹ˆë‹¤. íˆ¬ì ê¶Œìœ ë‚˜ ë§¤ë§¤ ì¶”ì²œì´ ì•„ë‹ˆë©°, ì‹¤ì œ íˆ¬ì ê²°ì •ì€ ë³¸ì¸ì˜ íŒë‹¨ê³¼ ì±…ì„ í•˜ì— ì´ë£¨ì–´ì ¸ì•¼ í•©ë‹ˆë‹¤. ì–¸ê¸‰ëœ ì¢…ëª©ì€ ë‰´ìŠ¤ ê¸°ì‚¬ì— ê·¼ê±°í•œ ì •ë³´ ì œê³µ ëª©ì ìœ¼ë¡œë§Œ ì œì‹œë˜ì—ˆìŠµë‹ˆë‹¤. ê³¼ê±° ìˆ˜ìµë¥ ì´ ë¯¸ë˜ ìˆ˜ìµë¥ ì„ ë³´ì¥í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤." data-en="âš ï¸ This briefing is AI-generated content based on news article collection and analysis. It is not investment advice or a solicitation to trade. All investment decisions are solely the responsibility of the investor. Mentioned securities are for informational purposes only. Past performance does not guarantee future results.">âš ï¸ ë³¸ ë¸Œë¦¬í•‘ì€ AIê°€ ë‰´ìŠ¤ ê¸°ì‚¬ë¥¼ ìˆ˜ì§‘Â·ë¶„ì„í•˜ì—¬ ìë™ ìƒì„±í•œ ì •ë³´ ì œê³µ ì½˜í…ì¸ ì…ë‹ˆë‹¤. íˆ¬ì ê¶Œìœ ë‚˜ ë§¤ë§¤ ì¶”ì²œì´ ì•„ë‹ˆë©°, ì‹¤ì œ íˆ¬ì ê²°ì •ì€ ë³¸ì¸ì˜ íŒë‹¨ê³¼ ì±…ì„ í•˜ì— ì´ë£¨ì–´ì ¸ì•¼ í•©ë‹ˆë‹¤. ì–¸ê¸‰ëœ ì¢…ëª©ì€ ë‰´ìŠ¤ ê¸°ì‚¬ì— ê·¼ê±°í•œ ì •ë³´ ì œê³µ ëª©ì ìœ¼ë¡œë§Œ ì œì‹œë˜ì—ˆìŠµë‹ˆë‹¤. ê³¼ê±° ìˆ˜ìµë¥ ì´ ë¯¸ë˜ ìˆ˜ìµë¥ ì„ ë³´ì¥í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.</p>
+  <!-- Risk -->
+  <div class="section">
+    <div class="card">
+      <div class="card-title" data-ko="âš ï¸ ì£¼ìš” ë¦¬ìŠ¤í¬" data-en="âš ï¸ Key Risks">âš ï¸ ì£¼ìš” ë¦¬ìŠ¤í¬</div>
+      <div class="risk-item">
+        <div class="risk-title" data-ko="ì¢…ì „ í•©ì˜ ì´í–‰ ë¶ˆí™•ì‹¤ì„±" data-en="Peace Deal Implementation Risk">ì¢…ì „ í•©ì˜ ì´í–‰ ë¶ˆí™•ì‹¤ì„±</div>
+        <div class="risk-desc" data-ko="6/19 ìŠ¤ìœ„ìŠ¤ ì„œëª…ì‹ ì „ê¹Œì§€ í•©ì˜ íŒŒê¸° ê°€ëŠ¥ì„± ì”ì¡´. ì¢…ì „ ì†Œì‹ì´ ê³¼ë„í•˜ê²Œ ì„ ë°˜ì˜ë  ê²½ìš° 'ì†Œë¬¸ì— ì‚¬ê³  ì‚¬ì‹¤ì— íŒ”ê¸°' íŒ¨í„´ ì£¼ì˜. ì „ë¬¸ê°€ë“¤ì€ ë‹¨ê¸° ë³€ë™ì„±ì€ ì—¬ì „íˆ ë†’ì„ ìˆ˜ ìˆë‹¤ê³  ê²½ê³ ." data-en="Risk of deal collapse before June 19 Switzerland signing remains. Market may have over-priced the news â€” watch for 'buy the rumor, sell the fact' reversal. Analysts warn volatility could remain elevated with headline-driven swings.">6/19 ìŠ¤ìœ„ìŠ¤ ì„œëª…ì‹ ì „ê¹Œì§€ í•©ì˜ íŒŒê¸° ê°€ëŠ¥ì„± ì”ì¡´. ì¢…ì „ ì†Œì‹ì´ ê³¼ë„í•˜ê²Œ ì„ ë°˜ì˜ë  ê²½ìš° 'ì†Œë¬¸ì— ì‚¬ê³  ì‚¬ì‹¤ì— íŒ”ê¸°' íŒ¨í„´ ì£¼ì˜. ì „ë¬¸ê°€ë“¤ì€ ë‹¨ê¸° ë³€ë™ì„±ì€ ì—¬ì „íˆ ë†’ì„ ìˆ˜ ìˆë‹¤ê³  ê²½ê³ .</div>
+      </div>
+      <div class="risk-item">
+        <div class="risk-title" data-ko="ì¸í”Œë ˆì´ì…˜ ì§€í‘œ ë° ì—°ì¤€ ê²½ê³„" data-en="Inflation Data &amp; Fed Caution">ì¸í”Œë ˆì´ì…˜ ì§€í‘œ ë° ì—°ì¤€ ê²½ê³„</div>
+        <div class="risk-desc" data-ko="ì˜¤ëŠ˜ 5ì›” ì‚°ì—…ìƒì‚° ì§€ìˆ˜ ë°œí‘œ ì˜ˆì •. ìœ ê°€ í•˜ë½ì´ ì¸í”Œë ˆ ì™„í™” ê¸°ëŒ€ë¥¼ ë†’ì´ì§€ë§Œ, ì—°ì¤€ì€ ì—¬ì „íˆ ë°ì´í„° ì˜ì¡´ì . CPI ì˜ˆìƒ ìƒíšŒ ì‹œ ê¸ˆë¦¬ ì¸í•˜ ê¸°ëŒ€ í›„í‡´ ê°€ëŠ¥ì„± ìˆìŒ." data-en="May industrial production data releases today. While oil price decline raises disinflation hopes, the Fed remains data-dependent. Any upside CPI surprise could quickly pare rate-cut expectations.">ì˜¤ëŠ˜ 5ì›” ì‚°ì—…ìƒì‚° ì§€ìˆ˜ ë°œí‘œ ì˜ˆì •. ìœ ê°€ í•˜ë½ì´ ì¸í”Œë ˆ ì™„í™” ê¸°ëŒ€ë¥¼ ë†’ì´ì§€ë§Œ, ì—°ì¤€ì€ ì—¬ì „íˆ ë°ì´í„° ì˜ì¡´ì . CPI ì˜ˆìƒ ìƒíšŒ ì‹œ ê¸ˆë¦¬ ì¸í•˜ ê¸°ëŒ€ í›„í‡´ ê°€ëŠ¥ì„± ìˆìŒ.</div>
+      </div>
+    </div>
   </div>
 
-  <div class="footer">Â© 2026 kkangdago Â· Powered by Claude AI</div>
+  <!-- English News -->
+  <div class="section">
+    <div class="card">
+      <div class="card-title" data-ko="ğŸ“° ì£¼ìš” í•´ì™¸ ë‰´ìŠ¤" data-en="ğŸ“° Key International News">ğŸ“° ì£¼ìš” í•´ì™¸ ë‰´ìŠ¤</div>
+      <ul class="news-list">
+        <li class="news-item">
+          <div class="news-source"><span class="source-tag">TechTimes</span> Jun 12, 2026</div>
+          <div class="news-title">
+            <a href="https://www.techtimes.com/articles/318271/20260612/tech-stocks-rally-trump-halts-iran-strikes-chipmakers-drive-nasdaqs-best-day-since-march.htm" target="_blank"
+               data-ko="íŠ¸ëŸ¼í”„ ì´ë€ ê³uìŠµ ì¤‘ë‹¨ì— ê¸°ìˆ ì£¼ ê¸‰ë“± â€” ë°˜ë„ì²´, 3ì›” ì´í›„ ë‚˜ìŠ¤ë‹¥ ìµœëŒ€ ë ë¦¬ ì£¼ë„"
+               data-en="Tech Stocks Rally as Trump Halts Iran Strikes: Chipmakers Drive the Nasdaq's Best Day Since March">íŠ¸ëŸ¼í”„ ì´ë€ ê³µìŠµ ì¤‘ë‹¨ì— ê¸°ìˆ ì£¼ ê¸‰ë“± â€” ë°˜ë„ì²´, 3ì›” ì´í›„ ë‚˜ìŠ¤ë‹¥ ìµœëŒ€ ë ë¦¬ ì£¼ë„</a>
+          </div>
+        </li>
+        <li class="news-item">
+          <div class="news-source"><span class="source-tag">Al Jazeera</span> Jun 15, 2026</div>
+          <div class="news-title">
+            <a href="https://www.aljazeera.com/economy/2026/6/15/stock-markets-soar-oil-falls-as-us-iran-confirm-deal-to-end-war" target="_blank"
+               data-ko="ì£¼ì‹ì‹œì¥ ê¸‰ë“±Â·ìœ ê°€ í­ë½ â€” ë¯¸êµ­Â·ì´ë€, ì¢…ì „ í•©ì˜ ê³uì‹ í™•ì¸"
+               data-en="Stock markets soar, oil falls as US, Iran confirm deal to end war">ì£¼ì‹ì‹œì¥ ê¸‰ë“±Â·ìœ ê°€ í­ë½ â€” ë¯¸êµ­Â·ì´ë€, ì¢…ì „ í•©ì˜ ê³µì‹ í™•ì¸</a>
+          </div>
+        </li>
+        <li class="news-item">
+          <div class="news-source"><span class="source-tag">CNBC</span> Apr 8, 2026</div>
+          <div class="news-title">
+            <a href="https://www.cnbc.com/2026/04/08/alphabet-nvidia-microsoft-tech-stocks-iran-ceasefire.html" target="_blank"
+               data-ko="íŠ¸ëŸ¼í”„ ì´ë€ íœ´ì „ ë°œí‘œì— ì•ŒíŒŒë²³Â·ë©”íƒ€Â·ì•„ë§ˆì¡´Â·ì—”ë¹„ë””ì•„ ê¸°ìˆ ì£¼ ë ë¦¬ ì£¼ë„"
+               data-en="Alphabet, Meta, Amazon, Nvidia lead tech rally after Trump announces ceasefire with Iran">íŠ¸ëŸ¼í”„ ì´ë€ íœ´ì „ ë°œí‘œì— ì•ŒíŒŒë²³Â·ë©”íƒ€Â·ì•„ë§ˆì¡´Â·ì—”ë¹„ë””ì•„ ê¸°ìˆ ì£¼ ë ë¦¬ ì£¼ë„</a>
+          </div>
+        </li>
+        <li class="news-item">
+          <div class="news-source"><span class="source-tag">Charles Schwab</span> Jun 2026</div>
+          <div class="news-title">
+            <a href="https://www.schwab.com/learn/story/iran-war-potential-impact-on-global-equities" target="_blank"
+               data-ko="ì´ë€ ì „ìŸ: íœ´ì „ì€ ì•ˆë„ë¥¼ ì£¼ì§€ë§Œ í•´ê²°ì±…ì€ ì•„ë‹ˆë‹¤ â€” ë³€ë™ì„± ì§€ì† ê²½ê³ "
+               data-en="Iran War: Ceasefire Offers Relief, Not Resolution â€” volatility likely to remain elevated">ì´ë€ ì „ìŸ: íœ´ì „ì€ ì•ˆë„ë¥¼ ì£¼ì§€ë§Œ í•´ê²°ì±…ì€ ì•„ë‹ˆë‹¤ â€” ë³€ë™ì„± ì§€ì† ê²½ê³ </a>
+          </div>
+        </li>
+        <li class="news-item">
+          <div class="news-source"><span class="source-tag">Trading Economics</span> Jun 15, 2026</div>
+          <div class="news-title">
+            <a href="https://tradingeconomics.com/united-states/stock-market/news/520747" target="_blank"
+               data-ko="S&amp;P500Â·ë‚˜ìŠ¤ë‹¥ ì„ ë¬¼, ì¶”ê°€ ìƒìŠ¹ ì‹ í˜¸ â€” ë¯¸-ì´ë€ í•©ì˜ í›„ í”„ë¦¬ë§ˆì¼“ ê°•ì„¸"
+               data-en="S&amp;P and Nasdaq Futures Signal Further Gains after US-Iran deal">S&amp;P500Â·ë‚˜ìŠ¤ë‹¥ ì„ ë¬¼, ì¶”ê°€ ìƒìŠ¹ ì‹ í˜¸ â€” ë¯¸-ì´ë€ í•©ì˜ í›„ í”„ë¦¬ë§ˆì¼“ ê°•ì„¸</a>
+          </div>
+        </li>
+        <li class="news-item">
+          <div class="news-source"><span class="source-tag">SF Examiner</span> Jun 2026</div>
+          <div class="news-title">
+            <a href="https://www.sfexaminer.com/news/technology/spacexs-explosive-ipo-good-news-for-openai-anthropic/article_4d08bb99-00fc-4254-9cfd-b1c250ab993c.html" target="_blank"
+               data-ko="ìŠ¤í˜ì´ìŠ¤X í­ë°œì  IPO, OpenAIÂ·Anthropicì— ì²­ì‹ í˜¸ â€” AI ê¸°ì—… IPO ëŸ¬ì‹œ ì˜ˆê³ "
+               data-en="SpaceX's explosive IPO good news for OpenAI, Anthropic â€” AI IPO rush on the horizon">ìŠ¤í˜ì´ìŠ¤X í­ë°œì  IPO, OpenAIÂ·Anthropicì— ì²­ì‹ í˜¸ â€” AI ê¸°ì—… IPO ëŸ¬ì‹œ ì˜ˆê³ </a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Korean News -->
+  <div class="section">
+    <div class="card">
+      <div class="card-title">ğŸ‡°ğŸ‡· í•œêµ­ ë°˜ì‘</div>
+      <ul class="news-list">
+        <li class="news-item">
+          <div class="news-source"><span class="source-tag">SBS Biz</span> 2026-06-15 16:59</div>
+          <div class="news-title">
+            <a href="https://n.news.naver.com/mnews/article/374/0000516147?sid=101" target="_blank">ë‰´ìš•ì¦ì‹œ, ë¯¸Â·ì´ë€ í•©ì˜ ê¸°ëŒ€ì— ì¼ì œíˆ ìƒìŠ¹ ë§ˆê° â€” ë‚˜ìŠ¤ë‹¥ 0.31%â†‘</a>
+          </div>
+        </li>
+        <li class="news-item">
+          <div class="news-source"><span class="source-tag">SBS Biz</span> 2026-06-15 16:42</div>
+          <div class="news-title">
+            <a href="https://n.news.naver.com/mnews/article/374/0000516139?sid=101" target="_blank">[ì¦ì‹œ ì¸ì‚¬ì´íŠ¸] ë¯¸êµ­-ì´ë€ ì¢…ì „ ê¸°ëŒ€ê°ì— ì½”ìŠ¤í”¼ 8500ì„  íšŒë³µ</a>
+          </div>
+        </li>
+        <li class="news-item">
+          <div class="news-source"><span class="source-tag">ë‰´ìŠ¤í”„ë¦¬ì¡´</span> 2026-06-15 16:18</div>
+          <div class="news-title">
+            <a href="https://www.newsfreezone.co.kr/news/articleView.html?idxno=694562" target="_blank">ì½”ìŠ¤í”¼ 5.2% ê¸‰ë“± 8500ì„  íšŒë³µÂ·Â·Â·ì¤‘ë™ ì¢…ì „ì— ì™¸ì¸ 1ì¡° ìˆœë§¤ìˆ˜</a>
+          </div>
+        </li>
+        <li class="news-item">
+          <div class="news-source"><span class="source-tag">í—¤ëŸ´ë“œê²½ì œ</span> 2026-06-15 11:38</div>
+          <div class="news-title">
+            <a href="https://n.news.naver.com/mnews/article/016/0002656673?sid=104" target="_blank">ì˜¤ëŠ˜ë°¤ ë¯¸-ì´ë€ ì „ìŸ ì˜êµ¬ì¤‘ë‹¨â€¦19ì¼ ìŠ¤ìœ„ìŠ¤ì„œ ì¢…ì „ í•©ì˜ MOU ì„œëª…</a>
+          </div>
+        </li>
+        <li class="news-item">
+          <div class="news-source"><span class="source-tag">ìš°ë¨¼ì´ì½”ë…¸ë¯¸</span> 2026-06-15 10:20</div>
+          <div class="news-title">
+            <a href="https://www.womaneconomy.co.kr/news/articleView.html?idxno=255036" target="_blank">[ë„¥ìŠ¤íŠ¸-ìƒ·] ìŠ¤í˜ì´ìŠ¤X ë¹„ìƒê³¼ ëˆˆì•ì˜ ì¢…ì „Â·Â·Â·ìœ ê°€ ê¸‰ë½ ì† ì‹ ê³ ê°€</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Disclaimer -->
+  <div class="disclaimer" data-ko="âš ï¸ ë³¸ ë¸Œë¦¬í•‘ì€ ê³µê°œëœ ë‰´ìŠ¤ ê¸°ì‚¬ì— ê¸°ë°˜í•œ ì •ë³´ ì œê³µ ëª©ì ìœ¼ë¡œ ì‘ì„±ë˜ì—ˆìŠµë‹ˆë‹¤. íˆ¬ì ê¶Œìœ ê°€ ì•„ë‹ˆë©°, ëª¨ë“  íˆ¬ì ê²°ì •ì€ ë³¸ì¸ì˜ íŒë‹¨ê³¼ ì±…ì„ í•˜ì— ì´ë£¨ì–´ì ¸ì•¼ í•©ë‹ˆë‹¤. kkangdagoëŠ” íˆ¬ì ê²°ê³¼ì— ëŒ€í•œ ì±…ì„ì„ ì§€ì§€ ì•ŠìŠµë‹ˆë‹¤." data-en="âš ï¸ This briefing is for informational purposes based on publicly available news. It does not constitute investment advice. All investment decisions are made at your own risk and responsibility. kkangdago is not liable for any investment outcomes.">âš ï¸ ë³¸ ë¸Œë¦¬í•‘ì€ ê³µê°œëœ ë‰´ìŠ¤ ê¸°ì‚¬ì— ê¸°ë°˜í•œ ì •ë³´ ì œê³µ ëª©ì ìœ¼ë¡œ ì‘ì„±ë˜ì—ˆìŠµë‹ˆë‹¤. íˆ¬ì ê¶Œìœ ê°€ ì•„ë‹ˆë©°, ëª¨ë“  íˆ¬ì ê²°ì •ì€ ë³¸ì¸ì˜ íŒë‹¨ê³¼ ì±…ì„ í•˜ì— ì´ë£¨ì–´ì ¸ì•¼ í•©ë‹ˆë‹¤. kkangdagoëŠ” íˆ¬ì ê²°ê³¼ì— ëŒ€í•œ ì±…ì„ì„ ì§€ì§€ ì•ŠìŠµë‹ˆë‹¤.</div>
 </div>
 
 <script>
@@ -340,10 +328,15 @@ body { background: var(--bg); color: var(--text); font-family: -apple-system, 'S
 let currentLang = 'ko';
 function setLang(lang) {
   currentLang = lang;
-  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-  document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
   document.querySelectorAll('[data-ko]').forEach(el => {
-    el.textContent = el.dataset[lang] || el.dataset.ko;
+    if (el.tagName === 'A') {
+      el.textContent = lang === 'ko' ? el.getAttribute('data-ko') : el.getAttribute('data-en');
+    } else {
+      el.innerHTML = lang === 'ko' ? el.getAttribute('data-ko') : el.getAttribute('data-en');
+    }
+  });
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent.trim() === (lang === 'ko' ? 'í•œêµ­ì–´' : 'EN'));
   });
 }
 
@@ -359,7 +352,7 @@ function setLang(lang) {
     const r = await fetch(base + '/archive/us-index.json?t=' + Date.now());
     if (!r.ok) return;
     const entries = await r.json();
-    const todayStr = '2026-06-13';
+    const todayStr = '2026-06-15';
     const todayEntry = entries.find(e => (typeof e === 'string' ? e : e.date) === todayStr);
     const closeExists = todayEntry && typeof todayEntry === 'object' && todayEntry.close;
     if (closeExists && !isArchive) {
@@ -369,17 +362,14 @@ function setLang(lang) {
     const c = document.getElementById('dateList');
     c.innerHTML = '';
     const tp = document.createElement('a');
-    tp.href = base + '/us/';
-    tp.className = 'date-pill' + (!isArchive ? ' active' : ' today-link');
-    tp.textContent = 'ì˜¤ëŠ˜';
+    tp.href = base + '/us/'; tp.className = 'date-pill' + (!isArchive ? ' active' : ' today-link'); tp.textContent = 'ì˜¤ëŠ˜';
     c.appendChild(tp);
     [...entries].reverse().forEach(entry => {
       const d = typeof entry === 'string' ? entry : entry.date;
       const a = document.createElement('a');
       a.href = base + '/archive/us/' + d + '.html';
       a.className = 'date-pill' + (d === curDate && isArchive ? ' active' : '');
-      const p = d.split('-');
-      a.textContent = parseInt(p[1]) + '/' + parseInt(p[2]);
+      const p = d.split('-'); a.textContent = parseInt(p[1]) + '/' + parseInt(p[2]);
       c.appendChild(a);
     });
   } catch(e) {}
