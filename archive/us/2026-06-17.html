@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily kkangdago US - 장전 브리핑</title>
+<style>
+:root{--bg:#0d0d0d;--surface:#161616;--accent:#00d4aa;--signal:#f0c040;--up:#26a69a;--down:#ef5350;}
+*{box-sizing:border-box;}
+body{background:var(--bg);color:#eee;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;margin:0;}
+.container{max-width:900px;margin:0 auto;padding:16px;}
+.header-top{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:12px 0 16px;border-bottom:1px solid #222;}
+.logo{font-size:20px;font-weight:900;letter-spacing:-0.5px;color:#fff;text-decoration:none;}
+.logo span:first-child{color:var(--accent);}
+.logo .signal{color:var(--signal);font-size:14px;vertical-align:super;}
+.date-badge{background:#1e1e1e;border:1px solid #333;border-radius:6px;padding:4px 10px;font-size:12px;color:#aaa;}
+.brief-toggle{display:flex;gap:8px;margin-left:auto;}
+.brief-btn{display:inline-flex;align-items:center;gap:5px;font-size:13px;font-weight:700;padding:5px 15px;border-radius:20px;text-decoration:none;transition:opacity 0.15s;white-space:nowrap;}
+.brief-btn.active-open{background:#00d4aa;color:#000;}
+.brief-btn.active-close{background:#f0c040;color:#000;}
+.brief-btn.inactive{background:#1e1e1e;color:#666;border:1.5px solid #333;}
+.brief-btn.inactive:hover{border-color:#00d4aa;color:#00d4aa;}
+.brief-btn.disabled{background:#1e1e1e;color:#333;border:1.5px solid #252525;cursor:default;pointer-events:none;opacity:0.45;}
+.lang-toggle{display:flex;gap:4px;}
+.lang-btn{background:#1e1e1e;border:1px solid #333;border-radius:4px;padding:3px 8px;font-size:12px;cursor:pointer;color:#888;}
+.lang-btn.active{background:var(--accent);color:#000;border-color:var(--accent);}
+.date-nav{display:flex;gap:6px;flex-wrap:wrap;overflow-x:auto;padding-bottom:4px;}
+.date-pill{background:#1a1a1a;border:1px solid #2a2a2a;border-radius:20px;padding:5px 14px;font-size:12px;color:#888;white-space:nowrap;cursor:pointer;transition:all 0.15s;text-decoration:none;}
+.date-pill:hover,.date-pill.active{background:var(--accent);color:#000;border-color:var(--accent);}
+.date-pill.today-link{border-color:#444;color:#ccc;}
+.section{margin:18px 0;}
+.badge-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px;}
+.badge-main{background:var(--accent);color:#000;font-weight:800;font-size:13px;padding:6px 14px;border-radius:20px;}
+.badge-sub{color:#888;font-size:13px;}
+.idx-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+.idx-card{background:var(--surface);border:1px solid #222;border-radius:10px;padding:12px;}
+.idx-name{font-size:12px;color:#999;margin-bottom:6px;}
+.idx-val{font-size:18px;font-weight:800;color:#fff;}
+.idx-chg{font-size:12px;font-weight:700;margin-top:4px;}
+.idx-chg.up{color:var(--up);}
+.idx-chg.down{color:var(--down);}
+.card{background:var(--surface);border:1px solid #222;border-radius:12px;padding:16px;}
+.card h2{font-size:15px;margin:0 0 10px;color:var(--accent);}
+.card p{font-size:14px;line-height:1.7;color:#ddd;margin:0;}
+.theme-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px;}
+.theme-card{background:var(--surface);border:1px solid #222;border-radius:10px;padding:14px;}
+.theme-card .t-name{font-weight:800;color:#fff;font-size:14px;margin-bottom:6px;}
+.theme-card .t-desc{font-size:13px;color:#aaa;line-height:1.6;}
+.stock-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px;}
+.stock-card{background:var(--surface);border:1px solid #222;border-radius:10px;padding:14px;}
+.stock-head{display:flex;align-items:center;gap:8px;margin-bottom:6px;}
+.stock-name{font-weight:800;color:#fff;font-size:14px;}
+.ticker{background:#1e1e1e;border:1px solid #333;color:var(--accent);font-size:11px;font-weight:700;padding:2px 8px;border-radius:6px;}
+.score{margin-left:auto;font-size:12px;font-weight:700;color:var(--signal);}
+.stock-reason{font-size:13px;color:#aaa;line-height:1.6;}
+.risk-card{border-left:3px solid var(--down);}
+.news-list{list-style:none;padding:0;margin:0;}
+.news-item{padding:10px 0;border-bottom:1px solid #1f1f1f;}
+.news-item:last-child{border-bottom:none;}
+.news-item a{color:#eee;text-decoration:none;font-size:14px;line-height:1.5;}
+.news-item a:hover{color:var(--accent);}
+.news-meta{font-size:11px;color:#777;margin-top:4px;}
+.disclaimer{font-size:11px;color:#666;line-height:1.7;padding:16px 0;border-top:1px solid #222;margin-top:10px;}
+.section-title{font-size:15px;font-weight:800;color:#fff;margin-bottom:10px;}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header-top">
+    <a class="logo" href="/us/">Daily <span>kkang</span>dago <span class="signal">US</span></a>
+    <div class="date-badge">2026-06-17</div>
+    <div class="brief-toggle">
+      <span class="brief-btn active-open" data-ko="☀️ 장전 브리핑" data-en="☀️ Pre-Market">☀️ 장전 브리핑</span>
+      <a id="closeLink" href="close.html" class="brief-btn disabled" data-ko="🌆 장마감 브리핑" data-en="🌆 After-Hours">🌆 장마감 브리핑</a>
+    </div>
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="langKoBtn" onclick="setLang('ko')">한국어</button>
+      <button class="lang-btn" id="langEnBtn" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="date-nav" id="dateList"></div>
+  </div>
+
+  <div class="section">
+    <div class="badge-row">
+      <span class="badge-main" data-ko="장전 브리핑" data-en="Pre-Market">장전 브리핑</span>
+      <span class="badge-sub">2026-06-17 · EDT 04:00</span>
+    </div>
+    <div class="idx-grid">
+      <div class="idx-card"><div class="idx-name">S&amp;P 500</div><div class="idx-val">7,511.35</div><div class="idx-chg down">-42.94 (-0.57%)</div></div>
+      <div class="idx-card"><div class="idx-name">NASDAQ</div><div class="idx-val">26,376.34</div><div class="idx-chg down">-307.60 (-1.15%)</div></div>
+      <div class="idx-card"><div class="idx-name">DOW</div><div class="idx-val">51,999.67</div><div class="idx-chg up">+328.64 (+0.64%)</div></div>
+      <div class="idx-card"><div class="idx-name">VIX</div><div class="idx-val">16.20</div><div class="idx-chg down">-1.48 (-8.4%)</div></div>
+      <div class="idx-card"><div class="idx-name">USD/KRW</div><div class="idx-val">1,509.41</div><div class="idx-chg down">-4.2 (-0.28%)</div></div>
+      <div class="idx-card"><div class="idx-name">WTI</div><div class="idx-val">$76.05</div><div class="idx-chg down">-4.66 (-5.8%)</div></div>
+    </div>
+  </div>
+
+  <div class="section card">
+    <h2 data-ko="📊 시장 요약" data-en="📊 Market Summary">📊 시장 요약</h2>
+    <p data-ko="간밤 뉴욕증시는 미국-이란 평화협정 소식에 다우존스가 사상 최고치(51,999.67, +0.64%)로 마감했으나, 반도체주 매도세 속에 S&amp;P500(-0.57%)과 나스닥(-1.15%)은 동반 하락했다. 이란과의 평화협정으로 호르무즈 해협이 재개방되고 원유 제재가 즉시 해제될 것이라는 소식에 WTI 가격이 5.8% 급락했고, 항공·크루즈 등 여행 관련주가 일제히 강세를 보였다. 오늘 오후 케빈 워시 신임 연준 의장의 첫 FOMC 회의가 예정돼 있어 시장은 관망세를 유지하는 분위기다. 프리마켓에서는 다우 선물이 소폭 상승, 나스닥 선물은 소폭 하락, S&amp;P500 선물은 보합권에서 움직이고 있다. 5월 CPI가 4.2%로 집계되며 인플레이션 우려가 다시 부각된 가운데, 시장은 연준이 금리를 동결할 것으로 거의 확신(약 97%)하고 있다." data-en="Wall Street closed mixed overnight as the Dow notched a record high (51,999.67, +0.64%) on a U.S.-Iran peace deal, while the S&amp;P 500 (-0.57%) and Nasdaq (-1.15%) slid amid a semiconductor sell-off. The agreement, which reopens the Strait of Hormuz and lifts oil sanctions on Iran immediately, sent WTI crude down 5.8% and lifted travel-related stocks across airlines and cruise lines. Markets are in a holding pattern ahead of new Fed Chair Kevin Warsh's first FOMC decision this afternoon. In premarket trade, Dow futures are slightly higher, Nasdaq futures slightly lower, and S&amp;P 500 futures roughly flat. May CPI came in at 4.2%, reviving inflation concerns, though markets still see a roughly 97% chance the Fed holds rates steady.">간밤 뉴욕증시는 미국-이란 평화협정 소식에 다우존스가 사상 최고치(51,999.67, +0.64%)로 마감했으나, 반도체주 매도세 속에 S&amp;P500(-0.57%)과 나스닥(-1.15%)은 동반 하락했다. 이란과의 평화협정으로 호르무즈 해협이 재개방되고 원유 제재가 즉시 해제될 것이라는 소식에 WTI 가격이 5.8% 급락했고, 항공·크루즈 등 여행 관련주가 일제히 강세를 보였다. 오늘 오후 케빈 워시 신임 연준 의장의 첫 FOMC 회의가 예정돼 있어 시장은 관망세를 유지하는 분위기다. 프리마켓에서는 다우 선물이 소폭 상승, 나스닥 선물은 소폭 하락, S&amp;P500 선물은 보합권에서 움직이고 있다. 5월 CPI가 4.2%로 집계되며 인플레이션 우려가 다시 부각된 가운데, 시장은 연준이 금리를 동결할 것으로 거의 확신(약 97%)하고 있다.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-title" data-ko="🔥 주목 테마" data-en="🔥 Themes to Watch">🔥 주목 테마</div>
+    <div class="theme-grid">
+      <div class="theme-card"><div class="t-name" data-ko="워시 의장 첫 FOMC" data-en="Warsh's First FOMC">워시 의장 첫 FOMC</div><div class="t-desc" data-ko="케빈 워시 신임 연준 의장의 첫 금리 결정과 점도표 변화에 시장 관심 집중" data-en="Markets focus on new Fed Chair Kevin Warsh's first rate decision and updated dot plot">케빈 워시 신임 연준 의장의 첫 금리 결정과 점도표 변화에 시장 관심 집중</div></div>
+      <div class="theme-card"><div class="t-name" data-ko="이란-미 평화협정과 유가 하락" data-en="US-Iran Peace Deal &amp; Falling Oil">이란-미 평화협정과 유가 하락</div><div class="t-desc" data-ko="호르무즈 해협 재개방 및 원유 제재 해제 소식에 유가 급락, 항공·크루즈주 강세" data-en="Reopening of the Strait of Hormuz and lifted oil sanctions send crude lower, lifting airline and cruise stocks">호르무즈 해협 재개방 및 원유 제재 해제 소식에 유가 급락, 항공·크루즈주 강세</div></div>
+      <div class="theme-card"><div class="t-name" data-ko="반도체주 변동성 지속" data-en="Semiconductor Volatility Persists">반도체주 변동성 지속</div><div class="t-desc" data-ko="마이크론 목표가 상향 속에서도 전반적 반도체 매도세에 나스닥 약세" data-en="Nasdaq weakness persists on broad chip sell-off even as Micron's price target is hiked">마이크론 목표가 상향 속에서도 전반적 반도체 매도세에 나스닥 약세</div></div>
+      <div class="theme-card"><div class="t-name" data-ko="AI 메모리 수요 강세" data-en="Strong AI Memory Demand">AI 메모리 수요 강세</div><div class="t-desc" data-ko="TD 코웬, AI 메모리 수요 근거로 마이크론 목표가를 660달러에서 1,500달러로 상향" data-en="TD Cowen raises Micron price target from $660 to $1,500 citing AI memory demand">TD 코웬, AI 메모리 수요 근거로 마이크론 목표가를 660달러에서 1,500달러로 상향</div></div>
+      <div class="theme-card"><div class="t-name" data-ko="인플레이션 재부각" data-en="Inflation Back in Focus">인플레이션 재부각</div><div class="t-desc" data-ko="5월 CPI 4.2%로 2023년 4월 이후 최고치, 연내 금리 인하 기대 후퇴" data-en="May CPI hit 4.2%, the highest since April 2023, pushing back rate-cut expectations for the year">5월 CPI 4.2%로 2023년 4월 이후 최고치, 연내 금리 인하 기대 후퇴</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title" data-ko="⚡ 상승 유망 종목" data-en="⚡ Stocks to Watch">⚡ 상승 유망 종목</div>
+    <div class="stock-grid">
+      <div class="stock-card"><div class="stock-head"><span class="stock-name">Micron Technology</span><span class="ticker">MU</span><span class="score">85</span></div><div class="stock-reason" data-ko="TD 코웬이 AI 메모리 수요 강세를 근거로 목표가를 660달러에서 1,500달러로 상향, 현재가 대비 약 50% 추가 상승 여력 제시" data-en="TD Cowen hiked its price target from $660 to $1,500 on strong AI memory demand, implying roughly 50% further upside">TD 코웬이 AI 메모리 수요 강세를 근거로 목표가를 660달러에서 1,500달러로 상향, 현재가 대비 약 50% 추가 상승 여력 제시</div></div>
+      <div class="stock-card"><div class="stock-head"><span class="stock-name">United Airlines</span><span class="ticker">UAL</span><span class="score">78</span></div><div class="stock-reason" data-ko="미-이란 평화협정에 따른 유가 하락 기대로 프리마켓 약 4.5% 상승, 연료비 절감 수혜 전망" data-en="Rose roughly 4.5% premarket on the US-Iran peace deal as falling fuel costs are expected to benefit the carrier">미-이란 평화협정에 따른 유가 하락 기대로 프리마켓 약 4.5% 상승, 연료비 절감 수혜 전망</div></div>
+      <div class="stock-card"><div class="stock-head"><span class="stock-name">Delta Air Lines</span><span class="ticker">DAL</span><span class="score">76</span></div><div class="stock-reason" data-ko="이란 평화협정에 따른 유가 급락 소식에 약 4.5% 상승, 항공업계 전반 연료비 부담 완화 기대" data-en="Gained about 4.5% on the Iran peace deal as falling oil prices ease fuel cost pressure across the airline sector">이란 평화협정에 따른 유가 급락 소식에 약 4.5% 상승, 항공업계 전반 연료비 부담 완화 기대</div></div>
+      <div class="stock-card"><div class="stock-head"><span class="stock-name">Carnival Corp</span><span class="ticker">CCL</span><span class="score">72</span></div><div class="stock-reason" data-ko="유가 하락에 따른 연료비 절감 기대로 크루즈 업종 전반 약 4.5% 동반 강세" data-en="Cruise sector, including Carnival, rose roughly 4.5% on expectations of lower fuel costs from falling oil prices">유가 하락에 따른 연료비 절감 기대로 크루즈 업종 전반 약 4.5% 동반 강세</div></div>
+      <div class="stock-card"><div class="stock-head"><span class="stock-name">Nvidia</span><span class="ticker">NVDA</span><span class="score">70</span></div><div class="stock-reason" data-ko="2021년 이후 첫 200억 달러 규모 회사채 발행 발표 후 프리마켓 소폭 상승, AI 수요 지속 시그널로 해석" data-en="Edged higher premarket after announcing its first bond sale since 2021 to raise $20 billion, seen as a signal of continued AI demand">2021년 이후 첫 200억 달러 규모 회사채 발행 발표 후 프리마켓 소폭 상승, AI 수요 지속 시그널로 해석</div></div>
+      <div class="stock-card"><div class="stock-head"><span class="stock-name">SpaceX</span><span class="ticker">SPCX</span><span class="score">68</span></div><div class="stock-reason" data-ko="기업가치 2.5조 달러 돌파 후 오늘 옵션 거래 개시, 변동성 확대 가능성에 트레이더 관심 집중" data-en="Crossed a $2.5 trillion valuation, with options trading launching today drawing trader attention to potential volatility">기업가치 2.5조 달러 돌파 후 오늘 옵션 거래 개시, 변동성 확대 가능성에 트레이더 관심 집중</div></div>
+    </div>
+  </div>
+
+  <div class="section card risk-card">
+    <h2 data-ko="⚠️ 주요 리스크 요인" data-en="⚠️ Key Risks">⚠️ 주요 리스크 요인</h2>
+    <p data-ko="① FOMC 불확실성: 워시 신임 의장의 첫 회의로 점도표와 정책 방향에 대한 시장 기대와 실제 발표 사이 괴리가 발생할 경우 변동성 확대 가능. 5월 CPI가 4.2%로 높게 나온 만큼 매파적 서프라이즈 위험도 존재. ② 반도체 업종 불안: 마이크론 개별 호재와는 별개로 6월 초 나스닥이 반도체 매도세로 4% 폭락하며 시가총액 1조 달러가 증발한 바 있어, 업종 전반의 변동성이 재차 불거질 위험이 남아있다." data-en="① FOMC uncertainty: As new Chair Warsh leads his first meeting, any gap between market expectations and the actual dot plot or policy guidance could spark volatility; May's 4.2% CPI print also leaves room for a hawkish surprise. ② Semiconductor sector fragility: Despite Micron-specific strength, the Nasdaq plunged 4% in a chip sell-off earlier in June that wiped out $1 trillion in market value, leaving the sector vulnerable to renewed swings.">① FOMC 불확실성: 워시 신임 의장의 첫 회의로 점도표와 정책 방향에 대한 시장 기대와 실제 발표 사이 괴리가 발생할 경우 변동성 확대 가능. 5월 CPI가 4.2%로 높게 나온 만큼 매파적 서프라이즈 위험도 존재. ② 반도체 업종 불안: 마이크론 개별 호재와는 별개로 6월 초 나스닥이 반도체 매도세로 4% 폭락하며 시가총액 1조 달러가 증발한 바 있어, 업종 전반의 변동성이 재차 불거질 위험이 남아있다.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-title" data-ko="📰 주요 뉴스" data-en="📰 Top News">📰 주요 뉴스</div>
+    <ul class="news-list">
+      <li class="news-item"><a href="https://www.cnbc.com/2026/06/16/us-iran-peace-agreement-oil-prices-tankers-strait-of-hormuz-transit.html" target="_blank" rel="noopener" data-ko="브렌트유, 美 이란 원유 즉시 수출 허용 보도에 배럴당 80달러 아래로 하락" data-en="Brent falls below $80 per barrel on report U.S. will allow Iran to sell oil immediately">브렌트유, 美 이란 원유 즉시 수출 허용 보도에 배럴당 80달러 아래로 하락</a><div class="news-meta">CNBC · 2026-06-16</div></li>
+      <li class="news-item"><a href="https://finance.yahoo.com/markets/stocks/articles/airline-stocks-soar-u-iran-141527515.html" target="_blank" rel="noopener" data-ko="유나이티드·델타·사우스웨스트, 이란 협정 소식에 동반 강세" data-en="United, Delta and Southwest Rally as Iran Deal Lifts Travel Stocks">유나이티드·델타·사우스웨스트, 이란 협정 소식에 동반 강세</a><div class="news-meta">Yahoo Finance · 2026-06-16</div></li>
+      <li class="news-item"><a href="https://www.barchart.com/story/news/2474936/stocks-rally-as-us-iran-peace-deal-sinks-oil-and-bond-yields" target="_blank" rel="noopener" data-ko="美-이란 평화협정에 유가·채권 수익률 동반 하락, 증시는 강세" data-en="Stocks Rally as US-Iran Peace Deal Sinks Oil and Bond Yields">美-이란 평화협정에 유가·채권 수익률 동반 하락, 증시는 강세</a><div class="news-meta">Barchart · 2026-06-16</div></li>
+      <li class="news-item"><a href="https://www.thestreet.com/investing/stocks/micron-td-cowen-raised-stock-price-target" target="_blank" rel="noopener" data-ko="마이크론, TD 코웬으로부터 목표가 1,500달러로 상향 받아" data-en="Micron gets aggressive stock price target from veteran analyst">마이크론, TD 코웬으로부터 목표가 1,500달러로 상향 받아</a><div class="news-meta">TheStreet · 2026-06-15</div></li>
+      <li class="news-item"><a href="https://www.cbsnews.com/news/federal-reserve-interest-rates-kevin-warsh-june-2026/" target="_blank" rel="noopener" data-ko="케빈 워시, 첫 연준 금리 회의 주재 예정...무엇을 기대해야 할까" data-en="Kevin Warsh set to lead his first Federal Reserve interest rate meeting. Here's what to expect.">케빈 워시, 첫 연준 금리 회의 주재 예정...무엇을 기대해야 할까</a><div class="news-meta">CBS News · 2026-06-16</div></li>
+      <li class="news-item"><a href="https://stocktwits.com/news-articles/markets/equity/nasdaq-sp500-futures-breather-ahead-of-first-warsh-led-fed-decision-why-spcx-tsla-rklb-baba-nvo-sti-in-focus/cZKWkRXR7Ek" target="_blank" rel="noopener" data-ko="나스닥·S&amp;P500 선물, 워시 의장 첫 금리 결정 앞두고 숨고르기" data-en="Nasdaq, S&P 500 Futures Catch Breath Ahead Of First Warsh-Led Fed Decision">나스닥·S&amp;P500 선물, 워시 의장 첫 금리 결정 앞두고 숨고르기</a><div class="news-meta">Stocktwits · 2026-06-17</div></li>
+      <li class="news-item"><a href="https://www.indexbox.io/blog/fed-holds-rates-as-inflation-hits-42-warshs-first-fomc-press-conference-in-focus/" target="_blank" rel="noopener" data-ko="5월 CPI 4.2%로 상승, 연준은 동결 전망...워시 의장 첫 기자회견 주목" data-en="Fed Rate Decision June 2026: No Cut Expected as Inflation Rises to 4.2%">5월 CPI 4.2%로 상승, 연준은 동결 전망...워시 의장 첫 기자회견 주목</a><div class="news-meta">IndexBox · 2026-06-16</div></li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-title">🇰🇷 한국 반응</div>
+    <ul class="news-list">
+      <li class="news-item"><a href="https://n.news.naver.com/mnews/article/374/0000516657?sid=101" target="_blank" rel="noopener">[투자 노하우] 뉴욕증시, 기술주 숨고르기 혼조 마감…다우 사상 최고치</a><div class="news-meta">SBS Biz · 2026-06-17 17:00</div></li>
+      <li class="news-item"><a href="https://n.news.naver.com/mnews/article/374/0000516655?sid=101" target="_blank" rel="noopener">[뉴욕증시 전략] FOMC 앞두고 관망세…반도체주 급락에 뉴욕증시 순환매</a><div class="news-meta">SBS Biz · 2026-06-17 16:51</div></li>
+      <li class="news-item"><a href="https://www.startuptoday.co.kr/news/articleView.html?idxno=803845" target="_blank" rel="noopener">[오늘증시] '美반도체 쇼크'에 코스피 8700선 흔들… FOMC에 쏠리는 눈</a><div class="news-meta">스타트업투데이 · 2026-06-17 11:02</div></li>
+      <li class="news-item"><a href="http://www.weeklytoday.com/news/articleView.html?idxno=780298" target="_blank" rel="noopener">[위클리오늘] 美 반도체주 약세에 코스피 8600선 출발···환율 1510원대</a><div class="news-meta">위클리투데이 · 2026-06-17 10:00</div></li>
+      <li class="news-item"><a href="https://www.ajunews.com/view/20260617092208538" target="_blank" rel="noopener">환율, 1510원대 지속…외인, FOMC 경계감에 주식 순매도</a><div class="news-meta">아주경제 · 2026-06-17 09:28</div></li>
+    </ul>
+  </div>
+
+  <div class="disclaimer" data-ko="본 브리핑은 정보 제공 목적으로 작성되었으며 투자 권유나 자문이 아닙니다. 종목 추천은 공개된 뉴스 기사에 근거한 참고용 정보이며, 투자 결정과 그 결과에 대한 책임은 투자자 본인에게 있습니다. 데이터는 작성 시점 기준이며 실시간 시세와 다를 수 있습니다." data-en="This briefing is for informational purposes only and does not constitute investment advice or a solicitation. Stock mentions are based on publicly available news and are for reference only; investment decisions and their outcomes are the investor's own responsibility. Data reflects the time of writing and may differ from real-time quotes.">본 브리핑은 정보 제공 목적으로 작성되었으며 투자 권유나 자문이 아닙니다. 종목 추천은 공개된 뉴스 기사에 근거한 참고용 정보이며, 투자 결정과 그 결과에 대한 책임은 투자자 본인에게 있습니다. 데이터는 작성 시점 기준이며 실시간 시세와 다를 수 있습니다.</div>
+</div>
+
+<script>
+function setLang(lang){
+  document.querySelectorAll('[data-ko]').forEach(el=>{
+    const val = lang === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-ko');
+    if(val !== null) el.innerHTML = val;
+  });
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById(lang === 'en' ? 'langEnBtn' : 'langKoBtn').classList.add('active');
+}
+(async () => {
+  const base = '';
+  const isArchive = location.pathname.includes('/archive/');
+  const m = location.pathname.match(/(\d{4}-\d{2}-\d{2})/);
+  const curDate = m ? m[1] : null;
+  const closeLink = document.getElementById('closeLink');
+  if (isArchive && curDate) closeLink.href = base + '/archive/us/' + curDate + '-close.html';
+  try {
+    const r = await fetch(base + '/archive/us-index.json?t=' + Date.now());
+    if (!r.ok) return;
+    const entries = await r.json();
+    const todayStr = '2026-06-17';
+    const todayEntry = entries.find(e => (typeof e === 'string' ? e : e.date) === todayStr);
+    const closeExists = todayEntry && typeof todayEntry === 'object' && todayEntry.close;
+    if (closeExists && !isArchive) {
+      closeLink.classList.remove('disabled');
+      closeLink.classList.add('inactive');
+    }
+    const c = document.getElementById('dateList');
+    c.innerHTML = '';
+    const tp = document.createElement('a');
+    tp.href = base + '/us/'; tp.className = 'date-pill' + (!isArchive ? ' active' : ' today-link'); tp.textContent = '오늘';
+    c.appendChild(tp);
+    [...entries].reverse().forEach(entry => {
+      const d = typeof entry === 'string' ? entry : entry.date;
+      const a = document.createElement('a');
+      a.href = base + '/archive/us/' + d + '.html';
+      a.className = 'date-pill' + (d === curDate && isArchive ? ' active' : '');
+      const p = d.split('-'); a.textContent = parseInt(p[1]) + '/' + parseInt(p[2]);
+      c.appendChild(a);
+    });
+  } catch(e) {}
+})();
+</script>
+</body>
+</html>
