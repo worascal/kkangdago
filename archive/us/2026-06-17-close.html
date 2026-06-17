@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily kkangdago US - 장마감 브리핑 | 2026-06-17</title>
+<style>
+:root{--bg:#0d0d0d;--surface:#161616;--accent:#f0c040;--signal:#f0c040;--up:#26a69a;--down:#ef5350;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:#eee;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Noto Sans KR",sans-serif;line-height:1.6;padding-bottom:60px;}
+.container{max-width:760px;margin:0 auto;padding:0 16px;}
+.header-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;padding:18px 16px;border-bottom:1px solid #222;max-width:760px;margin:0 auto;}
+.logo{font-size:18px;font-weight:800;color:#fff;text-decoration:none;}
+.logo span{color:var(--accent);}
+.date-badge{font-size:13px;color:#999;background:#1a1a1a;padding:4px 12px;border-radius:12px;}
+.brief-toggle{display:flex;gap:8px;}
+.brief-btn{display:inline-flex;align-items:center;gap:5px;font-size:13px;font-weight:700;padding:5px 15px;border-radius:20px;text-decoration:none;transition:opacity 0.15s;white-space:nowrap;}
+.brief-btn.active-open{background:#00d4aa;color:#000;}
+.brief-btn.active-close{background:#f0c040;color:#000;}
+.brief-btn.inactive{background:#1e1e1e;color:#666;border:1.5px solid #333;}
+.brief-btn.inactive:hover{border-color:#f0c040;color:#f0c040;}
+.brief-btn.disabled{background:#1e1e1e;color:#333;border:1.5px solid #252525;cursor:default;pointer-events:none;opacity:0.45;}
+.lang-toggle{display:flex;gap:6px;}
+.lang-btn{font-size:12px;font-weight:700;padding:4px 10px;border-radius:14px;background:#1e1e1e;color:#888;border:1.5px solid #333;cursor:pointer;}
+.lang-btn.active{background:var(--accent);color:#000;border-color:var(--accent);}
+.history-nav{display:flex;gap:6px;overflow-x:auto;padding:12px 16px;border-bottom:1px solid #1e1e1e;}
+.date-pill{flex:0 0 auto;font-size:12px;padding:5px 12px;border-radius:14px;background:#1a1a1a;color:#999;text-decoration:none;border:1px solid #262626;}
+.date-pill.active{background:var(--accent);color:#000;font-weight:700;border-color:var(--accent);}
+.date-pill.today-link{border-color:#444;}
+main{padding:20px 16px;}
+.badge-row{display:flex;align-items:center;gap:10px;margin-bottom:20px;flex-wrap:wrap;}
+.badge{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;background:rgba(240,192,64,0.12);color:var(--signal);padding:6px 14px;border-radius:20px;border:1px solid rgba(240,192,64,0.3);}
+.badge-time{font-size:12px;color:#777;}
+.index-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:24px;}
+.index-card{background:var(--surface);border-radius:12px;padding:14px 10px;text-align:center;border:1px solid #222;}
+.index-card .name{font-size:12px;color:#999;margin-bottom:6px;}
+.index-card .value{font-size:16px;font-weight:800;color:#fff;margin-bottom:4px;}
+.index-card .change{font-size:12px;font-weight:700;}
+.up{color:var(--up);}
+.down{color:var(--down);}
+.card{background:var(--surface);border-radius:14px;padding:18px;margin-bottom:18px;border:1px solid #222;}
+.card h2{font-size:15px;color:var(--accent);margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+.card p{font-size:14px;color:#ccc;}
+.issue-grid,.stock-grid{display:grid;gap:10px;}
+.issue-item{background:#1c1c1c;border-radius:10px;padding:12px 14px;border-left:3px solid var(--accent);}
+.issue-item .t{font-size:14px;font-weight:700;color:#fff;margin-bottom:4px;}
+.issue-item .d{font-size:13px;color:#aaa;}
+.stock-grid{grid-template-columns:repeat(2,1fr);}
+.stock-item{background:#1c1c1c;border-radius:10px;padding:12px;}
+.stock-item .name-row{display:flex;align-items:center;gap:6px;margin-bottom:6px;}
+.ticker{font-size:11px;font-weight:700;background:#2a2a2a;color:#bbb;padding:2px 7px;border-radius:8px;}
+.stock-item .name{font-size:14px;font-weight:700;color:#fff;}
+.stock-item .reason{font-size:12px;color:#aaa;margin-bottom:4px;}
+.sentiment{font-size:11px;font-weight:700;}
+.outlook-card{border-left:4px solid #00d4aa;}
+.risk-card{border-left:4px solid var(--down);}
+.news-list{display:flex;flex-direction:column;gap:10px;}
+.news-item{padding:10px 0;border-bottom:1px solid #1e1e1e;}
+.news-item:last-child{border-bottom:none;}
+.news-item a{color:#eee;text-decoration:none;font-size:14px;font-weight:600;}
+.news-item a:hover{color:var(--accent);}
+.news-meta{font-size:11px;color:#777;margin-top:4px;}
+.section-title{font-size:14px;font-weight:800;color:#fff;margin:26px 0 12px;display:flex;align-items:center;gap:6px;}
+.disclaimer{font-size:11px;color:#666;margin-top:30px;padding-top:16px;border-top:1px solid #1e1e1e;}
+@media (max-width:480px){.stock-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="header-top">
+  <a class="logo" href="/us/">Daily <span>kkang</span>dago <span class="signal">US</span></a>
+  <div class="date-badge">2026-06-17</div>
+  <div class="brief-toggle">
+    <a id="openLink" href="index.html" class="brief-btn inactive" data-ko="☀️ 장전 브리핑" data-en="☀️ Pre-Market">☀️ 장전 브리핑</a>
+    <span class="brief-btn active-close" data-ko="🌆 장마감 브리핑" data-en="🌆 After-Hours">🌆 장마감 브리핑</span>
+  </div>
+  <div class="lang-toggle">
+    <button class="lang-btn active" data-lang="ko" onclick="setLang('ko')">KO</button>
+    <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+  </div>
+</div>
+<div class="history-nav" id="dateList"></div>
+<div class="container">
+<main>
+  <div class="badge-row">
+    <span class="badge" data-ko="🌆 장마감 브리핑" data-en="🌆 After-Hours">🌆 장마감 브리핑 | After-Hours</span>
+    <span class="badge-time">2026-06-17 · EDT 16:30</span>
+  </div>
+
+  <div class="index-grid">
+    <div class="index-card"><div class="name">S&amp;P 500</div><div class="value">7,556.15</div><div class="change up">+0.10%</div></div>
+    <div class="index-card"><div class="name">NASDAQ</div><div class="value">26,466.94</div><div class="change up">+0.34%</div></div>
+    <div class="index-card"><div class="name">DOW</div><div class="value">52,077.67</div><div class="change up">+0.15%</div></div>
+    <div class="index-card"><div class="name">VIX</div><div class="value">16.41</div><div class="change up">+2.0%</div></div>
+    <div class="index-card"><div class="name">USD/KRW</div><div class="value">1,511.6</div><div class="change up">+0.5</div></div>
+    <div class="index-card"><div class="name">WTI</div><div class="value">$76.27</div><div class="change up">+0.29%</div></div>
+  </div>
+
+  <div class="card">
+    <h2 data-ko="📋 오늘 마감 결과 요약" data-en="📋 Today's Close Summary">📋 오늘 마감 결과 요약</h2>
+    <p data-ko="케빈 워시 신임 연준 의장이 주재한 첫 FOMC 회의에서 기준금리가 3.50~3.75%로 동결됐다. 스티븐 미런 이사가 0.25%p 인하를 주장하며 반대표를 던졌지만, 시장은 워시 의장의 비둘기파적 기자회견 톤에 안도하며 3대 지수 모두 소폭 상승 마감했다. 미-이란 평화협정 잠정 합의 소식에 반도체 장비주가 급등하며 지수를 견인했고, 전날 커서 인수 발표로 폭등했던 스페이스X는 차익 매물에 소폭 밀렸다. 변동성 지수(VIX)는 연준 결과 발표를 앞두고 장중 상승했으나 결과 발표 후 안정세를 찾았다." data-en="Markets closed modestly higher after the Fed, under new Chair Kevin Warsh's first meeting, held rates steady at 3.50%-3.75%. Governor Stephen Miran dissented in favor of a 25bp cut, but stocks took comfort in Warsh's dovish-leaning press conference tone. Semiconductor equipment names rallied on optimism around a tentative U.S.-Iran peace deal, while SpaceX pulled back slightly after its post-Cursor-acquisition surge. The VIX rose ahead of the decision before stabilizing afterward.">케빈 워시 신임 연준 의장이 주재한 첫 FOMC 회의에서 기준금리가 3.50~3.75%로 동결됐다. 스티븐 미런 이사가 0.25%p 인하를 주장하며 반대표를 던졌지만, 시장은 워시 의장의 비둘기파적 기자회견 톤에 안도하며 3대 지수 모두 소폭 상승 마감했다. 미-이란 평화협정 잠정 합의 소식에 반도체 장비주가 급등하며 지수를 견인했고, 전날 커서 인수 발표로 폭등했던 스페이스X는 차익 매물에 소폭 밀렸다. 변동성 지수(VIX)는 연준 결과 발표를 앞두고 장중 상승했으나 결과 발표 후 안정세를 찾았다.</p>
+  </div>
+
+  <div class="section-title" data-ko="🔥 주요 이슈" data-en="🔥 Key Issues">🔥 주요 이슈</div>
+  <div class="issue-grid">
+    <div class="issue-item"><div class="t" data-ko="워시 의장 첫 FOMC, 금리 동결" data-en="Warsh's First FOMC: Rates Held">워시 의장 첫 FOMC, 금리 동결</div><div class="d" data-ko="기준금리 3.50~3.75% 유지, 미런 이사 단독 인하 반대" data-en="Fed holds at 3.50%-3.75%; Miran dissents for a cut">기준금리 3.50~3.75% 유지, 미런 이사 단독 인하 반대</div></div>
+    <div class="issue-item"><div class="t" data-ko="美-이란 평화협정 잠정 합의" data-en="Tentative U.S.-Iran Peace Deal">美-이란 평화협정 잠정 합의</div><div class="d" data-ko="호르무즈 해협 재개통 예정, 19일 제네바 서명 예고" data-en="Strait of Hormuz reopening planned; signing set for Friday in Geneva">호르무즈 해협 재개통 예정, 19일 제네바 서명 예고</div></div>
+    <div class="issue-item"><div class="t" data-ko="반도체 장비주 급등" data-en="Chip Equipment Stocks Surge">반도체 장비주 급등</div><div class="d" data-ko="AMAT +9.3%, LRCX +6.6%, ARM +6.2% 동반 강세" data-en="AMAT +9.3%, LRCX +6.6%, ARM +6.2% rally together">AMAT +9.3%, LRCX +6.6%, ARM +6.2% 동반 강세</div></div>
+    <div class="issue-item"><div class="t" data-ko="스페이스X, 커서 인수 후 차익매물" data-en="SpaceX Cools After Cursor Deal">스페이스X, 커서 인수 후 차익매물</div><div class="d" data-ko="60억달러 규모 AI 스타트업 인수 발표 후 밸류에이션 급등, 이후 소폭 하락" data-en="Valuation spiked on $60B Cursor acquisition before pulling back">60억달러 규모 AI 스타트업 인수 발표 후 밸류에이션 급등, 이후 소폭 하락</div></div>
+    <div class="issue-item"><div class="t" data-ko="BMW, 2026년 실적 전망 하향" data-en="BMW Cuts 2026 Profit Outlook">BMW, 2026년 실적 전망 하향</div><div class="d" data-ko="중국 수요 약화와 이란전쟁 영향으로 유럽 자동차주 동반 약세" data-en="China demand weakness and Iran war disruptions hit European autos">중국 수요 약화와 이란전쟁 영향으로 유럽 자동차주 동반 약세</div></div>
+  </div>
+
+  <div class="section-title" data-ko="⚡ 주목 종목" data-en="⚡ Stocks in Focus">⚡ 주목 종목</div>
+  <div class="stock-grid">
+    <div class="stock-item"><div class="name-row"><span class="name">SpaceX</span><span class="ticker">SPCX</span></div><div class="reason" data-ko="커서 60억달러 인수 발표 후 차익매물로 소폭 하락, 장중 아마존 시총 추월" data-en="Slipped on profit-taking after $60B Cursor deal; briefly topped Amazon's market cap">커서 60억달러 인수 발표 후 차익매물로 소폭 하락, 장중 아마존 시총 추월</div><div class="sentiment down" data-ko="부정적" data-en="Negative">부정적</div></div>
+    <div class="stock-item"><div class="name-row"><span class="name">Applied Materials</span><span class="ticker">AMAT</span></div><div class="reason" data-ko="반도체 장비 수요 기대감에 9.3% 급등" data-en="Jumped 9.3% on chip equipment demand optimism">반도체 장비 수요 기대감에 9.3% 급등</div><div class="sentiment up" data-ko="긍정적" data-en="Positive">긍정적</div></div>
+    <div class="stock-item"><div class="name-row"><span class="name">Lam Research</span><span class="ticker">LRCX</span></div><div class="reason" data-ko="반도체 장비주 랠리에 동반 상승, 6.6% 강세" data-en="Rose 6.6% in tandem with chip equipment rally">반도체 장비주 랠리에 동반 상승, 6.6% 강세</div><div class="sentiment up" data-ko="긍정적" data-en="Positive">긍정적</div></div>
+    <div class="stock-item"><div class="name-row"><span class="name">Arm Holdings</span><span class="ticker">ARM</span></div><div class="reason" data-ko="반도체 설계 자산주 강세 속 6.2% 상승" data-en="Gained 6.2% amid chip-design IP strength">반도체 설계 자산주 강세 속 6.2% 상승</div><div class="sentiment up" data-ko="긍정적" data-en="Positive">긍정적</div></div>
+    <div class="stock-item"><div class="name-row"><span class="name">Carvana</span><span class="ticker">CVNA</span></div><div class="reason" data-ko="개별 약세 흐름 속 5.7% 하락" data-en="Fell 5.7% amid broader weakness in the name">개별 약세 흐름 속 5.7% 하락</div><div class="sentiment down" data-ko="부정적" data-en="Negative">부정적</div></div>
+    <div class="stock-item"><div class="name-row"><span class="name">BMW</span><span class="ticker">BMW</span></div><div class="reason" data-ko="2026년 실적 전망 하향에 5년래 최저치, 7% 급락" data-en="Plunged 7% to 5-year low after cutting 2026 profit outlook">2026년 실적 전망 하향에 5년래 최저치, 7% 급락</div><div class="sentiment down" data-ko="부정적" data-en="Negative">부정적</div></div>
+  </div>
+
+  <div class="card outlook-card">
+    <h2 data-ko="📅 내일 전망" data-en="📅 Tomorrow's Outlook">📅 내일 전망</h2>
+    <p data-ko="① 19일(금) 제네바에서 美-이란 평화협정 서명식이 예정돼 있어, 지정학적 리스크 완화와 유가 안정 여부가 시장의 주요 관전 포인트가 될 전망이다.<br>② 워시 의장의 데뷔 기자회견 톤이 향후 금리 경로 기대에 영향을 미친 만큼, 점도표 해석을 둘러싼 변동성이 이어질 수 있다." data-en="1) Friday's planned U.S.-Iran peace deal signing ceremony in Geneva will be a key focus, with markets watching whether geopolitical risk eases and oil prices stabilize.<br>2) Chair Warsh's debut press conference tone has shaped rate-path expectations, so volatility around dot-plot interpretation could continue.">① 19일(금) 제네바에서 美-이란 평화협정 서명식이 예정돼 있어, 지정학적 리스크 완화와 유가 안정 여부가 시장의 주요 관전 포인트가 될 전망이다.<br>② 워시 의장의 데뷔 기자회견 톤이 향후 금리 경로 기대에 영향을 미친 만큼, 점도표 해석을 둘러싼 변동성이 이어질 수 있다.</p>
+  </div>
+
+  <div class="card risk-card">
+    <h2 data-ko="⚠️ 주요 리스크 요인" data-en="⚠️ Key Risk Factors">⚠️ 주요 리스크 요인</h2>
+    <p data-ko="① 트럼프 대통령이 이란 합의에 대해 '최종안이 아니다'라며 '이행하지 않으면 다시 폭격하겠다'고 경고해, 합의 무산 및 재충돌 가능성이 남아있다.<br>② 스페이스X를 비롯한 AI·기술 기업의 IPO 밸류에이션 과열 우려가 있으며, 3.6조달러 규모로 추산되는 향후 IPO 파이프라인이 변동성을 키울 수 있다." data-en="1) President Trump warned the Iran deal is 'not final' and threatened to resume strikes if Iran doesn't comply, leaving room for the deal to collapse.<br>2) Valuation concerns persist around AI/tech IPOs like SpaceX, with an estimated $3.6 trillion pipeline of future listings that could add volatility.">① 트럼프 대통령이 이란 합의에 대해 '최종안이 아니다'라며 '이행하지 않으면 다시 폭격하겠다'고 경고해, 합의 무산 및 재충돌 가능성이 남아있다.<br>② 스페이스X를 비롯한 AI·기술 기업의 IPO 밸류에이션 과열 우려가 있으며, 3.6조달러 규모로 추산되는 향후 IPO 파이프라인이 변동성을 키울 수 있다.</p>
+  </div>
+
+  <div class="section-title" data-ko="📰 주요 뉴스" data-en="📰 Top News">📰 주요 뉴스</div>
+  <div class="news-list">
+    <div class="news-item"><a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-june-17-2026" target="_blank" data-ko="S&amp;P500·나스닥, 연준 결정 앞두고 약세 전환…러셀2000은 강세" data-en="S&amp;P 500, Nasdaq turn negative on day ahead of Fed decision; Russell 2000 jumps">S&amp;P500·나스닥, 연준 결정 앞두고 약세 전환…러셀2000은 강세</a><div class="news-meta">TheStreet · 11:30 EDT</div></div>
+    <div class="news-item"><a href="https://stocktwits.com/news-articles/markets/equity/intc-amd-avgo-other-chip-stocks-rebound-premarket-cathie-wood-trims-amd-holding-further/cZK0qTSR7IW" target="_blank" data-ko="인텔·AMD·브로드컴 등 반도체주 프리마켓 반등…캐시 우드는 AMD 비중 추가 축소" data-en="INTC, AMD, AVGO Rebound Premarket; Cathie Wood Trims AMD Holding Further">인텔·AMD·브로드컴 등 반도체주 프리마켓 반등…캐시 우드는 AMD 비중 추가 축소</a><div class="news-meta">Stocktwits · 06/17</div></div>
+    <div class="news-item"><a href="https://intellectia.ai/blog/chip-stocks-rebound-investment-strategy-june-2026" target="_blank" data-ko="반도체주 반등…6월 투자 전략은" data-en="Chip Stocks Rebound: Semiconductor Investment Strategy for June 2026">반도체주 반등…6월 투자 전략은</a><div class="news-meta">Intellectia.AI · 06/17</div></div>
+    <div class="news-item"><a href="https://www.stocktitan.net/articles/fed-rate-decision-june-17-2026" target="_blank" data-ko="6월 17일 연준 금리 결정, 무엇을 주목해야 하나" data-en="Fed Rate Decision June 17, 2026: What to Watch">6월 17일 연준 금리 결정, 무엇을 주목해야 하나</a><div class="news-meta">StockTitan · 06/17</div></div>
+  </div>
+
+  <div class="section-title" data-ko="🇰🇷 한국 반응" data-en="🇰🇷 한국 반응">🇰🇷 한국 반응</div>
+  <div class="news-list">
+    <div class="news-item"><a href="https://www.thefairnews.co.kr/news/articleView.html?idxno=79807" target="_blank">AI주 살아나자 뉴욕증시 반등…시선은 연준 금리 전망으로</a><div class="news-meta">더페어뉴스 · 06/18 00:00</div></div>
+    <div class="news-item"><a href="https://www.newspim.com/news/view/20260617001139" target="_blank">[미국 특징주] 스페이스X, 상장 후 첫 하락…3거래일 랠리에 제동</a><div class="news-meta">뉴스핌 · 06/18 00:28</div></div>
+    <div class="news-item"><a href="https://www.topstarnews.net/news/articleView.html?idxno=16098783" target="_blank">뉴욕증시, 연준 경계 속 반도체주 반등…다우 강세·나스닥 혼조</a><div class="news-meta">탑스타뉴스 · 06/17 23:16</div></div>
+    <div class="news-item"><a href="https://www.sedaily.com/article/20057004?ref=naver" target="_blank">서학개미 하루에만 1.2조 베팅…스페이스X 돌풍, RIA 효과 지웠다</a><div class="news-meta">서울경제 · 06/17 18:06</div></div>
+  </div>
+
+  <div class="disclaimer" data-ko="본 콘텐츠는 공개된 뉴스 및 시장 데이터를 기반으로 자동 생성되었으며, 투자 권유나 자문이 아닙니다. 투자 결정은 본인의 판단과 책임 하에 이루어져야 합니다." data-en="This content is automatically generated from public news and market data, and does not constitute investment advice. All investment decisions should be made based on your own judgment and at your own risk.">본 콘텐츠는 공개된 뉴스 및 시장 데이터를 기반으로 자동 생성되었으며, 투자 권유나 자문이 아닙니다. 투자 결정은 본인의 판단과 책임 하에 이루어져야 합니다.</div>
+</main>
+</div>
+
+<script>
+function setLang(lang){
+  document.querySelectorAll('[data-ko]').forEach(el=>{
+    const val = el.getAttribute('data-' + lang);
+    if(val !== null) el.innerHTML = val;
+  });
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active', b.dataset.lang===lang));
+}
+(async () => {
+  const base = '';
+  const isArchive = location.pathname.includes('/archive/');
+  const m = location.pathname.match(/(\d{4}-\d{2}-\d{2})/);
+  const curDate = m ? m[1] : null;
+  const openLink = document.getElementById('openLink');
+  if (isArchive && curDate) openLink.href = base + '/archive/us/' + curDate + '.html';
+  try {
+    const r = await fetch(base + '/archive/us-index.json?t=' + Date.now());
+    if (!r.ok) return;
+    const entries = await r.json();
+    const c = document.getElementById('dateList');
+    c.innerHTML = '';
+    const tp = document.createElement('a');
+    tp.href = base + '/us/close.html'; tp.className = 'date-pill' + (!isArchive ? ' active' : ' today-link'); tp.textContent = '오늘';
+    c.appendChild(tp);
+    [...entries].reverse().forEach(entry => {
+      const d = typeof entry === 'string' ? entry : entry.date;
+      const hasClose = typeof entry === 'object' && entry.close;
+      if (!hasClose) return;
+      const a = document.createElement('a');
+      a.href = base + '/archive/us/' + d + '-close.html';
+      a.className = 'date-pill' + (d === curDate && isArchive ? ' active' : '');
+      const p = d.split('-'); a.textContent = parseInt(p[1]) + '/' + parseInt(p[2]);
+      c.appendChild(a);
+    });
+  } catch(e) {}
+})();
+</script>
+</body>
+</html>
