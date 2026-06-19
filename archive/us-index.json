@@ -23,5 +23,10 @@
     "date": "2026-06-18",
     "open": true,
     "close": true
+  },
+  {
+    "date": "2026-06-19",
+    "open": true,
+    "close": false
   }
 ]
