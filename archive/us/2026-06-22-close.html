@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q97TRX9844"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-Q97TRX9844');
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily kkangdago US - 2026-06-22 장마감 브리핑</title>
+<style>
+:root{--bg:#0d0d0d;--surface:#161616;--accent:#f0c040;--signal:#f0c040;--up:#26a69a;--down:#ef5350;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:#e8e8e8;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;line-height:1.6;padding-bottom:60px;}
+a{color:inherit;}
+.container{max-width:880px;margin:0 auto;padding:0 16px;}
+.header-top{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:18px 16px;border-bottom:1px solid #232323;max-width:880px;margin:0 auto;}
+.logo{font-size:19px;font-weight:800;text-decoration:none;color:#fff;}
+.logo span.signal{color:var(--signal);}
+.logo span{color:var(--accent);}
+.date-badge{font-size:13px;color:#999;background:#1e1e1e;padding:4px 10px;border-radius:12px;}
+.brief-toggle{display:flex;gap:8px;margin-left:auto;}
+.brief-btn{display:inline-flex;align-items:center;gap:5px;font-size:13px;font-weight:700;padding:5px 15px;border-radius:20px;text-decoration:none;transition:opacity 0.15s;white-space:nowrap;}
+.brief-btn.active-open{background:#00d4aa;color:#000;}
+.brief-btn.active-close{background:#f0c040;color:#000;}
+.brief-btn.inactive{background:#1e1e1e;color:#666;border:1.5px solid #333;}
+.brief-btn.inactive:hover{border-color:#f0c040;color:#f0c040;}
+.brief-btn.disabled{background:#1e1e1e;color:#333;border:1.5px solid #252525;cursor:default;pointer-events:none;opacity:0.45;}
+.lang-toggle{display:flex;gap:6px;}
+.lang-btn{font-size:12px;font-weight:700;padding:5px 10px;border-radius:14px;background:#1e1e1e;border:1.5px solid #333;color:#888;cursor:pointer;}
+.lang-btn.active{background:var(--accent);color:#000;border-color:var(--accent);}
+.history-nav{display:flex;gap:6px;overflow-x:auto;padding:14px 16px 4px;max-width:880px;margin:0 auto;}
+.date-pill{flex:0 0 auto;font-size:12px;padding:5px 12px;border-radius:14px;background:#1a1a1a;border:1px solid #2a2a2a;color:#888;text-decoration:none;}
+.date-pill.active{background:var(--accent);color:#000;border-color:var(--accent);font-weight:700;}
+.date-pill.today-link{color:var(--accent);border-color:var(--accent);}
+.badge-row{display:flex;align-items:center;gap:10px;padding:18px 16px 6px;flex-wrap:wrap;}
+.badge-main{background:var(--accent);color:#000;font-weight:800;font-size:14px;padding:6px 14px;border-radius:20px;}
+.badge-time{font-size:13px;color:#999;}
+.idx-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:14px 16px;}
+.idx-card{background:var(--surface);border-radius:10px;padding:14px 10px;text-align:center;border:1px solid #232323;}
+.idx-name{font-size:12px;color:#999;margin-bottom:4px;}
+.idx-val{font-size:17px;font-weight:800;color:#fff;}
+.idx-chg{font-size:12px;margin-top:3px;font-weight:700;}
+.idx-chg.up{color:var(--up);}
+.idx-chg.down{color:var(--down);}
+.idx-chg.flat{color:#999;}
+.section{padding:16px;}
+.card{background:var(--surface);border-radius:12px;padding:18px;border:1px solid #232323;}
+.section h2{font-size:16px;font-weight:800;margin-bottom:12px;color:#fff;}
+.summary-text{font-size:14.5px;color:#d8d8d8;}
+.issue-grid{display:grid;gap:10px;}
+.issue-card{background:var(--surface);border-radius:10px;padding:14px;border:1px solid #232323;border-left:3px solid var(--accent);}
+.issue-num{font-size:12px;color:var(--accent);font-weight:800;margin-bottom:4px;}
+.issue-title{font-size:14.5px;font-weight:700;color:#fff;margin-bottom:4px;}
+.issue-desc{font-size:13.5px;color:#aaa;}
+.stock-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
+.stock-card{background:var(--surface);border-radius:10px;padding:14px;border:1px solid #232323;}
+.stock-head{display:flex;align-items:center;gap:6px;margin-bottom:6px;flex-wrap:wrap;}
+.stock-name{font-weight:800;font-size:14px;color:#fff;}
+.ticker{font-size:11px;background:#252525;color:var(--accent);padding:2px 7px;border-radius:6px;font-weight:700;}
+.sentiment{font-size:11px;font-weight:700;padding:2px 7px;border-radius:6px;margin-left:auto;}
+.sentiment.pos{background:rgba(38,166,154,0.15);color:var(--up);}
+.sentiment.neg{background:rgba(239,83,80,0.15);color:var(--down);}
+.sentiment.neu{background:rgba(150,150,150,0.15);color:#999;}
+.stock-desc{font-size:13px;color:#aaa;}
+.outlook-card{background:var(--surface);border-radius:12px;padding:18px;border:1px solid #232323;border-left:3px solid #00d4aa;}
+.risk-card{background:var(--surface);border-radius:12px;padding:18px;border:1px solid #232323;border-left:3px solid var(--down);}
+.news-list{display:flex;flex-direction:column;gap:10px;}
+.news-item{background:var(--surface);border-radius:10px;padding:13px;border:1px solid #232323;text-decoration:none;display:block;}
+.news-title{font-size:14px;font-weight:600;color:#e8e8e8;margin-bottom:5px;}
+.news-meta{font-size:12px;color:#777;}
+.disclaimer{font-size:12px;color:#666;padding:20px 16px 40px;text-align:center;line-height:1.7;}
+@media(max-width:480px){.stock-grid{grid-template-columns:1fr;}.idx-grid{grid-template-columns:repeat(3,1fr);}}
+</style>
+</head>
+<body>
+
+<div class="header-top">
+<a class="logo" href="/us/">Daily <span>kkang</span>dago <span class="signal">US</span></a>
+<div class="date-badge">2026-06-22</div>
+<div class="brief-toggle">
+<a id="openLink" href="index.html" class="brief-btn inactive" data-ko="☀️ 장전 브리핑" data-en="☀️ Pre-Market">☀️ 장전 브리핑</a>
+<span class="brief-btn active-close" data-ko="🌆 장마감 브리핑" data-en="🌆 After-Hours">🌆 장마감 브리핑</span>
+</div>
+<div class="lang-toggle">
+<button class="lang-btn active" id="btnKo" onclick="setLang('ko')">KO</button>
+<button class="lang-btn" id="btnEn" onclick="setLang('en')">EN</button>
+</div>
+</div>
+
+<div class="history-nav" id="dateList"></div>
+
+<div class="container">
+
+<div class="badge-row">
+<span class="badge-main" data-ko="장마감 브리핑" data-en="After-Hours Briefing">장마감 브리핑</span>
+<span class="badge-time">2026-06-22 · EDT 16:30</span>
+</div>
+
+<div class="idx-grid">
+<div class="idx-card"><div class="idx-name">S&amp;P 500</div><div class="idx-val">7,472.79</div><div class="idx-chg down">-27.79 (-0.37%)</div></div>
+<div class="idx-card"><div class="idx-name">NASDAQ</div><div class="idx-val">26,166.60</div><div class="idx-chg down">-351.33 (-1.33%)</div></div>
+<div class="idx-card"><div class="idx-name">DOW</div><div class="idx-val">51,705.75</div><div class="idx-chg up">+148.01 (+0.29%)</div></div>
+<div class="idx-card"><div class="idx-name">VIX</div><div class="idx-val">~16.8</div><div class="idx-chg flat" data-ko="저변동성 구간 유지" data-en="Stays in low-vol range">저변동성 구간 유지</div></div>
+<div class="idx-card"><div class="idx-name">USD/KRW</div><div class="idx-val">₩1,512.6</div><div class="idx-chg up" data-ko="원화 약세" data-en="Won weakens">원화 약세</div></div>
+<div class="idx-card"><div class="idx-name">WTI</div><div class="idx-val">$74.30</div><div class="idx-chg down" data-ko="중동 긴장 완화로 하락" data-en="Falls on easing Mideast tension">중동 긴장 완화로 하락</div></div>
+</div>
+
+<div class="section">
+<h2 data-ko="📊 오늘 장 결과 요약" data-en="📊 Today's Market Summary">📊 오늘 장 결과 요약</h2>
+<div class="card">
+<p class="summary-text" data-ko="6월 22일(현지시간) 뉴욕증시는 혼조세로 마감했다. 다우존스산업평균은 148.01포인트(0.29%) 오른 51,705.75를 기록했지만, S&amp;P500지수는 27.79포인트(0.37%) 내린 7,472.79, 나스닥종합지수는 351.33포인트(1.33%) 떨어진 26,166.60으로 거래를 마쳤다. 알파벳이 핵심 AI 인재 유출 우려와 막대한 AI 투자 부담이 겹치며 1년래 최대 폭으로 급락해 빅테크주 전반을 끌어내렸다. 일론 머스크의 스페이스X는 첫 투자등급 채권 발행 소식에 주가가 16% 폭락하며 3거래일 연속 하락했다. 미-이란 평화협상 진전 기대감이 일부 안도감을 줬지만 기술주 약세를 상쇄하지는 못했고, 국제유가는 중동 긴장 완화로 하락했다."
+data-en="U.S. stocks closed mixed on Monday, June 22. The Dow Jones Industrial Average rose 148.01 points (0.29%) to 51,705.75, while the S&amp;P 500 fell 27.79 points (0.37%) to 7,472.79 and the Nasdaq Composite dropped 351.33 points (1.33%) to 26,166.60. Alphabet posted its worst one-day drop in over a year, dragging megacap tech lower amid concerns over AI talent departures and heavy AI capital spending. Elon Musk's SpaceX tumbled 16% on news of its first investment-grade bond sale, marking a third straight day of declines. Optimism over progress in U.S.-Iran peace talks offered some relief but wasn't enough to offset tech weakness, while crude oil fell on easing Middle East tensions.">
+6월 22일(현지시간) 뉴욕증시는 혼조세로 마감했다. 다우존스산업평균은 148.01포인트(0.29%) 오른 51,705.75를 기록했지만, S&amp;P500지수는 27.79포인트(0.37%) 내린 7,472.79, 나스닥종합지수는 351.33포인트(1.33%) 떨어진 26,166.60으로 거래를 마쳤다. 알파벳이 핵심 AI 인재 유출 우려와 막대한 AI 투자 부담이 겹치며 1년래 최대 폭으로 급락해 빅테크주 전반을 끌어내렸다. 일론 머스크의 스페이스X는 첫 투자등급 채권 발행 소식에 주가가 16% 폭락하며 3거래일 연속 하락했다. 미-이란 평화협상 진전 기대감이 일부 안도감을 줬지만 기술주 약세를 상쇄하지는 못했고, 국제유가는 중동 긴장 완화로 하락했다.
+</p>
+</div>
+</div>
+
+<div class="section">
+<h2 data-ko="🔥 주요 이슈" data-en="🔥 Key Issues">🔥 주요 이슈</h2>
+<div class="issue-grid">
+<div class="issue-card">
+<div class="issue-num">01</div>
+<div class="issue-title" data-ko="알파벳 AI 인재 유출 충격" data-en="Alphabet rattled by AI talent exodus">알파벳 AI 인재 유출 충격</div>
+<div class="issue-desc" data-ko="제미나이 공동개발자 노암 셰이저가 OpenAI로, 딥마인드 수석연구원(노벨상 수상자) 존 점퍼가 앤트로픽으로 이적하며 알파벳 주가 1년래 최대 폭 급락" data-en="Gemini co-developer Noam Shazeer departed for OpenAI and Nobel laureate DeepMind researcher John Jumper left for Anthropic, sending Alphabet shares to their worst drop in a year">제미나이 공동개발자 노암 셰이저가 OpenAI로, 딥마인드 수석연구원(노벨상 수상자) 존 점퍼가 앤트로픽으로 이적하며 알파벳 주가 1년래 최대 폭 급락</div>
+</div>
+<div class="issue-card">
+<div class="issue-num">02</div>
+<div class="issue-title" data-ko="스페이스X 첫 투자등급 채권 발행" data-en="SpaceX's first investment-grade bond sale">스페이스X 첫 투자등급 채권 발행</div>
+<div class="issue-desc" data-ko="AI 인프라 확장 자금 마련을 위한 대규모 차입 추진 소식에 주가 16% 폭락, 3거래일 연속 하락" data-en="Shares plunged 16% — a third straight day of declines — on news of a major borrowing push to fund AI infrastructure expansion">AI 인프라 확장 자금 마련을 위한 대규모 차입 추진 소식에 주가 16% 폭락, 3거래일 연속 하락</div>
+</div>
+<div class="issue-card">
+<div class="issue-num">03</div>
+<div class="issue-title" data-ko="빅테크 전반 동반 약세" data-en="Broad megacap tech selloff">빅테크 전반 동반 약세</div>
+<div class="issue-desc" data-ko="아마존 -4.8%, 마이크로소프트 -3%, 메타 -2.3% 등 AI 자본지출 부담 우려가 업종 전반으로 확산" data-en="Amazon fell 4.8%, Microsoft 3%, and Meta 2.3% as AI capex anxiety spread across the sector">아마존 -4.8%, 마이크로소프트 -3%, 메타 -2.3% 등 AI 자본지출 부담 우려가 업종 전반으로 확산</div>
+</div>
+<div class="issue-card">
+<div class="issue-num">04</div>
+<div class="issue-title" data-ko="美-이란 휴전 불안정 지속" data-en="U.S.-Iran ceasefire remains fragile">美-이란 휴전 불안정 지속</div>
+<div class="issue-desc" data-ko="평화협상 진전 기대감이 있었지만 트럼프 대통령의 추가 위협 발언 등으로 지정학적 리스크는 여전히 잔존" data-en="Hopes for progress in peace talks persisted, but renewed threats from President Trump kept geopolitical risk alive">평화협상 진전 기대감이 있었지만 트럼프 대통령의 추가 위협 발언 등으로 지정학적 리스크는 여전히 잔존</div>
+</div>
+<div class="issue-card">
+<div class="issue-num">05</div>
+<div class="issue-title" data-ko="국제유가 하락, 항공주 반사이익" data-en="Crude slides, airlines catch a tailwind">국제유가 하락, 항공주 반사이익</div>
+<div class="issue-desc" data-ko="중동 긴장 완화로 WTI가 배럴당 74달러대로 내려 항공유 비용 부담이 줄며 항공주에 호재" data-en="WTI slipped to around $74 a barrel on easing Mideast tension, lowering jet-fuel costs and lifting airline stocks">중동 긴장 완화로 WTI가 배럴당 74달러대로 내려 항공유 비용 부담이 줄며 항공주에 호재</div>
+</div>
+</div>
+</div>
+
+<div class="section">
+<h2 data-ko="⚡ 주목 종목" data-en="⚡ Stocks in Focus">⚡ 주목 종목</h2>
+<div class="stock-grid">
+<div class="stock-card">
+<div class="stock-head"><span class="stock-name">Alphabet</span><span class="ticker">GOOGL</span><span class="sentiment neg">-6%</span></div>
+<div class="stock-desc" data-ko="제미나이 핵심 인재들의 OpenAI·앤트로픽行 이탈과 AI 투자 부담 우려가 겹쳐 1년래 최대 하락" data-en="Slumped to its worst day in over a year on key Gemini talent departures to OpenAI and Anthropic plus AI spending concerns">제미나이 핵심 인재들의 OpenAI·앤트로픽行 이탈과 AI 투자 부담 우려가 겹쳐 1년래 최대 하락</div>
+</div>
+<div class="stock-card">
+<div class="stock-head"><span class="stock-name">SpaceX</span><span class="ticker">비상장(채권)</span><span class="sentiment neg">-16%</span></div>
+<div class="stock-desc" data-ko="첫 투자등급 채권 발행으로 AI 인프라 확장 자금 조달 추진, 3거래일 연속 하락" data-en="Plunged on news of its first investment-grade bond sale to fund AI infrastructure buildout, a third straight day lower">첫 투자등급 채권 발행으로 AI 인프라 확장 자금 조달 추진, 3거래일 연속 하락</div>
+</div>
+<div class="stock-card">
+<div class="stock-head"><span class="stock-name">Amazon</span><span class="ticker">AMZN</span><span class="sentiment neg">-4.8%</span></div>
+<div class="stock-desc" data-ko="빅테크 전반 셀오프에 동반 하락, AI 자본지출 부담 우려 확산" data-en="Fell alongside the broad megacap selloff amid spreading AI capex concerns">빅테크 전반 셀오프에 동반 하락, AI 자본지출 부담 우려 확산</div>
+</div>
+<div class="stock-card">
+<div class="stock-head"><span class="stock-name">Microsoft</span><span class="ticker">MSFT</span><span class="sentiment neg">-3%</span></div>
+<div class="stock-desc" data-ko="AI 인프라 투자 부담에 대한 시장 우려 속 빅테크 동반 약세에 동참" data-en="Joined the megacap tech decline amid market jitters over AI infrastructure spending">AI 인프라 투자 부담에 대한 시장 우려 속 빅테크 동반 약세에 동참</div>
+</div>
+<div class="stock-card">
+<div class="stock-head"><span class="stock-name">Meta Platforms</span><span class="ticker">META</span><span class="sentiment neg">-2.3%</span></div>
+<div class="stock-desc" data-ko="알파벳발 AI 인재 유출 우려가 업종 전반에 전이되며 빅테크 셀오프에 동참" data-en="Caught up in the sector-wide selloff as Alphabet's AI talent worries spread across megacap tech">알파벳발 AI 인재 유출 우려가 업종 전반에 전이되며 빅테크 셀오프에 동참</div>
+</div>
+<div class="stock-card">
+<div class="stock-head"><span class="stock-name">Delta Air Lines</span><span class="ticker">DAL</span><span class="sentiment pos">+0.25%</span></div>
+<div class="stock-desc" data-ko="국제유가 하락에 따른 항공유 비용 절감 기대로 강보합, 최근 3거래일 연속 항공주 강세 흐름 지속" data-en="Edged higher on lower jet-fuel cost expectations, extending a three-session airline-sector rally">국제유가 하락에 따른 항공유 비용 절감 기대로 강보합, 최근 3거래일 연속 항공주 강세 흐름 지속</div>
+</div>
+</div>
+</div>
+
+<div class="section">
+<h2 data-ko="📅 내일 전망" data-en="📅 Tomorrow's Outlook">📅 내일 전망</h2>
+<div class="outlook-card">
+<p class="summary-text" data-ko="① 6월 23일 페덱스(FDX)·카니발(CCL) 실적 발표가 예정되어 있어 경기 민감주 반응과 AI 자본지출 우려 확산 여부가 관전 포인트. ② 6월 25일 발표될 5월 PCE 물가지수에 시장의 관심이 집중될 전망 — 월가는 전월대비 0.5%, 연율 4.1% 상승을 예상하며 매파적인 연준 스탠스에 미칠 영향을 주시."
+data-en="① FedEx (FDX) and Carnival (CCL) report earnings on June 23, a key test of cyclical sentiment and whether AI capex worries keep spreading. ② Markets will focus on the May PCE inflation reading due June 25 — Wall Street expects a 0.5% monthly rise (4.1% annualized), which could reinforce the Fed's hawkish stance.">
+① 6월 23일 페덱스(FDX)·카니발(CCL) 실적 발표가 예정되어 있어 경기 민감주 반응과 AI 자본지출 우려 확산 여부가 관전 포인트. ② 6월 25일 발표될 5월 PCE 물가지수에 시장의 관심이 집중될 전망 — 월가는 전월대비 0.5%, 연율 4.1% 상승을 예상하며 매파적인 연준 스탠스에 미칠 영향을 주시.
+</p>
+</div>
+</div>
+
+<div class="section">
+<h2 data-ko="⚠️ 주요 리스크 요인" data-en="⚠️ Key Risk Factors">⚠️ 주요 리스크 요인</h2>
+<div class="risk-card">
+<p class="summary-text" data-ko="① 美-이란 휴전 불확실성 — 트럼프 대통령의 추가 위협 발언 등 지정학적 긴장이 언제든 재점화될 가능성. ② 연준의 매파적 스탠스 지속 — 케빈 워시 신임 의장 체제에서 18명 정책위원 중 9명이 연내 추가 금리 인상 가능성을 시사한 가운데, AI 밸류에이션 부담까지 겹치며 증시 변동성 확대 우려."
+data-en="① U.S.-Iran ceasefire uncertainty — renewed threats from President Trump show geopolitical tension could reignite at any time. ② Persistent Fed hawkishness — under new Chair Kevin Warsh, nine of 18 policymakers signaled possible further rate hikes this year, and combined with AI valuation strain, risks of heightened equity volatility remain elevated.">
+① 美-이란 휴전 불확실성 — 트럼프 대통령의 추가 위협 발언 등 지정학적 긴장이 언제든 재점화될 가능성. ② 연준의 매파적 스탠스 지속 — 케빈 워시 신임 의장 체제에서 18명 정책위원 중 9명이 연내 추가 금리 인상 가능성을 시사한 가운데, AI 밸류에이션 부담까지 겹치며 증시 변동성 확대 우려.
+</p>
+</div>
+</div>
+
+<div class="section">
+<h2 data-ko="📰 주요 뉴스" data-en="📰 Top Headlines">📰 주요 뉴스</h2>
+<div class="news-list">
+<a class="news-item" href="https://www.cnbc.com/2026/06/22/alphabet-goog-stock-ai-departures.html" target="_blank" rel="noopener">
+<div class="news-title" data-ko="알파벳, AI 인재 유출 우려로 1년래 최악의 하루" data-en="Alphabet paces for worst day in a year on AI concerns after high-profile exits">알파벳, AI 인재 유출 우려로 1년래 최악의 하루</div>
+<div class="news-meta">CNBC · 2026-06-22</div>
+</a>
+<a class="news-item" href="https://www.cnbc.com/2026/06/21/stock-market-today-live-updates.html" target="_blank" rel="noopener">
+<div class="news-title" data-ko="기술주 약세에 S&amp;P500 하락 마감, 스페이스X 3거래일 연속 하락" data-en="S&amp;P 500 closes lower as tech stocks slide; SpaceX notches 3-day losing streak">기술주 약세에 S&amp;P500 하락 마감, 스페이스X 3거래일 연속 하락</div>
+<div class="news-meta">CNBC · 2026-06-22</div>
+</a>
+<a class="news-item" href="https://finance.yahoo.com/markets/stocks/live/stock-market-today-monday-june-22-225817825.html" target="_blank" rel="noopener">
+<div class="news-title" data-ko="빅테크·스페이스X 강타에 S&amp;P500·나스닥 하락" data-en="Stock market today: S&amp;P 500, Nasdaq slide as Big Tech, SpaceX hammered">빅테크·스페이스X 강타에 S&amp;P500·나스닥 하락</div>
+<div class="news-meta">Yahoo Finance · 2026-06-22</div>
+</a>
+<a class="news-item" href="https://www.marketscreener.com/news/s-p-500-nasdaq-fall-dragged-by-alphabet-and-megacap-tech-focus-on-iran-ce7f5cd3d18ff123" target="_blank" rel="noopener">
+<div class="news-title" data-ko="알파벳·빅테크에 짓눌린 S&amp;P500·나스닥, 시장은 이란 사태 주시" data-en="S&amp;P 500, Nasdaq fall, dragged by Alphabet and megacap tech; focus on Iran">알파벳·빅테크에 짓눌린 S&amp;P500·나스닥, 시장은 이란 사태 주시</div>
+<div class="news-meta">MarketScreener · 2026-06-22</div>
+</a>
+<a class="news-item" href="https://www.marketscreener.com/news/u-s-tech-megacaps-slide-as-spacex-extends-slump-ai-expense-concerns-grow-ce7f5cd3d188fe23" target="_blank" rel="noopener">
+<div class="news-title" data-ko="스페이스X 약세 지속, AI 비용 우려 커지며 美 빅테크 미끄러짐" data-en="U.S. tech megacaps slide as SpaceX extends slump, AI expense concerns grow">스페이스X 약세 지속, AI 비용 우려 커지며 美 빅테크 미끄러짐</div>
+<div class="news-meta">MarketScreener · 2026-06-22</div>
+</a>
+<a class="news-item" href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-june-22-2026" target="_blank" rel="noopener">
+<div class="news-title" data-ko="나스닥100 정기 리밸런싱 이후 나스닥·S&amp;P500 하락" data-en="Nasdaq-100, S&amp;P 500 fall after welcoming new members in quarterly shakeup">나스닥100 정기 리밸런싱 이후 나스닥·S&amp;P500 하락</div>
+<div class="news-meta">TheStreet · 2026-06-22</div>
+</a>
+</div>
+</div>
+
+<div class="section">
+<h2>🇰🇷 한국 반응</h2>
+<div class="news-list">
+<a class="news-item" href="https://n.news.naver.com/mnews/article/014/0005538292?sid=101" target="_blank" rel="noopener">
+<div class="news-title">[뉴욕증시] 다우지수만 상승…스페이스X, 16% 폭락</div>
+<div class="news-meta">fnnews · 2026-06-23 05:29</div>
+</a>
+<a class="news-item" href="https://www.g-enews.com/view.php?ud=202606230525111272e250e8e188_1" target="_blank" rel="noopener">
+<div class="news-title">[뉴욕증시] 빅테크·스페이스X 폭락…나스닥·S&amp;P 500 하락</div>
+<div class="news-meta">G-Enews · 2026-06-23 05:28</div>
+</a>
+<a class="news-item" href="http://www.hansbiz.co.kr/news/articleView.html?idxno=845790" target="_blank" rel="noopener">
+<div class="news-title">[뉴욕증시] 스페이스X 급락…혼조 마감</div>
+<div class="news-meta">한스경제 · 2026-06-23 05:24</div>
+</a>
+<a class="news-item" href="https://n.news.naver.com/mnews/article/215/0001256241?sid=101" target="_blank" rel="noopener">
+<div class="news-title">[속보] 스페이스X, 16%↓…뉴욕증시, 혼조 마감</div>
+<div class="news-meta">한국경제TV · 2026-06-23 05:20</div>
+</a>
+<a class="news-item" href="https://n.news.naver.com/mnews/article/018/0006312597?sid=101" target="_blank" rel="noopener">
+<div class="news-title">[속보]나스닥, 기술주·스페이스X 급락에 1.3%↓…중동 훈풍도 못 살렸다</div>
+<div class="news-meta">이데일리 · 2026-06-23 05:14</div>
+</a>
+</div>
+</div>
+
+<div class="disclaimer" data-ko="본 브리핑은 공개된 뉴스 및 시장 정보를 바탕으로 자동 생성되었으며, 투자 권유나 자문이 아닙니다. 투자 결정에 따른 책임은 투자자 본인에게 있습니다." data-en="This briefing is automatically generated from publicly available news and market data. It is not investment advice. Investment decisions are the sole responsibility of the investor.">
+본 브리핑은 공개된 뉴스 및 시장 정보를 바탕으로 자동 생성되었으며, 투자 권유나 자문이 아닙니다. 투자 결정에 따른 책임은 투자자 본인에게 있습니다.
+</div>
+
+</div>
+
+<script>
+function setLang(lang){
+document.querySelectorAll('[data-ko]').forEach(function(el){
+var val = el.getAttribute(lang === 'en' ? 'data-en' : 'data-ko');
+if(val !== null) el.textContent = val;
+});
+document.getElementById('btnKo').classList.toggle('active', lang === 'ko');
+document.getElementById('btnEn').classList.toggle('active', lang === 'en');
+}
+
+(async () => {
+const base = '';
+const isArchive = location.pathname.includes('/archive/');
+const m = location.pathname.match(/(\d{4}-\d{2}-\d{2})/);
+const curDate = m ? m[1] : null;
+const openLink = document.getElementById('openLink');
+if (isArchive && curDate) openLink.href = base + '/archive/us/' + curDate + '.html';
+try {
+const r = await fetch(base + '/archive/us-index.json?t=' + Date.now());
+if (!r.ok) return;
+const entries = await r.json();
+const c = document.getElementById('dateList');
+c.innerHTML = '';
+const tp = document.createElement('a');
+tp.href = base + '/us/close.html'; tp.className = 'date-pill' + (!isArchive ? ' active' : ' today-link'); tp.textContent = '오늘';
+c.appendChild(tp);
+[...entries].reverse().forEach(entry => {
+const d = typeof entry === 'string' ? entry : entry.date;
+const hasClose = typeof entry === 'object' && entry.close;
+if (!hasClose) return;
+const a = document.createElement('a');
+a.href = base + '/archive/us/' + d + '-close.html';
+a.className = 'date-pill' + (d === curDate && isArchive ? ' active' : '');
+const p = d.split('-'); a.textContent = parseInt(p[1]) + '/' + parseInt(p[2]);
+c.appendChild(a);
+});
+} catch(e) {}
+})();
+</script>
+
+<div style="text-align:center;padding:16px;font-size:11px;color:#555;border-top:1px solid #1e1e1e"><a href="/about.html" style="color:#888">About</a> · <a href="/privacy.html" style="color:#888">Privacy Policy</a></div>
+</body>
+</html>
