@@ -1,32 +1,9 @@
 [
-  {
-    "date": "2026-06-12",
-    "open": false,
-    "close": true
-  },
-  {
-    "date": "2026-06-13",
-    "open": true,
-    "close": false
-  },
-  {
-    "date": "2026-06-15",
-    "open": true,
-    "close": false
-  },
-  {
-    "date": "2026-06-17",
-    "open": true,
-    "close": true
-  },
-  {
-    "date": "2026-06-18",
-    "open": true,
-    "close": true
-  },
-  {
-    "date": "2026-06-19",
-    "open": true,
-    "close": false
-  }
+  {"date":"2026-06-12","open":false,"close":true},
+  {"date":"2026-06-13","open":true,"close":false},
+  {"date":"2026-06-15","open":true,"close":false},
+  {"date":"2026-06-17","open":true,"close":true},
+  {"date":"2026-06-18","open":true,"close":true},
+  {"date":"2026-06-19","open":true,"close":false},
+  {"date":"2026-06-22","open":true,"close":false}
 ]
