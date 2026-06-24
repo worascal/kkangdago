@@ -3,11 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>kkangdago US Signal — 2026-06-22 장전 브리핑</title>
+<title>kkangdago US Signal — 2026-06-24 장전 브리핑</title>
 <style>
 :root{--bg:#0d0d0d;--surface:#161616;--accent:#00d4aa;--signal:#f0c040;--up:#26a69a;--down:#ef5350;}
-*{box-sizing:border-box;}
-body{margin:0;background:var(--bg);color:#e8e8e8;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:#e8e8e8;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;line-height:1.6;padding-bottom:60px;}
+a{color:inherit;}
 .container{max-width:900px;margin:0 auto;padding:16px;}
 .header-top{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:12px 0 16px;border-bottom:1px solid #222;}
 .logo{font-size:20px;font-weight:900;letter-spacing:-0.5px;color:#fff;text-decoration:none;}
@@ -25,48 +26,53 @@ body{margin:0;background:var(--bg);color:#e8e8e8;font-family:-apple-system,Blink
 .lang-btn{background:#1e1e1e;border:1px solid #333;border-radius:4px;padding:3px 8px;font-size:12px;cursor:pointer;color:#888;}
 .lang-btn.active{background:var(--accent);color:#000;border-color:var(--accent);}
 .date-nav{display:flex;gap:6px;flex-wrap:wrap;overflow-x:auto;padding-bottom:4px;}
-.date-pill{background:#1a1a1a;border:1px solid #2a2a2a;border-radius:20px;padding:5px 14px;font-size:12px;color:#888;white-space:nowrap;cursor:pointer;transition:all 0.15s;text-decoration:none;display:inline-block;}
+.date-pill{background:#1a1a1a;border:1px solid #2a2a2a;border-radius:20px;padding:5px 14px;font-size:12px;color:#888;white-space:nowrap;cursor:pointer;transition:all 0.15s;text-decoration:none;}
 .date-pill:hover,.date-pill.active{background:var(--accent);color:#000;border-color:var(--accent);}
 .date-pill.today-link{border-color:#444;color:#ccc;}
-.section{margin:20px 0;}
-.section-title{font-size:15px;font-weight:800;color:#fff;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
-.brief-badge{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;padding:5px 14px;border-radius:20px;background:var(--accent);color:#000;}
-.sub-badge{font-size:12px;color:#888;margin-left:8px;}
-.index-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
-.index-card{background:var(--surface);border:1px solid #222;border-radius:10px;padding:12px;}
-.index-name{font-size:11px;color:#888;margin-bottom:4px;}
-.index-val{font-size:17px;font-weight:800;color:#fff;}
-.index-chg{font-size:12px;font-weight:700;margin-top:2px;}
-.index-chg.up{color:var(--up);}
-.index-chg.down{color:var(--down);}
-.card{background:var(--surface);border:1px solid #222;border-radius:10px;padding:16px;line-height:1.7;font-size:14px;color:#ddd;}
-.theme-grid{display:grid;grid-template-columns:1fr;gap:10px;}
-.theme-card{background:var(--surface);border:1px solid #222;border-left:3px solid var(--accent);border-radius:8px;padding:12px 14px;}
-.theme-name{font-weight:800;color:#fff;font-size:14px;margin-bottom:4px;}
-.theme-desc{font-size:13px;color:#bbb;line-height:1.5;}
-.pick-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
-.pick-card{background:var(--surface);border:1px solid #222;border-radius:10px;padding:14px;}
-.pick-head{display:flex;align-items:center;gap:8px;margin-bottom:6px;}
-.pick-name{font-weight:800;color:#fff;font-size:14px;}
-.ticker-badge{background:#1e1e1e;border:1px solid #333;color:var(--signal);font-size:11px;font-weight:700;padding:2px 7px;border-radius:5px;}
-.pick-desc{font-size:12.5px;color:#bbb;line-height:1.5;}
-.sentiment{display:inline-block;margin-top:6px;font-size:11px;color:var(--up);font-weight:700;}
-.risk-card{background:var(--surface);border:1px solid #222;border-left:3px solid var(--down);border-radius:8px;padding:12px 14px;margin-bottom:8px;}
-.news-list{display:flex;flex-direction:column;gap:0;}
-.news-item{display:block;padding:11px 0;border-bottom:1px solid #1e1e1e;text-decoration:none;color:inherit;}
-.news-item:last-child{border-bottom:none;}
-.news-title{font-size:13.5px;color:#e8e8e8;line-height:1.5;}
-.news-meta{font-size:11px;color:#777;margin-top:4px;}
-.disclaimer{font-size:11.5px;color:#666;line-height:1.6;background:#141414;border:1px solid #222;border-radius:8px;padding:12px 14px;}
-@media (max-width:600px){.index-grid{grid-template-columns:repeat(2,1fr);}.pick-grid{grid-template-columns:1fr;}}
+.section{padding:16px 0;}
+.card{background:var(--surface);border-radius:12px;padding:18px;border:1px solid #232323;}
+.section h2{font-size:16px;font-weight:800;margin-bottom:12px;color:#fff;}
+.badge-row{display:flex;align-items:center;gap:10px;padding:6px 0;flex-wrap:wrap;}
+.badge-main{background:var(--accent);color:#000;font-weight:800;font-size:14px;padding:6px 14px;border-radius:20px;}
+.badge-time{font-size:13px;color:#999;}
+.idx-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+.idx-card{background:var(--surface);border-radius:10px;padding:14px 10px;text-align:center;border:1px solid #232323;}
+.idx-name{font-size:12px;color:#999;margin-bottom:4px;}
+.idx-val{font-size:17px;font-weight:800;color:#fff;}
+.idx-chg{font-size:12px;margin-top:3px;font-weight:700;}
+.idx-chg.up{color:var(--up);}
+.idx-chg.down{color:var(--down);}
+.idx-chg.flat{color:#999;}
+.summary-text{font-size:14.5px;color:#d8d8d8;}
+.issue-grid{display:grid;gap:10px;}
+.issue-card{background:var(--surface);border-radius:10px;padding:14px;border:1px solid #232323;border-left:3px solid var(--accent);}
+.issue-num{font-size:12px;color:var(--accent);font-weight:800;margin-bottom:4px;}
+.issue-title{font-size:14.5px;font-weight:700;color:#fff;margin-bottom:4px;}
+.issue-desc{font-size:13.5px;color:#aaa;}
+.stock-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
+.stock-card{background:var(--surface);border-radius:10px;padding:14px;border:1px solid #232323;}
+.stock-head{display:flex;align-items:center;gap:6px;margin-bottom:6px;flex-wrap:wrap;}
+.stock-name{font-weight:800;font-size:14px;color:#fff;}
+.ticker{font-size:11px;background:#252525;color:var(--accent);padding:2px 7px;border-radius:6px;font-weight:700;}
+.sentiment{font-size:11px;font-weight:700;padding:2px 7px;border-radius:6px;margin-left:auto;}
+.sentiment.pos{background:rgba(38,166,154,0.15);color:var(--up);}
+.sentiment.neg{background:rgba(239,83,80,0.15);color:var(--down);}
+.sentiment.neu{background:rgba(150,150,150,0.15);color:#999;}
+.stock-desc{font-size:13px;color:#aaa;}
+.risk-card{background:var(--surface);border-radius:12px;padding:18px;border:1px solid #232323;border-left:3px solid var(--down);}
+.news-list{display:flex;flex-direction:column;gap:10px;}
+.news-item{background:var(--surface);border-radius:10px;padding:13px;border:1px solid #232323;text-decoration:none;display:block;}
+.news-title{font-size:14px;font-weight:600;color:#e8e8e8;margin-bottom:5px;}
+.news-meta{font-size:12px;color:#777;}
+.disclaimer{font-size:12px;color:#666;padding:20px 16px 40px;text-align:center;line-height:1.7;}
+@media(max-width:480px){.stock-grid{grid-template-columns:1fr;}.idx-grid{grid-template-columns:repeat(3,1fr);}}
 </style>
 </head>
 <body>
 <div class="container">
-  <!-- Header -->
   <div class="header-top">
     <a class="logo" href="/us/">Daily <span>kkang</span>dago <span class="signal">US</span></a>
-    <div class="date-badge">2026-06-22</div>
+    <div class="date-badge">2026-06-24</div>
     <div class="brief-toggle">
       <span class="brief-btn active-open" data-ko="☀️ 장전 브리핑" data-en="☀️ Pre-Market">☀️ 장전 브리핑</span>
       <a id="closeLink" href="close.html" class="brief-btn disabled" data-ko="🌆 장마감 브리핑" data-en="🌆 After-Hours">🌆 장마감 브리핑</a>
@@ -77,191 +83,168 @@ body{margin:0;background:var(--bg);color:#e8e8e8;font-family:-apple-system,Blink
     </div>
   </div>
 
-  <!-- Date Nav -->
   <div class="section">
     <div class="date-nav" id="dateList"></div>
   </div>
 
-  <!-- Badge -->
   <div class="section">
-    <span class="brief-badge" data-ko="장전 브리핑 | Pre-Market" data-en="Pre-Market | 장전 브리핑">장전 브리핑 | Pre-Market</span>
-    <span class="sub-badge">2026-06-22 · EDT 04:00</span>
-  </div>
-
-  <!-- Index Cards -->
-  <div class="section">
-    <div class="index-grid">
-      <div class="index-card"><div class="index-name">S&amp;P 500</div><div class="index-val">7,500.58</div><div class="index-chg up">+1.08%</div></div>
-      <div class="index-card"><div class="index-name">NASDAQ</div><div class="index-val">26,517.93</div><div class="index-chg up">+1.91%</div></div>
-      <div class="index-card"><div class="index-name">DOW</div><div class="index-val">51,564.70</div><div class="index-chg up">+0.14%</div></div>
-      <div class="index-card"><div class="index-name">VIX</div><div class="index-val">16.78</div><div class="index-chg down">+0.37</div></div>
-      <div class="index-card"><div class="index-name">USD/KRW</div><div class="index-val">1,538.34</div><div class="index-chg up">+0.73%</div></div>
-      <div class="index-card"><div class="index-name">WTI</div><div class="index-val">$78.10</div><div class="index-chg up">+2.9%</div></div>
+    <div class="badge-row">
+      <span class="badge-main" data-ko="장전 브리핑 · Pre-Market" data-en="Pre-Market Briefing">장전 브리핑 · Pre-Market</span>
+      <span class="badge-time">2026-06-24 · EDT 04:00</span>
     </div>
   </div>
 
-  <!-- Market Summary -->
   <div class="section">
-    <div class="section-title" data-ko="📊 시장 요약" data-en="📊 Market Summary">📊 시장 요약</div>
-    <div class="card" data-ko="6월 18일 정규장 마감 기준 S&amp;P500과 나스닥은 연준의 금리 동결 발표와 미-이란 평화 협상 진전에 힘입어 각각 1.08%, 1.91% 올랐고 다우도 소폭 상승했다. 그러나 19일 준틴스 휴장 사이 이란을 둘러싼 군사적 위협이 재부각되며 21일 WTI 유가가 3%가까이 튀어 올랐고, 이는 22일 새벽 다우·S&amp;P500·나스닥 선물을 각각 0.3~0.6%씩 끌어내렸다. 연준은 6월 17일 FOMC에서 금리를 동결했지만 점도표가 매파적으로 전환되며 연내 추가 인상 가능성이 제기됐다. 이번 주 발표될 핵심 인플레이션 지표가 시장의 다음 변수로 주목받고 있다."
-    data-en="As of Thursday June 18's close, the S&amp;P 500 and Nasdaq jumped 1.08% and 1.91% respectively, lifted by the Fed's decision to hold rates and progress in U.S.-Iran peace talks, while the Dow added a modest 0.14%. But renewed military threats around Iran during the Juneteenth holiday pushed WTI crude up nearly 3% on June 21, dragging Dow, S&amp;P 500 and Nasdaq futures down 0.3%-0.6% heading into Monday's premarket. The Fed held rates on June 17 but its dot plot turned hawkish, raising the odds of a hike later this year. This week's key inflation data looms as the market's next catalyst.">
-    6월 18일 정규장 마감 기준 S&amp;P500과 나스닥은 연준의 금리 동결 발표와 미-이란 평화 협상 진전에 힘입어 각각 1.08%, 1.91% 올랐고 다우도 소폭 상승했다. 그러나 19일 준틴스 휴장 사이 이란을 둘러싼 군사적 위협이 재부각되며 21일 WTI 유가가 3%가까이 튀어 올랐고, 이는 22일 새벽 다우·S&amp;P500·나스닥 선물을 각각 0.3~0.6%씩 끌어내렸다. 연준은 6월 17일 FOMC에서 금리를 동결했지만 점도표가 매파적으로 전환되며 연내 추가 인상 가능성이 제기됐다. 이번 주 발표될 핵심 인플레이션 지표가 시장의 다음 변수로 주목받고 있다.
+    <div class="idx-grid">
+      <div class="idx-card"><div class="idx-name">S&amp;P 500</div><div class="idx-val">7,365.46</div><div class="idx-chg down">-1.44%</div></div>
+      <div class="idx-card"><div class="idx-name">NASDAQ</div><div class="idx-val">25,587.04</div><div class="idx-chg down">-2.22%</div></div>
+      <div class="idx-card"><div class="idx-name">DOW</div><div class="idx-val">51,666.84</div><div class="idx-chg down">-0.09%</div></div>
+      <div class="idx-card"><div class="idx-name">VIX</div><div class="idx-val">19.50</div><div class="idx-chg down">+12.85%</div></div>
+      <div class="idx-card"><div class="idx-name">USD/KRW</div><div class="idx-val">1,512.6</div><div class="idx-chg flat">·</div></div>
+      <div class="idx-card"><div class="idx-name">WTI</div><div class="idx-val">$73.17</div><div class="idx-chg down">하락</div></div>
     </div>
   </div>
 
-  <!-- Themes -->
   <div class="section">
-    <div class="section-title" data-ko="🎯 주목 테마" data-en="🎯 Key Themes">🎯 주목 테마</div>
-    <div class="theme-grid">
-      <div class="theme-card">
-        <div class="theme-name" data-ko="중동 지정학 리스크 재부각" data-en="Renewed Iran Tensions">중동 지정학 리스크 재부각</div>
-        <div class="theme-desc" data-ko="이란을 둘러싼 군사적 위협이 다시 고조되며 유가가 급등, 증시 선물에 부담을 줬다." data-en="Fresh military threats around Iran pushed oil higher and weighed on equity futures.">이란을 둘러싼 군사적 위협이 다시 고조되며 유가가 급등, 증시 선물에 부담을 줬다.</div>
-      </div>
-      <div class="theme-card">
-        <div class="theme-name" data-ko="AI 메모리 슈퍼사이클" data-en="AI Memory Supercycle">AI 메모리 슈퍼사이클</div>
-        <div class="theme-desc" data-ko="마이크론의 HBM 생산능력이 2026년까지 완판되며 6월 24일 실적 발표가 AI 메모리 트레이드의 분수령이 될 전망." data-en="Micron's HBM capacity is sold out through 2026, making its June 24 earnings a key catalyst for the AI memory trade.">마이크론의 HBM 생산능력이 2026년까지 완판되며 6월 24일 실적 발표가 AI 메모리 트레이드의 분수령이 될 전망.</div>
-      </div>
-      <div class="theme-card">
-        <div class="theme-name" data-ko="연준 매파 전환" data-en="Fed Turns Hawkish">연준 매파 전환</div>
-        <div class="theme-desc" data-ko="6월 17일 FOMC에서 금리는 동결됐지만 점도표가 매파적으로 바뀌며 연내 추가 인상 가능성이 제기됐다." data-en="The Fed held rates on June 17, but a hawkish dot plot raised the odds of a hike later this year.">6월 17일 FOMC에서 금리는 동결됐지만 점도표가 매파적으로 바뀌며 연내 추가 인상 가능성이 제기됐다.</div>
-      </div>
-      <div class="theme-card">
-        <div class="theme-name" data-ko="반도체 경쟁 심화" data-en="Chip Rivalry Intensifies">반도체 경쟁 심화</div>
-        <div class="theme-desc" data-ko="엔비디아의 신규 AI PC 프로세서 'RTX Spark' 공개로 AMD·인텔과의 경쟁이 격화되고 있다." data-en="Nvidia's new RTX Spark AI PC chip steps directly into AMD and Intel's territory.">엔비디아의 신규 AI PC 프로세서 'RTX Spark' 공개로 AMD·인텔과의 경쟁이 격화되고 있다.</div>
-      </div>
-      <div class="theme-card">
-        <div class="theme-name" data-ko="인플레이션 지표 대기" data-en="Inflation Data on Deck">인플레이션 지표 대기</div>
-        <div class="theme-desc" data-ko="이번 주 발표될 핵심 물가지표가 연준의 다음 행보를 가늠할 변수로 부상." data-en="This week's inflation print looms as the next signal for Fed policy.">이번 주 발표될 핵심 물가지표가 연준의 다음 행보를 가늠할 변수로 부상.</div>
-      </div>
+    <div class="card">
+      <h2 data-ko="📊 시장 요약" data-en="📊 Market Summary">📊 시장 요약</h2>
+      <p class="summary-text" data-ko="전일(6/23) 뉴욕증시는 AI 밸류에이션 우려와 필라델피아반도체지수 7.9% 급락 속에 나스닥 -2.22%, S&P500 -1.44%로 약세 마감했고, 다우는 -0.09%로 소폭 하락했다. BofA의 금리 인상 경고 노트와 아시아 반도체주 동반 급락이 매도를 촉발했으며, VIX는 19.50으로 12.85% 급등해 투자자들의 경계심이 커졌다. 다만 이란-이스라엘 정전 협상 진전 소식에 WTI는 배럴당 73달러대로 내려 지정학 리스크는 일부 완화됐다. 오늘 장전 최대 변수는 장 마감 후 발표될 마이크론 실적으로, HBM 매출 가속 여부가 반도체 섹터 전반의 투자심리를 좌우할 전망이다." data-en="US stocks closed lower on 6/23 as AI valuation concerns and a 7.9% plunge in the Philadelphia semiconductor index dragged the Nasdaq down 2.22% and the S&P 500 down 1.44%, while the Dow slipped a modest 0.09%. A BofA note warning of rate hikes and a parallel sell-off in Asian chip stocks triggered the selling, and the VIX jumped 12.85% to 19.50 as investor anxiety grew. However, progress in Israel-Iran ceasefire talks pushed WTI crude down to the $73 range, easing geopolitical risk somewhat. Today's biggest pre-market catalyst is Micron's earnings report after the close — whether HBM revenue accelerates will likely set the tone for the entire semiconductor sector.">전일(6/23) 뉴욕증시는 AI 밸류에이션 우려와 필라델피아반도체지수 7.9% 급락 속에 나스닥 -2.22%, S&amp;P500 -1.44%로 약세 마감했고, 다우는 -0.09%로 소폭 하락했다. BofA의 금리 인상 경고 노트와 아시아 반도체주 동반 급락이 매도를 촉발했으며, VIX는 19.50으로 12.85% 급등해 투자자들의 경계심이 커졌다. 다만 이란-이스라엘 정전 협상 진전 소식에 WTI는 배럴당 73달러대로 내려 지정학 리스크는 일부 완화됐다. 오늘 장전 최대 변수는 장 마감 후 발표될 마이크론 실적으로, HBM 매출 가속 여부가 반도체 섹터 전반의 투자심리를 좌우할 전망이다.</p>
     </div>
   </div>
 
-  <!-- Stock Picks -->
   <div class="section">
-    <div class="section-title" data-ko="⚡ 상승 유망 종목" data-en="⚡ Stocks to Watch">⚡ 상승 유망 종목</div>
-    <div class="pick-grid">
-      <div class="pick-card">
-        <div class="pick-head"><span class="pick-name">Nvidia</span><span class="ticker-badge">NVDA</span></div>
-        <div class="pick-desc" data-ko="차세대 'Vera Rubin' 플랫폼 풀 생산 전환과 250억 달러 채권 발행으로 AI 인프라 투자가 가속되고 있다." data-en="Ramping Vera Rubin production and a $25B debt raise underline aggressive AI infrastructure buildout.">차세대 'Vera Rubin' 플랫폼 풀 생산 전환과 250억 달러 채권 발행으로 AI 인프라 투자가 가속되고 있다.</div>
-        <div class="sentiment" data-ko="감성: 긍정" data-en="Sentiment: Positive">감성: 긍정</div>
+    <h2 data-ko="🔥 주목 테마" data-en="🔥 Themes to Watch">🔥 주목 테마</h2>
+    <div class="issue-grid">
+      <div class="issue-card">
+        <div class="issue-num">THEME 1</div>
+        <div class="issue-title" data-ko="AI 밸류에이션 재평가" data-en="AI Valuation Reckoning">AI 밸류에이션 재평가</div>
+        <div class="issue-desc" data-ko="필라델피아반도체지수 7.9% 급락 등 AI 관련주 전반에 버블 논쟁이 재점화됐다." data-en="The Philadelphia semiconductor index plunged 7.9% as the AI-bubble debate flared up again across the sector.">필라델피아반도체지수 7.9% 급락 등 AI 관련주 전반에 버블 논쟁이 재점화됐다.</div>
       </div>
-      <div class="pick-card">
-        <div class="pick-head"><span class="pick-name">Micron</span><span class="ticker-badge">MU</span></div>
-        <div class="pick-desc" data-ko="HBM4 생산능력이 2026년까지 완판된 가운데 6월 24일 실적이 AI 메모리 트레이드의 분수령이 될 전망." data-en="HBM capacity sold out through 2026; June 24 earnings is a make-or-break catalyst for the AI memory trade.">HBM4 생산능력이 2026년까지 완판된 가운데 6월 24일 실적이 AI 메모리 트레이드의 분수령이 될 전망.</div>
-        <div class="sentiment" data-ko="감성: 긍정" data-en="Sentiment: Positive">감성: 긍정</div>
+      <div class="issue-card">
+        <div class="issue-num">THEME 2</div>
+        <div class="issue-title" data-ko="마이크론 실적 빅데이" data-en="Micron's Big Earnings Day">마이크론 실적 빅데이</div>
+        <div class="issue-desc" data-ko="장 마감 후 발표될 마이크론 실적에서 HBM 매출 가속과 점유율 확대 여부가 핵심 관전 포인트." data-en="Micron reports after the close — the key question is whether HBM revenue and market share keep accelerating.">장 마감 후 발표될 마이크론 실적에서 HBM 매출 가속과 점유율 확대 여부가 핵심 관전 포인트.</div>
       </div>
-      <div class="pick-card">
-        <div class="pick-head"><span class="pick-name">AMD</span><span class="ticker-badge">AMD</span></div>
-        <div class="pick-desc" data-ko="엔비디아 'RTX Spark' 출시로 AI PC 시장 경쟁이 격화된 가운데 필라델피아반도체지수 강세 동반 수혜 기대." data-en="Intensifying AI PC competition with Nvidia's RTX Spark; semiconductor index strength lifts AMD alongside peers.">엔비디아 'RTX Spark' 출시로 AI PC 시장 경쟁이 격화된 가운데 필라델피아반도체지수 강세 동반 수혜 기대.</div>
-        <div class="sentiment" data-ko="감성: 중립~긍정" data-en="Sentiment: Neutral-Positive">감성: 중립~긍정</div>
+      <div class="issue-card">
+        <div class="issue-num">THEME 3</div>
+        <div class="issue-title" data-ko="이란-이스라엘 휴전 협상 진전" data-en="Israel-Iran Ceasefire Progress">이란-이스라엘 휴전 협상 진전</div>
+        <div class="issue-desc" data-ko="호르무즈 해협 봉쇄 완화 기대감에 WTI가 하락하며 지정학 리스크 프리미엄이 줄었다." data-en="Hopes of an easing Strait of Hormuz blockade pushed WTI lower, trimming the geopolitical risk premium.">호르무즈 해협 봉쇄 완화 기대감에 WTI가 하락하며 지정학 리스크 프리미엄이 줄었다.</div>
       </div>
-      <div class="pick-card">
-        <div class="pick-head"><span class="pick-name">Alphabet</span><span class="ticker-badge">GOOGL</span></div>
-        <div class="pick-desc" data-ko="WSJ 보도에 따르면 엔비디아의 전략을 따라 자체 AI칩 사업 확장을 추진 중." data-en="Expanding its own AI chip business, mirroring Nvidia's playbook per a WSJ report.">WSJ 보도에 따르면 엔비디아의 전략을 따라 자체 AI칩 사업 확장을 추진 중.</div>
-        <div class="sentiment" data-ko="감성: 긍정" data-en="Sentiment: Positive">감성: 긍정</div>
+      <div class="issue-card">
+        <div class="issue-num">THEME 4</div>
+        <div class="issue-title" data-ko="연준 통화정책 불확실성" data-en="Fed Policy Uncertainty">연준 통화정책 불확실성</div>
+        <div class="issue-desc" data-ko="BofA의 금리 인상 경고 노트가 전일 매도를 촉발, 인플레이션 우려가 다시 부각됐다." data-en="A BofA note warning of possible rate hikes triggered yesterday's sell-off and reignited inflation concerns.">BofA의 금리 인상 경고 노트가 전일 매도를 촉발, 인플레이션 우려가 다시 부각됐다.</div>
       </div>
-      <div class="pick-card">
-        <div class="pick-head"><span class="pick-name">JPMorgan</span><span class="ticker-badge">JPM</span></div>
-        <div class="pick-desc" data-ko="CEO 제이미 다이먼의 경제 경고 발언 속에서도 매파적 금리 환경이 금융주에 유리하게 작용할 가능성." data-en="Hawkish rate backdrop could favor financials even as CEO Jamie Dimon flags economic risks.">CEO 제이미 다이먼의 경제 경고 발언 속에서도 매파적 금리 환경이 금융주에 유리하게 작용할 가능성.</div>
-        <div class="sentiment" data-ko="감성: 중립" data-en="Sentiment: Neutral">감성: 중립</div>
-      </div>
-      <div class="pick-card">
-        <div class="pick-head"><span class="pick-name">Delta Air Lines</span><span class="ticker-badge">DAL</span></div>
-        <div class="pick-desc" data-ko="중동 긴장이 완화될 경우 유가 하락에 따른 항공 수혜주로 부각될 가능성." data-en="Could benefit if Middle East de-escalation eventually brings oil prices back down.">중동 긴장이 완화될 경우 유가 하락에 따른 항공 수혜주로 부각될 가능성.</div>
-        <div class="sentiment" data-ko="감성: 중립" data-en="Sentiment: Neutral">감성: 중립</div>
+      <div class="issue-card">
+        <div class="issue-num">THEME 5</div>
+        <div class="issue-title" data-ko="분석가 업그레이드 클러스터" data-en="Analyst Upgrade Cluster">분석가 업그레이드 클러스터</div>
+        <div class="issue-desc" data-ko="엔비디아·MS·메타·브로드컴 등 빅테크에 목표가 상향이 몰리며 저점 매수 기대가 형성됐다." data-en="A cluster of price-target hikes on Nvidia, Microsoft, Meta and Broadcom is fueling dip-buying hopes.">엔비디아·MS·메타·브로드컴 등 빅테크에 목표가 상향이 몰리며 저점 매수 기대가 형성됐다.</div>
       </div>
     </div>
   </div>
 
-  <!-- Risks -->
   <div class="section">
-    <div class="section-title" data-ko="⚠️ 주요 리스크 요인" data-en="⚠️ Key Risks">⚠️ 주요 리스크 요인</div>
-    <div class="risk-card" data-ko="이란을 둘러싼 군사적 긴장이 재점화될 경우 유가 추가 급등과 증시 급락 가능성." data-en="A renewed flare-up in Iran tensions could send oil sharply higher and trigger a sharp equity selloff.">이란을 둘러싼 군사적 긴장이 재점화될 경우 유가 추가 급등과 증시 급락 가능성.</div>
-    <div class="risk-card" data-ko="연준의 매파적 점도표로 추가 금리 인상 우려가 커질 경우 성장주 밸류에이션에 부담." data-en="A more hawkish Fed path raises the risk of further hikes, pressuring growth-stock valuations.">연준의 매파적 점도표로 추가 금리 인상 우려가 커질 경우 성장주 밸류에이션에 부담.</div>
+    <h2 data-ko="⚡ 상승 유망 종목" data-en="⚡ Stocks to Watch">⚡ 상승 유망 종목</h2>
+    <div class="stock-grid">
+      <div class="stock-card">
+        <div class="stock-head"><span class="stock-name">마이크론</span><span class="ticker">MU</span><span class="sentiment pos">긍정</span></div>
+        <div class="stock-desc" data-ko="BofA가 목표가를 950달러→1,500달러로 상향. 오늘 발표될 HBM 매출 가속이 확인되면 추가 상승 여력." data-en="BofA raised its price target from $950 to $1,500. Confirmed HBM revenue acceleration today could fuel further upside.">BofA가 목표가를 950달러→1,500달러로 상향. 오늘 발표될 HBM 매출 가속이 확인되면 추가 상승 여력.</div>
+      </div>
+      <div class="stock-card">
+        <div class="stock-head"><span class="stock-name">엔비디아</span><span class="ticker">NVDA</span><span class="sentiment pos">긍정</span></div>
+        <div class="stock-desc" data-ko="전일 -3.2%로 저가권 진입했지만 블랙웰 출하 확대 가이던스에 다수 은행이 목표가 상향." data-en="Fell 3.2% yesterday into oversold territory, but multiple banks raised price targets on expanded Blackwell shipment guidance.">전일 -3.2%로 저가권 진입했지만 블랙웰 출하 확대 가이던스에 다수 은행이 목표가 상향.</div>
+      </div>
+      <div class="stock-card">
+        <div class="stock-head"><span class="stock-name">브로드컴</span><span class="ticker">AVGO</span><span class="sentiment pos">긍정</span></div>
+        <div class="stock-desc" data-ko="하이퍼스케일러 설계 수주 확대가 2026~2027년 매출에 반영될 것이란 분석에 커버리지 상향." data-en="Coverage is rising on hyperscaler design wins expected to flow into 2026-2027 revenue.">하이퍼스케일러 설계 수주 확대가 2026~2027년 매출에 반영될 것이란 분석에 커버리지 상향.</div>
+      </div>
+      <div class="stock-card">
+        <div class="stock-head"><span class="stock-name">마이크로소프트</span><span class="ticker">MSFT</span><span class="sentiment pos">긍정</span></div>
+        <div class="stock-desc" data-ko="애저 매출 성장세에 맞춰 추정치 상향, AI 추론 비중 확대로 마진 개선 기대." data-en="Estimates are catching up to Azure's run-rate, with margin upside expected as AI inference scales relative to training.">애저 매출 성장세에 맞춰 추정치 상향, AI 추론 비중 확대로 마진 개선 기대.</div>
+      </div>
+      <div class="stock-card">
+        <div class="stock-head"><span class="stock-name">메타플랫폼스</span><span class="ticker">META</span><span class="sentiment pos">긍정</span></div>
+        <div class="stock-desc" data-ko="대규모 캐펙스 부담을 마진 손상 없이 소화하고 있다는 평가로 분석가 업그레이드 이어져." data-en="Analysts are upgrading the stock on signs the heavy capex year is being absorbed without margin damage.">대규모 캐펙스 부담을 마진 손상 없이 소화하고 있다는 평가로 분석가 업그레이드 이어져.</div>
+      </div>
+      <div class="stock-card">
+        <div class="stock-head"><span class="stock-name">TSMC</span><span class="ticker">TSM</span><span class="sentiment neu">중립</span></div>
+        <div class="stock-desc" data-ko="전일 -5.2%로 동반 급락했으나 파운드리·HBM 수요는 견조해 저가 매수 후보로 거론." data-en="Fell 5.2% in the broad sell-off, but resilient foundry and HBM demand makes it a buy-the-dip candidate.">전일 -5.2%로 동반 급락했으나 파운드리·HBM 수요는 견조해 저가 매수 후보로 거론.</div>
+      </div>
+    </div>
   </div>
 
-  <!-- English News -->
   <div class="section">
-    <div class="section-title" data-ko="📰 주요 뉴스" data-en="📰 Top News">📰 주요 뉴스</div>
-    <div class="card news-list">
-      <a class="news-item" href="https://finance.yahoo.com/markets/stocks/live/stock-market-today-monday-june-22-225817825.html" target="_blank" rel="noopener">
-        <div class="news-title" data-ko="美 증시, 미-이란 평화 협상과 인플레이션 변수에 선물 하락" data-en="Stock market today: S&amp;P 500, Nasdaq, Dow futures slide with US-Iran peace and inflation in focus">美 증시, 미-이란 평화 협상과 인플레이션 변수에 선물 하락</div>
-        <div class="news-meta">Yahoo Finance · Jun 22</div>
+    <div class="risk-card">
+      <h2 data-ko="⚠️ 주요 리스크 요인" data-en="⚠️ Key Risks">⚠️ 주요 리스크 요인</h2>
+      <p class="summary-text" data-ko="① AI 밸류에이션 버블 논쟁이 재부각되며 반도체·AI주 추가 투매 가능성. ② 연준의 매파적 신호와 중동 지정학 리스크가 잔존해, 휴전 협상이 결렬되거나 유가가 재반등할 경우 인플레이션 압력이 다시 커질 수 있음." data-en="(1) The AI valuation bubble debate could resurface and trigger further selling in semis/AI names. (2) Hawkish Fed signals and lingering Middle East risk mean a failed ceasefire or oil price rebound could reignite inflation pressure.">① AI 밸류에이션 버블 논쟁이 재부각되며 반도체·AI주 추가 투매 가능성. ② 연준의 매파적 신호와 중동 지정학 리스크가 잔존해, 휴전 협상이 결렬되거나 유가가 재반등할 경우 인플레이션 압력이 다시 커질 수 있음.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 data-ko="📰 주요 뉴스" data-en="📰 Top News">📰 주요 뉴스</h2>
+    <div class="news-list">
+      <a class="news-item" href="https://finance.yahoo.com/economy/live/stock-market-today-nasdaq-sp-500-futures-plunge-as-global-chip-sell-off-spurs-ai-doubts-230258084.html" target="_blank" rel="noopener">
+        <div class="news-title" data-ko="S&amp;P500·나스닥, AI 열풍 냉각에 반도체주 동반 급락" data-en="S&P 500, Nasdaq sink as AI trade cools off, semiconductor stocks retreat">S&amp;P500·나스닥, AI 열풍 냉각에 반도체주 동반 급락</div>
+        <div class="news-meta">Yahoo Finance · 2026-06-23</div>
       </a>
-      <a class="news-item" href="https://www.bloomberg.com/news/articles/2026-06-21/us-futures-slip-oil-climbs-on-renewed-iran-threat-markets-wrap" target="_blank" rel="noopener">
-        <div class="news-title" data-ko="이란 위협 재부각에 美 선물 하락, 유가는 상승" data-en="US futures slip, oil climbs on renewed Iran threat: Markets Wrap">이란 위협 재부각에 美 선물 하락, 유가는 상승</div>
-        <div class="news-meta">Bloomberg · Jun 21</div>
+      <a class="news-item" href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-june-23-2026" target="_blank" rel="noopener">
+        <div class="news-title" data-ko="BofA 금리 인상 경고 노트·아시아 반도체주 급락에 나스닥·S&amp;P500 하락" data-en="Nasdaq, S&P 500 fall as BofA rate hike note, Asian market tumble sends semis sinking">BofA 금리 인상 경고 노트·아시아 반도체주 급락에 나스닥·S&amp;P500 하락</div>
+        <div class="news-meta">TheStreet · 2026-06-23</div>
       </a>
-      <a class="news-item" href="https://www.cnbc.com/2026/06/21/stock-market-today-live-updates.html" target="_blank" rel="noopener">
-        <div class="news-title" data-ko="美 선물, 이란 협상 진전 평가 속 인플레이션 지표 대기로 하락" data-en="Stock futures fall as investors weigh Iran deal progress and await key reading on inflation">美 선물, 이란 협상 진전 평가 속 인플레이션 지표 대기로 하락</div>
-        <div class="news-meta">CNBC · Jun 21</div>
+      <a class="news-item" href="https://www.fool.com/investing/2026/06/19/everything-change-micron-stock-june-24-earnings/" target="_blank" rel="noopener">
+        <div class="news-title" data-ko="마이크론 주가, 6월 24일 실적 발표로 모든 것이 바뀔 수 있다" data-en="Everything Could Change for Micron Stock on June 24">마이크론 주가, 6월 24일 실적 발표로 모든 것이 바뀔 수 있다</div>
+        <div class="news-meta">The Motley Fool / Yahoo Finance · 2026-06-19</div>
       </a>
-      <a class="news-item" href="https://www.investing.com/analysis/microns-soldout-hbm-capacity-makes-june-24-a-makeorbreak-catalyst-200682176" target="_blank" rel="noopener">
-        <div class="news-title" data-ko="마이크론 HBM 완판, 6월 24일 실적이 분수령" data-en="Micron's Sold-Out HBM Capacity Makes June 24 a Make-or-Break Catalyst">마이크론 HBM 완판, 6월 24일 실적이 분수령</div>
-        <div class="news-meta">Investing.com · Jun 21</div>
+      <a class="news-item" href="https://www.thestreet.com/investing/stocks/mu-micron-stock-price-target-bank-of-america-raises-june-2026" target="_blank" rel="noopener">
+        <div class="news-title" data-ko="BofA, 마이크론 목표가 대폭 상향" data-en="Bank of America strongly resets Micron stock price target">BofA, 마이크론 목표가 대폭 상향</div>
+        <div class="news-meta">TheStreet · 2026-06</div>
       </a>
-      <a class="news-item" href="https://www.aljazeera.com/economy/2026/6/18/oil-prices-fall-stocks-rally-as-us-iran-sign-framework-to-end-war" target="_blank" rel="noopener">
-        <div class="news-title" data-ko="미-이란 종전 합의 서명에 유가 하락, 증시는 랠리" data-en="Oil prices fall, stocks rally as US, Iran sign framework to end war">미-이란 종전 합의 서명에 유가 하락, 증시는 랠리</div>
-        <div class="news-meta">Al Jazeera · Jun 18</div>
+      <a class="news-item" href="https://ts2.tech/en/micron-stock-faces-june-24-earnings-test-after-ai-memory-rally-and-record-close/" target="_blank" rel="noopener">
+        <div class="news-title" data-ko="마이크론, AI 메모리 랠리·사상 최고가 이후 6/24 실적 시험대" data-en="Micron stock faces June 24 earnings test after AI memory rally and record close">마이크론, AI 메모리 랠리·사상 최고가 이후 6/24 실적 시험대</div>
+        <div class="news-meta">ts2.tech · 2026-06-23</div>
       </a>
-      <a class="news-item" href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-june-18-2026" target="_blank" rel="noopener">
-        <div class="news-title" data-ko="러셀2000·나스닥, 연준 서프라이즈와 이란 봉쇄 해제 후 상승" data-en="Russell 2000, Nasdaq rise after Fed surprise, U.S. ends Iran blockade">러셀2000·나스닥, 연준 서프라이즈와 이란 봉쇄 해제 후 상승</div>
-        <div class="news-meta">TheStreet · Jun 18</div>
+      <a class="news-item" href="https://www.dtnpf.com/agriculture/web/ag/news/world-policy/article/2026/06/02/oil-prices-ease-lebanon-ceasefire-us" target="_blank" rel="noopener">
+        <div class="news-title" data-ko="레바논 휴전·이란-美 협상설에 유가 하락" data-en="Oil Prices Ease on Lebanon Ceasefire, Iran-US Talk Claims">레바논 휴전·이란-美 협상설에 유가 하락</div>
+        <div class="news-meta">DTN · 2026-06</div>
       </a>
-      <a class="news-item" href="https://www.nbcnews.com/business/markets/oil-prices-iran-deal-hormuz-doubts-rcna350087" target="_blank" rel="noopener">
-        <div class="news-title" data-ko="이란 평화 합의로 유가 하락, 추가 하락은 제한적" data-en="Oil prices fall on Iran peace deal, but may not go much lower">이란 평화 합의로 유가 하락, 추가 하락은 제한적</div>
-        <div class="news-meta">NBC News · Jun 18</div>
-      </a>
-      <a class="news-item" href="https://www.cnbc.com/2026/06/17/fed-interest-rate-decision-june-2026.html" target="_blank" rel="noopener">
-        <div class="news-title" data-ko="연준, 6월 금리 동결 결정" data-en="Fed interest rate decision June 2026: Fed holds rates steady">연준, 6월 금리 동결 결정</div>
-        <div class="news-meta">CNBC · Jun 17</div>
-      </a>
-      <a class="news-item" href="https://www.stocktitan.net/articles/fed-rate-decision-june-17-2026" target="_blank" rel="noopener">
-        <div class="news-title" data-ko="연준 금리 동결, 점도표는 인상 쪽으로 전환" data-en="Fed Holds Rates June 2026; Dot Plot Flips to a Hike">연준 금리 동결, 점도표는 인상 쪽으로 전환</div>
-        <div class="news-meta">StockTitan · Jun 17</div>
-      </a>
-      <a class="news-item" href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-june-17-2026" target="_blank" rel="noopener">
-        <div class="news-title" data-ko="S&amp;P500·나스닥, 연준 인상 시그널에 급락" data-en="S&amp;P 500, Nasdaq plummet as Fed meeting points to rate hike in late 2026">S&amp;P500·나스닥, 연준 인상 시그널에 급락</div>
-        <div class="news-meta">TheStreet · Jun 17</div>
+      <a class="news-item" href="https://www.heygotrade.com/en/blog/wall-street-analyst-upgrades-june-2026/" target="_blank" rel="noopener">
+        <div class="news-title" data-ko="6월 월가 분석가들이 상향한 7대 종목" data-en="Top 7 Stocks Wall Street Analysts Are Upgrading in June 2026">6월 월가 분석가들이 상향한 7대 종목</div>
+        <div class="news-meta">HeyGoTrade · 2026-06</div>
       </a>
     </div>
   </div>
 
-  <!-- Korean Reaction -->
   <div class="section">
-    <div class="section-title">🇰🇷 한국 반응</div>
-    <div class="card news-list">
-      <a class="news-item" href="https://www.newsway.co.kr/news/view?ud=2026062213274307763" target="_blank" rel="noopener">
-        <div class="news-title">코스피 1위 등극 코앞 SK하이닉스, 오늘 美 나스닥 심사 통과 유력</div>
-        <div class="news-meta">Newsway · 06.22 16:02</div>
+    <h2 data-ko="🇰🇷 한국 반응" data-en="🇰🇷 한국 반응">🇰🇷 한국 반응</h2>
+    <div class="news-list">
+      <a class="news-item" href="https://news.einfomax.co.kr/news/articleView.html?idxno=4421664" target="_blank" rel="noopener">
+        <div class="news-title">줄리어스 베어 "AI, 하반기 주식시장 지배적 동력…버블 아냐"</div>
+        <div class="news-meta">연합인포맥스 · 2026-06-24 16:14</div>
       </a>
-      <a class="news-item" href="https://www.fortunekorea.co.kr/news/articleView.html?idxno=52913" target="_blank" rel="noopener">
-        <div class="news-title">제이미 다이먼 "세계경제에 작은 쓰나미가 오고 있다"</div>
-        <div class="news-meta">Fortune Korea · 06.22 10:00</div>
+      <a class="news-item" href="https://www.g-enews.com/view.php?ud=202606241508485466e250e8e188_1" target="_blank" rel="noopener">
+        <div class="news-title">마이크론, 오늘 실적 발표...시장 향방 가를 3가지 관전 포인트</div>
+        <div class="news-meta">글로벌이코노믹 · 2026-06-24 15:18</div>
       </a>
-      <a class="news-item" href="https://www.startuptoday.co.kr/news/articleView.html?idxno=804177" target="_blank" rel="noopener">
-        <div class="news-title">[오늘증시] 코스피 9100선 육박… 외국인 1조 순매도에도 버틴다</div>
-        <div class="news-meta">오늘경제 · 06.22 09:52</div>
+      <a class="news-item" href="https://biz.sbs.co.kr/article_hub/20000318630?division=NAVER" target="_blank" rel="noopener">
+        <div class="news-title">[투자 노하우] 뉴욕증시, 코스피 지수 하락 및 아시아 약세 영향</div>
+        <div class="news-meta">SBS Biz · 2026-06-24 16:58</div>
       </a>
     </div>
   </div>
 
-  <!-- Disclaimer -->
-  <div class="section">
-    <div class="disclaimer" data-ko="본 브리핑은 정보 제공 목적으로 작성되었으며 투자 자문이 아닙니다. 시장 데이터는 발행 시점 기준이며 실시간과 차이가 있을 수 있습니다. 투자 결정은 본인의 판단과 책임 하에 이루어져야 합니다." data-en="This briefing is for informational purposes only and does not constitute investment advice. Market data is as of publication time and may differ from real-time figures. Investment decisions should be made at your own discretion and risk.">본 브리핑은 정보 제공 목적으로 작성되었으며 투자 자문이 아닙니다. 시장 데이터는 발행 시점 기준이며 실시간과 차이가 있을 수 있습니다. 투자 결정은 본인의 판단과 책임 하에 이루어져야 합니다.</div>
-  </div>
+  <div class="disclaimer" data-ko="본 콘텐츠는 정보 제공을 목적으로 하며 투자 권유나 자문이 아닙니다. 투자 결정과 그 결과에 대한 책임은 투자자 본인에게 있습니다." data-en="This content is for informational purposes only and is not investment advice. Investment decisions and their outcomes are the sole responsibility of the investor.">본 콘텐츠는 정보 제공을 목적으로 하며 투자 권유나 자문이 아닙니다. 투자 결정과 그 결과에 대한 책임은 투자자 본인에게 있습니다.</div>
 
+  <div style="text-align:center;padding:16px;font-size:11px;color:#555;border-top:1px solid #1e1e1e"><a href="/about.html" style="color:#888">About</a> · <a href="/privacy.html" style="color:#888">Privacy Policy</a></div>
 </div>
-<div style="text-align:center;padding:16px;font-size:11px;color:#555;border-top:1px solid #1e1e1e"><a href="/about.html" style="color:#888">About</a> · <a href="/privacy.html" style="color:#888">Privacy Policy</a></div>
 
 <script>
 function setLang(lang){
-  document.querySelectorAll('[data-ko]').forEach(el=>{
-    const val = lang === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-ko');
-    if(val !== null) el.textContent = val;
+  document.querySelectorAll('[data-ko]').forEach(el => {
+    const val = el.getAttribute('data-' + lang);
+    if(val !== null) el.innerHTML = val;
   });
-  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
-  document.querySelector('.lang-btn[onclick="setLang(\''+lang+'\')"]').classList.add('active');
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector('.lang-btn[onclick="setLang(\'' + lang + '\')"]').classList.add('active');
 }
 
 (async () => {
@@ -275,7 +258,7 @@ function setLang(lang){
     const r = await fetch(base + '/archive/us-index.json?t=' + Date.now());
     if (!r.ok) return;
     const entries = await r.json();
-    const todayStr = '2026-06-22';
+    const todayStr = '2026-06-24';
     const todayEntry = entries.find(e => (typeof e === 'string' ? e : e.date) === todayStr);
     const closeExists = todayEntry && typeof todayEntry === 'object' && todayEntry.close;
     if (closeExists && !isArchive) {
