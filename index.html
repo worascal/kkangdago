@@ -14,39 +14,39 @@
 <meta name="twitter:image" content="https://www.kkangdago.com/preview/latest.png">
 <title>데일리 깡다고 – 브리핑</title>
 <style>
-:root{--bg:#0b1919;--surface:#102424;--surface2:#183030;--accent:#00d4b8;--green:#22c55e;--red:#ef4444;--yellow:#f59e0b;--text:#e2e8f0;--muted:#7a9898;--hot:#ef4444;--warm:#f59e0b;--mild:#22c55e}
+:root{--bg:#000;--surface:#0e0e0e;--surface2:#181818;--accent:#00d4b8;--green:#22c55e;--red:#ef4444;--yellow:#f59e0b;--text:#e2e8f0;--muted:#6a8888;--hot:#ef4444;--warm:#f59e0b;--mild:#22c55e;--cold:#555}
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);color:var(--text);font-family:'Apple SD Gothic Neo','Malgun Gothic',sans-serif;min-height:100vh}
 a{color:inherit;text-decoration:none}
-.header{background:linear-gradient(135deg,#071818 0%,#102424 60%,#0b1919 100%);padding:24px 20px 18px;border-bottom:1px solid #1a3030}
+.header{background:linear-gradient(135deg,#000 0%,#060606 60%,#000 100%);padding:24px 20px 18px;border-bottom:1px solid #1a1a1a}
 .header-inner{max-width:900px;margin:0 auto}
 .logo{font-size:22px;font-weight:800;color:#fff;letter-spacing:-1px}
 .logo span{color:var(--accent)}
 .kr-badge{background:rgba(0,212,184,0.15);border:1px solid rgba(0,212,184,0.3);color:var(--accent);font-size:10px;font-weight:800;padding:2px 6px;border-radius:4px;letter-spacing:1px;margin-left:6px;align-self:center}
-.date-badge{background:var(--accent);color:#0b1919;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;display:inline-block;margin-left:10px}
+.date-badge{background:var(--accent);color:#000;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;display:inline-block;margin-left:10px}
 .session-badge{font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;display:inline-block;margin-left:6px}
 .session-badge.premarket{background:rgba(0,212,184,0.15);color:var(--accent);border:1px solid rgba(0,212,184,0.3)}
 .session-badge.close{background:rgba(245,158,11,0.15);color:var(--yellow);border:1px solid rgba(245,158,11,0.3)}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
-.chip{background:var(--surface2);border:1px solid #224040;border-radius:6px;padding:4px 12px;font-size:12px;color:var(--muted);display:flex;align-items:center;gap:5px}
+.chip{background:var(--surface2);border:1px solid #222;border-radius:6px;padding:4px 12px;font-size:12px;color:var(--muted);display:flex;align-items:center;gap:5px}
 .chip .dot{width:7px;height:7px;border-radius:50%}
 .chip.green .dot{background:var(--green)}
 .chip.red .dot{background:var(--red)}
 .chip.yellow .dot{background:var(--yellow)}
 .chip.blue .dot{background:var(--accent)}
-.date-nav{margin-top:14px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;border-top:1px solid #1a3030;padding-top:12px}
+.date-nav{margin-top:14px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;border-top:1px solid #1a1a1a;padding-top:12px}
 .date-nav-label{font-size:11px;color:var(--muted);white-space:nowrap}
 .date-pills{display:flex;gap:5px;flex-wrap:wrap}
-.date-pill{background:var(--surface2);border:1px solid #224040;border-radius:5px;padding:3px 10px;font-size:12px;color:var(--muted);cursor:pointer;text-decoration:none;transition:all .15s}
-.date-pill:hover{background:#183030;color:var(--text)}
-.date-pill.active{background:var(--accent);border-color:var(--accent);color:#0b1919;font-weight:600}
+.date-pill{background:var(--surface2);border:1px solid #222;border-radius:5px;padding:3px 10px;font-size:12px;color:var(--muted);cursor:pointer;text-decoration:none;transition:all .15s}
+.date-pill:hover{background:#202020;color:var(--text)}
+.date-pill.active{background:var(--accent);border-color:var(--accent);color:#000;font-weight:600}
 .main{max-width:900px;margin:0 auto;padding:20px}
-.summary-card{background:linear-gradient(135deg,#0d2828,#102424);border:1px solid #1e4040;border-radius:12px;padding:18px 20px;margin-bottom:24px}
-.summary-card h2{font-size:13px;color:var(--accent);font-weight:700;margin-bottom:8px;letter-spacing:1px;text-transform:uppercase}
+.summary-card{background:linear-gradient(135deg,#091414,#0e0e0e);border:1px solid #1e3030;border-radius:12px;padding:18px 20px;margin-bottom:24px}
+.summary-card h2{font-size:13px;color:var(--accent);font-weight:700;margin-bottom:8px;letter-spacing:1px}
 .summary-card p{font-size:14px;line-height:1.7;color:var(--text)}
-.section-header{font-size:13px;font-weight:700;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:8px}
-.section-header::after{content:'';flex:1;height:1px;background:#1a3030}
-.us-card{background:var(--surface);border:1px solid #1a3030;border-radius:12px;padding:16px 18px;margin-bottom:24px}
+.section-header{font-size:13px;font-weight:700;color:var(--muted);letter-spacing:.3px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.section-header::after{content:'';flex:1;height:1px;background:#1a1a1a}
+.us-card{background:var(--surface);border:1px solid #1a1a1a;border-radius:12px;padding:16px 18px;margin-bottom:24px}
 .us-indices{display:flex;gap:16px;margin-bottom:12px;flex-wrap:wrap}
 .us-index{background:var(--surface2);border-radius:8px;padding:8px 14px;font-size:13px}
 .us-index .name{color:var(--muted);font-size:11px;margin-bottom:2px}
@@ -60,29 +60,31 @@ a{color:inherit;text-decoration:none}
 .us-sector.up .arrow{color:var(--green)}
 .us-sector.down .arrow{color:var(--red)}
 .us-stocks{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
-.us-stock{background:var(--surface2);border:1px solid #224040;border-radius:6px;padding:5px 12px;font-size:12px}
+.us-stock{background:var(--surface2);border:1px solid #222;border-radius:6px;padding:5px 12px;font-size:12px}
 .us-stock .change{font-weight:700}
 .us-stock .change.up{color:var(--green)}
 .us-stock .change.down{color:var(--red)}
-.kr-links{border-top:1px solid #1a3030;padding-top:10px}
+.kr-links{border-top:1px solid #1a1a1a;padding-top:10px}
 .kr-link-item{font-size:12px;color:var(--muted);margin-bottom:5px;padding-left:10px;border-left:2px solid var(--accent)}
-.themes-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-bottom:28px}
-.theme-card{background:var(--surface);border:1px solid #1a3030;border-radius:10px;padding:14px 16px;border-top-width:3px}
+.themes-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px;margin-bottom:28px}
+.theme-card{background:var(--surface);border:1px solid #1a1a1a;border-radius:10px;padding:12px 14px;border-top-width:3px}
 .theme-card.hot{border-top-color:var(--hot)}
 .theme-card.warm{border-top-color:var(--warm)}
 .theme-card.mild{border-top-color:var(--mild)}
-.theme-name{font-size:14px;font-weight:700;margin-bottom:5px;display:flex;justify-content:space-between;align-items:center}
-.theme-tag{font-size:10px;font-weight:700;padding:2px 7px;border-radius:4px;letter-spacing:.5px}
+.theme-card.cold{border-top-color:#2a2a2a;opacity:.65}
+.theme-name{font-size:13px;font-weight:700;margin-bottom:5px;display:flex;justify-content:space-between;align-items:center;gap:6px}
+.theme-tag{font-size:10px;font-weight:700;padding:2px 7px;border-radius:4px;letter-spacing:.5px;flex-shrink:0}
 .hot .theme-tag{background:rgba(239,68,68,.15);color:var(--hot)}
 .warm .theme-tag{background:rgba(245,158,11,.15);color:var(--warm)}
 .mild .theme-tag{background:rgba(34,197,94,.15);color:var(--mild)}
+.cold .theme-tag{background:rgba(85,85,85,.2);color:#777}
 .theme-reason{font-size:12px;color:var(--muted);line-height:1.5;margin-bottom:8px}
 .theme-stocks{display:flex;flex-wrap:wrap;gap:5px}
-.stock-tag{background:var(--surface2);border:1px solid #224040;border-radius:4px;font-size:11px;padding:2px 8px;color:var(--text)}
-.news-list{background:var(--surface);border:1px solid #1a3030;border-radius:10px;overflow:hidden;margin-bottom:28px}
-.news-item{padding:12px 16px;border-bottom:1px solid #0f2a2a;display:flex;align-items:flex-start;gap:10px}
+.stock-tag{background:var(--surface2);border:1px solid #222;border-radius:4px;font-size:11px;padding:2px 8px;color:var(--text)}
+.news-list{background:var(--surface);border:1px solid #1a1a1a;border-radius:10px;overflow:hidden;margin-bottom:28px}
+.news-item{padding:12px 16px;border-bottom:1px solid #141414;display:flex;align-items:flex-start;gap:10px}
 .news-item:last-child{border-bottom:none}
-.news-item:hover{background:rgba(0,212,184,.05)}
+.news-item:hover{background:rgba(0,212,184,.04)}
 .news-num{font-size:12px;color:var(--muted);width:20px;flex-shrink:0;padding-top:2px}
 .news-body{flex:1}
 .news-title{font-size:13px;color:var(--text);line-height:1.4}
@@ -91,16 +93,16 @@ a{color:inherit;text-decoration:none}
 .news-meta{display:flex;align-items:center;gap:8px;margin-top:4px;flex-wrap:wrap}
 .news-tag{font-size:10px;padding:1px 6px;border-radius:3px;background:rgba(0,212,184,.15);color:var(--accent)}
 .news-time{font-size:11px;color:var(--muted)}
-.outlook-card{background:var(--surface);border:1px solid #1a3030;border-radius:10px;padding:16px 18px;margin-bottom:24px}
+.outlook-card{background:var(--surface);border:1px solid #1a1a1a;border-radius:10px;padding:16px 18px;margin-bottom:24px}
 .outlook-text{font-size:14px;line-height:1.7;color:var(--text);margin-bottom:12px}
 .risks{display:flex;flex-wrap:wrap;gap:8px}
 .risk-item{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.2);color:#f87171;font-size:12px;padding:4px 12px;border-radius:20px}
-.disclaimer{background:var(--surface);border:1px solid #1a3030;border-radius:8px;padding:12px 16px;margin-bottom:20px;font-size:11px;color:var(--muted);line-height:1.6}
-.footer{text-align:center;padding:16px;font-size:11px;color:#3a6060;border-top:1px solid #0f2a2a}
+.disclaimer{background:var(--surface);border:1px solid #1a1a1a;border-radius:8px;padding:12px 16px;margin-bottom:20px;font-size:11px;color:var(--muted);line-height:1.6}
+.footer{text-align:center;padding:16px;font-size:11px;color:#333;border-top:1px solid #141414}
 .loading{text-align:center;padding:60px 20px;color:var(--muted);font-size:15px}
-.loading .spinner{width:32px;height:32px;border:3solid #1a3030;border-top-color:var(--accent);border-radius:50%;animation:spin 1s linear infinite;margin:0 auto 16px}
+.loading .spinner{width:32px;height:32px;border:3px solid #1a1a1a;border-top-color:var(--accent);border-radius:50%;animation:spin 1s linear infinite;margin:0 auto 16px}
 @keyframes spin{to{transform:rotate(360deg)}}
-`.error-box{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);border-radius:10px;padding:20px;margin:40px auto;max-width:500px;text-align:center;color:#f87171}
+.error-box{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);border-radius:10px;padding:20px;margin:40px auto;max-width:500px;text-align:center;color:#f87171}
 @media(max-width:600px){.themes-grid{grid-template-columns:1fr}.us-indices{gap:8px}}
 </style>
 </head>
@@ -115,7 +117,7 @@ a{color:inherit;text-decoration:none}
     <div id="chipsRow" class="chips"></div>
     <div class="date-nav">
       <span class="date-nav-label">📅 히스토리</span>
-      <div id="dateList" class="date-pills"><span style="font-size:12px;color:#3a6060">로딩 중…</span></div>
+      <div id="dateList" class="date-pills"><span style="font-size:12px;color:#333">로딩 중…</span></div>
     </div>
   </div>
 </div>
@@ -152,6 +154,7 @@ a{color:inherit;text-decoration:none}
   function tagLabel(level) {
     if (level === 'hot') return '🔥 HOT';
     if (level === 'warm') return '⚡ WARM';
+    if (level === 'cold') return '❄️ COLD';
     return '🌿 MILD';
   }
 
@@ -174,11 +177,12 @@ a{color:inherit;text-decoration:none}
     ).join('');
 
     let html = '';
+
     html += `<div class="summary-card"><h2>📊 ${isPremarket ? '오늘의 시장 전망' : '오늘의 시장 결산'}</h2><p>${(d.summary||'').replace(/\n/g,'<br>')}</p></div>`;
 
     if (isPremarket && d.us_market) {
       const us = d.us_market;
-      html += `<div class="section-header">🌃 미국 증��� 마감 (${us.date||''})</div>`;
+      html += `<div class="section-header">🌃 미국 증시 마감 (${us.date||''})</div>`;
       html += `<div class="us-card">`;
       if (us.indices && us.indices.length) html += `<div class="us-indices">` + us.indices.map(i => `<div class="us-index"><div class="name">${i.name}</div><div class="val ${changeClass(i.change)}">${i.change||''}</div></div>`).join('') + `</div>`;
       if (us.sectors && us.sectors.length) html += `<div class="us-sectors">` + us.sectors.map(s => `<div class="us-sector ${s.direction==='up'?'up':'down'}"><span class="arrow">${s.direction==='up'?'▲':'▼'}</span>${s.name}<span style="color:var(--muted);font-size:11px;margin-left:4px">${s.reason||''}</span></div>`).join('') + `</div>`;
@@ -188,24 +192,40 @@ a{color:inherit;text-decoration:none}
     }
 
     if (d.themes && d.themes.length) {
-      html += `<div class="section-header">🔥 주요 테마</div>`;
-      html += `<div class="themes-grid">` + d.themes.map(t => `<div class="theme-card ${t.level||'mild'}"><div class="theme-name">${t.name}<span class="theme-tag">${tagLabel(t.level)}</span></div><div class="theme-reason">${t.reason||''}</div><div class="theme-stocks">${(t.stocks||[]).map(s=>`<span class="stock-tag">${s}</span>`).join('')}</div></div>`).join('') + `</div>`;
+      html += `<div class="section-header">🔥 섹터별 전망 (${d.themes.length}개)</div>`;
+      const levelOrder = {hot:0, warm:1, mild:2, cold:3};
+      const sorted = [...d.themes].sort((a,b) => (levelOrder[a.level]||2) - (levelOrder[b.level]||2));
+      html += `<div class="themes-grid">` + sorted.map(t =>
+        `<div class="theme-card ${t.level||'mild'}">
+          <div class="theme-name"><span>${t.name}</span><span class="theme-tag">${tagLabel(t.level)}</span></div>
+          <div class="theme-reason">${t.reason||''}</div>
+          <div class="theme-stocks">${(t.stocks||[]).map(s=>`<span class="stock-tag">${s}</span>`).join('')}</div>
+        </div>`
+      ).join('') + `</div>`;
     }
 
     if (d.news && d.news.length) {
       html += `<div class="section-header">📰 주요 뉴스</div>`;
-      html += `<div class="news-list">` + d.news.map((n,i) => `<div class="news-item"><div class="news-num">${i+1}</div><div class="news-body"><div class="news-title">${n.link?`<a href="${n.link}" target="_blank" rel="noopener">${n.title||''}</a>`:(n.title||'')}</div><div class="news-meta"><span class="news-tag">${n.tag||'뉴스'}</span><span class="news-time">${n.time||''}</span></div></div></div>`).join('') + `</div>`;
+      html += `<div class="news-list">` + d.news.map((n, i) =>
+        `<div class="news-item">
+          <div class="news-num">${i+1}</div>
+          <div class="news-body">
+            <div class="news-title">${n.link ? `<a href="${n.link}" target="_blank" rel="noopener">${n.title||''}</a>` : (n.title||'')}</div>
+            <div class="news-meta"><span class="news-tag">${n.tag||'뉴스'}</span><span class="news-time">${n.time||''}</span></div>
+          </div>
+        </div>`
+      ).join('') + `</div>`;
     }
 
     if (d.outlook || (d.risks && d.risks.length)) {
       html += `<div class="section-header">🔭 전망 및 리스크</div>`;
       html += `<div class="outlook-card">`;
       if (d.outlook) html += `<div class="outlook-text">${d.outlook.replace(/\n/g,'<br>')}</div>`;
-      if (d.risks && d.risks.length) html += `<div class="risks">` + d.risks.map(r=>`<span class="risk-item">⚨ ${r}</span>`).join('') + `</div>`;
+      if (d.risks && d.risks.length) html += `<div class="risks">` + d.risks.map(r=>`<span class="risk-item">⚠ ${r}</span>`).join('') + `</div>`;
       html += `</div>`;
     }
 
-    html += `<div class="disclaimer">⚠️ 이 브리핑은 Naver 뉴스를 기반으로 AI가 자동 생성한 참고 자료입니다. 투자 권유가 아니며, 최종 투자에는 원금 손실 위험이 있습니다.</div>`;
+    html += `<div class="disclaimer">⚠️ 이 브리핑은 Naver 뉴스를 기반으로 AI가 자동 생성한 참고 자료입니다. 투자 권유가 아니며, 최종 투자 판단은 본인에게 있습니다. 주식 투자에는 원금 손실 위험이 있습니다.</div>`;
     html += `<div class="footer">kkangdago.com · AI 자동 생성 · 투자는 본인 책임</div>`;
     main.innerHTML = html;
   }
@@ -222,9 +242,9 @@ a{color:inherit;text-decoration:none}
       rows.forEach(row => {
         const a = document.createElement('a');
         const [,m,day] = (row.brief_date||'').split('-');
-        a.textContent = parseInt(m) + '/' + parseInt(day) + (row.session==='close'?'🌆':'');
+        a.textContent = parseInt(m) + '/' + parseInt(day) + (row.session === 'close' ? '🌆' : '');
         a.href = `/?date=${row.brief_date}&session=${row.session}`;
-        a.className = 'date-pill' + (row.brief_date===curDate&&row.session===curSession?' active':'');
+        a.className = 'date-pill' + (row.brief_date === curDate && row.session === curSession ? ' active' : '');
         list.appendChild(a);
       });
     } catch(e) { document.getElementById('dateList').innerHTML = ''; }
