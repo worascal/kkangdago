@@ -81,7 +81,8 @@ a{color:inherit;text-decoration:none}
 .cold .theme-tag{background:rgba(85,85,85,.2);color:#777}
 .theme-reason{font-size:12px;color:var(--muted);line-height:1.5;margin-bottom:8px}
 .theme-stocks{display:flex;flex-wrap:wrap;gap:5px}
-.stock-tag{background:var(--surface2);border:1px solid #222;border-radius:4px;font-size:11px;padding:2px 8px;color:var(--text)}
+.stock-tag{background:var(--surface2);border:1px solid #222;border-radius:4px;font-size:11px;padding:2px 8px;color:var(--text);text-decoration:none;display:inline-block}
+a.stock-tag:hover{color:var(--accent);border-color:#444}
 .news-list{background:var(--surface);border:1px solid #1a1a1a;border-radius:10px;overflow:hidden;margin-bottom:28px}
 .news-item{padding:12px 16px;border-bottom:1px solid #141414;display:flex;align-items:flex-start;gap:10px}
 .news-item:last-child{border-bottom:none}
@@ -106,7 +107,7 @@ a{color:inherit;text-decoration:none}
 .error-box{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);border-radius:10px;padding:20px;margin:40px auto;max-width:500px;text-align:center;color:#f87171}
 .themes-more-btn{background:var(--surface2);border:1px solid #2a2a2a;border-radius:8px;padding:9px 20px;font-size:12px;color:var(--muted);cursor:pointer;width:100%;margin-bottom:12px;transition:all .15s;text-align:center}
 .themes-more-btn:hover{background:#202020;color:var(--text);border-color:#333}
-.cold-strip{background:rgba(239,68,68,.05);border:1px solid rgba(239,68,68,.15);border-left:3px solid rgba(239,68,68,.4);border-radius:8px;padding:10px 14px;margin-bottom:28px}
+.cold-stripybackground:rgba(239,68,68,.05);border:1px solid rgba(239,68,68,.15);border-left:3px solid rgba(239,68,68,.4);border-radius:8px;padding:10px 14px;margin-bottom:28px}
 .cold-strip-label{font-size:11px;font-weight:700;color:#f87171;letter-spacing:.5px;margin-bottom:7px}
 .cold-strip-items{display:flex;flex-wrap:wrap;gap:6px}
 .cold-chip{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.2);border-radius:5px;padding:3px 10px;font-size:12px;color:#f87171}
@@ -242,7 +243,7 @@ a{color:inherit;text-decoration:none}
       const renderCard = t => `<div class="theme-card ${t.level||'mild'}">
           <div class="theme-name"><span>${t.name}</span><span class="theme-tag">${tagLabel(t.level)}</span></div>
           <div class="theme-reason">${t.reason||''}</div>
-          <div class="theme-stocks">${(t.stocks||[]).map(s=>`<span class="stock-tag">${s}</span>`).join('')}</div>
+          <div class="theme-stocks">${(t.stocks||[]).map(s=>`<a href="https://finance.naver.com/search/searchResult.nhn?query=${encodeURIComponent(s)}" target="_blank" rel="noopener" class="stock-tag">${s}</a>`).join('')}</div>
         </div>`;
 
       const coldThemes = sorted.filter(t => t.level === 'cold');
