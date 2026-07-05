@@ -27,6 +27,7 @@ a{color:inherit;text-decoration:none}
 .session-badge{font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;display:inline-block;margin-left:6px}
 .session-badge.premarket{background:rgba(0,212,184,0.15);color:var(--accent);border:1px solid rgba(0,212,184,0.3)}
 .session-badge.close{background:rgba(245,158,11,0.15);color:var(--yellow);border:1px solid rgba(245,158,11,0.3)}
+.session-badge.weekend{background:rgba(168,85,247,0.15);color:#c084fc;border:1px solid rgba(168,85,247,0.3)}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
 .chip{background:var(--surface2);border:1px solid #222;border-radius:6px;padding:4px 12px;font-size:12px;color:var(--muted);display:flex;align-items:center;gap:5px}
 .chip .dot{width:7px;height:7px;border-radius:50%}
@@ -63,7 +64,7 @@ a{color:inherit;text-decoration:none}
 .us-stock{background:var(--surface2);border:1px solid #222;border-radius:6px;padding:5px 12px;font-size:12px}
 .us-stock .change{font-weight:700}
 .us-stock .change.up{color:var(--green)}
-.us-stock .change.down{color:var(--red)}
+.us-stock .change.down}color:var(--red)}
 .kr-links{border-top:1px solid #1a1a1a;padding-top:10px}
 .kr-link-item{font-size:12px;color:var(--muted);margin-bottom:5px;padding-left:10px;border-left:2px solid var(--accent)}
 .themes-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px;margin-bottom:28px}
@@ -158,9 +159,32 @@ a{color:inherit;text-decoration:none}
     return '🌿 MILD';
   }
 
+  function getDayType(briefDate) {
+    // brief_date is YYYY-MM-DD in KST
+    const d = new Date(briefDate + 'T12:00:00+09:00');
+    const dow = d.getDay(); // 0=Sun, 6=Sat
+    if (dow === 6) return 'saturday';
+    if (dow === 0) return 'sunday';
+    return 'weekday';
+  }
+
   function render(d) {
     const isPremarket = d.session === 'premarket';
-    const sessionLabel = isPremarket ? '📈 장전 브리핑' : '🌆 장마감 브리핑';
+    const dayType = getDayType(d.brief_date);
+    const isSaturday = dayType === 'saturday';
+    const isSunday = dayType === 'sunday';
+    const isWeekend = isSaturday || isSunday;
+
+    // Session label
+    let sessionLabel, sessionClass;
+    if (isWeekend) {
+      sessionLabel = isSaturday ? '📊 주간 브리핑' : '📋 주간 프리뷰';
+      sessionClass = 'weekend';
+    } else {
+      sessionLabel = isPremarket ? '📈 장전 브리핑' : '🌆 장마감 브리핑';
+      sessionClass = d.session;
+    }
+
     const dateKr = d.brief_date ? d.brief_date.replace(/(\d{4})-(\d{2})-(\d{2})/, '$1년 $2월 $3일') : '';
 
     const dateBadge = document.getElementById('dateBadge');
@@ -168,7 +192,7 @@ a{color:inherit;text-decoration:none}
     dateBadge.style.display = 'inline-block';
     const sessionBadge = document.getElementById('sessionBadge');
     sessionBadge.textContent = sessionLabel;
-    sessionBadge.className = 'session-badge ' + d.session;
+    sessionBadge.className = 'session-badge ' + sessionClass;
     sessionBadge.style.display = 'inline-block';
 
     const chips = document.getElementById('chipsRow');
@@ -178,11 +202,18 @@ a{color:inherit;text-decoration:none}
 
     let html = '';
 
-    html += `<div class="summary-card"><h2>📊 ${isPremarket ? '오늘의 시장 전망' : '오늘의 시장 결산'}</h2><p>${(d.summary||'').replace(/\n/g,'<br>')}</p></div>`;
+    // Summary card
+    let summaryTitle;
+    if (isSaturday) summaryTitle = '이번 주 시장 결산';
+    else if (isSunday) summaryTitle = '다음 주 시장 전망';
+    else summaryTitle = isPremarket ? '오늘의 시장 전망' : '오늘의 시장 결산';
+    html += `<div class="summary-card"><h2>📊 ${summaryTitle}</h2><p>${(d.summary||'').replace(/\n/g,'<br>')}</p></div>`;
 
-    if (isPremarket && d.us_market) {
+    // US market section (weekday premarket + saturday)
+    if (d.us_market && (dayType === 'weekday' || isSaturday)) {
       const us = d.us_market;
-      html += `<div class="section-header">🌃 미국 증시 마감 (${us.date||''})</div>`;
+      const usLabel = isSaturday ? '미국 증시 마감 (금요일 ' + (us.date||'') + ')' : '미국 증시 마감 (' + (us.date||'') + ')';
+      html += `<div class="section-header">🌃 ${usLabel}</div>`;
       html += `<div class="us-card">`;
       if (us.indices && us.indices.length) html += `<div class="us-indices">` + us.indices.map(i => `<div class="us-index"><div class="name">${i.name}</div><div class="val ${changeClass(i.change)}">${i.change||''}</div></div>`).join('') + `</div>`;
       if (us.sectors && us.sectors.length) html += `<div class="us-sectors">` + us.sectors.map(s => `<div class="us-sector ${s.direction==='up'?'up':'down'}"><span class="arrow">${s.direction==='up'?'▲':'▼'}</span>${s.name}<span style="color:var(--muted);font-size:11px;margin-left:4px">${s.reason||''}</span></div>`).join('') + `</div>`;
@@ -191,8 +222,13 @@ a{color:inherit;text-decoration:none}
       html += `</div>`;
     }
 
+    // Themes section
     if (d.themes && d.themes.length) {
-      html += `<div class="section-header">🔥 섹터별 전망 (${d.themes.length}개)</div>`;
+      let themesHeader;
+      if (isSaturday) themesHeader = '📋 주간 섹터 이슈 & 다음 주 주목 포인트';
+      else if (isSunday) themesHeader = '📋 다음 주 주목 이슈';
+      else themesHeader = `🔥 섹터별 전망 (${d.themes.length}개)`;
+      html += `<div class="section-header">${themesHeader}</div>`;
       const levelOrder = {hot:0, warm:1, mild:2, cold:3};
       const sorted = [...d.themes].sort((a,b) => (levelOrder[a.level]||2) - (levelOrder[b.level]||2));
       html += `<div class="themes-grid">` + sorted.map(t =>
@@ -204,8 +240,10 @@ a{color:inherit;text-decoration:none}
       ).join('') + `</div>`;
     }
 
+    // News
     if (d.news && d.news.length) {
-      html += `<div class="section-header">📰 주요 뉴스</div>`;
+      const newsHeader = isWeekend ? '📰 주간 주요 뉴스' : '📰 주요 뉴스';
+      html += `<div class="section-header">${newsHeader}</div>`;
       html += `<div class="news-list">` + d.news.map((n, i) =>
         `<div class="news-item">
           <div class="news-num">${i+1}</div>
@@ -217,8 +255,10 @@ a{color:inherit;text-decoration:none}
       ).join('') + `</div>`;
     }
 
+    // Outlook + risks
     if (d.outlook || (d.risks && d.risks.length)) {
-      html += `<div class="section-header">🔭 전망 및 리스크</div>`;
+      const outlookHeader = isWeekend ? '🔭 다음 주 주요 관심 사항' : '🔭 전망 및 리스크';
+      html += `<div class="section-header">${outlookHeader}</div>`;
       html += `<div class="outlook-card">`;
       if (d.outlook) html += `<div class="outlook-text">${d.outlook.replace(/\n/g,'<br>')}</div>`;
       if (d.risks && d.risks.length) html += `<div class="risks">` + d.risks.map(r=>`<span class="risk-item">⚠ ${r}</span>`).join('') + `</div>`;
@@ -226,51 +266,4 @@ a{color:inherit;text-decoration:none}
     }
 
     html += `<div class="disclaimer">⚠️ 이 브리핑은 Naver 뉴스를 기반으로 AI가 자동 생성한 참고 자료입니다. 투자 권유가 아니며, 최종 투자 판단은 본인에게 있습니다. 주식 투자에는 원금 손실 위험이 있습니다.</div>`;
-    html += `<div class="footer">kkangdago.com · AI 자동 생성 · 투자는 본인 책임</div>`;
-    main.innerHTML = html;
-  }
-
-  async function loadHistory() {
-    try {
-      const r = await fetch(`${SB}/rest/v1/briefings?market=eq.KR&select=brief_date,session&order=brief_date.desc&limit=60`, { headers: hdr });
-      const rows = await r.json();
-      const list = document.getElementById('dateList');
-      if (!rows || !rows.length) { list.innerHTML = ''; return; }
-      list.innerHTML = '';
-      const curDate = params.get('date');
-      const curSession = params.get('session');
-      rows.forEach(row => {
-        const a = document.createElement('a');
-        const [,m,day] = (row.brief_date||'').split('-');
-        a.textContent = parseInt(m) + '/' + parseInt(day) + (row.session === 'close' ? '🌆' : '');
-        a.href = `/?date=${row.brief_date}&session=${row.session}`;
-        a.className = 'date-pill' + (row.brief_date === curDate && row.session === curSession ? ' active' : '');
-        list.appendChild(a);
-      });
-    } catch(e) { document.getElementById('dateList').innerHTML = ''; }
-  }
-
-  try {
-    let url;
-    const date = params.get('date');
-    const session = params.get('session') || 'premarket';
-    if (date) {
-      url = `${SB}/rest/v1/briefings?brief_date=eq.${date}&session=eq.${session}&market=eq.KR&limit=1`;
-    } else {
-      url = `${SB}/rest/v1/briefings?market=eq.KR&order=brief_date.desc,session.asc&limit=1`;
-    }
-    const r = await fetch(url, { headers: hdr });
-    const rows = await r.json();
-    if (!rows || !rows.length) {
-      main.innerHTML = '<div class="error-box">아직 브리핑 데이터가 없습니다.<br>다음 브리핑 생성 후 다시 확인해주세요.</div>';
-    } else {
-      render(rows[0]);
-    }
-  } catch(e) {
-    main.innerHTML = `<div class="error-box">데이터를 불러오지 못했습니다.<br><small>${e.message}</small></div>`;
-  }
-  loadHistory();
-})();
-</script>
-</body>
-</html>
+    html += `<div class="footer">kkangdago.com · AI 자동 생성 · 투자는 본
