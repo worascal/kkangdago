@@ -332,7 +332,7 @@ a.stock-tag:hover{color:var(--accent);border-color:#444}
     }
     ch+='</div>';
     if(_cSel&&_availDates[_cSel]){
-      const SL={premarket:'📈 장전',open:'🔔 장초반',afternoon:'☀️ 장후반',close:'🌆 장마감'};
+      const SL={premarket:'📈 장전 08:10',open:'🔔 장초반 10:00',afternoon:'☀️ 장후반 14:00',close:'🌆 장마감 15:30'};
       const SO={premarket:0,open:1,afternoon:2,close:3};
       const sess=[..._availDates[_cSel]].sort((a,b)=>(SO[a.session]||0)-(SO[b.session]||0));
       ch+='<div class="cal-sessions">'+sess.map(r=>'<button class="cal-session-btn" data-s="'+r.session+'">'+(SL[r.session]||r.session)+'</button>').join('')+'</div>';
