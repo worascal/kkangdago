@@ -69,20 +69,24 @@ a{color:inherit;text-decoration:none}
 .us-stock .change.down{color:var(--red)}
 .kr-links{border-top:1px solid #1a1a1a;padding-top:10px}
 .kr-link-item{font-size:12px;color:var(--muted);margin-bottom:5px;padding-left:10px;border-left:2px solid var(--accent)}
-.themes-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px;margin-bottom:28px}
-.theme-card{background:var(--surface);border:1px solid #1a1a1a;border-radius:10px;padding:12px 14px;border-top-width:3px}
-.theme-card.hot{border-top-color:var(--hot)}
-.theme-card.warm{border-top-color:var(--warm)}
-.theme-card.mild{border-top-color:var(--mild)}
-.theme-card.cold{border-top-color:#2a2a2a;opacity:.65}
-.theme-name{font-size:13px;font-weight:700;margin-bottom:5px;display:flex;justify-content:space-between;align-items:center;gap:6px}
-.theme-tag{font-size:10px;font-weight:700;padding:2px 7px;border-radius:4px;letter-spacing:.5px;flex-shrink:0}
+.themes-list{display:flex;flex-direction:column;margin-bottom:28px;border:1px solid #1a1a1a;border-radius:10px;overflow:hidden}
+.theme-row{display:flex;align-items:flex-start;gap:14px;padding:10px 14px;border-bottom:1px solid #141414;border-left:3px solid #1a1a1a}
+.theme-row:last-child{border-bottom:none}
+.theme-row.hot{border-left-color:var(--hot)}
+.theme-row.warm{border-left-color:var(--warm)}
+.theme-row.mild{border-left-color:var(--mild)}
+.theme-row.cold{border-left-color:#222;opacity:.5}
+.theme-row-left{width:165px;flex-shrink:0;display:flex;flex-direction:column;gap:4px}
+.theme-row-name{font-size:12px;font-weight:700;color:var(--text);line-height:1.35}
+.theme-row-sub{font-size:10px;color:var(--muted);line-height:1.2}
+.theme-tag{font-size:10px;font-weight:700;padding:2px 7px;border-radius:4px;letter-spacing:.5px;align-self:flex-start}
 .hot .theme-tag{background:rgba(239,68,68,.15);color:var(--hot)}
 .warm .theme-tag{background:rgba(245,158,11,.15);color:var(--warm)}
 .mild .theme-tag{background:rgba(34,197,94,.15);color:var(--mild)}
 .cold .theme-tag{background:rgba(85,85,85,.2);color:#777}
-.theme-reason{font-size:12px;color:var(--muted);line-height:1.5;margin-bottom:8px}
-.theme-stocks{display:flex;flex-wrap:wrap;gap:5px}
+.theme-row-right{flex:1;min-width:0}
+.theme-row-reason{font-size:12px;color:var(--muted);line-height:1.5}
+.theme-row-stocks{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
 .stock-tag{background:var(--surface2);border:1px solid #222;border-radius:4px;font-size:11px;padding:2px 8px;color:var(--text);text-decoration:none;display:inline-block}
 a.stock-tag:hover{color:var(--accent);border-color:#444}
 .news-list{background:var(--surface);border:1px solid #1a1a1a;border-radius:10px;overflow:hidden;margin-bottom:28px}
@@ -114,7 +118,7 @@ a.stock-tag:hover{color:var(--accent);border-color:#444}
 .cold-strip-items{display:flex;flex-wrap:wrap;gap:6px}
 .cold-chip{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.2);border-radius:5px;padding:3px 10px;font-size:12px;color:#f87171}
 .cold-chip-reason{color:rgba(248,113,113,.6);font-size:11px}
-@media(max-width:600px){.themes-grid{grid-template-columns:1fr}.us-indices{gap:8px}}
+@media(max-width:600px){.us-indices{gap:8px}}
 </style>
 </head>
 <body>
@@ -245,11 +249,7 @@ a.stock-tag:hover{color:var(--accent);border-color:#444}
 
       const TICKERS={'삼성전자':'005930','SK하이닉스':'000660','LG에너지솔루션':'373220','삼성바이오로직스':'207940','현대차':'005380','기아':'000270','NAVER':'035420','네이버':'035420','카카오':'035720','셀트리온':'068270','POSCO홀딩스':'005490','포스코홀딩스':'005490','KB금융':'105560','삼성물산':'028260','현대모비스':'012330','신한지주':'055550','삼성생명':'032830','SK텔레콤':'017670','하나금융지주':'086790','카카오뱅크':'323410','삼성SDI':'006400','우리금융지주':'316140','KT&G':'033780','LG화학':'051910','LG전자':'066570','한국전력':'015760','SK이노베이션':'096770','현대건설':'000720','삼성화재':'000810','대한항공':'003490','KT':'030200','GS':'078930','에코프로비엠':'247540','에코프로':'086520','포스코퓨처엠':'003670','엘앤에프':'066970','DB하이텍':'000990','솔브레인':'357780','한미반도체':'042700','HPSP':'403870','원익IPS':'240810','이오테크닉스':'039030','파크시스템스':'140860','심텍':'222800','한화에어로스페이스':'012450','현대로템':'064350','LIG넥스원':'079550','한화시스템':'272210','HD한국조선해양':'009540','HD현대중공업':'329180','삼성중공업':'010140','한화오션':'042660','알테오젠':'196170','HLB':'028300','한미약품':'128940','유한양행':'000100','셀트리온헬스케어':'091990','휴젤':'145020','클래시스':'214150','파마리서치':'214450','메디톡스':'086900','리가켐바이오':'141080','크래프톤':'259960','펄어비스':'263750','엔씨소프트':'036570','카카오게임즈':'293490','넷마블':'251270','SK스퀘어':'402340','카카오페이':'377300','하이브':'352820','SM':'041510','JYP Ent.':'035900','JYP엔터테인먼트':'035900','YG엔터테인먼트':'122870','HD현대일렉트릭':'267260','LS일렉트릭':'010120','효성중공업':'298040','두산로보틱스':'454910','레인보우로보틱스':'277810','GS건설':'006360','대우건설':'047040','삼성엔지니어링':'028050','현대제철':'004020','고려아연':'010130','풍산':'103140','이마트':'139480','BGF리테일':'282330','현대백화점':'069960','신세계':'004170','CJ제일제당':'097950','오리온':'271560','농심':'004370','삼양식품':'003230','하이트진로':'000080','SK':'034730','LG':'003550','두산에너빌리티':'034020','메리츠금융지주':'138040','키움증권':'039490','미래에셋증권':'006800','NH투자증권':'005940','삼성증권':'016360','아시아나항공':'020560','진에어':'272450','제주항공':'089590','HD현대':'267250','한국항공우주':'047810','S-Oil':'010950','S오일':'010950','롯데케미칼':'011170','금호석유화학':'011780','현대글로비스':'086280'};
       const stockUrl=s=>TICKERS[s]?`https://finance.naver.com/item/main.naver?code=${TICKERS[s]}`:`https://finance.naver.com/search/searchResult.nhn?query=${encodeURIComponent(s)}`;
-      const renderCard = t => `<div class="theme-card ${t.level||'mild'}">
-          <div class="theme-name"><span>${t.name}</span><span class="theme-tag">${tagLabel(t.level)}</span></div>
-          <div class="theme-reason">${t.reason||''}</div>
-          <div class="theme-stocks">${(t.stocks||[]).map(s=>`<a href="${stockUrl(s)}" target="_blank" rel="noopener" class="stock-tag">${s}</a>`).join('')}</div>
-        </div>`;
+      const renderRow = t => { const [nm,sb]=(t.name||'').split('('); const sub=sb?sb.replace(')','').trim():''; return `<div class="theme-row ${t.level||'mild'}"><div class="theme-row-left"><span class="theme-row-name">${nm.trim()}</span>${sub?`<span class="theme-row-sub">${sub}</span>`:''}<span class="theme-tag">${tagLabel(t.level)}</span></div><div class="theme-row-right"><div class="theme-row-reason">${t.reason||''}</div><div class="theme-row-stocks">${(t.stocks||[]).map(s=>`<a href="${stockUrl(s)}" target="_blank" rel="noopener" class="stock-tag">${s}</a>`).join('')}</div></div></div>`; };
 
       const coldThemes = sorted.filter(t => t.level === 'cold');
       const nonCold = sorted.filter(t => t.level !== 'cold');
@@ -257,20 +257,11 @@ a.stock-tag:hover{color:var(--accent);border-color:#444}
       const mainCards = nonCold.slice(0, LIMIT);
       const moreCards = nonCold.slice(LIMIT);
 
-      html += `<div class="themes-grid">` + mainCards.map(renderCard).join('') + `</div>`;
+      html += `<div class="themes-list">` + mainCards.map(renderRow).join('') + coldThemes.map(renderRow).join('') + `</div>`;
 
       if (moreCards.length) {
-        html += `<button class="themes-more-btn" onclick="this.style.display='none';document.getElementById('themes-more').style.display='grid'">+ 더 보기 (${moreCards.length}개 더)</button>`;
-        html += `<div class="themes-grid" id="themes-more" style="display:none">` + moreCards.map(renderCard).join('') + `</div>`;
-      }
-
-      if (coldThemes.length) {
-        html += `<div class="cold-strip"><div class="cold-strip-label">❄️ 주의 섹터 — 부정적 전망</div><div class="cold-strip-items">` +
-          coldThemes.map(t => {
-            const r = t.reason ? t.reason.slice(0, 30) + (t.reason.length > 30 ? '…' : '') : '';
-            return `<span class="cold-chip">${t.name}${r ? `<span class="cold-chip-reason"> — ${r}</span>` : ''}</span>`;
-          }).join('') +
-          `</div></div>`;
+        html += `<button class="themes-more-btn" onclick="this.style.display='none';document.getElementById('themes-more').style.display='flex'">+ 더 보기 (${moreCards.length}개 더)</button>`;
+        html += `<div class="themes-list" id="themes-more" style="display:none">` + moreCards.map(renderRow).join('') + `</div>`;
       }
     }
 
