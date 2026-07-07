@@ -28,6 +28,8 @@ a{color:inherit;text-decoration:none}
 .session-badge.premarket{background:rgba(0,212,184,0.15);color:var(--accent);border:1px solid rgba(0,212,184,0.3)}
 .session-badge.close{background:rgba(245,158,11,0.15);color:var(--yellow);border:1px solid rgba(245,158,11,0.3)}
 .session-badge.weekend{background:rgba(168,85,247,0.15);color:#c084fc;border:1px solid rgba(168,85,247,0.3)}
+.session-badge.open{background:rgba(59,130,246,0.15);color:#60a5fa;border:1px solid rgba(59,130,246,0.3)}
+.session-badge.afternoon{background:rgba(251,146,60,0.15);color:#fb923c;border:1px solid rgba(251,146,60,0.3)}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
 .chip{background:var(--surface2);border:1px solid #222;border-radius:6px;padding:4px 12px;font-size:12px;color:var(--muted);display:flex;align-items:center;gap:5px}
 .chip .dot{width:7px;height:7px;border-radius:50%}
@@ -189,7 +191,8 @@ a.stock-tag:hover{color:var(--accent);border-color:#444}
       sessionLabel = isSaturday ? '📊 주간 브리핑' : '📋 주간 프리뷰';
       sessionClass = 'weekend';
     } else {
-      sessionLabel = isPremarket ? '📈 장전 브리핑' : '🌆 장마감 브리핑';
+      const SL={premarket:'📈 장전 브리핑',open:'🔔 장초반 브리핑',afternoon:'☀️ 장후반 브리핑',close:'🌆 장마감 브리핑'};
+      sessionLabel=SL[d.session]||'📋 브리핑';
       sessionClass = d.session;
     }
 
@@ -214,7 +217,7 @@ a.stock-tag:hover{color:var(--accent);border-color:#444}
     let summaryTitle;
     if (isSaturday) summaryTitle = '이번 주 시장 결산';
     else if (isSunday) summaryTitle = '다음 주 시장 전망';
-    else summaryTitle = isPremarket ? '오늘의 시장 전망' : '오늘의 시장 결산';
+    else summaryTitle = (d.session==='close'||d.session==='afternoon') ? '오늘의 시장 결산' : '오늘의 시장 전망';
     html += `<div class="summary-card"><h2>📊 ${summaryTitle}</h2><p>${(d.summary||'').replace(/\n/g,'<br>')}</p></div>`;
 
     // US market section (weekday premarket + saturday)
@@ -314,7 +317,8 @@ a.stock-tag:hover{color:var(--accent);border-color:#444}
         const a = document.createElement('a');
         const [,m,day] = (row.brief_date||'').split('-');
         const dt = getDayType(row.brief_date);
-        let suffix = row.session === 'close' ? '🌆' : '';
+        const S_SFX={premarket:'🌅',open:'🔔',afternoon:'☀️',close:'🌆'};
+        let suffix=S_SFX[row.session]||'';
         if (dt === 'saturday') suffix = '📊';
         else if (dt === 'sunday') suffix = '📋';
         a.textContent = parseInt(m) + '/' + parseInt(day) + suffix;
@@ -332,14 +336,21 @@ a.stock-tag:hover{color:var(--accent);border-color:#444}
     if (date) {
       url = `${SB}/rest/v1/briefings?brief_date=eq.${date}&session=eq.${session}&market=eq.KR&limit=1`;
     } else {
-      url = `${SB}/rest/v1/briefings?market=eq.KR&order=brief_date.desc,session.asc&limit=1`;
+      url = `${SB}/rest/v1/briefings?market=eq.KR&order=brief_date.desc&limit=8`;
     }
     const r = await fetch(url, { headers: hdr });
     const rows = await r.json();
     if (!rows || !rows.length) {
       main.innerHTML = '<div class="error-box">아직 브리핑 데이터가 없습니다.<br>다음 브리핑 생성 후 다시 확인해주세요.</div>';
     } else {
-      render(rows[0]);
+      if (date) {
+        render(rows[0]);
+      } else {
+        const latestDate = rows[0].brief_date;
+        const S_ORD={premarket:0,open:1,afternoon:2,close:3};
+        const latest=rows.filter(rx=>rx.brief_date===latestDate).sort((a,b)=>(S_ORD[b.session]||0)-(S_ORD[a.session]||0))[0];
+        render(latest);
+      }
     }
   } catch(e) {
     main.innerHTML = `<div class="error-box">데이터를 불러오지 못했습니다.<br><small>${e.message}</small></div>`;
