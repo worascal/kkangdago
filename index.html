@@ -14,7 +14,7 @@
 <meta name="twitter:image" content="https://www.kkangdago.com/preview/latest.png">
 <title>데일리 깡다고 – 브리핑</title>
 <style>
-:root{--bg:#000;--surface:#0e0e0e;--surface2:#181818;--accent:#00d4b8;--green:#22c55e;--red:#ef4444;--yellow:#f59e0b;--text:#e2e8f0;--muted:#6a8888;--hot:#ef4444;--warm:#f59e0b;--mild:#22c55e;--cold:#555}
+:root{--bg:#000;--surface:#0e0e0e;--surface2:#181818;--accent:#00d4b8;--green:#22c55e;--red:#ef4444;--yellow:#f59e0b;--text:#e2e8f0;--muted:#6a8888;--hot:#ef4444;--warm:#f59e0b;--mild:#22c55e;--cold:#60a5fa}
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);color:var(--text);font-family:'Apple SD Gothic Neo','Malgun Gothic',sans-serif;min-height:100vh}
 a{color:inherit;text-decoration:none}
@@ -75,7 +75,7 @@ a{color:inherit;text-decoration:none}
 .theme-row.hot{border-left-color:var(--hot)}
 .theme-row.warm{border-left-color:var(--warm)}
 .theme-row.mild{border-left-color:var(--mild)}
-.theme-row.cold{border-left-color:#222;opacity:.5}
+.theme-row.cold{border-left-color:var(--cold)}
 .theme-row-left{width:165px;flex-shrink:0;display:flex;flex-direction:column;gap:4px}
 .theme-row-name{font-size:12px;font-weight:700;color:var(--text);line-height:1.35}
 .theme-row-sub{font-size:10px;color:var(--muted);line-height:1.2}
@@ -83,7 +83,7 @@ a{color:inherit;text-decoration:none}
 .hot .theme-tag{background:rgba(239,68,68,.15);color:var(--hot)}
 .warm .theme-tag{background:rgba(245,158,11,.15);color:var(--warm)}
 .mild .theme-tag{background:rgba(34,197,94,.15);color:var(--mild)}
-.cold .theme-tag{background:rgba(85,85,85,.2);color:#777}
+.cold .theme-tag{background:rgba(96,165,250,.15);color:var(--cold)}
 .theme-row-right{flex:1;min-width:0}
 .theme-row-reason{font-size:12px;color:var(--muted);line-height:1.5}
 .theme-row-stocks{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
@@ -184,8 +184,8 @@ a.stock-tag:hover{color:var(--accent);border-color:#444}
   function tagLabel(level) {
     if (level === 'hot') return '🔥 HOT';
     if (level === 'warm') return '⚡ WARM';
-    if (level === 'cold') return '❄️ COLD';
-    return '🌿 MILD';
+    if (level === 'mild') return '🌿 MILD';
+    return '🧊 COLD';
   }
 
   function getDayType(briefDate) {
