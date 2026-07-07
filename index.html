@@ -321,23 +321,27 @@ a.stock-tag:hover{color:var(--accent);border-color:#444}
     const dn = ['일','월','화','수','목','금','토'];
     const first = new Date(y,m,1), last = new Date(y,m+1,0), sdow = first.getDay();
     const todayStr = new Date().toLocaleDateString('sv-SE',{timeZone:'Asia/Seoul'});
-    let ch = '<div class="cal-hdr"><button class="cal-nav" onclick="_calPrev()">&#8249;</button><span>'+y+'년 '+mn[m]+'</span><button class="cal-nav" onclick="_calNext()">&#8250;</button></div><div class="cal-grid">';
-    ch += dn.map((d,i)=>'<div class="cal-dow" style="'+(i===0?'color:#ef4444':i===6?'color:#60a5fa':'')+'">' +d+'</div>').join('');
+    let ch = '<div class="cal-hdr"><button class="cal-nav" id="calPrev">&#8249;</button><span>'+y+'년 '+mn[m]+'</span><button class="cal-nav" id="calNext">&#8250;</button></div><div class="cal-grid">';
+    ch += dn.map((d,i)=>'<div class="cal-dow" style="'+(i===0?'color:#ef4444':i===6?'color:#60a5fa':'')+'">'+d+'</div>').join('');
     for(let i=0;i<sdow;i++) ch+='<div></div>';
     for(let d=1;d<=last.getDate();d++){
       const ds=y+'-'+String(m+1).padStart(2,'0')+'-'+String(d).padStart(2,'0');
       const av=_availDates[ds];
       const cls='cal-day'+(av?' avail':'')+(ds===todayStr?' today':'')+(ds===_cSel?' active':'');
-      ch+=av?'<div class="'+cls+'" onclick="_calPick(''+ds+'')">'+d+'</div>':'<div class="'+cls+'">'+d+'</div>';
+      ch+=av?'<div class="'+cls+'" data-d="'+ds+'">'+d+'</div>':'<div class="'+cls+'">'+d+'</div>';
     }
     ch+='</div>';
     if(_cSel&&_availDates[_cSel]){
       const SL={premarket:'📈 장전',open:'🔔 장초반',afternoon:'☀️ 장후반',close:'🌆 장마감'};
       const SO={premarket:0,open:1,afternoon:2,close:3};
       const sess=[..._availDates[_cSel]].sort((a,b)=>(SO[a.session]||0)-(SO[b.session]||0));
-      ch+='<div class="cal-sessions">'+sess.map(r=>'<button class="cal-session-btn" onclick="location.href='/?date='+_cSel+'&session='+r.session+''">'+( SL[r.session]||r.session)+'</button>').join('')+'</div>';
+      ch+='<div class="cal-sessions">'+sess.map(r=>'<button class="cal-session-btn" data-s="'+r.session+'">'+(SL[r.session]||r.session)+'</button>').join('')+'</div>';
     }
     popup.innerHTML = ch;
+    popup.querySelectorAll('.cal-day[data-d]').forEach(el=>{el.onclick=()=>window._calPick(el.dataset.d);});
+    const pv=popup.querySelector('#calPrev'); if(pv) pv.onclick=window._calPrev;
+    const nx=popup.querySelector('#calNext'); if(nx) nx.onclick=window._calNext;
+    popup.querySelectorAll('.cal-session-btn').forEach(el=>{el.onclick=()=>{location.href='/?date='+_cSel+'&session='+el.dataset.s;};});
   }
   window._calPrev=()=>{if(_calM===0){_calM=11;_calY--;}else{_calM--;}_buildCal();};
   window._calNext=()=>{if(_calM===11){_calM=0;_calY++;}else{_calM++;}_buildCal();};
