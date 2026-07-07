@@ -338,7 +338,7 @@ a.stock-tag:hover{color:var(--accent);border-color:#444}
       ch+='<div class="cal-sessions">'+sess.map(r=>'<button class="cal-session-btn" data-s="'+r.session+'">'+(SL[r.session]||r.session)+'</button>').join('')+'</div>';
     }
     popup.innerHTML = ch;
-    popup.querySelectorAll('.cal-day[data-d]').forEach(el=>{el.onclick=()=>window._calPick(el.dataset.d);});
+    popup.querySelectorAll('.cal-day[data-d]').forEach(el=>{el.onclick=e=>{e.stopPropagation();window._calPick(el.dataset.d);};});
     const pv=popup.querySelector('#calPrev'); if(pv) pv.onclick=window._calPrev;
     const nx=popup.querySelector('#calNext'); if(nx) nx.onclick=window._calNext;
     popup.querySelectorAll('.cal-session-btn').forEach(el=>{el.onclick=()=>{location.href='/?date='+_cSel+'&session='+el.dataset.s;};});
