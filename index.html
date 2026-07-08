@@ -76,7 +76,7 @@ a{color:inherit;text-decoration:none}
 .us-macro-item .mc{font-size:11px}
 .us-macro-item .mc.up{color:var(--green)}
 .us-macro-item .mc.down{color:var(--red)}
-.us-macro-item .mc.flat{color:var(--muted)}
+.us-macro-item .mc.flat{color:var(--muted)}.supply-demand{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:12px}.supply-demand-block{background:var(--surface2);border-radius:8px;padding:8px 10px}.sd-header{font-size:11px;font-weight:700;color:var(--muted);margin-bottom:6px}.supply-demand-block .sd-title{font-size:10px;color:var(--muted);font-weight:600;margin-bottom:4px}.supply-demand-block .sd-item{display:flex;justify-content:space-between;padding:2px 0;font-size:11px}.supply-demand-block .sd-name{color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100px}.supply-demand-block .sd-amt{font-weight:700;font-size:10px;white-space:nowrap}.supply-demand-block .sd-amt.buy{color:var(--red)}.supply-demand-block .sd-amt.sell{color:#4c8fe0}
 .themes-list{display:flex;flex-direction:column;margin-bottom:28px;border:1px solid #1a1a1a;border-radius:10px;overflow:hidden}
 .theme-row{display:flex;align-items:flex-start;gap:14px;padding:10px 14px;border-bottom:1px solid #141414;border-left:3px solid #1a1a1a}
 .theme-row:last-child{border-bottom:none}
@@ -270,7 +270,27 @@ a.stock-tag:hover{color:var(--accent);border-color:#444}
       }
    }
 
-    // Themes section
+    
+    if (d.supply_demand) {
+      var sd = d.supply_demand;
+      function renderSDBlock(title, items) {
+        var h = '<div class="supply-demand-block"><div class="sd-title">' + title + '</div>';
+        (items||[]).forEach(function(it) {
+          var n = parseInt(it.amt||'0');
+          h += '<div class="sd-item"><span class="sd-name">' + it.rank + '. ' + it.name + '</span><span class="sd-amt ' + (n>=0?'buy':'sell') + '">' + (n>=0?'+':'') + it.amt + '억</span></div>';
+        });
+        return h + '</div>';
+      }
+      var sdHtml = '<div class="sd-header">외인·기관 수급</div>';
+      sdHtml += '<div class="supply-demand">';
+      sdHtml += renderSDBlock('외인 순매수', sd.foreign_buy);
+      sdHtml += renderSDBlock('기관 순매수', sd.institution_buy);
+      sdHtml += renderSDBlock('외인 순매도', sd.foreign_sell);
+      sdHtml += renderSDBlock('기관 순매도', sd.institution_sell);
+      sdHtml += '</div>';
+      html += sdHtml;
+    }
+// Themes section
     if (d.themes && d.themes.length) {
       let themesHeader;
       if (isSaturday) themesHeader = '📋 주간 섹터 이슈 & 다음 주 주목 포인트';
