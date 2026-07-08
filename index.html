@@ -6,13 +6,13 @@
 <meta name="naver-site-verification" content="b7206b63777faac34e0ee12c6dba74ae9ca18c40">
 <meta name="google-adsense-account" content="ca-pub-2869718539906266">
 <meta property="og:type" content="website">
-<meta property="og:title" content="ë°ì¼ë¦¬ ê¹¡ë¤ê³  â ì¥ì /ì¥ë§ê° ë¸ë¦¬í">
-<meta property="og:description" content="AIê° ë§¤ì¼ ë¶ìíë íêµ­ ì£¼ììì¥ ë¸ë¦¬í. ê¹¡ë¤êµ¬ ìê².">
+<meta property="og:title" content="데일리 깡다고 – 장전/장마감 브리핑">
+<meta property="og:description" content="AI가 매일 분석하는 한국 주식시장 브리핑. 깡다구 있게.">
 <meta property="og:image" content="https://www.kkangdago.com/preview/latest.png">
 <meta property="og:url" content="https://www.kkangdago.com">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://www.kkangdago.com/preview/latest.png">
-<title>ë°ì¼ë¦¬ ê¹¡ë¤ê³  â ë¸ë¦¬í</title>
+<title>데일리 깡다고 – 브리핑</title>
 <style>
 :root{--bg:#000;--surface:#0e0e0e;--surface2:#181818;--accent:#00d4b8;--green:#22c55e;--red:#ef4444;--yellow:#f59e0b;--text:#e2e8f0;--muted:#6a8888;--hot:#ef4444;--warm:#f59e0b;--mild:#22c55e;--cold:#60a5fa}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -153,7 +153,7 @@ a.stock-tag:hover{color:var(--accent);border-color:#444}
 </div>
 
 <div class="main" id="mainContent">
-  <div class="loading"><div class="spinner"></div>ë¸ë¦¬í ë¶ë¬ì¤ë ì¤â¦</div>
+  <div class="loading"><div class="spinner"></div>브리핑 불러오는 중…</div>
 </div>
 
 <script>
@@ -182,10 +182,10 @@ a.stock-tag:hover{color:var(--accent);border-color:#444}
   }
 
   function tagLabel(level) {
-    if (level === 'hot') return 'ð¥ HOT';
-    if (level === 'warm') return 'â¡ WARM';
-    if (level === 'mild') return 'ð¿ MILD';
-    return 'ð§ COLD';
+    if (level === 'hot') return '🔥 HOT';
+    if (level === 'warm') return '⚡ WARM';
+    if (level === 'mild') return '🌿 MILD';
+    return '🧊 COLD';
   }
 
   function getDayType(briefDate) {
@@ -207,15 +207,15 @@ a.stock-tag:hover{color:var(--accent);border-color:#444}
     // Session label
     let sessionLabel, sessionClass;
     if (isWeekend) {
-      sessionLabel = isSaturday ? 'ð ì£¼ê° ë¸ë¦¬í' : 'ð ì£¼ê° íë¦¬ë·°';
+      sessionLabel = isSaturday ? '📊 주간 브리핑' : '📋 주간 프리뷰';
       sessionClass = 'weekend';
     } else {
-      const SL={premarket:'ð ì¥ì  ë¸ë¦¬í',open:'ð ì¥ì´ë° ë¸ë¦¬í',afternoon:'âï¸ ì¥íë° ë¸ë¦¬í',close:'ð ì¥ë§ê° ë¸ë¦¬í'};
-      sessionLabel=SL[d.session]||'ð ë¸ë¦¬í';
+      const SL={premarket:'📈 장전 브리핑',open:'🔔 장초반 브리핑',afternoon:'☀️ 장후반 브리핑',close:'🌆 장마감 브리핑'};
+      sessionLabel=SL[d.session]||'📋 브리핑';
       sessionClass = d.session;
     }
 
-    const dateKr = d.brief_date ? d.brief_date.replace(/(\d{4})-(\d{2})-(\d{2})/, '$1ë $2ì $3ì¼') : '';
+    const dateKr = d.brief_date ? d.brief_date.replace(/(\d{4})-(\d{2})-(\d{2})/, '$1년 $2월 $3일') : '';
 
     const dateBadge = document.getElementById('dateBadge');
     dateBadge.textContent = dateKr;
@@ -234,35 +234,35 @@ a.stock-tag:hover{color:var(--accent);border-color:#444}
 
     // Summary card
     let summaryTitle;
-    if (isSaturday) summaryTitle = 'ì´ë² ì£¼ ìì¥ ê²°ì°';
-    else if (isSunday) summaryTitle = 'ë¤ì ì£¼ ìì¥ ì ë§';
-    else summaryTitle = (d.session==='close'||d.session==='afternoon') ? 'ì¤ëì ìì¥ ê²°ì°' : 'ì¤ëì ìì¥ ì ë§';
-    html += `<div class="summary-card"><h2>ð ${summaryTitle}</h2><p>${(d.summary||'').replace(/\n/g,'<br>')}</p></div>`;
+    if (isSaturday) summaryTitle = '이번 주 시장 결산';
+    else if (isSunday) summaryTitle = '다음 주 시장 전망';
+    else summaryTitle = (d.session==='close'||d.session==='afternoon') ? '오늘의 시장 결산' : '오늘의 시장 전망';
+    html += `<div class="summary-card"><h2>📊 ${summaryTitle}</h2><p>${(d.summary||'').replace(/\n/g,'<br>')}</p></div>`;
 
     // US market section (weekday premarket + saturday)
     if (d.us_market && (dayType === 'weekday' || isSaturday)) {
       const us = d.us_market;
-      const usLabel = isSaturday ? 'ë¯¸êµ­ ì¦ì ë§ê° (ê¸ìì¼ ' + (us.date||'') + ')' : 'ë¯¸êµ­ ì¦ì ë§ê° (' + (us.date||'') + ')';
-      html += `<div class="section-header">ð ${usLabel}</div>`;
+      const usLabel = isSaturday ? '미국 증시 마감 (금요일 ' + (us.date||'') + ')' : '미국 증시 마감 (' + (us.date||'') + ')';
+      html += `<div class="section-header">🌃 ${usLabel}</div>`;
       html += `<div class="us-card">`;
       if (us.indices && us.indices.length) html += `<div class="us-indices">` + us.indices.map(i => `<div class="us-index"><div class="name">${i.name}</div><div class="val ${changeClass(i.change)}">${i.change||''}</div></div>`).join('') + `</div>`;
-      if (us.sectors && us.sectors.length) html += `<div class="us-sectors">` + us.sectors.map(s => `<div class="us-sector ${s.direction==='up'?'up':'down'}"><span class="arrow">${s.direction==='up'?'â²':'â¼'}</span>${s.name}<span style="color:var(--muted);font-size:11px;margin-left:4px">${s.reason||''}</span></div>`).join('') + `</div>`;
+      if (us.sectors && us.sectors.length) html += `<div class="us-sectors">` + us.sectors.map(s => `<div class="us-sector ${s.direction==='up'?'up':'down'}"><span class="arrow">${s.direction==='up'?'▲':'▼'}</span>${s.name}<span style="color:var(--muted);font-size:11px;margin-left:4px">${s.reason||''}</span></div>`).join('') + `</div>`;
       if (us.stocks && us.stocks.length) html += `<div class="us-stocks">` + us.stocks.map(s => `<div class="us-stock"><span style="font-weight:700">${s.name}</span> <span class="change ${changeClass(s.change)}">${s.change||''}</span> <span style="color:var(--muted);font-size:11px">${s.reason||''}</span></div>`).join('') + `</div>`;
-      if (us.kr_links && us.kr_links.length) html += `<div class="kr-links">` + us.kr_links.map(l => `<div class="kr-link-item"><strong>${l.sector}</strong> â ${l.desc}</div>`).join('') + `</div>`;
+      if (us.kr_links && us.kr_links.length) html += `<div class="kr-links">` + us.kr_links.map(l => `<div class="kr-link-item"><strong>${l.sector}</strong> — ${l.desc}</div>`).join('') + `</div>`;
       html += `</div>`;
     }
 
     // Themes section
     if (d.themes && d.themes.length) {
       let themesHeader;
-      if (isSaturday) themesHeader = 'ð ì£¼ê° ì¹í° ì´ì & ë¤ì ì£¼ ì£¼ëª© í¬ì¸í¸';
-      else if (isSunday) themesHeader = 'ð ë¤ì ì£¼ ì£¼ëª© ì´ì';
-      else themesHeader = `ð¥ ì¹í°ë³ ì ë§ (${d.themes.length}ê°)`;
+      if (isSaturday) themesHeader = '📋 주간 섹터 이슈 & 다음 주 주목 포인트';
+      else if (isSunday) themesHeader = '📋 다음 주 주목 이슈';
+      else themesHeader = `🔥 섹터별 전망 (${d.themes.length}개)`;
       html += `<div class="section-header">${themesHeader}</div>`;
       const levelOrder = {hot:0, warm:1, mild:2, cold:3};
       const sorted = [...d.themes].sort((a,b) => (levelOrder[a.level]??99) - (levelOrder[b.level]??99));
 
-      const TICKERS={'ì¼ì±ì ì':'005930','SKíì´ëì¤':'000660','LGìëì§ìë£¨ì':'373220','ì¼ì±ë°ì´ì¤ë¡ì§ì¤':'207940','íëì°¨':'005380','ê¸°ì':'000270','NAVER':'035420','ë¤ì´ë²':'035420','ì¹´ì¹´ì¤':'035720','ìí¸ë¦¬ì¨':'068270','POSCOíë©ì¤':'005490','í¬ì¤ì½íë©ì¤':'005490','KBê¸ìµ':'105560','ì¼ì±ë¬¼ì°':'028260','íëëª¨ë¹ì¤':'012330','ì íì§ì£¼':'055550','ì¼ì±ìëª':'032830','SKíë ì½¤':'017670','íëê¸ìµì§ì£¼':'086790','ì¹´ì¹´ì¤ë±í¬':'323410','ì¼ì±SDI':'006400','ì°ë¦¬ê¸ìµì§ì£¼':'316140','KT&G':'033780','LGíí':'051910','LGì ì':'066570','íêµ­ì ë ¥':'015760','SKì´ë¸ë² ì´ì':'096770','íëê±´ì¤':'000720','ì¼ì±íì¬':'000810','ëíí­ê³µ':'003490','KT':'030200','GS':'078930','ìì½íë¡ë¹ì ':'247540','ìì½íë¡':'086520','í¬ì¤ì½í¨ì²ì ':'003670','ìì¤ìí':'066970','DBíì´í':'000990','ìë¸ë ì¸':'357780','íë¯¸ë°ëì²´':'042700','HPSP':'403870','ììµIPS':'240810','ì´ì¤íí¬ëì¤':'039030','íí¬ìì¤íì¤':'140860','ì¬í':'222800','ííìì´ë¡ì¤íì´ì¤':'012450','íëë¡í':'064350','LIGë¥ì¤ì':'079550','ííìì¤í':'272210','HDíêµ­ì¡°ì í´ì':'009540','HDíëì¤ê³µì':'329180','ì¼ì±ì¤ê³µì':'010140','ííì¤ì':'042660','ìíì¤ì  ':'196170','HLB':'028300','íë¯¸ì½í':'128940','ì íìí':'000100','ìí¸ë¦¬ì¨í¬ì¤ì¼ì´':'091990','í´ì ¤':'145020','í´ëìì¤':'214150','íë§ë¦¬ìì¹':'214450','ë©ëí¡ì¤':'086900','ë¦¬ê°ì¼ë°ì´ì¤':'141080','í¬ëíí¤':'259960','íì´ë¹ì¤':'263750','ìì¨ìíí¸':'036570','ì¹´ì¹´ì¤ê²ìì¦':'293490','ë·ë§ë¸':'251270','SKì¤íì´':'402340','ì¹´ì¹´ì¤íì´':'377300','íì´ë¸':'352820','SM':'041510','JYP Ent.':'035900','JYPìí°íì¸ë¨¼í¸':'035900','YGìí°íì¸ë¨¼í¸':'122870','HDíëì¼ë í¸ë¦­':'267260','LSì¼ë í¸ë¦­':'010120','í¨ì±ì¤ê³µì':'298040','ëì°ë¡ë³´í±ì¤':'454910','ë ì¸ë³´ì°ë¡ë³´í±ì¤':'277810','GSê±´ì¤':'006360','ëì°ê±´ì¤':'047040','ì¼ì±ìì§ëì´ë§':'028050','íëì ì² ':'004020','ê³ ë ¤ìì°':'010130','íì°':'103140','ì´ë§í¸':'139480','BGFë¦¬íì¼':'282330','íëë°±íì ':'069960','ì ì¸ê³':'004170','CJì ì¼ì ë¹':'097950','ì¤ë¦¬ì¨':'271560','ëì¬':'004370','ì¼ììí':'003230','íì´í¸ì§ë¡':'000080','SK':'034730','LG':'003550','ëì°ìëë¹ë¦¬í°':'034020','ë©ë¦¬ì¸ ê¸ìµì§ì£¼':'138040','í¤ìì¦ê¶':'039490','ë¯¸ëììì¦ê¶':'006800','NHí¬ìì¦ê¶':'005940','ì¼ì±ì¦ê¶':'016360','ìììëí­ê³µ':'020560','ì§ìì´':'272450','ì ì£¼í­ê³µ':'089590','HDíë':'267250','íêµ­í­ê³µì°ì£¼':'047810','S-Oil':'010950','Sì¤ì¼':'010950','ë¡¯ë°ì¼ë¯¸ì¹¼':'011170','ê¸í¸ìì íí':'011780','íëê¸ë¡ë¹ì¤':'086280'};
+      const TICKERS={'삼성전자':'005930','SK하이닉스':'000660','LG에너지솔루션':'373220','삼성바이오로직스':'207940','현대차':'005380','기아':'000270','NAVER':'035420','네이버':'035420','카카오':'035720','셀트리온':'068270','POSCO홀딩스':'005490','포스코홀딩스':'005490','KB금융':'105560','삼성물산':'028260','현대모비스':'012330','신한지주':'055550','삼성생명':'032830','SK텔레콤':'017670','하나금융지주':'086790','카카오뱅크':'323410','삼성SDI':'006400','우리금융지주':'316140','KT&G':'033780','LG화학':'051910','LG전자':'066570','한국전력':'015760','SK이노베이션':'096770','현대건설':'000720','삼성화재':'000810','대한항공':'003490','KT':'030200','GS':'078930','에코프로비엠':'247540','에코프로':'086520','포스코퓨처엠':'003670','엘앤에프':'066970','DB하이텍':'000990','솔브레인':'357780','한미반도체':'042700','HPSP':'403870','원익IPS':'240810','이오테크닉스':'039030','파크시스템스':'140860','심텍':'222800','한화에어로스페이스':'012450','현대로템':'064350','LIG넥스원':'079550','한화시스템':'272210','HD한국조선해양':'009540','HD현대중공업':'329180','삼성중공업':'010140','한화오션':'042660','알테오젠':'196170','HLB':'028300','한미약품':'128940','유한양행':'000100','셀트리온헬스케어':'091990','휴젤':'145020','클래시스':'214150','파마리서치':'214450','메디톡스':'086900','리가켐바이오':'141080','크래프톤':'259960','펄어비스':'263750','엔씨소프트':'036570','카카오게임즈':'293490','넷마블':'251270','SK스퀘어':'402340','카카오페이':'377300','하이브':'352820','SM':'041510','JYP Ent.':'035900','JYP엔터테인먼트':'035900','YG엔터테인먼트':'122870','HD현대일렉트릭':'267260','LS일렉트릭':'010120','효성중공업':'298040','두산로보틱스':'454910','레인보우로보틱스':'277810','GS건설':'006360','대우건설':'047040','삼성엔지니어링':'028050','현대제철':'004020','고려아연':'010130','풍산':'103140','이마트':'139480','BGF리테일':'282330','현대백화점':'069960','신세계':'004170','CJ제일제당':'097950','오리온':'271560','농심':'004370','삼양식품':'003230','하이트진로':'000080','SK':'034730','LG':'003550','두산에너빌리티':'034020','메리츠금융지주':'138040','키움증권':'039490','미래에셋증권':'006800','NH투자증권':'005940','삼성증권':'016360','아시아나항공':'020560','진에어':'272450','제주항공':'089590','HD현대':'267250','한국항공우주':'047810','S-Oil':'010950','S오일':'010950','롯데케미칼':'011170','금호석유화학':'011780','현대글로비스':'086280'};
       const stockUrl=s=>TICKERS[s]?`https://finance.naver.com/item/main.naver?code=${TICKERS[s]}`:`https://finance.naver.com/search/searchResult.nhn?query=${encodeURIComponent(s)}`;
       const renderRow = t => { const [nm,sb]=(t.name||'').split('('); const sub=sb?sb.replace(')','').trim():''; return `<div class="theme-row ${t.level||'mild'}"><div class="theme-row-left"><span class="theme-row-name">${nm.trim()}</span>${sub?`<span class="theme-row-sub">${sub}</span>`:''}<span class="theme-tag">${tagLabel(t.level)}</span></div><div class="theme-row-right"><div class="theme-row-reason">${t.reason||''}</div><div class="theme-row-stocks">${(t.stocks||[]).map(s=>`<a href="${stockUrl(s)}" target="_blank" rel="noopener" class="stock-tag">${s}</a>`).join('')}</div></div></div>`; };
 
@@ -275,21 +275,21 @@ a.stock-tag:hover{color:var(--accent);border-color:#444}
       html += `<div class="themes-list">` + mainCards.map(renderRow).join('') + coldThemes.map(renderRow).join('') + `</div>`;
 
       if (moreCards.length) {
-        html += `<button class="themes-more-btn" onclick="this.style.display='none';document.getElementById('themes-more').style.display='flex'">+ ë ë³´ê¸° (${moreCards.length}ê° ë)</button>`;
+        html += `<button class="themes-more-btn" onclick="this.style.display='none';document.getElementById('themes-more').style.display='flex'">+ 더 보기 (${moreCards.length}개 더)</button>`;
         html += `<div class="themes-list" id="themes-more" style="display:none">` + moreCards.map(renderRow).join('') + `</div>`;
       }
     }
 
     // News
     if (d.news && d.news.length) {
-      const newsHeader = isWeekend ? 'ð° ì£¼ê° ì£¼ì ë´ì¤' : 'ð° ì£¼ì ë´ì¤';
+      const newsHeader = isWeekend ? '📰 주간 주요 뉴스' : '📰 주요 뉴스';
       html += `<div class="section-header">${newsHeader}</div>`;
       html += `<div class="news-list">` + d.news.map((n, i) =>
         `<div class="news-item">
           <div class="news-num">${i+1}</div>
           <div class="news-body">
             <div class="news-title">${n.link ? `<a href="${n.link}" target="_blank" rel="noopener">${n.title||''}</a>` : (n.title||'')}</div>
-            <div class="news-meta"><span class="news-tag">${n.tag||'ë´ì¤'}</span><span class="news-time">${n.time||''}</span></div>
+            <div class="news-meta"><span class="news-tag">${n.tag||'뉴스'}</span><span class="news-time">${n.time||''}</span></div>
           </div>
         </div>`
       ).join('') + `</div>`;
@@ -297,16 +297,16 @@ a.stock-tag:hover{color:var(--accent);border-color:#444}
 
     // Outlook + risks
     if (d.outlook || (d.risks && d.risks.length)) {
-      const outlookHeader = isWeekend ? 'ð­ ë¤ì ì£¼ ì£¼ì ê´ì¬ ì¬í­' : 'ð­ ì ë§ ë° ë¦¬ì¤í¬';
+      const outlookHeader = isWeekend ? '🔭 다음 주 주요 관심 사항' : '🔭 전망 및 리스크';
       html += `<div class="section-header">${outlookHeader}</div>`;
       html += `<div class="outlook-card">`;
       if (d.outlook) html += `<div class="outlook-text">${d.outlook.replace(/\n/g,'<br>')}</div>`;
-      if (d.risks && d.risks.length) html += `<div class="risks">` + d.risks.map(r=>`<span class="risk-item">â  ${r}</span>`).join('') + `</div>`;
+      if (d.risks && d.risks.length) html += `<div class="risks">` + d.risks.map(r=>`<span class="risk-item">⚠ ${r}</span>`).join('') + `</div>`;
       html += `</div>`;
     }
 
-    html += `<div class="disclaimer">â ï¸ ì´ ë¸ë¦¬íì Naver ë´ì¤ë¥¼ ê¸°ë°ì¼ë¡ AIê° ìë ìì±í ì°¸ê³  ìë£ìëë¤. í¬ì ê¶ì ê° ìëë©°, ìµì¢ í¬ì íë¨ì ë³¸ì¸ìê² ììµëë¤. ì£¼ì í¬ììë ìê¸ ìì¤ ìíì´ ììµëë¤.</div>`;
-    html += `<div class="footer">kkangdago.com Â· AI ìë ìì± Â· í¬ìë ë³¸ì¸ ì±ì</div>`;
+    html += `<div class="disclaimer">⚠️ 이 브리핑은 Naver 뉴스를 기반으로 AI가 자동 생성한 참고 자료입니다. 투자 권유가 아니며, 최종 투자 판단은 본인에게 있습니다. 주식 투자에는 원금 손실 위험이 있습니다.</div>`;
+    html += `<div class="footer">kkangdago.com · AI 자동 생성 · 투자는 본인 책임</div>`;
     _cSel = d.brief_date;
     main.innerHTML = html;
   }
@@ -317,11 +317,11 @@ a.stock-tag:hover{color:var(--accent);border-color:#444}
     const popup = document.getElementById('calPopup');
     if (!popup) return;
     const y = _calY, m = _calM;
-    const mn = ['1ì','2ì','3ì','4ì','5ì','6ì','7ì','8ì','9ì','10ì','11ì','12ì'];
-    const dn = ['ì¼','ì','í','ì','ëª©','ê¸','í '];
+    const mn = ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'];
+    const dn = ['일','월','화','수','목','금','토'];
     const first = new Date(y,m,1), last = new Date(y,m+1,0), sdow = first.getDay();
     const todayStr = new Date().toLocaleDateString('sv-SE',{timeZone:'Asia/Seoul'});
-    let ch = '<div class="cal-hdr"><button class="cal-nav" id="calPrev">&#8249;</button><span>'+y+'ë '+mn[m]+'</span><button class="cal-nav" id="calNext">&#8250;</button></div><div class="cal-grid">';
+    let ch = '<div class="cal-hdr"><button class="cal-nav" id="calPrev">&#8249;</button><span>'+y+'년 '+mn[m]+'</span><button class="cal-nav" id="calNext">&#8250;</button></div><div class="cal-grid">';
     ch += dn.map((d,i)=>'<div class="cal-dow" style="'+(i===0?'color:#ef4444':i===6?'color:#60a5fa':'')+'">'+d+'</div>').join('');
     for(let i=0;i<sdow;i++) ch+='<div></div>';
     for(let d=1;d<=last.getDate();d++){
@@ -332,7 +332,7 @@ a.stock-tag:hover{color:var(--accent);border-color:#444}
     }
     ch+='</div>';
     if(_cSel&&_availDates[_cSel]){
-      const SL={premarket:'ð ì¥ì  08:10',open:'ð ì¥ì´ë° 10:00',afternoon:'âï¸ ì¥íë° 14:00',close:'ð ì¥ë§ê° 15:30',aftermarket:'ð ì¥ë§ê° 15:30'};
+      const SL={premarket:'📈 장전 08:10',open:'🔔 장초반 10:00',afternoon:'☀️ 장후반 14:00',close:'🌆 장마감 15:30',aftermarket:'🌆 장마감 15:30'};
       const SO={premarket:0,open:1,afternoon:2,close:3,aftermarket:3};
       const sess=[..._availDates[_cSel]].sort((a,b)=>(SO[a.session]||0)-(SO[b.session]||0));
       ch+='<div class="cal-sessions">'+sess.map(r=>'<button class="cal-session-btn" data-s="'+r.session+'">'+(SL[r.session]||r.session)+'</button>').join('')+'</div>';
@@ -372,7 +372,7 @@ a.stock-tag:hover{color:var(--accent);border-color:#444}
     const r = await fetch(url, { headers: hdr });
     const rows = await r.json();
     if (!rows || !rows.length) {
-      main.innerHTML = '<div class="error-box">ìì§ ë¸ë¦¬í ë°ì´í°ê° ììµëë¤.<br>ë¤ì ë¸ë¦¬í ìì± í ë¤ì íì¸í´ì£¼ì¸ì.</div>';
+      main.innerHTML = '<div class="error-box">아직 브리핑 데이터가 없습니다.<br>다음 브리핑 생성 후 다시 확인해주세요.</div>';
     } else {
       if (date) {
         render(rows[0]);
@@ -384,7 +384,7 @@ a.stock-tag:hover{color:var(--accent);border-color:#444}
       }
     }
   } catch(e) {
-    main.innerHTML = `<div class="error-box">ë°ì´í°ë¥¼ ë¶ë¬ì¤ì§ ëª»íìµëë¤.<br><small>${e.message}</small></div>`;
+    main.innerHTML = `<div class="error-box">데이터를 불러오지 못했습니다.<br><small>${e.message}</small></div>`;
   }
   loadHistory();
 })();
