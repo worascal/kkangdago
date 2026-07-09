@@ -273,9 +273,9 @@ a.stock-tag:hover{color:var(--accent);border-color:#444}
     
     if (d.supply_demand && d.supply_demand.both_buy) {
     var sd = d.supply_demand;
-    var bbHtml = '<div class="sd-header">ì¸ì¸Â·ê¸°ê´ ëì ìë§¤ì (ì ì¼)</div><div class="both-buy-block">';
+    var bbHtml = '<div class="sd-header">외인·기관 동시 순매수 (전일)</div><div class="both-buy-block">';
     (sd.both_buy || []).forEach(function(it) {
-      bbHtml += '<div class="both-buy-item"><span class="both-buy-name">' + it.rank + '. ' + it.name + '</span><span class="both-buy-amts"><span class="fa">ì¸ +' + it.foreign_amt + 'ìµ</span><span class="ia">ê¸° +' + it.inst_amt + 'ìµ</span></span></div>';
+      bbHtml += '<div class="both-buy-item"><span class="both-buy-name">' + it.rank + '. ' + it.name + '</span><span class="both-buy-amts"><span class="fa">외 +' + it.foreign_amt + '억</span><span class="ia">기 +' + it.inst_amt + '억</span></span></div>';
     });
     bbHtml += '</div>';
     html += bbHtml;
