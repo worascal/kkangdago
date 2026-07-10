@@ -76,7 +76,7 @@ a{color:inherit;text-decoration:none}
 .us-macro-item .mc{font-size:11px}
 .us-macro-item .mc.up{color:var(--green)}
 .us-macro-item .mc.down{color:var(--red)}
-.us-macro-item .mc.flat{color:var(--muted)}.both-buy-block{background:var(--surface2);border-radius:8px;padding:8px 10px;margin-bottom:12px}.sd-header{font-size:11px;font-weight:700;color:var(--muted);margin-bottom:6px}.both-buy-item{display:flex;align-items:center;justify-content:space-between;padding:3px 0;font-size:11px;border-bottom:1px solid rgba(255,255,255,0.05)}.both-buy-item:last-child{border-bottom:none}.both-buy-name{color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100px}.both-buy-amts{display:flex;gap:8px;font-size:10px;font-weight:700}.both-buy-amts .fa{color:var(--red)}.both-buy-amts .ia{color:#e0a030}
+.us-macro-item .mc.flat{color:var(--muted)}.both-buy-block{background:var(--surface2);border-radius:8px;padding:8px 10px;margin-bottom:12px}.sd-header{font-size:11px;font-weight:700;color:var(--muted);margin-bottom:6px}.both-buy-item{display:flex;align-items:center;justify-content:space-between;padding:3px 0;font-size:11px;border-bottom:1px solid rgba(255,255,255,0.05)}.both-buy-item:last-child{border-bottom:none}.both-buy-name{color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100px}.both-buy-amts{display:flex;gap:8px;font-size:10px;font-weight:700}.both-buy-amts .fa{color:var(--red)}.both-buy-amts .ia{color:#e0a030}.news-spikes-block{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}.spike-tag{display:inline-flex;align-items:center;gap:3px;padding:3px 9px;border-radius:12px;font-size:12px;font-weight:600;background:rgba(255,255,255,0.06);color:#888;border:1px solid rgba(255,255,255,0.10)}.spike-tag.hot{background:rgba(255,123,57,0.15);color:#ff7b39;border-color:rgba(255,123,57,0.40)}.spike-tag .ratio{font-size:11px;opacity:0.80}
 .themes-list{display:flex;flex-direction:column;margin-bottom:28px;border:1px solid #1a1a1a;border-radius:10px;overflow:hidden}
 .theme-row{display:flex;align-items:flex-start;gap:14px;padding:10px 14px;border-bottom:1px solid #141414;border-left:3px solid #1a1a1a}
 .theme-row:last-child{border-bottom:none}
@@ -281,6 +281,17 @@ a.stock-tag:hover{color:var(--accent);border-color:#444}
     html += bbHtml;
   }
 // Themes section
+    if (d.news_spikes && d.news_spikes.sectors && d.news_spikes.sectors.length) {
+      var ns = d.news_spikes;
+      var nsHtml = '<div class="sd-header">📰 뉴스 급등 감지 (야간)</div><div class="news-spikes-block">';
+      (ns.sectors || []).forEach(function(s) {
+        var ratio = Math.round(s.ratio * 10) / 10;
+        var rStr = ratio >= 10 ? '' + Math.round(ratio) : ratio.toFixed(1);
+        nsHtml += '<span class="spike-tag' + (s.spike ? ' hot' : '') + '">' + (s.spike ? '🔥 ' : '') + s.name + ' <span class="ratio">×' + rStr + '</span></span>';
+      });
+      nsHtml += '</div>';
+      html += nsHtml;
+    }
     if (d.themes && d.themes.length) {
       let themesHeader;
       if (isSaturday) themesHeader = '📋 주간 섹터 이슈 & 다음 주 주목 포인트';
