@@ -41,6 +41,12 @@ a{color:inherit;text-decoration:none}
 .date-pill{background:var(--surface2);border:1px solid #222;border-radius:5px;padding:3px 10px;font-size:12px;color:var(--muted);cursor:pointer;text-decoration:none;transition:all .15s}
 .date-pill:hover{background:#202020;color:var(--text)}
 .date-pill.active{background:var(--accent);border-color:var(--accent);color:#000;font-weight:600}
+.session-nav{margin-top:8px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;padding-left:2px}
+.session-nav-label{font-size:10px;color:#333;white-space:nowrap}
+.session-pills{display:flex;gap:4px;flex-wrap:wrap}
+.session-pill{background:var(--surface2);border:1px solid #222;border-radius:4px;padding:2px 9px;font-size:11px;color:var(--muted);cursor:pointer;text-decoration:none;transition:all .15s}
+.session-pill:hover{background:#202020;color:var(--text)}
+.session-pill.active{background:#1e3030;border-color:var(--accent);color:var(--accent);font-weight:700}
 .main{max-width:900px;margin:0 auto;padding:20px}
 .summary-card{background:linear-gradient(135deg,#091414,#0e0e0e);border:1px solid #1e3030;border-radius:12px;padding:18px 20px;margin-bottom:24px}
 .summary-card h2{font-size:13px;color:var(--accent);font-weight:700;margin-bottom:8px;letter-spacing:1px}
@@ -163,6 +169,10 @@ a.stock-tag:hover{color:var(--accent);border-color:#444}
     <div class="date-nav">
       <span class="date-nav-label">📅 히스토리</span>
       <div id="dateList" class="date-pills"><span style="font-size:12px;color:#333">로딩 중…</span></div>
+    </div>
+    <div id="sessionNav" class="session-nav" style="display:none">
+      <span class="session-nav-label">세션</span>
+      <div id="sessionList" class="session-pills"></div>
     </div>
   </div>
 </div>
@@ -357,27 +367,58 @@ a.stock-tag:hover{color:var(--accent);border-color:#444}
     main.innerHTML = html;
   }
 
+  const SESSION_LABEL = {premarket:'장전', close:'장마감', '10:00':'10시', '14:00':'14시', morning:'장전', afternoon:'14시'};
+  function sesLabel(s) { return SESSION_LABEL[s] || s; }
+
   async function loadHistory() {
     try {
-      const r = await fetch(`${SB}/rest/v1/briefings?market=eq.KR&select=brief_date,session&order=brief_date.desc&limit=60`, { headers: hdr });
+      const r = await fetch(`${SB}/rest/v1/briefings?market=eq.KR&select=brief_date,session&order=brief_date.desc,session.asc&limit=120`, { headers: hdr });
       const rows = await r.json();
-      const list = document.getElementById('dateList');
-      if (!rows || !rows.length) { list.innerHTML = ''; return; }
-      list.innerHTML = '';
-      const curDate = params.get('date');
-      const curSession = params.get('session');
+      if (!rows || !rows.length) { document.getElementById('dateList').innerHTML = ''; return; }
+
+      // 날짜별로 세션 목록 그룹화
+      const byDate = {};
+      const dateOrder = [];
       rows.forEach(row => {
-        const a = document.createElement('a');
-        const [,m,day] = (row.brief_date||'').split('-');
-        const dt = getDayType(row.brief_date);
-        let suffix = row.session === 'close' ? '🌆' : '';
-        if (dt === 'saturday') suffix = '📊';
-        else if (dt === 'sunday') suffix = '📋';
-        a.textContent = parseInt(m) + '/' + parseInt(day) + suffix;
-        a.href = `/?date=${row.brief_date}&session=${row.session}`;
-        a.className = 'date-pill' + (row.brief_date === curDate && row.session === curSession ? ' active' : '');
-        list.appendChild(a);
+        if (!byDate[row.brief_date]) { byDate[row.brief_date] = []; dateOrder.push(row.brief_date); }
+        if (!byDate[row.brief_date].includes(row.session)) byDate[row.brief_date].push(row.session);
       });
+
+      const curDate = params.get('date') || dateOrder[0];
+      const curSession = params.get('session') || (byDate[curDate] && byDate[curDate][0]) || 'premarket';
+
+      // 날짜 pills (중복 없이)
+      const dateList = document.getElementById('dateList');
+      dateList.innerHTML = '';
+      dateOrder.forEach(date => {
+        const a = document.createElement('a');
+        const [,m,day] = date.split('-');
+        const dt = getDayType(date);
+        const suffix = dt === 'saturday' ? '📊' : dt === 'sunday' ? '📋' : '';
+        a.textContent = parseInt(m) + '/' + parseInt(day) + suffix;
+        a.className = 'date-pill' + (date === curDate ? ' active' : '');
+        const firstSes = byDate[date][0];
+        a.href = `/?date=${date}&session=${firstSes}`;
+        dateList.appendChild(a);
+      });
+
+      // 세션 pills (선택된 날짜의 세션만)
+      const sesNav = document.getElementById('sessionNav');
+      const sesList = document.getElementById('sessionList');
+      const dateSessions = byDate[curDate] || [];
+      if (dateSessions.length > 1) {
+        sesNav.style.display = 'flex';
+        sesList.innerHTML = '';
+        dateSessions.forEach(ses => {
+          const a = document.createElement('a');
+          a.textContent = sesLabel(ses);
+          a.href = `/?date=${curDate}&session=${ses}`;
+          a.className = 'session-pill' + (ses === curSession ? ' active' : '');
+          sesList.appendChild(a);
+        });
+      } else {
+        sesNav.style.display = 'none';
+      }
     } catch(e) { document.getElementById('dateList').innerHTML = ''; }
   }
 
