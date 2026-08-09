@@ -26,8 +26,10 @@ a{color:inherit;text-decoration:none}
 .date-badge{background:var(--accent);color:#000;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;display:inline-block;margin-left:10px}
 .session-badge{font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;display:inline-block;margin-left:6px}
 .session-badge.premarket{background:rgba(0,212,184,0.15);color:var(--accent);border:1px solid rgba(0,212,184,0.3)}
-.session-badge.close{background:rgba(245,158,11,0.15);color:var(--yellow);border:1px solid rgba(245,158,11,0.3)}
+.session-badge.close,.session-badge.aftermarket{background:rgba(245,158,11,0.15);color:var(--yellow);border:1px solid rgba(245,158,11,0.3)}
 .session-badge.weekend{background:rgba(168,85,247,0.15);color:#c084fc;border:1px solid rgba(168,85,247,0.3)}
+.session-badge.open{background:rgba(59,130,246,0.15);color:#60a5fa;border:1px solid rgba(59,130,246,0.3)}
+.session-badge.afternoon{background:rgba(251,146,60,0.15);color:#fb923c;border:1px solid rgba(251,146,60,0.3)}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
 .chip{background:var(--surface2);border:1px solid #222;border-radius:6px;padding:4px 12px;font-size:12px;color:var(--muted);display:flex;align-items:center;gap:5px}
 .chip .dot{width:7px;height:7px;border-radius:50%}
@@ -35,18 +37,23 @@ a{color:inherit;text-decoration:none}
 .chip.red .dot{background:var(--red)}
 .chip.yellow .dot{background:var(--yellow)}
 .chip.blue .dot{background:var(--accent)}
-.date-nav{margin-top:14px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;border-top:1px solid #1a1a1a;padding-top:12px}
-.date-nav-label{font-size:11px;color:var(--muted);white-space:nowrap}
-.date-pills{display:flex;gap:5px;flex-wrap:wrap}
-.date-pill{background:var(--surface2);border:1px solid #222;border-radius:5px;padding:3px 10px;font-size:12px;color:var(--muted);cursor:pointer;text-decoration:none;transition:all .15s}
-.date-pill:hover{background:#202020;color:var(--text)}
-.date-pill.active{background:var(--accent);border-color:var(--accent);color:#000;font-weight:600}
-.session-nav{margin-top:8px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;padding-left:2px}
-.session-nav-label{font-size:10px;color:#333;white-space:nowrap}
-.session-pills{display:flex;gap:4px;flex-wrap:wrap}
-.session-pill{background:var(--surface2);border:1px solid #222;border-radius:4px;padding:2px 9px;font-size:11px;color:var(--muted);cursor:pointer;text-decoration:none;transition:all .15s}
-.session-pill:hover{background:#202020;color:var(--text)}
-.session-pill.active{background:#1e3030;border-color:var(--accent);color:var(--accent);font-weight:700}
+.date-badge{cursor:pointer;transition:opacity .15s;user-select:none}
+.date-badge:hover{opacity:.8}
+.cal-popup{position:absolute;top:calc(100% + 8px);left:-10px;z-index:200;background:#111;border:1px solid #2a2a2a;border-radius:12px;padding:16px;width:280px;box-shadow:0 8px 32px rgba(0,0,0,.8);display:none}
+.cal-popup.open{display:block}
+.cal-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.cal-hdr>span{font-size:13px;font-weight:700;color:var(--text)}
+.cal-nav{background:none;border:none;color:var(--muted);font-size:20px;cursor:pointer;padding:2px 8px;border-radius:6px;line-height:1}
+.cal-nav:hover{color:var(--text);background:#1a1a1a}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;margin-bottom:4px}
+.cal-dow{text-align:center;font-size:10px;color:var(--muted);padding:4px 0;font-weight:600}
+.cal-day{text-align:center;padding:5px 2px;font-size:12px;border-radius:6px;color:#2a2a2a}
+.cal-day.avail{color:var(--muted);cursor:pointer;background:#1a1a1a}
+.cal-day.avail:hover,.cal-day.active{background:var(--accent);color:#000;font-weight:700}
+.cal-day.today{outline:1px solid #444}
+.cal-sessions{display:flex;gap:4px;flex-wrap:wrap;margin-top:10px;padding-top:10px;border-top:1px solid #1a1a1a}
+.cal-session-btn{font-size:11px;padding:3px 10px;border-radius:5px;background:#1a1a1a;border:1px solid #2a2a2a;color:var(--muted);cursor:pointer}
+.cal-session-btn:hover{color:var(--accent);border-color:var(--accent)}
 .main{max-width:900px;margin:0 auto;padding:20px}
 .summary-card{background:linear-gradient(135deg,#091414,#0e0e0e);border:1px solid #1e3030;border-radius:12px;padding:18px 20px;margin-bottom:24px}
 .summary-card h2{font-size:13px;color:var(--accent);font-weight:700;margin-bottom:8px;letter-spacing:1px}
@@ -160,20 +167,13 @@ a.stock-tag:hover{color:var(--accent);border-color:#444}
 <body>
 <div class="header">
   <div class="header-inner">
-    <div style="display:flex;align-items:center;flex-wrap:wrap;gap:6px">
+    <div style="display:flex;align-items:center;flex-wrap:wrap;gap:6px;position:relative">
       <span class="logo">Daily <span>kkangdago</span></span><span class="kr-badge">KR</span>
-      <span id="dateBadge" class="date-badge" style="display:none"></span>
+      <span id="dateBadge" class="date-badge" style="display:none" onclick="toggleCal(event)"></span>
       <span id="sessionBadge" class="session-badge" style="display:none"></span>
+      <div id="calPopup" class="cal-popup"></div>
     </div>
     <div id="chipsRow" class="chips"></div>
-    <div class="date-nav">
-      <span class="date-nav-label">📅 히스토리</span>
-      <div id="dateList" class="date-pills"><span style="font-size:12px;color:#333">로딩 중…</span></div>
-    </div>
-    <div id="sessionNav" class="session-nav" style="display:none">
-      <span class="session-nav-label">세션</span>
-      <div id="sessionList" class="session-pills"></div>
-    </div>
   </div>
 </div>
 
@@ -235,7 +235,8 @@ a.stock-tag:hover{color:var(--accent);border-color:#444}
       sessionLabel = isSaturday ? '📊 주간 브리핑' : '📋 주간 프리뷰';
       sessionClass = 'weekend';
     } else {
-      sessionLabel = isPremarket ? '📈 장전 브리핑' : '🌆 장마감 브리핑';
+      const SL = {premarket:'📈 장전 브리핑', open:'🔔 장초반 브리핑', afternoon:'☀️ 장후반 브리핑', close:'🌆 장마감 브리핑', aftermarket:'🌆 장마감 브리핑'};
+      sessionLabel = SL[d.session] || '📋 브리핑';
       sessionClass = d.session;
     }
 
@@ -260,7 +261,7 @@ a.stock-tag:hover{color:var(--accent);border-color:#444}
     let summaryTitle;
     if (isSaturday) summaryTitle = '이번 주 시장 결산';
     else if (isSunday) summaryTitle = '다음 주 시장 전망';
-    else summaryTitle = isPremarket ? '오늘의 시장 전망' : '오늘의 시장 결산';
+    else summaryTitle = (d.session==='close'||d.session==='afternoon'||d.session==='aftermarket') ? '오늘의 시장 결산' : '오늘의 시장 전망';
     html += `<div class="summary-card"><h2>📊 ${summaryTitle}</h2><p>${(d.summary||'').replace(/\n/g,'<br>')}</p></div>`;
 
     // US market section (weekday premarket + saturday)
@@ -364,62 +365,57 @@ a.stock-tag:hover{color:var(--accent);border-color:#444}
 
     html += `<div class="disclaimer">⚠️ 이 브리핑은 Naver 뉴스를 기반으로 AI가 자동 생성한 참고 자료입니다. 투자 권유가 아니며, 최종 투자 판단은 본인에게 있습니다. 주식 투자에는 원금 손실 위험이 있습니다.</div>`;
     html += `<div class="footer">kkangdago.com · AI 자동 생성 · 투자는 본인 책임</div>`;
+    _cSel = d.brief_date;
     main.innerHTML = html;
   }
 
-  const SESSION_LABEL = {premarket:'장전', close:'장마감', '10:00':'10시', '14:00':'14시', morning:'장전', afternoon:'14시'};
-  function sesLabel(s) { return SESSION_LABEL[s] || s; }
+  // Calendar state
+  let _availDates = {}, _calY = new Date().getFullYear(), _calM = new Date().getMonth(), _cSel = null;
+  function _buildCal() {
+    const popup = document.getElementById('calPopup');
+    if (!popup) return;
+    const y = _calY, m = _calM;
+    const mn = ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'];
+    const dn = ['일','월','화','수','목','금','토'];
+    const first = new Date(y,m,1), last = new Date(y,m+1,0), sdow = first.getDay();
+    const todayStr = new Date().toLocaleDateString('sv-SE',{timeZone:'Asia/Seoul'});
+    let ch = '<div class="cal-hdr"><button class="cal-nav" id="calPrev">&#8249;</button><span>'+y+'년 '+mn[m]+'</span><button class="cal-nav" id="calNext">&#8250;</button></div><div class="cal-grid">';
+    ch += dn.map((d,i)=>'<div class="cal-dow" style="'+(i===0?'color:#ef4444':i===6?'color:#60a5fa':'')+'">'+d+'</div>').join('');
+    for(let i=0;i<sdow;i++) ch+='<div></div>';
+    for(let d=1;d<=last.getDate();d++){
+      const ds=y+'-'+String(m+1).padStart(2,'0')+'-'+String(d).padStart(2,'0');
+      const av=_availDates[ds];
+      const cls='cal-day'+(av?' avail':'')+(ds===todayStr?' today':'')+(ds===_cSel?' active':'');
+      ch+=av?'<div class="'+cls+'" data-d="'+ds+'">'+d+'</div>':'<div class="'+cls+'">'+d+'</div>';
+    }
+    ch+='</div>';
+    if(_cSel&&_availDates[_cSel]){
+      const SL={premarket:'📈 장전 08:10',open:'🔔 장초반 10:00',afternoon:'☀️ 장후반 14:00',close:'🌆 장마감 16:00',aftermarket:'🌆 장마감 16:00'};
+      const SO={premarket:0,open:1,afternoon:2,close:3,aftermarket:3};
+      const sess=[..._availDates[_cSel]].sort((a,b)=>(SO[a.session]||0)-(SO[b.session]||0));
+      ch+='<div class="cal-sessions">'+sess.map(r=>'<button class="cal-session-btn" data-s="'+r.session+'">'+(SL[r.session]||r.session)+'</button>').join('')+'</div>';
+    }
+    popup.innerHTML = ch;
+    popup.querySelectorAll('.cal-day[data-d]').forEach(el=>{el.onclick=e=>{e.stopPropagation();window._calPick(el.dataset.d);};});
+    const pv=popup.querySelector('#calPrev'); if(pv) pv.onclick=window._calPrev;
+    const nx=popup.querySelector('#calNext'); if(nx) nx.onclick=window._calNext;
+    popup.querySelectorAll('.cal-session-btn').forEach(el=>{el.onclick=()=>{location.href='/?date='+_cSel+'&session='+el.dataset.s;};});
+  }
+  window._calPrev=()=>{if(_calM===0){_calM=11;_calY--;}else{_calM--;}_buildCal();};
+  window._calNext=()=>{if(_calM===11){_calM=0;_calY++;}else{_calM++;}_buildCal();};
+  window._calPick=d=>{_cSel=d;_buildCal();};
+  window.toggleCal=e=>{if(e)e.stopPropagation();const p=document.getElementById('calPopup');if(p){p.classList.toggle('open');if(p.classList.contains('open'))_buildCal();}};
+  document.addEventListener('click',e=>{const p=document.getElementById('calPopup');if(p&&p.classList.contains('open')&&!p.contains(e.target)&&e.target!==document.getElementById('dateBadge'))p.classList.remove('open');});
 
-  async function loadHistory() {
-    try {
-      const r = await fetch(`${SB}/rest/v1/briefings?market=eq.KR&select=brief_date,session&order=brief_date.desc,session.asc&limit=120`, { headers: hdr });
-      const rows = await r.json();
-      if (!rows || !rows.length) { document.getElementById('dateList').innerHTML = ''; return; }
-
-      // 날짜별로 세션 목록 그룹화
-      const byDate = {};
-      const dateOrder = [];
-      rows.forEach(row => {
-        if (!byDate[row.brief_date]) { byDate[row.brief_date] = []; dateOrder.push(row.brief_date); }
-        if (!byDate[row.brief_date].includes(row.session)) byDate[row.brief_date].push(row.session);
-      });
-
-      const curDate = params.get('date') || dateOrder[0];
-      const curSession = params.get('session') || (byDate[curDate] && byDate[curDate][0]) || 'premarket';
-
-      // 날짜 pills (중복 없이)
-      const dateList = document.getElementById('dateList');
-      dateList.innerHTML = '';
-      dateOrder.forEach(date => {
-        const a = document.createElement('a');
-        const [,m,day] = date.split('-');
-        const dt = getDayType(date);
-        const suffix = dt === 'saturday' ? '📊' : dt === 'sunday' ? '📋' : '';
-        a.textContent = parseInt(m) + '/' + parseInt(day) + suffix;
-        a.className = 'date-pill' + (date === curDate ? ' active' : '');
-        const firstSes = byDate[date][0];
-        a.href = `/?date=${date}&session=${firstSes}`;
-        dateList.appendChild(a);
-      });
-
-      // 세션 pills (선택된 날짜의 세션만)
-      const sesNav = document.getElementById('sessionNav');
-      const sesList = document.getElementById('sessionList');
-      const dateSessions = byDate[curDate] || [];
-      if (dateSessions.length > 1) {
-        sesNav.style.display = 'flex';
-        sesList.innerHTML = '';
-        dateSessions.forEach(ses => {
-          const a = document.createElement('a');
-          a.textContent = sesLabel(ses);
-          a.href = `/?date=${curDate}&session=${ses}`;
-          a.className = 'session-pill' + (ses === curSession ? ' active' : '');
-          sesList.appendChild(a);
-        });
-      } else {
-        sesNav.style.display = 'none';
-      }
-    } catch(e) { document.getElementById('dateList').innerHTML = ''; }
+  async function loadHistory(){
+    try{
+      const r=await fetch(`${SB}/rest/v1/briefings?market=eq.KR&select=brief_date,session&order=brief_date.desc&limit=120`,{headers:hdr});
+      const rows=await r.json();
+      if(!rows||!rows.length)return;
+      rows.forEach(row=>{if(!_availDates[row.brief_date])_availDates[row.brief_date]=[];_availDates[row.brief_date].push(row);});
+      const lDate=rows[0].brief_date.split('-').map(Number);
+      _calY=lDate[0];_calM=lDate[1]-1;
+    }catch(e){}
   }
 
   try {
@@ -429,14 +425,21 @@ a.stock-tag:hover{color:var(--accent);border-color:#444}
     if (date) {
       url = `${SB}/rest/v1/briefings?brief_date=eq.${date}&session=eq.${session}&market=eq.KR&limit=1`;
     } else {
-      url = `${SB}/rest/v1/briefings?market=eq.KR&order=brief_date.desc,session.asc&limit=1`;
+      url = `${SB}/rest/v1/briefings?market=eq.KR&order=brief_date.desc&limit=8`;
     }
     const r = await fetch(url, { headers: hdr });
     const rows = await r.json();
     if (!rows || !rows.length) {
       main.innerHTML = '<div class="error-box">아직 브리핑 데이터가 없습니다.<br>다음 브리핑 생성 후 다시 확인해주세요.</div>';
     } else {
-      render(rows[0]);
+      if (date) {
+        render(rows[0]);
+      } else {
+        const latestDate = rows[0].brief_date;
+        const S_ORD = {premarket:0, open:1, afternoon:2, close:3, aftermarket:3};
+        const latest = rows.filter(rx=>rx.brief_date===latestDate).sort((a,b)=>(S_ORD[b.session]||0)-(S_ORD[a.session]||0))[0];
+        render(latest);
+      }
     }
   } catch(e) {
     main.innerHTML = `<div class="error-box">데이터를 불러오지 못했습니다.<br><small>${e.message}</small></div>`;
