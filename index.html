@@ -270,7 +270,7 @@ a.stock-tag:hover{color:var(--accent);border-color:#444}
       const usLabel = isSaturday ? '미국 증시 마감 (금요일 ' + (us.date||'') + ')' : '미국 증시 마감 (' + (us.date||'') + ')';
       html += `<div class="section-header">🌃 ${usLabel}</div>`;
       html += `<div class="us-card">`;
-      if (us.indices && us.indices.length) html += `<div class="us-indices">` + us.indices.map(i => `<div class="us-index"><div class="name">${i.name}</div>${i.value ? `<div style="font-size:14px;font-weight:700;color:var(--text)">${i.value}</div>` : ''}<div class="val ${changeClass(i.change)}">${i.change||''}</div></div>`).join('') + `</div>`;
+      if (us.indices && us.indices.length) html += `<div class="us-indices">` + us.indices.map(i => `<div class="us-index"><div class="name">${i.name}</div>${i.value ? `<div style="font-size:14px;font-weight:700;color:var(--text)">${i.value}</div>` : ''}<div class="val ${changeClass(i.change)}">${i.changeAmt ? i.changeAmt + ' · ' : ''}${i.change||''}</div></div>`).join('') + `</div>`;
       if (us.sectors && us.sectors.length) html += `<div class="us-sectors">` + us.sectors.map(s => `<div class="us-sector ${s.direction==='up'?'up':'down'}"><span class="arrow">${s.direction==='up'?'▲':'▼'}</span>${s.name}<span style="color:var(--muted);font-size:11px;margin-left:4px">${s.reason||''}</span></div>`).join('') + `</div>`;
       if (us.stocks && us.stocks.length) html += `<div class="us-stocks">` + us.stocks.map(s => `<div class="us-stock"><span style="font-weight:700">${s.name}</span> <span class="change ${changeClass(s.change)}">${s.change||''}</span> <span style="color:var(--muted);font-size:11px">${s.reason||''}</span></div>`).join('') + `</div>`;
       if (us.kr_links && us.kr_links.length) html += `<div class="kr-links">` + us.kr_links.map(l => `<div class="kr-link-item"><strong>${l.sector}</strong> — ${l.desc}</div>`).join('') + `</div>`;
@@ -279,7 +279,8 @@ a.stock-tag:hover{color:var(--accent);border-color:#444}
         html += `<div class="macro-grid">` + us.macro.map(m => {
           const cc = changeClass(m.change);
           const unitSpan = m.unit ? ` <span class="macro-unit">${m.unit}</span>` : '';
-          return `<div class="macro-item"><div class="macro-name">${m.name}</div><div class="macro-val">${m.value||'—'}${unitSpan}</div><div class="macro-chg ${cc}">${m.change||''}</div></div>`;
+          const amtSpan = m.changeAmt ? m.changeAmt + ' · ' : '';
+          return `<div class="macro-item"><div class="macro-name">${m.name}</div><div class="macro-val">${m.value||'—'}${unitSpan}</div><div class="macro-chg ${cc}">${amtSpan}${m.change||''}</div></div>`;
         }).join('') + `</div>`;
       }
       html += `</div>`;
