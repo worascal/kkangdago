@@ -537,7 +537,7 @@ a.screener-name:hover{color:var(--accent)}
     } else {
       html += '<div class="screener-list">' + stocks.map((s, i) => {
         const g = s.opProfitGrowthYoY;
-        const growth = (g != null) ? (g >= 0 ? '+' : '') + g.toFixed(1) + '%' : 'N/A';
+        const growth = (g != null) ? (g >= 0 ? '+' : '') + g.toFixed(1) + '%' : (s.opProfitGrowthNote || 'N/A');
         const growthClass = g > 0 ? 'up' : (g < 0 ? 'down' : '');
         const per = s.per != null ? s.per + '배' : 'N/A';
         const q = s.recentQuarters || [];
