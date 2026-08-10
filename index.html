@@ -175,6 +175,24 @@ a.stock-tag:hover{color:var(--accent);border-color:#444}
 .event-title{font-size:13px;font-weight:600;color:var(--text)}
 .event-time-badge{font-size:10px;color:var(--muted);margin-left:auto;white-space:nowrap;flex-shrink:0}
 .event-sub{font-size:11px;color:var(--muted);margin-top:3px;line-height:1.5}
+.main-nav{max-width:900px;margin:0 auto;padding:14px 20px 0;display:flex;gap:8px}
+.nav-tab{background:var(--surface2);border:1px solid #222;border-radius:8px;padding:8px 16px;font-size:13px;font-weight:600;color:var(--muted);cursor:pointer;transition:all .15s}
+.nav-tab:hover{color:var(--text);border-color:#333}
+.nav-tab.active{background:rgba(0,212,184,0.12);border-color:var(--accent);color:var(--accent)}
+.screener-view #dateBadge,.screener-view #sessionBadge,.screener-view #chipsRow{display:none!important}
+.screener-summary{background:linear-gradient(135deg,#091414,#0e0e0e);border:1px solid #1e3030;border-radius:12px;padding:16px 20px;margin-bottom:20px;font-size:14px;color:var(--text);line-height:1.6}
+.screener-list{display:flex;flex-direction:column;gap:8px;margin-bottom:20px}
+.screener-item{background:var(--surface);border:1px solid #1a1a1a;border-radius:10px;padding:12px 16px;display:flex;flex-direction:column;gap:6px}
+.screener-item-top{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px}
+.screener-rank{font-size:11px;color:var(--muted);font-weight:700;width:22px;display:inline-block}
+.screener-name{font-size:14px;font-weight:700;color:var(--text)}
+a.screener-name:hover{color:var(--accent)}
+.screener-code{font-size:11px;color:var(--muted);margin-left:4px}
+.screener-growth{font-size:13px;font-weight:700}
+.screener-growth.up{color:var(--green)}
+.screener-growth.down{color:var(--red)}
+.screener-meta{display:flex;flex-wrap:wrap;gap:14px;font-size:12px;color:var(--muted)}
+.screener-quarters{font-size:11px;color:var(--muted);display:flex;flex-wrap:wrap;gap:10px;border-top:1px solid #141414;padding-top:6px;margin-top:2px}
 </style>
 </head>
 <body>
@@ -190,8 +208,17 @@ a.stock-tag:hover{color:var(--accent);border-color:#444}
   </div>
 </div>
 
+<div class="main-nav" id="mainNav">
+  <button class="nav-tab active" data-view="briefing">📊 브리핑</button>
+  <button class="nav-tab" data-view="screener">💰 순매수 스크리너</button>
+</div>
+
 <div class="main" id="mainContent">
   <div class="loading"><div class="spinner"></div>브리핑 불러오는 중…</div>
+</div>
+
+<div class="main" id="screenerMain" style="display:none">
+  <div class="loading"><div class="spinner"></div>스크리닝 데이터 불러오는 중…</div>
 </div>
 
 <script>
@@ -493,6 +520,72 @@ a.stock-tag:hover{color:var(--accent);border-color:#444}
   window._calPick=d=>{_cSel=d;_buildCal();};
   window.toggleCal=e=>{if(e)e.stopPropagation();const p=document.getElementById('calPopup');if(p){p.classList.toggle('open');if(p.classList.contains('open'))_buildCal();}};
   document.addEventListener('click',e=>{const p=document.getElementById('calPopup');if(p&&p.classList.contains('open')&&!p.contains(e.target)&&e.target!==document.getElementById('dateBadge'))p.classList.remove('open');});
+
+  // ---- 순매수 스크리너 탭 ----
+  function renderScreener(d) {
+    const el = document.getElementById('screenerMain');
+    if (!d || !d.themes || !d.themes.stocks) {
+      el.innerHTML = '<div class="error-box">아직 스크리닝 데이터가 없습니다.<br>매일 18:30 이후 다시 확인해주세요.</div>';
+      return;
+    }
+    const t = d.themes;
+    const dateKr = d.brief_date ? d.brief_date.replace(/(\d{4})-(\d{2})-(\d{2})/, '$1년 $2월 $3일') : '';
+    let html = `<div class="screener-summary"><strong>${dateKr}</strong> 기준 · 외국인·기관 동시 순매수 <strong>${t.count||0}개</strong> 종목${t.as_of ? ' (' + t.as_of + ')' : ''}<br><span style="font-size:12px;color:var(--muted)">정렬: 영업이익증가율(YoY) → 최근분기영업이익 → PER 낮은 순</span></div>`;
+    const stocks = t.stocks || [];
+    if (!stocks.length) {
+      html += '<div class="error-box">오늘은 조건에 맞는 종목이 없습니다.</div>';
+    } else {
+      html += '<div class="screener-list">' + stocks.map((s, i) => {
+        const g = s.opProfitGrowthYoY;
+        const growth = (g != null) ? (g >= 0 ? '+' : '') + g.toFixed(1) + '%' : 'N/A';
+        const growthClass = g > 0 ? 'up' : (g < 0 ? 'down' : '');
+        const per = s.per != null ? s.per + '배' : 'N/A';
+        const q = s.recentQuarters || [];
+        const qStr = q.map(x => `${x.label} ${x.opProfit||'-'}`).join(' · ');
+        const url = s.code ? `https://finance.naver.com/item/main.naver?code=${s.code}` : stockUrl(s.name);
+        return `<div class="screener-item">
+          <div class="screener-item-top">
+            <div><span class="screener-rank">${i+1}</span><a href="${url}" target="_blank" rel="noopener" class="screener-name">${s.name||''}</a><span class="screener-code">(${s.code||''})</span></div>
+            <div class="screener-growth ${growthClass}">영업이익 YoY ${growth}</div>
+          </div>
+          <div class="screener-meta">
+            <span>시총 ${s.marketCap||'-'}</span>
+            <span>PER ${per}</span>
+            <span><span class="fa">외 +${s.foreign_amt||0}억</span> · <span class="ia">기 +${s.inst_amt||0}억</span></span>
+          </div>
+          ${qStr ? `<div class="screener-quarters">${qStr}</div>` : ''}
+        </div>`;
+      }).join('') + '</div>';
+    }
+    html += `<div class="disclaimer">⚠️ 이 스크리닝은 공개 데이터를 기반으로 AI가 자동 집계한 참고 자료입니다. 투자 권유가 아니며, 최종 투자 판단은 본인에게 있습니다.</div>`;
+    el.innerHTML = html;
+  }
+
+  let _screenerData = null;
+  async function loadScreener() {
+    const el = document.getElementById('screenerMain');
+    el.innerHTML = '<div class="loading"><div class="spinner"></div>스크리닝 데이터 불러오는 중…</div>';
+    try {
+      const r = await fetch(`${SB}/rest/v1/briefings?market=eq.KR&session=eq.screener&order=brief_date.desc&limit=1`, { headers: hdr });
+      const rows = await r.json();
+      _screenerData = (rows && rows[0]) ? rows[0] : null;
+      renderScreener(_screenerData);
+    } catch(e) {
+      el.innerHTML = `<div class="error-box">데이터를 불러오지 못했습니다.<br><small>${e.message}</small></div>`;
+    }
+  }
+
+  document.querySelectorAll('.nav-tab').forEach(btn => {
+    btn.onclick = () => {
+      document.querySelectorAll('.nav-tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const view = btn.dataset.view;
+      document.body.classList.toggle('screener-view', view === 'screener');
+      document.getElementById('mainContent').style.display = view === 'briefing' ? '' : 'none';
+      document.getElementById('screenerMain').style.display = view === 'screener' ? '' : 'none';
+      if (view === 'screener' && !_screenerData) loadScreener();
+    };
+  });
 
   async function loadHistory(){
     try{
