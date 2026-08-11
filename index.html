@@ -180,7 +180,18 @@ a.stock-tag:hover{color:var(--accent);border-color:#444}
 .nav-tab:hover{color:var(--text);border-color:#333}
 .nav-tab.active{background:rgba(0,212,184,0.12);border-color:var(--accent);color:var(--accent)}
 .screener-view #dateBadge,.screener-view #sessionBadge{display:none!important}
-.key-indicators .chips{margin:0 0 12px}
+.indicator-cat{margin-bottom:14px}
+.indicator-cat:last-child{margin-bottom:0}
+.indicator-cat-label{font-size:10px;color:var(--muted);font-weight:700;letter-spacing:.4px;margin-bottom:6px}
+.indicator-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(104px,1fr));gap:8px}
+.indicator-item{background:var(--surface2);border-radius:7px;padding:8px 10px}
+.indicator-name{font-size:10px;color:var(--muted);margin-bottom:3px;font-weight:600;letter-spacing:.3px}
+.indicator-val{font-size:14px;font-weight:700;color:var(--text)}
+.indicator-val.green{color:var(--green)}
+.indicator-val.red{color:var(--red)}
+.indicator-val.blue{color:var(--accent)}
+.indicator-chg{font-size:11px;margin-top:2px}
+.indicator-chg.up{color:var(--green)}.indicator-chg.down{color:var(--red)}.indicator-chg.flat{color:var(--muted)}
 .screener-summary{background:linear-gradient(135deg,#091414,#0e0e0e);border:1px solid #1e3030;border-radius:12px;padding:16px 20px;margin-bottom:20px;font-size:14px;color:var(--text);line-height:1.6}
 .screener-list{display:flex;flex-direction:column;gap:8px;margin-bottom:20px}
 .screener-item{background:var(--surface);border:1px solid #1a1a1a;border-radius:10px;padding:12px 16px;display:flex;flex-direction:column;gap:6px}
@@ -303,26 +314,36 @@ a.screener-name:hover{color:var(--accent)}
     else summaryTitle = '오늘의 시장 동향';
     html += `<div class="summary-card"><h2>📊 ${summaryTitle}</h2><p>${(d.summary||'').replace(/\n/g,'<br>')}</p></div>`;
 
-    // 주요 지표: KOSPI/KOSDAQ/USD-KRW + 매크로(달러인덱스/유가/금/BTC/엔화/위안화/금리 등) 통합
-    const macroSrc = (d.us_market && d.us_market.macro && d.us_market.macro.length) ? d.us_market.macro : ((d.macro && d.macro.length) ? d.macro : null);
-    if ((d.indices && d.indices.length) || (macroSrc && macroSrc.length)) {
+    // 주요 지표: KOSPI/KOSDAQ/USD-KRW + 매크로(달러인덱스/유가/금/BTC/환율/금리 등)를 카테고리별로 묶어 동일한 카드 크기로 표시.
+    // 카테고리마다 auto-fit 그리드로 자동 줄바꿈되므로 항목이 많아도(환율 5종, 금리 4종 등) 한 줄에 억지로 넣지 않고 화면 폭에 맞춰 여러 줄로 나뉜다.
+    const macroSrc = (d.us_market && d.us_market.macro && d.us_market.macro.length) ? d.us_market.macro : ((d.macro && d.macro.length) ? d.macro : []);
+    const idxItems = (d.indices || []).map(idx => ({ name: idx.label, value: idx.value, color: idx.color, change: null, changeAmt: null, unit: '' }));
+    const macroItems = (macroSrc || []).map(m => ({ name: m.name, value: m.value, color: null, change: m.change, changeAmt: m.changeAmt, unit: m.unit || '' }));
+    const allIndicators = idxItems.concat(macroItems);
+    if (allIndicators.length) {
+      const CATS = [
+        { label: '📈 지수', test: n => n === 'KOSPI' || n === 'KOSDAQ' },
+        { label: '💱 환율', test: n => n.indexOf('원') !== -1 || n === 'USD/KRW' || n === '달러인덱스' },
+        { label: '🛢 원자재', test: n => n.indexOf('유가') !== -1 || n.indexOf('Gold') !== -1 || n.indexOf('금(') !== -1 },
+        { label: '🪙 코인', test: n => n.indexOf('비트코인') !== -1 },
+        { label: '🏦 금리', test: n => n.indexOf('금리') !== -1 }
+      ];
+      const groups = CATS.map(c => ({ label: c.label, items: allIndicators.filter(it => c.test(it.name)) })).filter(g => g.items.length);
+      const usedNames = new Set(groups.flatMap(g => g.items.map(it => it.name)));
+      const rest = allIndicators.filter(it => !usedNames.has(it.name));
+      if (rest.length) groups.push({ label: '📌 기타', items: rest });
+
       html += `<div class="section-header">📊 주요 지표</div>`;
-      html += `<div class="us-card key-indicators">`;
-      if (d.indices && d.indices.length) {
-        html += `<div class="chips">` + d.indices.map(idx =>
-          `<div class="chip ${idx.color||''}"><span class="dot"></span><span style="${colorClass(idx.color)};font-weight:600">${idx.label}</span>&nbsp;${idx.value}</div>`
-        ).join('') + `</div>`;
-      }
-      if (macroSrc && macroSrc.length) {
-        const hasIndices = d.indices && d.indices.length;
-        html += `<div class="macro-grid" style="${hasIndices ? '' : 'margin-top:0;border-top:none;padding-top:0'}">` + macroSrc.map(m => {
-          const cc = changeClass(m.change);
-          const unitSpan = m.unit ? ` <span class="macro-unit">${m.unit}</span>` : '';
-          const amtSpan = m.changeAmt ? m.changeAmt + ' · ' : '';
-          return `<div class="macro-item"><div class="macro-name">${m.name}</div><div class="macro-val">${m.value||'—'}${unitSpan}</div><div class="macro-chg ${cc}">${amtSpan}${m.change||''}</div></div>`;
-        }).join('') + `</div>`;
-      }
-      html += `</div>`;
+      html += `<div class="us-card">` + groups.map(g => {
+        const items = g.items.map(it => {
+          const cc = it.change ? changeClass(it.change) : '';
+          const colorCls = it.color || '';
+          const unitSpan = it.unit ? ` <span class="macro-unit">${it.unit}</span>` : '';
+          const chgLine = it.change ? `<div class="indicator-chg ${cc}">${it.changeAmt ? it.changeAmt + ' · ' : ''}${it.change}</div>` : '';
+          return `<div class="indicator-item"><div class="indicator-name">${it.name}</div><div class="indicator-val ${colorCls}">${it.value||'—'}${unitSpan}</div>${chgLine}</div>`;
+        }).join('');
+        return `<div class="indicator-cat"><div class="indicator-cat-label">${g.label}</div><div class="indicator-grid">${items}</div></div>`;
+      }).join('') + `</div>`;
     }
 
     // US market section (weekday premarket + saturday)
