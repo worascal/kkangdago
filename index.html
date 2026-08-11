@@ -317,7 +317,7 @@ a.screener-name:hover{color:var(--accent)}
     // 주요 지표: KOSPI/KOSDAQ/USD-KRW + 매크로(달러인덱스/유가/금/BTC/환율/금리 등)를 카테고리별로 묶어 동일한 카드 크기로 표시.
     // 카테고리마다 auto-fit 그리드로 자동 줄바꿈되므로 항목이 많아도(환율 5종, 금리 4종 등) 한 줄에 억지로 넣지 않고 화면 폭에 맞춰 여러 줄로 나뉜다.
     const macroSrc = (d.us_market && d.us_market.macro && d.us_market.macro.length) ? d.us_market.macro : ((d.macro && d.macro.length) ? d.macro : []);
-    const idxItems = (d.indices || []).map(idx => ({ name: idx.label, value: idx.value, color: idx.color, change: null, changeAmt: null, unit: '' }));
+    const idxItems = (d.indices || []).map(idx => ({ name: idx.label, value: idx.value, color: idx.color, change: idx.change || null, changeAmt: idx.changeAmt || null, unit: '' }));
     const macroItems = (macroSrc || []).map(m => ({ name: m.name, value: m.value, color: null, change: m.change, changeAmt: m.changeAmt, unit: m.unit || '' }));
     const allIndicators = idxItems.concat(macroItems);
     if (allIndicators.length) {
@@ -325,7 +325,7 @@ a.screener-name:hover{color:var(--accent)}
         { label: '📈 지수', test: n => n === 'KOSPI' || n === 'KOSDAQ' },
         { label: '💱 환율', test: n => n.indexOf('원') !== -1 || n === 'USD/KRW' || n === '달러인덱스' },
         { label: '🛢 원자재', test: n => n.indexOf('유가') !== -1 || n.indexOf('Gold') !== -1 || n.indexOf('금(') !== -1 },
-        { label: '🪙 코인', test: n => n.indexOf('비트코인') !== -1 },
+        { label: '🪙 코인', test: n => n.indexOf('비트코인') !== -1 || n.indexOf('이더리움') !== -1 || n.indexOf('리플') !== -1 },
         { label: '🏦 금리', test: n => n.indexOf('금리') !== -1 }
       ];
       const groups = CATS.map(c => ({ label: c.label, items: allIndicators.filter(it => c.test(it.name)) })).filter(g => g.items.length);
