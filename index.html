@@ -346,8 +346,14 @@ a.screener-name:hover{color:var(--accent)}
       }).join('') + `</div>`;
     }
 
-    // US market section (weekday premarket + saturday)
-    if (d.us_market && (dayType === 'weekday' || isSaturday)) {
+    // US market section (weekday premarket + saturday) — only when it actually has indices/sectors/stocks/kr_links content;
+    // intraday briefs (open/afternoon/beforeclose/aftermarket) store only us_market.macro, which is rendered separately above.
+    if (d.us_market && (dayType === 'weekday' || isSaturday) && (
+      (d.us_market.indices && d.us_market.indices.length) ||
+      (d.us_market.sectors && d.us_market.sectors.length) ||
+      (d.us_market.stocks && d.us_market.stocks.length) ||
+      (d.us_market.kr_links && d.us_market.kr_links.length)
+    )) {
       const us = d.us_market;
       const usLabel = isSaturday ? '미국 증시 마감 (금요일 ' + (us.date||'') + ')' : '미국 증시 마감 (' + (us.date||'') + ')';
       html += `<div class="section-header">🌃 ${usLabel}</div>`;
